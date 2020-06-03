@@ -45,8 +45,8 @@ class CreateTablePegawai extends Migration
             $table->string('kode_pos');
             $table->string('str');
             $table->datetime('str');
-            $table->string('sikp')
-            $table->datetime('sikp');;
+            $table->string('sikp');
+            $table->datetime('sikp');
             $table->string('spk');
             $table->datetime('spk');
             $table->string('rkk');
