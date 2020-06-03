@@ -17,13 +17,13 @@ class CreateTablePendidikanJabatabStruktural extends Migration
             $table->id();
             $table->string('tahun');
             $table->foreignID('pegawai_id')->constrained('pegawai');
-            $table->string('eselon');
-            $table->string('nama_jabatan');
-            $table->string('unit_kerja');
-            $table->datetime('tmt_jabatan');
-            $table->string('nomor_sk');
-            $table->datetime('tanggal_sk');
-            $table->string('penjabat_penandatangan_sk');
+            $table->string('eselon')->nullable();
+            $table->string('nama_jabatan')->nullable();
+            $table->string('unit_kerja')->nullable();
+            $table->datetime('tmt_jabatan')->nullable();
+            $table->string('nomor_sk')->nullable();
+            $table->datetime('tanggal_sk')->nullable();
+            $table->string('penjabat_penandatangan_sk')->nullable();
             $table->timestamps();
         });
     }

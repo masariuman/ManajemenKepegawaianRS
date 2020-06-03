@@ -15,7 +15,7 @@ class CreateTableRuangan extends Migration
     {
         Schema::create('ruangan', function (Blueprint $table) {
             $table->id();
-            $table->string('ruangan');
+            $table->string('ruangan')->nullable();
             $table->timestamps();
         });
     }

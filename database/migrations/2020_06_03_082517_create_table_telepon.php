@@ -15,7 +15,7 @@ class CreateTableTelepon extends Migration
     {
         Schema::create('telepon', function (Blueprint $table) {
             $table->id();
-            $table->string('telepon');
+            $table->string('telepon')->nullable();
             $table->timestamps();
         });
     }

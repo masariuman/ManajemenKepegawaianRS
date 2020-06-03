@@ -17,14 +17,14 @@ class CreateTablePendidikanDiklatPerjenjangan extends Migration
             $table->id();
             $table->string('tahun');
             $table->foreignID('pegawai_id')->constrained('pegawai');
-            $table->integer('jenis_diklat');
-            $table->string('angkatan');
-            $table->string('lokasi');
-            $table->datetime('tanggal_mulai');
-            $table->datetime('tanggal_selesai');
-            $table->string('jumlah_jam');
-            $table->string('penyelenggara');
-            $table->string('predikat');
+            $table->integer('jenis_diklat')->nullable();
+            $table->string('angkatan')->nullable();
+            $table->string('lokasi')->nullable();
+            $table->datetime('tanggal_mulai')->nullable();
+            $table->datetime('tanggal_selesai')->nullable();
+            $table->string('jumlah_jam')->nullable();
+            $table->string('penyelenggara')->nullable();
+            $table->string('predikat')->nullable();
             $table->timestamps();
         });
     }

@@ -17,13 +17,13 @@ class CreateTablePendidikanDiklatTeknis extends Migration
             $table->id();
             $table->string('tahun');
             $table->foreignID('pegawai_id')->constrained('pegawai');
-            $table->string('nama_diklat');
-            $table->enum('tempat_belajar',['1','2']);
-            $table->string('lokasi');
-            $table->datetime('tanggal_mulai');
-            $table->datetime('tanggal_selesai');
-            $table->string('jumlah_jam');
-            $table->string('penyelenggara');
+            $table->string('nama_diklat')->nullable();
+            $table->enum('tempat_belajar',['1','2'])->nullable();
+            $table->string('lokasi')->nullable();
+            $table->datetime('tanggal_mulai')->nullable();
+            $table->datetime('tanggal_selesai')->nullable();
+            $table->string('jumlah_jam')->nullable();
+            $table->string('penyelenggara')->nullable();
             $table->timestamps();
         });
     }

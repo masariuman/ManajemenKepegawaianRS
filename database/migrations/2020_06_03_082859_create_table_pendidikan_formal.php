@@ -17,14 +17,14 @@ class CreateTablePendidikanFormal extends Migration
             $table->id();
             $table->string('tahun');
             $table->foreignID('pegawai_id')->constrained('pegawai');
-            $table->string('tingkat_pendidikan');
-            $table->string('nama_sekolah');
-            $table->string('jurusan_prodi');
-            $table->string('tahun_masuk');
-            $table->string('tahun_lulus');
-            $table->enum('tempat_belajar',['1','2']);
-            $table->string('lokasi');
-            $table->string('nomor_ijazah');
+            $table->string('tingkat_pendidikan')->nullable();
+            $table->string('nama_sekolah')->nullable();
+            $table->string('jurusan_prodi')->nullable();
+            $table->string('tahun_masuk')->nullable();
+            $table->string('tahun_lulus')->nullable();
+            $table->enum('tempat_belajar',['1','2'])->nullable();
+            $table->string('lokasi')->nullable();
+            $table->string('nomor_ijazah')->nullable();
             $table->timestamps();
         });
     }

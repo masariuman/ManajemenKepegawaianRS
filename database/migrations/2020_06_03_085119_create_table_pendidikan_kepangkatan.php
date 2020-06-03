@@ -17,11 +17,11 @@ class CreateTablePendidikanKepangkatan extends Migration
             $table->id();
             $table->string('tahun');
             $table->foreignID('pegawai_id')->constrained('pegawai');
-            $table->string('golongan');
-            $table->datetime('tmt_golongan');
-            $table->string('penjabat_penandatangan_sk');
-            $table->string('nomor_sk');
-            $table->datetime('tanggal_sk');
+            $table->string('golongan')->nullable();
+            $table->datetime('tmt_golongan')->nullable();
+            $table->string('penjabat_penandatangan_sk')->nullable();
+            $table->string('nomor_sk')->nullable();
+            $table->datetime('tanggal_sk')->nullable();
             $table->timestamps();
         });
     }

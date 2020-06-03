@@ -18,12 +18,12 @@ class CreateTablePendidikanIstriSuami extends Migration
             $table->string('tahun');
             $table->foreignID('pegawai_id')->constrained('pegawai');
             $table->string('nama')->nullable();
-            $table->string('nomor_karis_karsu');
-            $table->datetime('tanggal_lahir');
-            $table->datetime('tanggal_nikah');
-            $table->string('tingkat_pendidikan');
-            $table->string('pekerjaan');
-            $table->integer('status_suami_istri');
+            $table->string('nomor_karis_karsu')->nullable();
+            $table->datetime('tanggal_lahir')->nullable();
+            $table->datetime('tanggal_nikah')->nullable();
+            $table->string('tingkat_pendidikan')->nullable();
+            $table->string('pekerjaan')->nullable();
+            $table->integer('status_suami_istri')->nullable();
             $table->timestamps();
         });
     }
