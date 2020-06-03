@@ -16,7 +16,7 @@ class CreateTableDasar extends Migration
         Schema::create('dasar', function (Blueprint $table) {
             $table->id();
             $table->string('tahun');
-            $table->foreignID('pegawai_id')->constrained('pegawao');
+            $table->foreignID('pegawai_id')->constrained('pegawai');
             $table->string('eselon_1');
             $table->string('eselon_2');
             $table->string('eselon_3');
