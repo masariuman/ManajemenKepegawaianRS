@@ -63,7 +63,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{route('riwayat_diklat_penjenjang-struktural')}}" class="{{ Request::is('riwayat_diklat_penjenjang-struktural') ? 'mm-active' : '' }}">
+                                    <a href="{{route('riwayat_diklat_penjenjangan-struktural')}}" class="{{ Request::is('riwayat_diklat_penjenjangan-struktural') ? 'mm-active' : '' }}">
                                         <i class="metismenu-icon pe-7s-note2"></i>
                                          RD Penjenjangan / Struktural
                                     </a>
@@ -99,9 +99,9 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{route('dp3')}}" class="{{ Request::is('dp3') ? 'mm-active' : '' }}">
+                                    <a href="{{route('skp')}}" class="{{ Request::is('skp') ? 'mm-active' : '' }}">
                                         <i class="metismenu-icon pe-7s-note2"></i>
-                                         DP3
+                                         SPK
                                     </a>
                                 </li>
                                 <li>
@@ -135,7 +135,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{route('keluarga_suami-istri')}}" class="{{ Request::is('keluarga_suami-istri') ? 'mm-active' : '' }}">
+                                    <a href="{{route('keluarga_istri-suami')}}" class="{{ Request::is('keluarga_istri-suami') ? 'mm-active' : '' }}">
                                         <i class="metismenu-icon pe-7s-note2"></i>
                                          Keluarga Istri / Suami
                                     </a>

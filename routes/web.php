@@ -37,9 +37,9 @@ Route::get('/riwayat_diklat_teknis', function () {
     return view('riwayat_diklat_teknis');
 })->name('riwayat_diklat_teknis');
 
-Route::get('/riwayat_diklat_penjenjang-struktural', function () {
-    return view('riwayat_diklat_penjenjang-struktural');
-})->name('riwayat_diklat_penjenjang-struktural');
+Route::get('/riwayat_diklat_penjenjangan-struktural', function () {
+    return view('riwayat_diklat_penjenjangan-struktural');
+})->name('riwayat_diklat_penjenjangan-struktural');
 
 Route::get('/riwayat_kepangkatan', function () {
     return view('riwayat_kepangkatan');
@@ -61,9 +61,9 @@ Route::get('/anak', function () {
     return view('anak');
 })->name('anak');
 
-Route::get('/dp3', function () {
-    return view('dp3');
-})->name('dp3');
+Route::get('/skp', function () {
+    return view('skp');
+})->name('skp');
 
 Route::get('/seminar-lokakarya-simposium', function () {
     return view('seminar-lokakarya-simposium');
@@ -85,9 +85,9 @@ Route::get('/keluarga_kandung', function () {
     return view('keluarga_kandung');
 })->name('keluarga_kandung');
 
-Route::get('/keluarga_suami-istri', function () {
-    return view('keluarga_suami-istri');
-})->name('keluarga_suami-istri');
+Route::get('/keluarga_istri-suami', function () {
+    return view('keluarga_istri-suami');
+})->name('keluarga_istri-suami');
 
 Route::get('/riwayat_pekerjaan-jabatan', function () {
     return view('riwayat_pekerjaan-jabatan');
