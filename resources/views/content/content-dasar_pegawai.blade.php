@@ -137,13 +137,13 @@
                                                 <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control" value=""></div>          
                                             </div> -->
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>NIP Baru</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nomor Induk Pegawai" type="number" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nomor Induk Pegawai Baru" type="number" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>NIP Lama</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nomor Induk Pegawai" type="number" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nomor Induk Pegawai Lama" type="number" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nama Pegawai</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nama Pegawai" type="text" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Gelar Depan</b></label>
                                                 <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Contoh : Dr. Ir." type="text" class="form-control" value=""></div>          
@@ -152,7 +152,7 @@
                                                 <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Contoh : M.Sc, S.H S.sos." type="text" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal Lahir</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="date" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Tanggal Lahir" type="date" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Jenis Kelamin</b></label>
                                                 <div class="col-sm-10"><select name="select" id="exampleSelect" class="form-control">
@@ -198,13 +198,13 @@
                                                 </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nama Sekolah /</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nama Sekolah /" type="text" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>/ Tahun Lulus</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="date" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="/ Tahun Lulus" type="date" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Jurusan / Program Studi</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Jurusan / Program Studi" type="text" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Status Kepegawaian</b></label>
                                                 <div class="col-sm-10"><select name="select" id="exampleSelect" class="form-control">
@@ -216,22 +216,22 @@
                                                 </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Instalasi Asal</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Instalasi Asal" type="text" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>TMT Calon Pegawai Negeri Sipil</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="date" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="TMT Calon Pegawai Negeri Sipil" type="date" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Golongan / Ruang Terakhir</b></label>
                                                 <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Contoh : Gol/ruang II/a ditulis 2a" type="text" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>TMT Golongan</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="date" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="TMT Golongan" type="date" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nama Jabatan</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nama Jabatan" type="text" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor KARPEG</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="number" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nomor KARPEG" type="number" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Taspen</b></label>
                                                 <div class="col-sm-10"><select name="select" id="exampleSelect" class="form-control">
@@ -241,37 +241,43 @@
                                                 </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor NPWP</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="number" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nomor NPWP" type="number" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleText" class="col-sm-2 col-form-label"><b>Alamat Rumah</b></label>
-                                                <div class="col-sm-10"><textarea name="text" id="exampleText" placeholder="Isi disini.." class="form-control"></textarea></div>
+                                                <div class="col-sm-10"><textarea name="text" id="exampleText" placeholder="Alamat Rumah" class="form-control"></textarea></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Kota</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Kota" type="text" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Kode Pos</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="number" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Kode Pos" type="number" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor Telepon Rumah</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="number" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nomor Telepon Rumah" type="number" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor STR</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="number" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nomor Surat Tanda Registrasi" type="number" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>TMT STR</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="date" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="TMT Surat Tanda Registrasi" type="date" class="form-control" value=""></div>          
+                                            </div>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor SKIP</b></label>
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nomor Surat Izin Kerja Perawat" type="number" class="form-control" value=""></div>          
+                                            </div>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>TMT SKIP</b></label>
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="TMT Surat Izin Kerja Perawat" type="date" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor SPK</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="number" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nomor Surat Penugasan Kewenangan Klinis" type="number" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>TMT SPK</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="date" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="TMT Surat Penugasan Kewenangan Klinis" type="date" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor RKK</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="number" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nomor Rinician Kewenangan Klinis" type="number" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>TMT RKK</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="date" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="TMT Rincian Kewenangan Klinis" type="date" class="form-control" value=""></div>          
                                             </div>
                                             <!-- <div class="position-relative row form-group"><label for="exampleFile" class="col-sm-2 col-form-label"><b>Image</b></label>
                                                 <div class="col-sm-10"><input name="image" id="exampleFile" type="file" class="form-control-file  @error('image') is-invalid @enderror" value="{{ old('image')}}"><p class="text-danger">@error('image') {{$message}} @enderror</p>
