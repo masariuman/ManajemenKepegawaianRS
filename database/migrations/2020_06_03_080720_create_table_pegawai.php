@@ -43,6 +43,14 @@ class CreateTablePegawai extends Migration
             $table->text('alamat_rumah');
             $table->string('kota');
             $table->string('kode_pos');
+            $table->string('str');
+            $table->datetime('str');
+            $table->string('sikp')
+            $table->datetime('sikp');;
+            $table->string('spk');
+            $table->datetime('spk');
+            $table->string('rkk');
+            $table->datetime('rkk');
             $table->foreignID('ruangan_id')->constrained('ruangan');
             $table->timestamps();
         });
