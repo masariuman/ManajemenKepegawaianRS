@@ -24,6 +24,6 @@ class Anak extends Model
 
     public function pegawai()
     {
-        return $this->hasMany('App\Pegawai', 'pegawai_id',);
+        return $this->belongsTo('App\Pegawai', 'pegawai_id',);
     }
 }
