@@ -25,6 +25,6 @@ class DiklatPerjenjangan extends Model
 
     public function pegawai()
     {
-        return $this->belongsTo('App\Pegawai', 'pegawai_id',);
+        return $this->belongsTo('App\Pegawai', 'pegawai_id');
     }
 }

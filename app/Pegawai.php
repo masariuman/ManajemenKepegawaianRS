@@ -52,7 +52,7 @@ class Pegawai extends Model
 
     public function telepon()
     {
-        return $this->hasMany('App\Telepon', 'pegawai_id',);
+        return $this->hasMany('App\Telepon', 'pegawai_id');
     }
 
     public function ruangan()
@@ -62,86 +62,86 @@ class Pegawai extends Model
 
     public function anak()
     {
-        return $this->hasMany('App\Anak', 'pegawai_id',);
+        return $this->hasMany('App\Anak', 'pegawai_id');
     }
 
     public function dasar()
     {
-        return $this->hasMany('App\Dasar', 'pegawai_id',);
+        return $this->hasMany('App\Dasar', 'pegawai_id');
     }
 
     public function diklatFungsional()
     {
-        return $this->hasMany('App\DiklatFungsional', 'pegawai_id',);
+        return $this->hasMany('App\DiklatFungsional', 'pegawai_id');
     }
 
     public function diklatTeknis()
     {
-        return $this->hasMany('App\DiklatTeknis', 'pegawai_id',);
+        return $this->hasMany('App\DiklatTeknis', 'pegawai_id');
     }
 
     public function diklatPerjenjangan()
     {
-        return $this->hasMany('App\DiklatPerjenjangan', 'pegawai_id',);
+        return $this->hasMany('App\DiklatPerjenjangan', 'pegawai_id');
     }
 
     public function hukuman()
     {
-        return $this->hasMany('App\hukuman', 'pegawai_id',);
+        return $this->hasMany('App\hukuman', 'pegawai_id');
     }
 
     public function istriSuami()
     {
-        return $this->hasMany('App\IstriSuami', 'pegawai_id',);
+        return $this->hasMany('App\IstriSuami', 'pegawai_id');
     }
 
     public function jabatanFungsional()
     {
-        return $this->hasMany('App\JabatanFungsional', 'pegawai_id',);
+        return $this->hasMany('App\JabatanFungsional', 'pegawai_id');
     }
 
     public function jabatanStruktural()
     {
-        return $this->hasMany('App\JabatanStruktural', 'pegawai_id',);
+        return $this->hasMany('App\JabatanStruktural', 'pegawai_id');
     }
 
     public function jabatanTeknis()
     {
-        return $this->hasMany('App\JabatanTeknis', 'pegawai_id',);
+        return $this->hasMany('App\JabatanTeknis', 'pegawai_id');
     }
 
     public function keluargaIstriSuami()
     {
-        return $this->hasMany('App\KeluargaIstriSuami', 'pegawai_id',);
+        return $this->hasMany('App\KeluargaIstriSuami', 'pegawai_id');
     }
 
     public function keluargaKandung()
     {
-        return $this->hasMany('App\KeluargaKandung', 'pegawai_id',);
+        return $this->hasMany('App\KeluargaKandung', 'pegawai_id');
     }
 
     public function kepangkatan()
     {
-        return $this->hasMany('App\Kepangkatan', 'pegawai_id',);
+        return $this->hasMany('App\Kepangkatan', 'pegawai_id');
     }
 
     public function organisasi()
     {
-        return $this->hasMany('App\Organisasi', 'pegawai_id',);
+        return $this->hasMany('App\Organisasi', 'pegawai_id');
     }
 
     public function pendidikanFormal()
     {
-        return $this->hasMany('App\PendidikanFormal', 'pegawai_id',);
+        return $this->hasMany('App\PendidikanFormal', 'pegawai_id');
     }
 
     public function penghargaan()
     {
-        return $this->hasMany('App\Penghargaan', 'pegawai_id',);
+        return $this->hasMany('App\Penghargaan', 'pegawai_id');
     }
 
     public function seminar()
     {
-        return $this->hasMany('App\Seminar', 'pegawai_id',);
+        return $this->hasMany('App\Seminar', 'pegawai_id');
     }
 }
