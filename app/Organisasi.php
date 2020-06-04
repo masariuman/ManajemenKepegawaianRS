@@ -14,7 +14,7 @@ class Organisasi extends Model
         'tahun_organisasi',
         'nama_organisasi',
         'kedudukan',
-        'tanggal_mulau',
+        'tanggal_mulai',
         'tanggal_selesai',
         'nomor_sk',
         'jabatan_pembuat_sk',

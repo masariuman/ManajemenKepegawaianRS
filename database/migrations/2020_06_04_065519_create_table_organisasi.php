@@ -20,7 +20,7 @@ class CreateTableOrganisasi extends Migration
             $table->string('tahun_organisasi')->nullable();
             $table->string('nama_organisasi')->nullable();
             $table->string('kedudukan')->nullable();
-            $table->datetime('tanggal_mulau')->nullable();
+            $table->datetime('tanggal_mulai')->nullable();
             $table->datetime('tanggal_selesai')->nullable();
             $table->string('nomor_sk')->nullable();
             $table->string('jabatan_pembuat_sk')->nullable();

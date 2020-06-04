@@ -15,6 +15,7 @@ class CreateTableTelepon extends Migration
     {
         Schema::create('telepon', function (Blueprint $table) {
             $table->id();
+            $table->foreignID('pegawai_id')->constrained('pegawai');
             $table->string('telepon')->nullable();
             $table->timestamps();
         });
