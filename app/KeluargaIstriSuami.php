@@ -7,9 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class KeluargaIstriSuami extends Model
 {
     //
-    protected $table = '';
+    protected $table = 'keluarga_istri_suami';
     protected $fillable = [
-
+        'tahun',
+        'pegawai_id',
+        'nama',
+        'hubungan',
+        'pekerjaan',
+        'tanggal_lahir',
+        'jenis_kelamin',
+        'kondisi',
         'created_at',
         'updated_at'
     ];
