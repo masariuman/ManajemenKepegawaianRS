@@ -124,23 +124,49 @@
                                     <div class="card-body"><h5 class="card-title">Masukan Data Anak</h5>
                                         <form class="" action="" method="post">
                                             @csrf  
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nama Diklat / Kursus</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control" value=""></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nama Anak</b></label>
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nama Anak" type="text" class="form-control" value=""></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tempat Belajar</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control" value=""></div>          
+                                            <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Jenis Kelamin</b></label>
+                                                <div class="col-sm-10"><select name="select" id="exampleSelect" class="form-control">
+                                                <option value="" disabled selected>-Pilih Jenis Kelamin-</option>
+                                                <option value="P">Pria</option>
+                                                <option value="W">Wanita</option>
+                                                </select></div>
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Lokasi</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control" value=""></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tempat Lahir</b></label>
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Tempat Lahir" type="text" class="form-control" value=""></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal Mulai</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control" value=""></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal Lahir</b></label>
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Tanggal Lahir" type="date" class="form-control" value=""></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Jumlah Jam</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control" value=""></div>          
+                                            <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Status Anak</b></label>
+                                                <div class="col-sm-10"><select name="select" id="exampleSelect" class="form-control">
+                                                <option value="" disabled selected>-Pilih Status Anak-</option>
+                                                <option value="1">Anak Kandung</option>
+                                                <option value="2">Anak Tiri</option>
+                                                <option value="3">Anak Angkat</option>
+                                                </select></div>
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Penyelenggara</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control" value=""></div>          
+                                            <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Pendidikan</b></label>
+                                                <div class="col-sm-10"><select name="select" id="exampleSelect" class="form-control">
+                                                <option value="" disabled selected>-Pilih Pendidikan-</option>
+                                                <option value="01">S3 (Setara)</option>
+                                                <option value="02">S2 (Setara)</option>
+                                                <option value="03">S1 (Setara)</option>
+                                                <option value="04">D4</option>
+                                                <option value="05">SM</option>
+                                                <option value="06">D3</option>
+                                                <option value="07">D2</option>
+                                                <option value="08">D1</option>
+                                                <option value="09">SLTA</option>
+                                                <option value="10">SLTP</option>
+                                                <option value="11">SD</option>
+                                                <option value="12">Belum Sekolah</option>
+                                                </select></div>
+                                            </div>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Pekerjaan *</b></label>
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Pekerjaan *" type="text" class="form-control" value=""></div>          
                                             </div>
                                             <!-- <div class="position-relative row form-group"><label for="exampleFile" class="col-sm-2 col-form-label"><b>Image</b></label>
                                                 <div class="col-sm-10"><input name="image" id="exampleFile" type="file" class="form-control-file  @error('image') is-invalid @enderror" value="{{ old('image')}}"><p class="text-danger">@error('image') {{$message}} @enderror</p>

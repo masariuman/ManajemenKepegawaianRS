@@ -124,18 +124,18 @@
                                     <div class="card-body"><h5 class="card-title">Masukan Data Dasar Pegawai</h5>
                                         <form class="" action="" method="post">
                                             @csrf  
-                                            <!-- <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Unit Eselon I</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control" value=""></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Unit Eselon I</b></label>
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Unit Eselon I" type="text" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Unit Eselon II</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Unit Eselon II" type="text" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Unit Eselon III</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Unit Eselon III" type="text" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Unit Eselon IV</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control" value=""></div>          
-                                            </div> -->
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Unit Eselon IV" type="text" class="form-control" value=""></div>          
+                                            </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>NIP Baru</b></label>
                                                 <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nomor Induk Pegawai Baru" type="number" class="form-control" value=""></div>          
                                             </div>

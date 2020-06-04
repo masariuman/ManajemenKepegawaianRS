@@ -124,23 +124,34 @@
                                     <div class="card-body"><h5 class="card-title">Masukan Data Seminar / Lokakarya / Simposium</h5>
                                         <form class="" action="" method="post">
                                             @csrf  
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nama Diklat / Kursus</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control" value=""></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nama Kegiatan</b></label>
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nama Kegiatan" type="text" class="form-control" value=""></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tempat Belajar</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control" value=""></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Lokasi Kegiatan</b></label>
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Lokasi Kegiatan" type="text" class="form-control" value=""></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Lokasi</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control" value=""></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal Mulai</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control" value=""></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Jumlah Jam</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control" value=""></div>          
+                                            <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Tempat Kegiatan</b></label>
+                                                <div class="col-sm-10"><select name="select" id="exampleSelect" class="form-control">
+                                                <option value="" disabled selected>-Pilih Status Anak-</option>
+                                                <option value="1">Dalam Negeri</option>
+                                                <option value="2">Luar Negeri</option>
+                                                </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Penyelenggara</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Penyelenggara" type="text" class="form-control" value=""></div>          
+                                            </div>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tahun</b></label>
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Tahun" type="number" class="form-control" value=""></div>          
+                                            </div>
+                                            <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Kedudukan Dalam Seminar</b></label>
+                                                <div class="col-sm-10"><select name="select" id="exampleSelect" class="form-control">
+                                                <option value="" disabled selected>-Pilih Kedudukan Dalam Seminar-</option>
+                                                <option value="1">Peserta</option>
+                                                <option value="2">Moderator</option>
+                                                <option value="3">Pembahas</option>
+                                                <option value="4">Pembawa Makalah</option>
+                                                <option value="5">Panitia</option>
+                                                </select></div>
                                             </div>
                                             <!-- <div class="position-relative row form-group"><label for="exampleFile" class="col-sm-2 col-form-label"><b>Image</b></label>
                                                 <div class="col-sm-10"><input name="image" id="exampleFile" type="file" class="form-control-file  @error('image') is-invalid @enderror" value="{{ old('image')}}"><p class="text-danger">@error('image') {{$message}} @enderror</p>

@@ -8,7 +8,7 @@
 <body>
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
      @include('content.header')
-     @include('content.ui')
+     <!-- @include('content.ui') -->
      @include('content.main-dasar_pegawai')
     </div>
     @include('content.js')

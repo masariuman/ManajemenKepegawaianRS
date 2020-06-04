@@ -8,7 +8,7 @@
 <body>
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
      @include('content.header')
-     @include('content.ui')
+     <!-- @include('content.ui') -->
      @include('content.main-riwayat_diklat_penjenjangan-struktural')
     </div>
     @include('content.js')
