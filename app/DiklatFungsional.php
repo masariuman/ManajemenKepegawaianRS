@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class DiklatFungsional extends Model
 {
     //
-    protected $table = 'anak';
+    protected $table = 'diklat_fungsional';
     protected $fillable = [
         'tahun',
         'pegawai_id',
