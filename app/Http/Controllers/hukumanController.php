@@ -14,6 +14,7 @@ class hukumanController extends Controller
     public function index()
     {
         //
+        return view('hukum_disiplin');
     }
 
     /**
@@ -24,7 +25,6 @@ class hukumanController extends Controller
     public function create()
     {
         //
-        return view('hukum_disiplin');
     }
 
     /**

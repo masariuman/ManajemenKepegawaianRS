@@ -30,7 +30,7 @@ Route::patch('/delete', 'dasarPegawaiController@delete');
 
 Route::get('/riwayat_pendidikan_formal', 'riwayatPendidikanFormalController@index')->name('riwayat_pendidikan_formal');
 Route::get('/riwayat_pendidikan_formal/baru', 'riwayatPendidikanFormalController@create');
-Route::post('/riwayat_pendidikan_formal/tambah', 'riwayatPendidikanFormalController@store');
+Route::post('/riwayat_pendidikan_formal/tambah', 'riwayatPendidikanFormalController@store')->name('riwayat_pendidikan_formal_tambah');
 Route::get('/riwayat_pendidikan_formal/ubah', 'riwayatPendidikanFormalController@edit');
 Route::patch('/riwayat_pendidikan_formal/update/{id}', 'riwayatPendidikanFormalController@update');
 Route::patch('/riwayat_pendidikan_formal/delete', 'riwayatPendidikanFormalController@delete');
