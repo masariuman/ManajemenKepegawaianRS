@@ -44,13 +44,13 @@ class CreateTablePegawai extends Migration
             $table->string('kota')->nullable();
             $table->string('kode_pos')->nullable();
             $table->string('str')->nullable();
-            $table->datetime('str')->nullable();
+            $table->datetime('masa_str')->nullable();
             $table->string('sikp')->nullable();
-            $table->datetime('sikp')->nullable();
+            $table->datetime('masa_sikp')->nullable();
             $table->string('spk')->nullable();
-            $table->datetime('spk')->nullable();
+            $table->datetime('masa_spk')->nullable();
             $table->string('rkk')->nullable();
-            $table->datetime('rkk')->nullable();
+            $table->datetime('masa_rkk')->nullable();
             $table->foreignID('ruangan_id')->constrained('ruangan');
             $table->timestamps();
         });
