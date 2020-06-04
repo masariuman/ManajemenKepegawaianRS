@@ -7,9 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Penghargaan extends Model
 {
     //
-    protected $table = '';
+    protected $table = 'penghargaan';
     protected $fillable = [
-
+        'tahun',
+        'pegawai_id',
+        'nama_penghargaan',
+        'tanggal_perolehan',
+        'nomor',
+        'pemberi',
+        'jabatan_pemberi',
         'created_at',
         'updated_at'
     ];
