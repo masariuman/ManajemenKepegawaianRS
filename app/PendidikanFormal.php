@@ -9,7 +9,16 @@ class PendidikanFormal extends Model
     //
     protected $table = '';
     protected $fillable = [
-
+        'tahun',
+        'pegawai_id',
+        'tingkat_pendidikan',
+        'nama_sekolah',
+        'jurusan_prodi',
+        'tahun_masuk',
+        'tahun_lulus',
+        'tempat_belajar',
+        'lokasi',
+        'nomor_ijazah',
         'created_at',
         'updated_at'
     ];
