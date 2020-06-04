@@ -17,14 +17,14 @@ class CreateTableJabatanTeknis extends Migration
             $table->id();
             $table->string('tahun');
             $table->foreignID('pegawai_id')->constrained('pegawai');
-            $table->string('nama_jabatan');
-            $table->datetime('tmt_jabatan');
-            $table->datetime('tahun_mulai');
-            $table->datetime('tahun_selesai');
-            $table->string('nomor_sk');
-            $table->datetime('tanggal_sk');
-            $table->string('nip_penjabat_penandatangan_sk');
-            $table->string('nip_lama_penjabat_penandatangan_sk');
+            $table->string('nama_jabatan')->nullable();
+            $table->datetime('tmt_jabatan')->nullable();
+            $table->datetime('tahun_mulai')->nullable();
+            $table->datetime('tahun_selesai')->nullable();
+            $table->string('nomor_sk')->nullable();
+            $table->datetime('tanggal_sk')->nullable();
+            $table->string('nip_penjabat_penandatangan_sk')->nullable();
+            $table->string('nip_lama_penjabat_penandatangan_sk')->nullable();
             $table->timestamps();
         });
     }

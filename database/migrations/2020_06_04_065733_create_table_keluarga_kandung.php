@@ -17,12 +17,12 @@ class CreateTableKeluargaKandung extends Migration
             $table->id();
             $table->string('tahun');
             $table->foreignID('pegawai_id')->constrained('pegawai');
-            $table->string('nama');
-            $table->integer('hubungan');
-            $table->string('pekerjaan');
-            $table->datetime('tanggal_lahir');
-            $table->enum('jenis_kelamin',['L','P']);
-            $table->enum('kondisi',['1','0']);
+            $table->string('nama')->nullable();
+            $table->integer('hubungan')->nullable();
+            $table->string('pekerjaan')->nullable();
+            $table->datetime('tanggal_lahir')->nullable();
+            $table->enum('jenis_kelamin',['L','P'])->nullable();
+            $table->enum('kondisi',['1','0'])->nullable();
             $table->timestamps();
         });
     }

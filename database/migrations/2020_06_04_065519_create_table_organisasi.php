@@ -17,13 +17,13 @@ class CreateTableOrganisasi extends Migration
             $table->id();
             $table->string('tahun');
             $table->foreignID('pegawai_id')->constrained('pegawai');
-            $table->string('tahun_organisasi');
-            $table->string('nama_organisasi');
-            $table->string('kedudukan');
-            $table->datetime('tanggal_mulau');
-            $table->datetime('tanggal_selesai');
-            $table->string('nomor_sk');
-            $table->string('jabatan_pembuat_sk');
+            $table->string('tahun_organisasi')->nullable();
+            $table->string('nama_organisasi')->nullable();
+            $table->string('kedudukan')->nullable();
+            $table->datetime('tanggal_mulau')->nullable();
+            $table->datetime('tanggal_selesai')->nullable();
+            $table->string('nomor_sk')->nullable();
+            $table->string('jabatan_pembuat_sk')->nullable();
             $table->timestamps();
         });
     }

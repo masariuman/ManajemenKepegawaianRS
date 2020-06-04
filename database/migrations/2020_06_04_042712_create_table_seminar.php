@@ -17,12 +17,12 @@ class CreateTableSeminar extends Migration
             $table->id();
             $table->string('tahun');
             $table->foreignID('pegawai_id')->constrained('pegawai');
-            $table->string('nama_kegiatan');
-            $table->string('lokasi');
-            $table->integer('tempat_kegiatan');
-            $table->string('penyelenggara');
-            $table->string('tahun_seminar');
-            $table->integer('kedudukan_dalam_seminar');
+            $table->string('nama_kegiatan')->nullable();
+            $table->string('lokasi')->nullable();
+            $table->integer('tempat_kegiatan')->nullable();
+            $table->string('penyelenggara')->nullable();
+            $table->string('tahun_seminar')->nullable();
+            $table->integer('kedudukan_dalam_seminar')->nullable();
             $table->timestamps();
         });
     }

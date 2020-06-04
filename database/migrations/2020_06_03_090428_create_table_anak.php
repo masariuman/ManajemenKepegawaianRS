@@ -17,13 +17,13 @@ class CreateTableAnak extends Migration
             $table->id();
             $table->string('tahun');
             $table->foreignID('pegawai_id')->constrained('pegawai');
-            $table->string('nama');
+            $table->string('nama')->nullable();
             $table->enum('jenis_kelamin',['P','W']);
-            $table->string('tempat_lahir');
-            $table->datetime('tanggal_lahir');
-            $table->integer('status_anak');
-            $table->string('pendidikan');
-            $table->string('pekerjaan');
+            $table->string('tempat_lahir')->nullable();
+            $table->datetime('tanggal_lahir')->nullable();
+            $table->integer('status_anak')->nullable();
+            $table->string('pendidikan')->nullable();
+            $table->string('pekerjaan')->nullable();
             $table->timestamps();
         });
     }

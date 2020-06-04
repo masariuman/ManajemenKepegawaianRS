@@ -17,11 +17,11 @@ class CreateTablePenghargaan extends Migration
             $table->id();
             $table->string('tahun');
             $table->foreignID('pegawai_id')->constrained('pegawai');
-            $table->string('nama_penghargaan');
-            $table->datetime('tanggal_perolehan');
-            $table->string('nomor');
-            $table->string('pemberi');
-            $table->string('jabatan_pemberi');
+            $table->string('nama_penghargaan')->nullable();
+            $table->datetime('tanggal_perolehan')->nullable();
+            $table->string('nomor')->nullable();
+            $table->string('pemberi')->nullable();
+            $table->string('jabatan_pemberi')->nullable();
             $table->timestamps();
         });
     }

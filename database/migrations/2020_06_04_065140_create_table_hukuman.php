@@ -17,11 +17,11 @@ class CreateTableHukuman extends Migration
             $table->id();
             $table->string('tahun');
             $table->foreignID('pegawai_id')->constrained('pegawai');
-            $table->integer('kode_hukuman');
-            $table->string('nomor_sk');
-            $table->datetime('tanggal_sk');
-            $table->datetime('tmt_berlaku');
-            $table->string('penjabat_pembuat_sk');
+            $table->integer('kode_hukuman')->nullable();
+            $table->string('nomor_sk')->nullable();
+            $table->datetime('tanggal_sk')->nullable();
+            $table->datetime('tmt_berlaku')->nullable();
+            $table->string('penjabat_pembuat_sk')->nullable();
             $table->timestamps();
         });
     }
