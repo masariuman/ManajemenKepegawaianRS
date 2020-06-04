@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Ruangan extends Model
 {
     //
-    protected $table = '';
+    protected $table = 'ruangan';
     protected $fillable = [
-
+        'ruangan',
         'created_at',
         'updated_at'
     ];
 
     public function pegawai()
     {
-        return $this->belongsTo('App\Pegawai', 'pegawai_id',);
+        return $this->hasMany('App\Pegawai', 'ruangan_id',);
 }
