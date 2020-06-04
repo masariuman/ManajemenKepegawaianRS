@@ -7,9 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Seminar extends Model
 {
     //
-    protected $table = '';
+    protected $table = 'seminar';
     protected $fillable = [
-
+        'tahun',
+        'pegawai_id',
+        'nama_kegiatan',
+        'lokasi',
+        'tempat_kegiatan',
+        'penyelenggara',
+        'tahun_seminar',
+        'kedudukan_dalam_seminar',
         'created_at',
         'updated_at'
     ];
