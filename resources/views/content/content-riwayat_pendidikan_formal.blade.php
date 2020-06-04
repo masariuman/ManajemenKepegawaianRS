@@ -122,10 +122,10 @@
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-1" role="tabpanel">
                                 <div class="main-card mb-3 card">
                                     <div class="card-body"><h5 class="card-title">Masukan Riwayat Pendidikan Formal</h5>
-                                        <form class="" action="" method="post">
+                                        <form class="" action="{{route('tambah')}}" method="post">
                                             @csrf  
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Tingkat Pendidikan</b></label>
-                                                <div class="col-sm-10"><select name="select" id="exampleSelect" class="form-control">
+                                                <div class="col-sm-10"><select name="tingkat_pendidikan" id="exampleSelect" class="form-control">
                                                 <option value="" disabled selected>-Pilih Tingkat Pendidikan-</option>
                                                 <option value="01">S3 (Setara)</option>
                                                 <option value="02">S2 (Setara)</option>
@@ -141,29 +141,29 @@
                                                 </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nama Sekolah / Universitas</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nama Sekolah / Universitas" type="text" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="nama_sekolah" id="exampleEmail" placeholder="Nama Sekolah / Universitas" type="text" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Jurusan / Program Studi</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Jurusan / Program Studi" type="text" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="jurusan_program_studi" id="exampleEmail" placeholder="Jurusan / Program Studi" type="text" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tahun Masuk</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Tahun Masuk" type="number" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="tahun_masuk" id="exampleEmail" placeholder="Tahun Masuk" type="number" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tahun Lulus</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Tahun Lulus" type="number" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="tahun_lulus" id="exampleEmail" placeholder="Tahun Lulus" type="number" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Tempat Belajar</b></label>
-                                                <div class="col-sm-10"><select name="select" id="exampleSelect" class="form-control">
+                                                <div class="col-sm-10"><select name="tempat_belajar" id="exampleSelect" class="form-control">
                                                 <option value="" disabled selected>-Pilih Tempat Belajar-</option>
                                                 <option value="1">Dalam Negeri</option>
                                                 <option value="2">Luar Negeri</option>
                                                 </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Lokasi</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Lokasi" type="text" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="lokasi" id="exampleEmail" placeholder="Lokasi" type="text" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor ijazah</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nomor ijazah" type="number" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="nomor_ijazah" id="exampleEmail" placeholder="Nomor ijazah" type="number" class="form-control" value=""></div>          
                                             </div>
                                             <!-- <div class="position-relative row form-group"><label for="exampleFile" class="col-sm-2 col-form-label"><b>Image</b></label>
                                                 <div class="col-sm-10"><input name="image" id="exampleFile" type="file" class="form-control-file  @error('image') is-invalid @enderror" value="{{ old('image')}}"><p class="text-danger">@error('image') {{$message}} @enderror</p>

@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('dashboard-manajemenrs');
 // })->name('dashboard-manajemenrs');
 
+Route::post('tambah', 'RiwayatPendidikanFormalController@tambah')->name('tambah');
+
 Route::get('/', function () {
     return view('dasar_pegawai');
 })->name('dasar_pegawai');
