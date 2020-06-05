@@ -150,3 +150,7 @@ Route::resource('riwayat_pekerjaan-jabatan', 'riwayatJabatanTeknisController');
 // GET	/photos/{photo}/edit
 // PUT/PATCH	/photos/{photo}
 // DELETE	/photos/{photo}
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
