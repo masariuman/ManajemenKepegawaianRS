@@ -24,6 +24,7 @@ class CreateTablePendidikanDiklatTeknis extends Migration
             $table->datetime('tanggal_selesai')->nullable();
             $table->string('jumlah_jam')->nullable();
             $table->string('penyelenggara')->nullable();
+            $table->enum('active',['1','0']);
             $table->timestamps();
         });
     }

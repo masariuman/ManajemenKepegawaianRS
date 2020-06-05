@@ -24,6 +24,7 @@ class CreateTablePendidikanIstriSuami extends Migration
             $table->string('tingkat_pendidikan')->nullable();
             $table->string('pekerjaan')->nullable();
             $table->integer('status_suami_istri')->nullable();
+            $table->enum('active',['1','0']);
             $table->timestamps();
         });
     }

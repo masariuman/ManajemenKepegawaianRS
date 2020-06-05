@@ -23,6 +23,7 @@ class CreateTableKeluargaKandung extends Migration
             $table->datetime('tanggal_lahir')->nullable();
             $table->enum('jenis_kelamin',['L','P'])->nullable();
             $table->enum('kondisi',['1','0'])->nullable();
+            $table->enum('active',['1','0']);
             $table->timestamps();
         });
     }
