@@ -17,6 +17,7 @@ class CreateTableTelepon extends Migration
             $table->id();
             $table->foreignID('pegawai_id')->constrained('pegawai');
             $table->string('telepon')->nullable();
+            $table->enum('active',['1','0']);
             $table->timestamps();
         });
     }

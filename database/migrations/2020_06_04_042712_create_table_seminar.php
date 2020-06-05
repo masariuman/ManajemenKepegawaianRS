@@ -23,6 +23,7 @@ class CreateTableSeminar extends Migration
             $table->string('penyelenggara')->nullable();
             $table->string('tahun_seminar')->nullable();
             $table->integer('kedudukan_dalam_seminar')->nullable();
+            $table->enum('active',['1','0']);
             $table->timestamps();
         });
     }

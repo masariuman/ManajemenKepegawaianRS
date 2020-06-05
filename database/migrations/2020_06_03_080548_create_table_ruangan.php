@@ -16,6 +16,7 @@ class CreateTableRuangan extends Migration
         Schema::create('ruangan', function (Blueprint $table) {
             $table->id();
             $table->string('ruangan')->nullable();
+            $table->enum('active',['1','0']);
             $table->timestamps();
         });
     }

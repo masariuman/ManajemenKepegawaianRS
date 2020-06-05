@@ -25,6 +25,7 @@ class CreateTableJabatanTeknis extends Migration
             $table->datetime('tanggal_sk')->nullable();
             $table->string('nip_penjabat_penandatangan_sk')->nullable();
             $table->string('nip_lama_penjabat_penandatangan_sk')->nullable();
+            $table->enum('active',['1','0']);
             $table->timestamps();
         });
     }
