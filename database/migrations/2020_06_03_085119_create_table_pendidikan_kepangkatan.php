@@ -19,7 +19,7 @@ class CreateTablePendidikanKepangkatan extends Migration
             $table->foreignID('pegawai_id')->constrained('pegawai');
             $table->string('golongan')->nullable();
             $table->datetime('tmt_golongan')->nullable();
-            $table->string('penjabat_penandatangan_sk')->nullable();
+            $table->string('pejabat_penandatangan_sk')->nullable();
             $table->string('nomor_sk')->nullable();
             $table->datetime('tanggal_sk')->nullable();
             $table->enum('active',['1','0']);

@@ -13,7 +13,7 @@ class Kepangkatan extends Model
         'pegawai_id',
         'golongan',
         'tmt_golongan',
-        'penjabat_penandatangan_sk',
+        'pejabat_penandatangan_sk',
         'nomor_sk',
         'tanggal_sk',
         'created_at',
