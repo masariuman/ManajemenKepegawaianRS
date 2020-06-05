@@ -22,6 +22,7 @@ class CreateTablePenghargaan extends Migration
             $table->string('nomor')->nullable();
             $table->string('pemberi')->nullable();
             $table->string('jabatan_pemberi')->nullable();
+            $table->enum('active',['1','0']);
             $table->timestamps();
         });
     }

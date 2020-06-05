@@ -24,6 +24,7 @@ class CreateTableOrganisasi extends Migration
             $table->datetime('tanggal_selesai')->nullable();
             $table->string('nomor_sk')->nullable();
             $table->string('jabatan_pembuat_sk')->nullable();
+            $table->enum('active',['1','0']);
             $table->timestamps();
         });
     }

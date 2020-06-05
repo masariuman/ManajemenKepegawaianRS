@@ -25,6 +25,7 @@ class CreateTablePendidikanDiklatPerjenjangan extends Migration
             $table->string('jumlah_jam')->nullable();
             $table->string('penyelenggara')->nullable();
             $table->string('predikat')->nullable();
+            $table->enum('active',['1','0']);
             $table->timestamps();
         });
     }

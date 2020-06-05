@@ -25,6 +25,7 @@ class CreateTablePendidikanFormal extends Migration
             $table->enum('tempat_belajar',['1','2'])->nullable();
             $table->string('lokasi')->nullable();
             $table->string('nomor_ijazah')->nullable();
+            $table->enum('active',['1','0']);
             $table->timestamps();
         });
     }

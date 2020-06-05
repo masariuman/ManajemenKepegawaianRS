@@ -24,6 +24,7 @@ class CreateTableAnak extends Migration
             $table->integer('status_anak')->nullable();
             $table->string('pendidikan')->nullable();
             $table->string('pekerjaan')->nullable();
+            $table->enum('active',['1','0']);
             $table->timestamps();
         });
     }
