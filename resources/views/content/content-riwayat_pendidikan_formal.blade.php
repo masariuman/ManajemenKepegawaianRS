@@ -10,7 +10,7 @@
                                         <div class="page-title-subheading">Isi data riwayat pendidikan formal anda disini.
                                         </div>
                                     </div>
-                                </div>               
+                                </div>
                                 <div class="page-title-actions">
                                     <!-- <button type="button" data-toggle="tooltip" title="Example Tooltip" data-placement="bottom" class="btn-shadow mr-3 btn btn-dark">
                                         <i class="fa fa-star"></i>
@@ -62,7 +62,7 @@
                                         </div>
                                     </div> -->
                                 </div>    </div>
-                        </div>           
+                        </div>
                          <!-- <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
                             <li class="nav-item">
                                 <a role="tab" class="nav-link active" id="tab-0" data-toggle="tab" href="#tab-content-0">
@@ -81,7 +81,7 @@
                                 <!-- <div class="main-card mb-3 card">
                                     <div class="card-body"><h5 class="card-title">E-Proposal</h5>
                                         <form class="" action="" method="post">
-                                            @csrf   
+                                            @csrf
                                             <div class="position-relative form-group"><label for="exampleAddress" class="">Judul Program</label><input name="judul_program" id="exampleAddress" placeholder="Isi disini.." type="text" class="form-control"></div>
                                             <div class="position-relative form-group"><label for="exampleAddress" class="">Latar Belakang</label><textarea name="latar_belakang" id="exampleAddress" placeholder="Isi disini.." type="text" class="form-control" rows="10"></textarea></div>
                                             <div class="position-relative form-group"><label for="exampleAddress" class="">Tujuan Program</label><textarea name="address" id="exampleAddress" placeholder="Isi disini.." type="text" class="form-control" rows="10"></textarea></div>
@@ -122,8 +122,8 @@
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-1" role="tabpanel">
                                 <div class="main-card mb-3 card">
                                     <div class="card-body"><h5 class="card-title">Masukan Riwayat Pendidikan Formal</h5>
-                                        <form class="" action="{{route('tambah')}}" method="post">
-                                            @csrf  
+                                        <form class="" action="{{route('riwayat_pendidikan_formal_tambah')}}" method="post">
+                                            @csrf
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Tingkat Pendidikan</b></label>
                                                 <div class="col-sm-10"><select name="tingkat_pendidikan" id="exampleSelect" class="form-control">
                                                 <option value="" disabled selected>-Pilih Tingkat Pendidikan-</option>
@@ -141,16 +141,16 @@
                                                 </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nama Sekolah / Universitas</b></label>
-                                                <div class="col-sm-10"><input name="nama_sekolah" id="exampleEmail" placeholder="Nama Sekolah / Universitas" type="text" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="nama_sekolah" id="exampleEmail" placeholder="Nama Sekolah / Universitas" type="text" class="form-control" value=""></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Jurusan / Program Studi</b></label>
-                                                <div class="col-sm-10"><input name="jurusan_program_studi" id="exampleEmail" placeholder="Jurusan / Program Studi" type="text" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="jurusan_program_studi" id="exampleEmail" placeholder="Jurusan / Program Studi" type="text" class="form-control" value=""></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tahun Masuk</b></label>
-                                                <div class="col-sm-10"><input name="tahun_masuk" id="exampleEmail" placeholder="Tahun Masuk" type="number" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="tahun_masuk" id="exampleEmail" placeholder="Tahun Masuk" type="number" class="form-control" value=""></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tahun Lulus</b></label>
-                                                <div class="col-sm-10"><input name="tahun_lulus" id="exampleEmail" placeholder="Tahun Lulus" type="number" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="tahun_lulus" id="exampleEmail" placeholder="Tahun Lulus" type="number" class="form-control" value=""></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Tempat Belajar</b></label>
                                                 <div class="col-sm-10"><select name="tempat_belajar" id="exampleSelect" class="form-control">
@@ -160,22 +160,22 @@
                                                 </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Lokasi</b></label>
-                                                <div class="col-sm-10"><input name="lokasi" id="exampleEmail" placeholder="Lokasi" type="text" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="lokasi" id="exampleEmail" placeholder="Lokasi" type="text" class="form-control" value=""></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor ijazah</b></label>
-                                                <div class="col-sm-10"><input name="nomor_ijazah" id="exampleEmail" placeholder="Nomor ijazah" type="number" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="nomor_ijazah" id="exampleEmail" placeholder="Nomor ijazah" type="number" class="form-control" value=""></div>
                                             </div>
                                             <!-- <div class="position-relative row form-group"><label for="exampleFile" class="col-sm-2 col-form-label"><b>Image</b></label>
                                                 <div class="col-sm-10"><input name="image" id="exampleFile" type="file" class="form-control-file  @error('image') is-invalid @enderror" value="{{ old('image')}}"><p class="text-danger">@error('image') {{$message}} @enderror</p>
                                                     <small class="form-text text-muted">Masukan gambar pilihan anda.</small>
                                                 </div>
                                             </div> -->
-     
+
                                             <!-- <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label">Biaya Program</label>
                                                 <div class="col-sm-10"><input name="biaya_program" id="exampleEmail" placeholder="Isi disini.." type="number" class="form-control @error('biaya_program') is-invalid @enderror" value="{{ old('biaya_program')}}"><p class="text-danger">@error('biaya_program') {{$message}} @enderror</p></div>
                                             </div> -->
                                             <!-- <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Biaya Program</b></label>
-                                             <div class="col-sm-10"> 
+                                             <div class="col-sm-10">
                                               <div class="form-row">
                                                 <div class="col-md-6">
                                                     <div class="position-relative form-group"><label for="exampleEmail11" class="">Branch cluster</label><input name="branch_cluster" id="exampleEmail11" placeholder="Isi disini.." type="text" class="form-control @error('branch_cluster') is-invalid @enderror" value="{{ old('branch_cluster')}}"><p class="text-danger">@error('branch_cluster') {{$message}} @enderror</p></div>
@@ -202,11 +202,11 @@
                                                     <div class="position-relative form-group"><label for="examplePassword11" class="">Revenue Incremental</label><input name="revenue_incremental" id="examplePassword11" placeholder="Isi disini.." type="text" class="form-control @error('revenue_incremental') is-invalid @enderror" value="{{ old('revenue_incremental')}}"><p class="text-danger">@error('revenue_incremental') {{$message}} @enderror</p></div>
                                                 </div>
                                                </div>
-                                               
+
                                               </div>
                                             </div> -->
 
-        
+
 
                                             <!-- <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label">Branch cluster</label>
                                                 <div class="col-sm-10"><input name="branch_cluster" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control @error('branch_cluster') is-invalid @enderror" value="{{ old('branch_cluster')}}"><p class="text-danger">@error('branch_cluster') {{$message}} @enderror</p></div>
@@ -266,7 +266,7 @@
                                                 <div class="col-sm-10">
                                                     <button class="mt-2 btn btn-light"><i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Submit</button>
                                                 </div>
-                                             </div>   
+                                             </div>
                                             <!-- </div> -->
                                         </form>
                                     </div>
