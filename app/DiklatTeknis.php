@@ -17,7 +17,7 @@ class DiklatTeknis extends Model
         'tanggal_mulai',
         'tanggal_selesai',
         'jumlah_jam',
-        'penyelenggara'
+        'penyelenggara',
         'created_at',
         'updated_at'
     ];

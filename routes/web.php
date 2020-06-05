@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'dasarPegawaiController@index')->name('dasar_pegawai');
 Route::get('/dasar_pegawai/baru', 'dasarPegawaiController@create');
-Route::post('/dasar_pegawai/tambah', 'dasarPegawaiController@store');
+Route::post('/dasar_pegawai/tambah', 'dasarPegawaiController@store')->name('dasar_pegawai_tambah');
 Route::get('/dasar_pegawai/{id}/ubah', 'dasarPegawaiController@edit');
 Route::patch('/dasar_pegawai/update/{id}', 'dasarPegawaiController@update');
 Route::delete('/dasar_pegawai/delete', 'dasarPegawaiController@delete');
@@ -37,14 +37,14 @@ Route::delete('/riwayat_pendidikan_formal/delete', 'riwayatPendidikanFormalContr
 
 Route::get('/riwayat_diklat_fungsional', 'riwayatDiklatFungsionalController@index')->name('riwayat_diklat_fungsional');
 Route::get('/riwayat_diklat_fungsional/baru', 'riwayatDiklatFungsionalController@create');
-Route::post('/riwayat_diklat_fungsional/tambah', 'riwayatDiklatFungsionalController@store');
+Route::post('/riwayat_diklat_fungsional/tambah', 'riwayatDiklatFungsionalController@store')->name('riwayat_diklat_fungsional_tambah');
 Route::get('/riwayat_diklat_fungsional/{id}/ubah', 'riwayatDiklatFungsionalController@edit');
 Route::patch('/riwayat_diklat_fungsional/update/{id}', 'riwayatDiklatFungsionalController@update');
 Route::delete('/riwayat_diklat_fungsional/delete', 'riwayatDiklatFungsionalController@delete');
 
 Route::get('/riwayat_diklat_teknis', 'riwayatDiklatTeknisController@index')->name('riwayat_diklat_teknis');
 Route::get('/riwayat_diklat_teknis/baru', 'riwayatDiklatTeknisController@create');
-Route::post('/riwayat_diklat_teknis/tambah', 'riwayatDiklatTeknisController@store');
+Route::post('/riwayat_diklat_teknis/tambah', 'riwayatDiklatTeknisController@store')->name('riwayat_diklat_teknis_tambah');
 Route::get('/riwayat_diklat_teknis/{id}/ubah', 'riwayatDiklatTeknisController@edit');
 Route::patch('/riwayat_diklat_teknis/update/{id}', 'riwayatDiklatTeknisController@update');
 Route::delete('/riwayat_diklat_teknis/delete', 'riwayatDiklatTeknisController@delete');
@@ -140,14 +140,7 @@ Route::get('/keluarga_istri-suami/{id}/ubah', 'keluargaIstriSuamiController@edit
 Route::patch('/keluarga_istri-suami/update/{id}', 'keluargaIstriSuamiController@update');
 Route::delete('/keluarga_istri-suami/delete', 'keluargaIstriSuamiController@delete');
 
-<<<<<<< HEAD
-Route::get('/riwayat_pekerjaan-jabatan', 'riwayatJabatanTeknisController@index')->name('riwayat_pekerjaan-jabatan');
-Route::get('/riwayat_pekerjaan-jabatan/baru', 'riwayatJabatanTeknisController@create');
-Route::post('/riwayat_pekerjaan-jabatan/tambah', 'riwayatJabatanTeknisController@store');
-Route::get('/riwayat_pekerjaan-jabatan/{id}/ubah', 'riwayatJabatanTeknisController@edit');
-Route::patch('/riwayat_pekerjaan-jabatan/update/{id}', 'riwayatJabatanTeknisController@update');
-Route::delete('/riwayat_pekerjaan-jabatan/delete', 'riwayatJabatanTeknisController@delete');
-=======
+
 Route::resource('riwayat_pekerjaan-jabatan', 'riwayatJabatanTeknisController');
 
 
@@ -158,4 +151,4 @@ Route::resource('riwayat_pekerjaan-jabatan', 'riwayatJabatanTeknisController');
 // GET	/photos/{photo}/edit
 // PUT/PATCH	/photos/{photo}
 // DELETE	/photos/{photo}
->>>>>>> ad6a0717e1c8c705b0476b073b6f0cfcdf604d12
+

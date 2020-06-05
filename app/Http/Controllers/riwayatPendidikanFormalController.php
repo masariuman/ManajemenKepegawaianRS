@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\PendidikanFormal;
+use App\Pegawai;
 
 class riwayatPendidikanFormalController extends Controller
 {
@@ -14,11 +15,11 @@ class riwayatPendidikanFormalController extends Controller
      */
     public function index()
     {
-        $data_pendidikan_formal = PendidikanFormal::get();
+        // $data_pendidikan_formal = PendidikanFormal::get();
     
-        return $data_pendidikan_formal;
+        // return $data_pendidikan_formal;
       
-        // return view('riwayat_pendidikan_formal');
+        return view('riwayat_pendidikan_formal');
     }
 
     /**
@@ -39,9 +40,12 @@ class riwayatPendidikanFormalController extends Controller
      */
     public function store(Request $request)
     {
+
+        $pegawai_id = Pegawai::max('id');
+
         $pendidikan_formal = PendidikanFormal::insert([
             'tahun' => $request->input('tahun', 2019),
-            'pegawai_id' => $request->input('pegawai_id', 1),
+            'pegawai_id' => $pegawai_id,
             'tingkat_pendidikan' => $request->tingkat_pendidikan,
             'nama_sekolah' => $request->nama_sekolah,
             'jurusan_prodi' => $request->jurusan_prodi,
@@ -55,7 +59,11 @@ class riwayatPendidikanFormalController extends Controller
             'updated_at' => \Carbon\Carbon::now(),
         ]);
 
-        dd($pendidikan_formal);
+        // dd($pendidikan_formal);
+
+        \Session::flash('Berhasil', 'Data riwayat pendidikan formal berhasil ditambahkan');
+
+        return back();
        
     }
 

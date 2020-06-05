@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Dasar;
 use App\Pegawai;
+use App\Telepon;
 
 class dasarPegawaiController extends Controller
 {
@@ -38,7 +39,10 @@ class dasarPegawaiController extends Controller
      */
     public function store(Request $request)
     {
-        $dasar_pegawai = Dasar::insert([
+
+        $pegawai_id = Pegawai::max('id') + 1;
+
+        $pegawai = Pegawai::insert([
             'eselon_1' => $request->eselon_1,
             'eselon_2' => $request->eselon_2,
             'eselon_3' => $request->eselon_3,
@@ -60,6 +64,8 @@ class dasarPegawaiController extends Controller
             'status_kepegawaian' => $request->status_kepegawaian,
             'instansi_asal' => $request->instansi_asal,
             'tmt_cpns' => $request->tmt_cpns,
+            'golongan' => $request->golongan,
+            'tmt_golongan' => $request->tmt_golongan,
             'nama_jabatan' => $request->nama_jabatan,
             'nomor_karpeg' => $request->nomor_karpeg,
             'taspen' => $request->taspen,
@@ -71,14 +77,72 @@ class dasarPegawaiController extends Controller
             'masa_str' => $request->masa_str,
             'rkk' => $request->rkk,
             'masa_rkk' => $request->masa_rkk,
-            'ruangan' => $request->input('ruangan', 1),
+            'ruangan_id' => $request->input('ruangan', 1),
             'active' => $request->input('active', 1),
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
 
         ]);
 
-        return $dasar_pegawai;
+
+        $dasar_pegawai = Dasar::insert([
+            'tahun' => $request->input('tahun', 2019),
+            'pegawai_id' => $pegawai_id,
+            'eselon_1' => $request->eselon_1,
+            'eselon_2' => $request->eselon_2,
+            'eselon_3' => $request->eselon_3,
+            'eselon_4' => $request->eselon_4,
+            'nip_baru' => $request->nip_baru,
+            'nip_lama' => $request->nip_lama,
+            'nama_pegawai' => $request->nama_pegawai,
+            'gelar_depan' => $request->gelar_depan,
+            'gelar_belakang' => $request->gelar_belakang,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'status_keluarga' => $request->status_keluarga,
+            'agama' => $request->agama,
+            'pendidikan_akhir' => $request->pendidikan_akhir,
+            'nama_sekolah' => $request->nama_sekolah,
+            'tahun_lulus' => $request->tahun_lulus,
+            'jurusan_prodi' => $request->jurusan_prodi,
+            'status_kepegawaian' => $request->status_kepegawaian,
+            'instansi_asal' => $request->instansi_asal,
+            'tmt_cpns' => $request->tmt_cpns,
+            'golongan' => $request->golongan,
+            'tmt_golongan' => $request->tmt_golongan,
+            'nama_jabatan' => $request->nama_jabatan,
+            'nomor_karpeg' => $request->nomor_karpeg,
+            'taspen' => $request->taspen,
+            'nomor_npwp' => $request->nomor_npwp,
+            'alamat_rumah' => $request->alamat_rumah,
+            'kota' => $request->kota,
+            'kode_pos' => $request->kode_pos,
+            'str' => $request->str,
+            'masa_str' => $request->masa_str,
+            'rkk' => $request->rkk,
+            'masa_rkk' => $request->masa_rkk,
+            'ruangan_id' => $request->input('ruangan', 1),
+            'active' => $request->input('active', 1),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+
+        ]);
+
+
+        $data_telepon = Telepon::insert([
+            'pegawai_id' => $pegawai_id,
+            'telepon' => $request->telepon,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        
+
+
+        \Session::flash('Berhasil', 'Data dasar pegawai berhasil ditambahkan');
+
+        return back();
     }
 
     /**
