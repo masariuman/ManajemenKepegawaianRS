@@ -140,14 +140,7 @@ Route::get('/keluarga_istri-suami/{id}/ubah', 'keluargaIstriSuamiController@edit
 Route::patch('/keluarga_istri-suami/update/{id}', 'keluargaIstriSuamiController@update');
 Route::delete('/keluarga_istri-suami/delete', 'keluargaIstriSuamiController@delete');
 
-<<<<<<< HEAD
-Route::get('/riwayat_pekerjaan-jabatan', 'riwayatJabatanTeknisController@index')->name('riwayat_pekerjaan-jabatan');
-Route::get('/riwayat_pekerjaan-jabatan/baru', 'riwayatJabatanTeknisController@create');
-Route::post('/riwayat_pekerjaan-jabatan/tambah', 'riwayatJabatanTeknisController@store');
-Route::get('/riwayat_pekerjaan-jabatan/{id}/ubah', 'riwayatJabatanTeknisController@edit');
-Route::patch('/riwayat_pekerjaan-jabatan/update/{id}', 'riwayatJabatanTeknisController@update');
-Route::delete('/riwayat_pekerjaan-jabatan/delete', 'riwayatJabatanTeknisController@delete');
-=======
+
 Route::resource('riwayat_pekerjaan-jabatan', 'riwayatJabatanTeknisController');
 
 
@@ -158,4 +151,4 @@ Route::resource('riwayat_pekerjaan-jabatan', 'riwayatJabatanTeknisController');
 // GET	/photos/{photo}/edit
 // PUT/PATCH	/photos/{photo}
 // DELETE	/photos/{photo}
->>>>>>> ad6a0717e1c8c705b0476b073b6f0cfcdf604d12
+
