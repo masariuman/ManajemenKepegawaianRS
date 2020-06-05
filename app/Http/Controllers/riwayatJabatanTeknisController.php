@@ -15,6 +15,7 @@ class riwayatJabatanTeknisController extends Controller
     {
         //
         return view('riwayat_pekerjaan-jabatan');
+
     }
 
     /**
@@ -25,6 +26,7 @@ class riwayatJabatanTeknisController extends Controller
     public function create()
     {
         //
+        return view('riwayat_pekerjaan-jabatan');
     }
 
     /**

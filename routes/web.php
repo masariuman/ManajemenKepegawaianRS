@@ -140,9 +140,13 @@ Route::get('/keluarga_istri-suami/{id}/ubah', 'keluargaIstriSuamiController@edit
 Route::patch('/keluarga_istri-suami/update/{id}', 'keluargaIstriSuamiController@update');
 Route::patch('/keluarga_istri-suami/delete', 'keluargaIstriSuamiController@delete');
 
-Route::get('/riwayat_pekerjaan-jabatan', 'riwayatJabatanTeknisController@index')->name('riwayat_pekerjaan-jabatan');
-Route::get('/riwayat_pekerjaan-jabatan/baru', 'riwayatJabatanTeknisController@create');
-Route::post('/riwayat_pekerjaan-jabatan/tambah', 'riwayatJabatanTeknisController@store');
-Route::get('/riwayat_pekerjaan-jabatan/{id}/ubah', 'riwayatJabatanTeknisController@edit');
-Route::patch('/riwayat_pekerjaan-jabatan/update/{id}', 'riwayatJabatanTeknisController@update');
-Route::patch('/riwayat_pekerjaan-jabatan/delete', 'riwayatJabatanTeknisController@delete');
+Route::resource('riwayat_pekerjaan-jabatan', 'riwayatJabatanTeknisController');
+
+
+// GET	/photos
+// GET	/photos/create
+// POST	/photos
+// GET	/photos/{photo}
+// GET	/photos/{photo}/edit
+// PUT/PATCH	/photos/{photo}
+// DELETE	/photos/{photo}
