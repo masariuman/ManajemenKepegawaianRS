@@ -17,7 +17,7 @@ class JabatanStruktural extends Model
         'tmt_jabatan',
         'nomor_sk',
         'tanggal_sk',
-        'penjabat_penandatangan_sk'
+        'penjabat_penandatangan_sk',
         'created_at',
         'updated_at'
     ];
