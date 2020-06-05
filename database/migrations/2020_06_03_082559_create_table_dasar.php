@@ -38,7 +38,7 @@ class CreateTableDasar extends Migration
             $table->integer('status_kepegawaian')->nullable();
             $table->string('instansi_asal')->nullable();
             $table->datetime('tmt_cpns')->nullable();
-            $table->datetime('golongan')->nullable();
+            $table->string('golongan')->nullable();
             $table->datetime('tmt_golongan')->nullable();
             $table->string('nama_jabatan')->nullable();
             $table->string('nomor_karpeg')->nullable();
