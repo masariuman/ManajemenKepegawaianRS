@@ -55,6 +55,7 @@ class CreateTablePegawai extends Migration
             $table->datetime('masa_rkk')->nullable();
             $table->foreignID('ruangan_id')->constrained('ruangan');
             $table->enum('active',['1','0']);
+            $table->foreignID('user_id')->constrained('users');
             $table->timestamps();
         });
     }

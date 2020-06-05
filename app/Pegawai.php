@@ -46,9 +46,15 @@ class Pegawai extends Model
         'rkk',
         'masa_rkk',
         'ruangan_id',
+        'user_id',
         'created_at',
         'updated_at'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User','user_id');
+    }
 
     public function telepon()
     {
