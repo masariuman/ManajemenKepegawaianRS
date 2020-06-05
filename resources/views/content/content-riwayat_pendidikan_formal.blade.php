@@ -144,7 +144,7 @@
                                                 <div class="col-sm-10"><input name="nama_sekolah" id="exampleEmail" placeholder="Nama Sekolah / Universitas" type="text" class="form-control" value=""></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Jurusan / Program Studi</b></label>
-                                                <div class="col-sm-10"><input name="jurusan_program_studi" id="exampleEmail" placeholder="Jurusan / Program Studi" type="text" class="form-control" value=""></div>
+                                                <div class="col-sm-10"><input name="jurusan_prodi" id="exampleEmail" placeholder="Jurusan / Program Studi" type="text" class="form-control" value=""></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tahun Masuk</b></label>
                                                 <div class="col-sm-10"><input name="tahun_masuk" id="exampleEmail" placeholder="Tahun Masuk" type="number" class="form-control" value=""></div>

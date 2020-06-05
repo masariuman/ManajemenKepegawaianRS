@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\PendidikanFormal;
 
 class riwayatPendidikanFormalController extends Controller
 {
@@ -13,8 +14,11 @@ class riwayatPendidikanFormalController extends Controller
      */
     public function index()
     {
-        //
-        return view('riwayat_pendidikan_formal');
+        $data_pendidikan_formal = PendidikanFormal::get();
+    
+        return $data_pendidikan_formal;
+      
+        // return view('riwayat_pendidikan_formal');
     }
 
     /**
@@ -24,7 +28,7 @@ class riwayatPendidikanFormalController extends Controller
      */
     public function create()
     {
-        //
+ 
     }
 
     /**
@@ -35,7 +39,24 @@ class riwayatPendidikanFormalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pendidikan_formal = PendidikanFormal::insert([
+            'tahun' => $request->input('tahun', 2019),
+            'pegawai_id' => $request->input('pegawai_id', 1),
+            'tingkat_pendidikan' => $request->tingkat_pendidikan,
+            'nama_sekolah' => $request->nama_sekolah,
+            'jurusan_prodi' => $request->jurusan_prodi,
+            'tahun_masuk' => $request->tahun_masuk,
+            'tahun_lulus' => $request->tahun_lulus,
+            'tempat_belajar' => $request->tempat_belajar,
+            'lokasi' => $request->lokasi,
+            'nomor_ijazah' => $request->nomor_ijazah,
+            'active' => $request->input('active', 1),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        dd($pendidikan_formal);
+       
     }
 
     /**
