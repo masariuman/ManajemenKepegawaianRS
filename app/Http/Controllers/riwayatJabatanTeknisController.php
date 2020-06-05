@@ -14,7 +14,7 @@ class riwayatJabatanTeknisController extends Controller
     public function index()
     {
         //
-        return view('riwayat_pekerjaan-jabatan');
+        return view('riwayat_jabatan_teknis/index');
 
     }
 
@@ -26,7 +26,7 @@ class riwayatJabatanTeknisController extends Controller
     public function create()
     {
         //
-        return view('riwayat_pekerjaan-jabatan');
+        return view('riwayat_jabatan_teknis/create');
     }
 
     /**
