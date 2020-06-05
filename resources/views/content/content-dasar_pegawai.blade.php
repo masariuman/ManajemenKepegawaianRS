@@ -258,26 +258,26 @@
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor STR</b></label>
                                                 <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nomor Surat Tanda Registrasi" type="number" class="form-control" value=""></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>TMT STR</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="TMT Surat Tanda Registrasi" type="date" class="form-control" value=""></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>MASA STR</b></label>
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="MASA Surat Tanda Registrasi" type="date" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor SKIP</b></label>
                                                 <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nomor Surat Izin Kerja Perawat" type="number" class="form-control" value=""></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>TMT SKIP</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="TMT Surat Izin Kerja Perawat" type="date" class="form-control" value=""></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>MASA SKIP</b></label>
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="MASA Surat Izin Kerja Perawat" type="date" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor SPK</b></label>
                                                 <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nomor Surat Penugasan Kewenangan Klinis" type="number" class="form-control" value=""></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>TMT SPK</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="TMT Surat Penugasan Kewenangan Klinis" type="date" class="form-control" value=""></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>MASA SPK</b></label>
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="MASA Surat Penugasan Kewenangan Klinis" type="date" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor RKK</b></label>
                                                 <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nomor Rinician Kewenangan Klinis" type="number" class="form-control" value=""></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>TMT RKK</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="TMT Rincian Kewenangan Klinis" type="date" class="form-control" value=""></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>MASA RKK</b></label>
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="MASA Rincian Kewenangan Klinis" type="date" class="form-control" value=""></div>          
                                             </div>
                                             <!-- <div class="position-relative row form-group"><label for="exampleFile" class="col-sm-2 col-form-label"><b>Image</b></label>
                                                 <div class="col-sm-10"><input name="image" id="exampleFile" type="file" class="form-control-file  @error('image') is-invalid @enderror" value="{{ old('image')}}"><p class="text-danger">@error('image') {{$message}} @enderror</p>
