@@ -141,7 +141,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{route('riwayat_pekerjaan-jabatan')}}" class="{{ Request::is('riwayat_pekerjaan-jabatan') ? 'mm-active' : '' }}">
+                                    <a href="/riwayat_pekerjaan-jabatan" class="{{ Request::is('riwayat_pekerjaan-jabatan') ? 'mm-active' : '' }}">
                                         <i class="metismenu-icon pe-7s-note2"></i>
                                          Riwayat Perkerjaan / Jabatan
                                     </a>
