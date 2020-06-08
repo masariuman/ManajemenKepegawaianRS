@@ -25,8 +25,8 @@ Route::get('/', 'dasarPegawaiController@index')->name('dasar_pegawai');
 Route::get('/dasar_pegawai/baru', 'dasarPegawaiController@create');
 Route::post('/dasar_pegawai/tambah', 'dasarPegawaiController@store')->name('dasar_pegawai_tambah');
 Route::get('/dasar_pegawai/{id}/ubah', 'dasarPegawaiController@edit');
-Route::patch('/dasar_pegawai/update/{id}', 'dasarPegawaiController@update');
-Route::delete('/dasar_pegawai/delete', 'dasarPegawaiController@delete');
+Route::patch('/dasar_pegawai/update/{id}', 'dasarPegawaiController@update')->name('dasar_pegawai_ubah');
+Route::delete('/dasar_pegawai/delete/{id}', 'dasarPegawaiController@destroy')->name('dasar_pegawai_hapus');
 
 Route::get('/riwayat_pendidikan_formal', 'riwayatPendidikanFormalController@index')->name('riwayat_pendidikan_formal');
 Route::get('/riwayat_pendidikan_formal/baru', 'riwayatPendidikanFormalController@create');
