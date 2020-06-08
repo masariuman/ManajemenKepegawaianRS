@@ -9,8 +9,6 @@ class FormSkp extends Model
     //
     protected $table = 'form_skp';
     protected $fillable = [
-        'tahun',
-        'kategori',
         'skp_id',
         'kegiatan_tugas_jabatan_1',
         'kegiatan_tugas_jabatan_2',
