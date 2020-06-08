@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Skp extends Model
 {
     //
-    protected $table = 'seminar';
+    protected $table = 'skp';
     protected $fillable = [
         'tahun',
         'kategori',

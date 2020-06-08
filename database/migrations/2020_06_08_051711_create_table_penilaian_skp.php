@@ -48,6 +48,7 @@ class CreateTablePenilaianSkp extends Migration
             $table->datetime('dibuat_tanggal_pejabat_penilai')->nullable();
             $table->datetime('diterima_tanggal_pegawai')->nullable();
             $table->datetime('diterima_tanggal_atasan_pejabat_penilai')->nullable();
+            $table->enum('active',['1','0']);
             $table->timestamps();
         });
     }
