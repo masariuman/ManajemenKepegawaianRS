@@ -15,11 +15,11 @@ class riwayatPendidikanFormalController extends Controller
      */
     public function index()
     {
-        // $data_pendidikan_formal = PendidikanFormal::get();
+        $riwayat_pendidikan_formal = PendidikanFormal::get();
     
-        // return $data_pendidikan_formal;
+        // return $pendidikan_formal;
       
-        return view('riwayat_pendidikan_formal');
+        return view('riwayat_pendidikan_formal', compact('riwayat_pendidikan_formal'));
     }
 
     /**
@@ -43,7 +43,7 @@ class riwayatPendidikanFormalController extends Controller
 
         $pegawai_id = Pegawai::max('id');
 
-        $pendidikan_formal = PendidikanFormal::insert([
+        $riwayat_pendidikan_formal = PendidikanFormal::insert([
             'tahun' => $request->input('tahun', 2019),
             'pegawai_id' => $pegawai_id,
             'tingkat_pendidikan' => $request->tingkat_pendidikan,
@@ -98,7 +98,29 @@ class riwayatPendidikanFormalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pegawai_id = Pegawai::max('id');
+
+        $riwayat_pendidikan_formal = PendidikanFormal::where('id', $id)->update([
+            'tahun' => $request->input('tahun', 2019),
+            'pegawai_id' => $pegawai_id,
+            'tingkat_pendidikan' => $request->tingkat_pendidikan,
+            'nama_sekolah' => $request->nama_sekolah,
+            'jurusan_prodi' => $request->jurusan_prodi,
+            'tahun_masuk' => $request->tahun_masuk,
+            'tahun_lulus' => $request->tahun_lulus,
+            'tempat_belajar' => $request->tempat_belajar,
+            'lokasi' => $request->lokasi,
+            'nomor_ijazah' => $request->nomor_ijazah,
+            'active' => $request->input('active', 1),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        // dd($pendidikan_formal);
+
+        \Session::flash('Berhasil', 'Data riwayat pendidikan formal berhasil ditambahkan');
+
+        return back();
     }
 
     /**
@@ -109,6 +131,10 @@ class riwayatPendidikanFormalController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $riwayat_pendidikan_formal = PendidikanFormal::where('id', $id)->delete();
+
+        \Session::flash('Berhasil', 'Data riwayat pendidikan formal berhasil dihapus');
+
+        return back();
     }
 }

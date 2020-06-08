@@ -32,8 +32,8 @@ Route::get('/riwayat_pendidikan_formal', 'riwayatPendidikanFormalController@inde
 Route::get('/riwayat_pendidikan_formal/baru', 'riwayatPendidikanFormalController@create');
 Route::post('/riwayat_pendidikan_formal/tambah', 'riwayatPendidikanFormalController@store')->name('riwayat_pendidikan_formal_tambah');
 Route::get('/riwayat_pendidikan_formal/{id}/ubah', 'riwayatPendidikanFormalController@edit');
-Route::patch('/riwayat_pendidikan_formal/update/{id}', 'riwayatPendidikanFormalController@update');
-Route::delete('/riwayat_pendidikan_formal/delete', 'riwayatPendidikanFormalController@delete');
+Route::patch('/riwayat_pendidikan_formal/update/{id}', 'riwayatPendidikanFormalController@update')->name('riwayat_pendidikan_formal_ubah');
+Route::delete('/riwayat_pendidikan_formal/delete/{id}', 'riwayatPendidikanFormalController@destroy')->name('riwayat_pendidikan_formal_hapus');
 
 Route::get('/riwayat_diklat_fungsional', 'riwayatDiklatFungsionalController@index')->name('riwayat_diklat_fungsional');
 Route::get('/riwayat_diklat_fungsional/baru', 'riwayatDiklatFungsionalController@create');
