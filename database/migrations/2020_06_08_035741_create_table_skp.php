@@ -25,6 +25,9 @@ class CreateTableSkp extends Migration
             $table->string('unit_kerja_penilai')->nullable();
             $table->string('nama_atasan_pejabat_penilai')->nullable();
             $table->string('nip_atasan_pejabat_penilai')->nullable();
+            $table->string('pangkat_golongan_ruang_atasan_penilai')->nullable();
+            $table->string('jabatan_atasan_penilai')->nullable();
+            $table->string('unit_kerja_atasan_penilai')->nullable();
             $table->enum('active',['1','0']);
             $table->timestamps();
         });
