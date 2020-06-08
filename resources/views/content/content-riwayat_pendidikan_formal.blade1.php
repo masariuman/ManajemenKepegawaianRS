@@ -6,11 +6,11 @@
                                         <i class="pe-7s-note2 icon-gradient bg-happy-fisher">
                                         </i>
                                     </div>
-                                    <div>Dasar Pegawai
-                                        <div class="page-title-subheading">Isi data dasar pegawai anda disini.
+                                    <div>Riwayat Pendidikan Formal
+                                        <div class="page-title-subheading">Isi data riwayat pendidikan formal anda disini.
                                         </div>
                                     </div>
-                                </div>               
+                                </div>
                                 <div class="page-title-actions">
                                     <!-- <button type="button" data-toggle="tooltip" title="Example Tooltip" data-placement="bottom" class="btn-shadow mr-3 btn btn-dark">
                                         <i class="fa fa-star"></i>
@@ -62,7 +62,7 @@
                                         </div>
                                     </div> -->
                                 </div>    </div>
-                        </div>           
+                        </div>
                          <!-- <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
                             <li class="nav-item">
                                 <a role="tab" class="nav-link active" id="tab-0" data-toggle="tab" href="#tab-content-0">
@@ -81,7 +81,7 @@
                                 <!-- <div class="main-card mb-3 card">
                                     <div class="card-body"><h5 class="card-title">E-Proposal</h5>
                                         <form class="" action="" method="post">
-                                            @csrf   
+                                            @csrf
                                             <div class="position-relative form-group"><label for="exampleAddress" class="">Judul Program</label><input name="judul_program" id="exampleAddress" placeholder="Isi disini.." type="text" class="form-control"></div>
                                             <div class="position-relative form-group"><label for="exampleAddress" class="">Latar Belakang</label><textarea name="latar_belakang" id="exampleAddress" placeholder="Isi disini.." type="text" class="form-control" rows="10"></textarea></div>
                                             <div class="position-relative form-group"><label for="exampleAddress" class="">Tujuan Program</label><textarea name="address" id="exampleAddress" placeholder="Isi disini.." type="text" class="form-control" rows="10"></textarea></div>
@@ -121,83 +121,58 @@
                             </div>
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-1" role="tabpanel">
                                 <div class="main-card mb-3 card">
-                                    <div class="card-body"><h5 class="card-title">Masukan Data Dasar Pegawai</h5>
-                                        <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeTambah"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah
-                                        </button>
-                                        @foreach($pegawai as $key => $pegawais)
-                                        <ul class="list-group">
-                                                    <li class="list-group-item">Eselon 1: {{$pegawais->eselon_1}}</li>
-                                                    <li class="list-group-item">Eselon 2: {{$pegawais->eselon_2}}</li>
-                                                    <li class="list-group-item">Eselon 3: {{$pegawais->eselon_3}}</li>
-                                                    <li class="list-group-item">Eselon 4: {{$pegawais->eselon_4}}</li>
-                                                    <li class="list-group-item">Nip Baru: {{$pegawais->nip_baru}}</li>
-                                                    <li class="list-group-item">Nip Lama: {{$pegawais->nip_lama}}</li>
-                                                    <li class="list-group-item">Nama Pegawai: {{$pegawais->nama_pegawai}}</li>
-                                                    <li class="list-group-item">Gelar Depan: {{$pegawais->gelar_depan}}</li>
-                                                    <li class="list-group-item">Gelar Belakang: {{$pegawais->gelar_belakang}}</li>
-                                                    <li class="list-group-item">Tempat Lahir: {{$pegawais->tempat_lahir}}</li>                                                   
-                                                    <li class="list-group-item">Tanggal Lahir: {{ date('d/m/Y',strtotime($pegawais->tanggal_lahir)) }}</li>
-                                                    <li class="list-group-item">Jenis Kelamin: {{$pegawais->jenis_kelamin}}</li>
-                                                    <li class="list-group-item">Status Keluarga: {{$pegawais->status_keluarga}}</li>
-                                                    <li class="list-group-item">Agama: {{$pegawais->agama}}</li>
-                                                    <li class="list-group-item">Pendidikan Akhir: {{$pegawais->pendidikan_akhir}}</li>
-                                                    <li class="list-group-item">Nama Sekolah: {{$pegawais->nama_sekolah}}</li>
-                                                    <li class="list-group-item">Tahun Lulus: {{$pegawais->tahun_lulus}}</li>
-                                                    <li class="list-group-item">Jurusan / Prodi: {{$pegawais->jurusan_prodi}}</li>
-                                                    <li class="list-group-item">Status_kepegawaian: {{$pegawais->status_kepegawaian}}</li>
-                                                    <li class="list-group-item">Instansi Asal: {{$pegawais->instansi_asal}}</li>
-                                                    <li class="list-group-item">TMT CPNS: {{$pegawais->tmt_cpns}}</li>
-                                                    <li class="list-group-item">Golongan: {{$pegawais->golongan}}</li>
-                                                    <li class="list-group-item">TMT Golongan: {{ date('d/m/Y',strtotime($pegawais->tmt_golongan)) }}</li>
-                                                    <li class="list-group-item">Nama Jabatan: {{$pegawais->nama_jabatan}}</li>
-                                                    <li class="list-group-item">Nomor Karpeg: {{$pegawais->nomor_karpeg}}</li>
-                                                    <li class="list-group-item">Taspen: {{$pegawais->taspen}}</li>
-                                                    <li class="list-group-item">Nomor NPWP: {{$pegawais->nomor_npwp}}</li>
-                                                    <li class="list-group-item">Alamat Rumah: {{$pegawais->alamat_rumah}}</li>
-                                                    <li class="list-group-item">Kota: {{$pegawais->kota}}</li>
-                                                    <li class="list-group-item">Kode Pos: {{$pegawais->kode_pos}}</li>
-                                                    <li class="list-group-item">STR: {{$pegawais->str}}</li>
-                                                    <li class="list-group-item">Masa STR: {{ date('d/m/Y',strtotime($pegawais->masa_str)) }}</li>
-                                                    <li class="list-group-item">SIKP: {{$pegawais->sikp}}</li>
-                                                    <li class="list-group-item">Masa SIKP: {{ date('d/m/Y',strtotime($pegawais->masa_sikp)) }}</li>
-                                                    <li class="list-group-item">SPK: {{$pegawais->spk}}</li>
-                                                    <li class="list-group-item">Masa SPK: {{ date('d/m/Y',strtotime($pegawais->masa_spk)) }}</li>
-                                                    <li class="list-group-item">RKK: {{$pegawais->rkk}}</li>
-                                                    <li class="list-group-item">Masa RKK: {{ date('d/m/Y',strtotime($pegawais->masa_rkk)) }}</li>
-                                        </ul>
-                                        @endforeach
-                                        <table class="mb-0 table" id="table">
-                                            <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>NIP</th>
-                                                <th>Nama</th>
-                                                <th>Option</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-
-                                            @foreach($pegawai as $key => $pegawais)
-                                            <tr>
-                                                <th scope="row">{{++$key}}</th>
-                                                <td>{{$pegawais->nip_baru}}</td>
-                                                <td>{{$pegawais->nama_pegawai}}</td>
-                                                <td>
-                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeDetail-{{$pegawais->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use address-card"></i> Lihat
-                                                    </button>||&nbsp;
-                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeUbah-{{$pegawais->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah
-                                                    </button>||&nbsp;
-                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target=".bd-example-modal-sm-delete-{{$pegawais->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus
-                                                    </button>||&nbsp;
-                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeHistory-{{$pegawais->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use history"></i> History
-                                                    </button>
-                                              </td>
-                                            </tr>
-                                            @endforeach
-                                            </tbody>
-                                        </table>
-                                            
-                                     
+                                    <div class="card-body"><h5 class="card-title">Masukan Riwayat Pendidikan Formal</h5>
+                                        <form class="" action="{{route('riwayat_pendidikan_formal_tambah')}}" method="post">
+                                            @csrf
+                                            <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Tingkat Pendidikan</b></label>
+                                                <div class="col-sm-10"><select name="tingkat_pendidikan" id="exampleSelect" class="form-control">
+                                                <option value="" disabled selected>-Pilih Tingkat Pendidikan-</option>
+                                                <option value="01">S3 (Setara)</option>
+                                                <option value="02">S2 (Setara)</option>
+                                                <option value="03">S1 (Setara)</option>
+                                                <option value="04">D4</option>
+                                                <option value="05">SM</option>
+                                                <option value="06">D3</option>
+                                                <option value="07">D2</option>
+                                                <option value="08">D1</option>
+                                                <option value="09">SLTA</option>
+                                                <option value="10">SLTP</option>
+                                                <option value="11">SD</option>
+                                                </select></div>
+                                            </div>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nama Sekolah / Universitas</b></label>
+                                                <div class="col-sm-10"><input name="nama_sekolah" id="exampleEmail" placeholder="Nama Sekolah / Universitas" type="text" class="form-control" value=""></div>
+                                            </div>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Jurusan / Program Studi</b></label>
+                                                <div class="col-sm-10"><input name="jurusan_prodi" id="exampleEmail" placeholder="Jurusan / Program Studi" type="text" class="form-control" value=""></div>
+                                            </div>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tahun Masuk</b></label>
+                                                <div class="col-sm-10"><input name="tahun_masuk" id="exampleEmail" placeholder="Tahun Masuk" type="number" class="form-control" value=""></div>
+                                            </div>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tahun Lulus</b></label>
+                                                <div class="col-sm-10"><input name="tahun_lulus" id="exampleEmail" placeholder="Tahun Lulus" type="number" class="form-control" value=""></div>
+                                            </div>
+                                            <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Tempat Belajar</b></label>
+                                                <div class="col-sm-10"><select name="tempat_belajar" id="exampleSelect" class="form-control">
+                                                <option value="" disabled selected>-Pilih Tempat Belajar-</option>
+                                                <option value="1">Dalam Negeri</option>
+                                                <option value="2">Luar Negeri</option>
+                                                </select></div>
+                                            </div>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Lokasi</b></label>
+                                                <div class="col-sm-10"><input name="lokasi" id="exampleEmail" placeholder="Lokasi" type="text" class="form-control" value=""></div>
+                                            </div>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor ijazah</b></label>
+                                                <div class="col-sm-10"><input name="nomor_ijazah" id="exampleEmail" placeholder="Nomor ijazah" type="number" class="form-control" value=""></div>
+                                            </div>
+                                
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"></label>
+                                                <div class="col-sm-10">
+                                                    <button class="mt-2 btn btn-light"><i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Submit</button>
+                                                </div>
+                                             </div>
+                                            <!-- </div> -->
+                                        </form>
                                     </div>
                                 </div>
                             </div>

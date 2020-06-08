@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pegawai;
+use App\DiklatTeknis;
 
 class riwayatDiklatTeknisController extends Controller
 {
@@ -35,7 +37,26 @@ class riwayatDiklatTeknisController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pegawai_id = Pegawai::max('id');
+
+        $pendidikan_formal = DiklatTeknis::insert([
+            'tahun' => $request->input('tahun', 2019),
+            'pegawai_id' => $pegawai_id,
+            'nama_diklat' => $request->nama_diklat,
+            'tempat_belajar' => $request->tempat_belajar,
+            'lokasi' => $request->lokasi,
+            'tanggal_mulai' => $request->tanggal_mulai,
+            'tanggal_selesai' => $request->tanggal_selesai,
+            'jumlah_jam' => $request->jumlah_jam,
+            'penyelenggara' => $request->lokasi,
+            'active' => $request->input('active', 1),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        \Session::flash('Berhasil', 'Data diklat fungsional berhasil ditambahkan');
+
+        return back();
     }
 
     /**

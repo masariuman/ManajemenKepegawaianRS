@@ -122,10 +122,10 @@
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-1" role="tabpanel">
                                 <div class="main-card mb-3 card">
                                     <div class="card-body"><h5 class="card-title">Masukan Riwayat Diklat Penjenjangan / Struktural</h5>
-                                        <form class="" action="" method="post">
+                                        <form class="" action="{{ route('riwayat_diklat_penjenjangan-struktural_tambah') }}" method="post">
                                             @csrf  
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Jenis Diklat</b></label>
-                                                <div class="col-sm-10"><select name="select" id="exampleSelect" class="form-control">
+                                                <div class="col-sm-10"><select name="jenis_diklat" id="exampleSelect" class="form-control">
                                                 <option value="" disabled selected>-Pilih Jenis Diklat-</option>
                                                 <option value="1">Diklatpim Tk I</option>
                                                 <option value="2">Diklatpim Tk II</option>
@@ -134,22 +134,25 @@
                                                 </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Angkatan</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Angkatan" type="number" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="angkatan" id="exampleEmail" placeholder="Angkatan" type="number" class="form-control" value=""></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Penyelenggara</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Penyelenggara" type="text" class="form-control" value=""></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>lokasi</b></label>
+                                                <div class="col-sm-10"><input name="lokasi" id="exampleEmail" placeholder="Penyelenggara" type="text" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal Mulai</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Tanggal Mulai" type="date" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="tanggal_mulai" id="exampleEmail" placeholder="Tanggal Mulai" type="date" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal Selesai</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Tanggal Selesai" type="date" class="form-control" value=""></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Lokasi</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Lokasi" type="date" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="tanggal_selesai" id="exampleEmail" placeholder="Tanggal Selesai" type="date" class="form-control" value=""></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Jumlah Jam</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Jumlah Jam" type="number" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="jumlah_jam" id="exampleEmail" placeholder="Jumlah Jam" type="number" class="form-control" value=""></div>          
+                                            </div>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Penyelenggara</b></label>
+                                                <div class="col-sm-10"><input name="penyelenggara" id="exampleEmail" placeholder="Penyelenggara" type="text" class="form-control" value=""></div>          
+                                            </div>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Predikat</b></label>
+                                                <div class="col-sm-10"><input name="predikat" id="exampleEmail" placeholder="Predikat" type="text" class="form-control" value=""></div>          
                                             </div>
                                             <!-- <div class="position-relative row form-group"><label for="exampleFile" class="col-sm-2 col-form-label"><b>Image</b></label>
                                                 <div class="col-sm-10"><input name="image" id="exampleFile" type="file" class="form-control-file  @error('image') is-invalid @enderror" value="{{ old('image')}}"><p class="text-danger">@error('image') {{$message}} @enderror</p>
