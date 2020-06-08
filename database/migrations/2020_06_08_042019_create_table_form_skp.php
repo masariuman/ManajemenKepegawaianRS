@@ -23,6 +23,7 @@ class CreateTableFormSkp extends Migration
             $table->string('kuant_output_2')->nullable();
             $table->string('kual_mutu')->nullable();
             $table->string('biaya')->nullable();
+            $table->enum('active',['1','0']);
             $table->timestamps();
         });
     }

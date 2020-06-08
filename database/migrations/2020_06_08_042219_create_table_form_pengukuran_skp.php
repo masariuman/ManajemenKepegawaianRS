@@ -44,6 +44,7 @@ class CreateTableFormPengukuranSkp extends Migration
             $table->string('total_nilai_capaian_skp_1')->nullable();
             $table->string('total_nilai_capaian_skp_2')->nullable();
             $table->string('total_nilai_capaian_skp_3')->nullable();
+            $table->enum('active',['1','0']);
             $table->timestamps();
         });
     }

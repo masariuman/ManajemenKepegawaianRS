@@ -50,6 +50,7 @@ class Pegawai extends Model
         'ruangan_id',
         'active',
         'user_id',
+        'active',
         'created_at',
         'updated_at'
     ];

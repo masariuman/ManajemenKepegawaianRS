@@ -19,6 +19,7 @@ class PendidikanFormal extends Model
         'tempat_belajar',
         'lokasi',
         'nomor_ijazah',
+        'active',
         'created_at',
         'updated_at'
     ];

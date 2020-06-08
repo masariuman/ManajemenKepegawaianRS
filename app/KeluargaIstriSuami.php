@@ -17,6 +17,7 @@ class KeluargaIstriSuami extends Model
         'tanggal_lahir',
         'jenis_kelamin',
         'kondisi',
+        'active',
         'created_at',
         'updated_at'
     ];

@@ -17,6 +17,7 @@ class JabatanFungsional extends Model
         'nomor_sk',
         'tanggal_sk',
         'penjabat_penandatangan_sk',
+        'active',
         'created_at',
         'updated_at'
     ];
