@@ -7,9 +7,13 @@ use App\Dasar;
 use App\Pegawai;
 use App\Telepon;
 
-
-class DasarPegawaiController extends Controller
+class dasarPegawaiController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $pegawai = Pegawai::get();
