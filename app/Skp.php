@@ -31,4 +31,24 @@ class Skp extends Model
     {
         return $this->belongsTo('App\Pegawai', 'pegawai_id');
     }
+
+    public function formSkp()
+    {
+        return $this->hasMany('App\FormSkp', 'skp_id');
+    }
+
+    public function penilaianSkp()
+    {
+        return $this->hasMany('App\PenilaianSkp', 'skp_id');
+    }
+
+    public function pengukuranSkp()
+    {
+        return $this->hasMany('App\PengukuranSkp', 'skp_id');
+    }
+
+    public function perilakuKerjaSkp()
+    {
+        return $this->hasMany('App\PerilakuKerjaSkp', 'skp_id');
+    }
 }
