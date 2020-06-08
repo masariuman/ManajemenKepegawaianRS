@@ -10,6 +10,7 @@ class Ruangan extends Model
     protected $table = 'ruangan';
     protected $fillable = [
         'ruangan',
+        'active',
         'created_at',
         'updated_at'
     ];

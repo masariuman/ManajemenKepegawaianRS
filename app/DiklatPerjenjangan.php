@@ -19,6 +19,7 @@ class DiklatPerjenjangan extends Model
         'jumlah_jam',
         'penyelenggara',
         'predikat',
+        'active',
         'created_at',
         'updated_at'
     ];

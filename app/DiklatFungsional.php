@@ -18,6 +18,7 @@ class DiklatFungsional extends Model
         'tanggal_selesai',
         'jumlah_jam',
         'penyelenggara',
+        'active',
         'created_at',
         'updated_at'
     ];

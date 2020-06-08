@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\PendidikanFormal;
 use App\Pegawai;
 
-class riwayatPendidikanFormalController extends Controller
+
+class RiwayatPendidikanFormalController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -136,5 +139,6 @@ class riwayatPendidikanFormalController extends Controller
         \Session::flash('Berhasil', 'Data riwayat pendidikan formal berhasil dihapus');
 
         return back();
+
     }
 }

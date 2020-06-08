@@ -18,6 +18,7 @@ class Organisasi extends Model
         'tanggal_selesai',
         'nomor_sk',
         'jabatan_pembuat_sk',
+        'active',
         'created_at',
         'updated_at'
     ];

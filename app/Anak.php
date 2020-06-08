@@ -18,6 +18,7 @@ class Anak extends Model
         'status_anak',
         'pendidikan',
         'pekerjaan',
+        'active',
         'created_at',
         'updated_at'
     ];

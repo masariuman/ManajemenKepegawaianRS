@@ -24,6 +24,7 @@ class CreateTableFormPerilakuKerjaSkp extends Migration
             $table->string('kepemimpinan')->nullable();
             $table->string('jumlah')->nullable();
             $table->string('rata-rata')->nullable();
+            $table->enum('active',['1','0']);
             $table->timestamps();
         });
     }

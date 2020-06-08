@@ -17,6 +17,7 @@ class Seminar extends Model
         'penyelenggara',
         'tahun_seminar',
         'kedudukan_dalam_seminar',
+        'active',
         'created_at',
         'updated_at'
     ];

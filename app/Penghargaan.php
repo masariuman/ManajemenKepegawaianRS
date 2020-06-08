@@ -16,6 +16,7 @@ class Penghargaan extends Model
         'nomor',
         'pemberi',
         'jabatan_pemberi',
+        'active',
         'created_at',
         'updated_at'
     ];

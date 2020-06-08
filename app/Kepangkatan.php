@@ -16,6 +16,7 @@ class Kepangkatan extends Model
         'pejabat_penandatangan_sk',
         'nomor_sk',
         'tanggal_sk',
+        'active',
         'created_at',
         'updated_at'
     ];

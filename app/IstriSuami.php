@@ -18,6 +18,7 @@ class IstriSuami extends Model
         'tingkat_pendidikan',
         'pekerjaan',
         'status_suami_istri',
+        'active',
         'created_at',
         'updated_at'
     ];
