@@ -11,6 +11,7 @@ class Telepon extends Model
     protected $fillable = [
         'pegawai_id',
         'telepon',
+        'active',
         'created_at',
         'updated_at'
     ];

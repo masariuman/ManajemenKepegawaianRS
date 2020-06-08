@@ -48,6 +48,7 @@ class Dasar extends Model
         'rkk',
         'masa_rkk',
         'ruangan_id',
+        'active',
         'created_at',
         'updated_at'
     ];
