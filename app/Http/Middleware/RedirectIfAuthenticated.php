@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Providers\RouteServiceProvider;
 use Closure;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 
 class RedirectIfAuthenticated
@@ -19,23 +20,21 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            if(auth()->user()->level == 'TU') {
-                return redirect('/manage/dashboard');
+            if(auth()->user()->level == 'TU' && auth()->user()->active == 1) {
+                return redirect('/admin');
             }
-            if(auth()->user()->level == 'PEGAWAI' && auth()->user()->status == 'ACTIVE') {
-                return redirect('/guru');
+            else if(auth()->user()->level == 'PEGAWAI' && auth()->user()->active == 1) {
+                return redirect('/');
             }
-            if(auth()->user()->level == 'ADMIN' && auth()->user()->status != 'ACTIVE'){
+            else if(auth()->user()->level == 'ADMIN' && auth()->user()->active == 1) {
+                return redirect('/it');
+            }
+            else {
                 Auth::logout();
                 Session::flush();
                 return redirect(url('login'))->withInput()->with('not_active','Akun anda belum aktif, Hubungi admin untuk aktivasi');
             }
         }
         return $next($request);
-        // if (Auth::guard($guard)->check()) {
-        //     return redirect(RouteServiceProvider::HOME);
-        // }
-
-        // return $next($request);
     }
 }
