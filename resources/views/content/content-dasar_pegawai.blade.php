@@ -126,46 +126,48 @@
                                         </button>
                                         @foreach($pegawai as $key => $pegawais)
                                         <ul class="list-group">
-                                                    <li class="list-group-item">Eselon 1 : {{$pegawais->eselon_1}}</li>
-                                                    <li class="list-group-item">Eselon 2 : {{$pegawais->eselon_2}}</li>
-                                                    <li class="list-group-item">Eselon 3 : {{$pegawais->eselon_3}}</li>
-                                                    <li class="list-group-item">Eselon 4 : {{$pegawais->eselon_4}}</li>
-                                                    <li class="list-group-item">Nip Baru : {{$pegawais->nip_baru}}</li>
-                                                    <li class="list-group-item">Nip Lama : {{$pegawais->nip_lama}}</li>
-                                                    <li class="list-group-item">Nama Pegawai : {{$pegawais->nama_pegawai}}</li>
-                                                    <li class="list-group-item">Gelar Depan : {{$pegawais->gelar_depan}}</li>
-                                                    <li class="list-group-item">Gelar Belakang : {{$pegawais->gelar_belakang}}</li>
-                                                    <li class="list-group-item">Tempat Lahir : {{$pegawais->tempat_lahir}}</li>                                                   
-                                                    <li class="list-group-item">Tanggal Lahir : {{ date('d/m/Y',strtotime($pegawais->tanggal_lahir)) }}</li>
-                                                    <li class="list-group-item">Jenis Kelamin : {{$pegawais->jenis_kelamin}}</li>
-                                                    <li class="list-group-item">Status Keluarga : {{$pegawais->status_keluarga}}</li>
-                                                    <li class="list-group-item">Agama : {{$pegawais->agama}}</li>
-                                                    <li class="list-group-item">Pendidikan Akhir : {{$pegawais->pendidikan_akhir}}</li>
-                                                    <li class="list-group-item">Nama Sekolah : {{$pegawais->nama_sekolah}}</li>
-                                                    <li class="list-group-item">Tahun Lulus : {{$pegawais->tahun_lulus}}</li>
-                                                    <li class="list-group-item">Jurusan / Prodi : {{$pegawais->jurusan_prodi}}</li>
-                                                    <li class="list-group-item">Status_kepegawaian : {{$pegawais->status_kepegawaian}}</li>
-                                                    <li class="list-group-item">Instansi Asal : {{$pegawais->instansi_asal}}</li>
-                                                    <li class="list-group-item">TMT CPNS : {{$pegawais->tmt_cpns}}</li>
-                                                    <li class="list-group-item">Golongan : {{$pegawais->golongan}}</li>
-                                                    <li class="list-group-item">TMT Golongan : {{ date('d/m/Y',strtotime($pegawais->tmt_golongan)) }}</li>
-                                                    <li class="list-group-item">Nama Jabatan : {{$pegawais->nama_jabatan}}</li>
-                                                    <li class="list-group-item">Nomor Karpeg : {{$pegawais->nomor_karpeg}}</li>
-                                                    <li class="list-group-item">Taspen : {{$pegawais->taspen}}</li>
-                                                    <li class="list-group-item">Nomor NPWP : {{$pegawais->nomor_npwp}}</li>
-                                                    <li class="list-group-item">Alamat Rumah : {{$pegawais->alamat_rumah}}</li>
-                                                    <li class="list-group-item">Kota : {{$pegawais->kota}}</li>
-                                                    <li class="list-group-item">Kode Pos : {{$pegawais->kode_pos}}</li>
-                                                    <li class="list-group-item">STR : {{$pegawais->str}}</li>
-                                                    <li class="list-group-item">Masa STR : {{ date('d/m/Y',strtotime($pegawais->masa_str)) }}</li>
-                                                    <li class="list-group-item">SIKP : {{$pegawais->sikp}}</li>
-                                                    <li class="list-group-item">Masa SIKP : {{ date('d/m/Y',strtotime($pegawais->masa_sikp)) }}</li>
-                                                    <li class="list-group-item">SPK : {{$pegawais->spk}}</li>
-                                                    <li class="list-group-item">Masa SPK : {{ date('d/m/Y',strtotime($pegawais->masa_spk)) }}</li>
-                                                    <li class="list-group-item">RKK : {{$pegawais->rkk}}</li>
-                                                    <li class="list-group-item">Masa RKK : {{ date('d/m/Y',strtotime($pegawais->masa_rkk)) }}</li>
+                                                    <li class="list-group-item"><b>Eselon 1 : {{$pegawais->eselon_1}}</b></li>
+                                                    <li class="list-group-item"><b>Eselon 2 : {{$pegawais->eselon_2}}</b></li>
+                                                    <li class="list-group-item"><b>Eselon 3 : {{$pegawais->eselon_3}}</b></li>
+                                                    <li class="list-group-item"><b>Eselon 4 : {{$pegawais->eselon_4}}</b></li>
+                                                    <li class="list-group-item"><b>Nip Baru : {{$pegawais->nip_baru}}</b></li>
+                                                    <li class="list-group-item"><b>Nip Lama : {{$pegawais->nip_lama}}</b></li>
+                                                    <li class="list-group-item"><b>Nama Pegawai : {{$pegawais->nama_pegawai}}</b></li>
+                                                    <li class="list-group-item"><b>Gelar Depan : {{$pegawais->gelar_depan}}</b></li>
+                                                    <li class="list-group-item"><b>Gelar Belakang : {{$pegawais->gelar_belakang}}</b></li>
+                                                    <li class="list-group-item"><b>Tempat Lahir : {{$pegawais->tempat_lahir}}</b></li>                                                   
+                                                    <li class="list-group-item"><b>Tanggal Lahir : {{ date('d/m/Y',strtotime($pegawais->tanggal_lahir)) }}</li>
+                                                    <li class="list-group-item"><b>Jenis Kelamin : {{$pegawais->jenis_kelamin}}</b></li>
+                                                    <li class="list-group-item"><b>Status Keluarga : {{$pegawais->status_keluarga}}</b></li>
+                                                    <li class="list-group-item"><b>Agama : {{$pegawais->agama}}</b></li>
+                                                    <li class="list-group-item"><b>Pendidikan Akhir : {{$pegawais->pendidikan_akhir}}</b></li>
+                                                    <li class="list-group-item"><b>Nama Sekolah : {{$pegawais->nama_sekolah}}</b></li>
+                                                    <li class="list-group-item"><b>Tahun Lulus : {{$pegawais->tahun_lulus}}</b></li>
+                                                    <li class="list-group-item"><b>Jurusan / Prodi : {{$pegawais->jurusan_prodi}}</b></li>
+                                                    <li class="list-group-item"><b>Status_kepegawaian : {{$pegawais->status_kepegawaian}}</b></li>
+                                                    <li class="list-group-item"><b>Instansi Asal : {{$pegawais->instansi_asal}}</b></li>
+                                                    <li class="list-group-item"><b>TMT CPNS : {{$pegawais->tmt_cpns}}</b></li>
+                                                    <li class="list-group-item"><b>Golongan : {{$pegawais->golongan}}</b></li>
+                                                    <li class="list-group-item"><b>TMT Golongan : {{ date('d/m/Y',strtotime($pegawais->tmt_golongan)) }}</b></li>
+                                                    <li class="list-group-item"><b>Nama Jabatan : {{$pegawais->nama_jabatan}}</b></li>
+                                                    <li class="list-group-item"><b>Nomor Karpeg : {{$pegawais->nomor_karpeg}}</b></li>
+                                                    <li class="list-group-item"><b>Taspen : {{$pegawais->taspen}}</b></li>
+                                                    <li class="list-group-item"><b>Nomor NPWP : {{$pegawais->nomor_npwp}}</b></li>
+                                                    <li class="list-group-item"><b>Alamat Rumah : {{$pegawais->alamat_rumah}}</b></li>
+                                                    <li class="list-group-item"><b>Kota : {{$pegawais->kota}}</b></li>
+                                                    <li class="list-group-item"><b>Kode Pos : {{$pegawais->kode_pos}}</b></li>
+                                                    <li class="list-group-item"><b>STR : {{$pegawais->str}}</b></li>
+                                                    <li class="list-group-item"><b>Masa STR : {{ date('d/m/Y',strtotime($pegawais->masa_str)) }}</b></li>
+                                                    <li class="list-group-item"><b>SIKP : {{$pegawais->sikp}}</b></li>
+                                                    <li class="list-group-item"><b>Masa SIKP : {{ date('d/m/Y',strtotime($pegawais->masa_sikp)) }}</b></li>
+                                                    <li class="list-group-item"><b>SPK : {{$pegawais->spk}}</b></li>
+                                                    <li class="list-group-item"><b>Masa SPK : {{ date('d/m/Y',strtotime($pegawais->masa_spk)) }}</b></li>
+                                                    <li class="list-group-item"><b>RKK : {{$pegawais->rkk}}</b></li>
+                                                    <li class="list-group-item"><b>Masa RKK : {{ date('d/m/Y',strtotime($pegawais->masa_rkk)) }}</b></li>
                                         </ul>
                                         @endforeach
+
+                                        
                                         <table class="mb-0 table" id="table">
                                             <thead>
                                             <tr>
