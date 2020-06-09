@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -146,6 +147,13 @@ Route::resource('riwayat_pekerjaan-jabatan', 'riwayatJabatanTeknisController');
 
 
 Route::group(['prefix' => 'admin', 'middleware'=>['auth','checkRole:TU']], function () {
+    Route::resource('/','adminDashboardController');
+});
+
+
+
+
+Route::group(['prefix' => 'it', 'middleware'=>['auth','checkRole:ADMIN']], function () {
     Route::resource('/','adminDashboardController');
 });
 

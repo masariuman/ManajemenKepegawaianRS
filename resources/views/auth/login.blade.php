@@ -52,18 +52,40 @@
                 <span class="login100-form-title p-b-43">
                     MASUK | LOGIN
                 </span>
-
-                @include('pesan')
+                @if(session('not_active'))
+                <!-- Success Alert -->
+                    <div class="alert alert-danger alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h4 style="text-align: center;"><strong><i class="hi hi-check"></i>AKUN ANDA BELUM AKTIF</strong></h4>
+                        <p style="text-align: center;">{{ session('not_active') }}</p>
+                    </div>
+                <!-- END Success Alert -->
+                {{session()->forget('new')}}
+                @endif
+                @error('email')
+                    <div class="alert alert-danger alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h4 style="text-align: center;"><strong><i class="hi hi-check"></i>EMAIL / PASSWORD SALAH</strong></h4>
+                        <p style="text-align: center;">Silahkan Hubungi Admin Apabila Lupa Cara Login.</p>
+                    </div>
+                @enderror
+                @error('password')
+                    <div class="alert alert-danger alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h4 style="text-align: center;"><strong><i class="hi hi-check"></i>EMAIL / PASSWORD SALAH</strong></h4>
+                        <p style="text-align: center;">Silahkan Hubungi Admin Apabila Lupa Cara Login.</p>
+                    </div>
+                @enderror
                 <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 
-                    <input class="input100" type="text" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    <input class="input100" type="text" id="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                     <span class="focus-input100"></span>
                     <span class="label-input100">Email</span>
                 </div>
 
 
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <input class="input100" type="password" name="password" required autocomplete="current-password">
+                    <input class="input100" type="password" id="password" name="password" required autocomplete="current-password">
                     <span class="focus-input100"></span>
                     <span class="label-input100">Password</span>
                 </div>
