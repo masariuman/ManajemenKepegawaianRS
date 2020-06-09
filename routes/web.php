@@ -140,11 +140,9 @@ Route::group(['middleware'=>['auth','checkRole:PEGAWAI']], function () {
     Route::get('/keluarga_istri-suami/{id}/ubah', 'keluargaIstriSuamiController@edit');
     Route::patch('/keluarga_istri-suami/update/{id}', 'keluargaIstriSuamiController@update');
     Route::delete('/keluarga_istri-suami/delete', 'keluargaIstriSuamiController@delete');
+
+    Route::resource('riwayat_pekerjaan-jabatan', 'riwayatJabatanTeknisController');
 });
-
-Route::resource('riwayat_pekerjaan-jabatan', 'riwayatJabatanTeknisController');
-
-
 
 Route::group(['prefix' => 'admin', 'middleware'=>['auth','checkRole:TU']], function () {
     Route::resource('/','adminDashboardController');

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Kepangkatan;
+use App\Pegawai;
 
 class riwayatKepangkatanController extends Controller
 {
@@ -35,7 +37,27 @@ class riwayatKepangkatanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pegawai_id = Pegawai::max('id');
+
+        $pendidikan_formal = Kepangkatan::insert([
+            'tahun' => $request->input('tahun', 2019),
+            'pegawai_id' => $pegawai_id,
+            'golo' => $request->jenis_diklat,
+            'angkatan' => $request->angkatan,
+            'lokasi' => $request->lokasi,
+            'tanggal_mulai' => $request->tanggal_mulai,
+            'tanggal_selesai' => $request->tanggal_selesai,
+            'jumlah_jam' => $request->jumlah_jam,
+            'penyelenggara' => $request->lokasi,
+            'predikat' => $request->predikat,
+            'active' => $request->input('active', 1),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        \Session::flash('Berhasil', 'Data diklat perjenjangan struktural berhasil ditambahkan');
+
+        return back();
     }
 
     /**

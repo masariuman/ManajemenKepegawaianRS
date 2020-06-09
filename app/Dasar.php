@@ -32,6 +32,8 @@ class Dasar extends Model
         'status_kepegawaian',
         'instansi_asal',
         'tmt_cpns',
+        'golongan',
+        'tmt_golongan',
         'nama_jabatan',
         'nomor_karpeg',
         'taspen',
