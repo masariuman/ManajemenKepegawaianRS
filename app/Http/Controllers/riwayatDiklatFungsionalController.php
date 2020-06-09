@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\DiklatFungsional;
+use App\Pegawai;
 
 class riwayatDiklatFungsionalController extends Controller
 {
@@ -14,8 +15,9 @@ class riwayatDiklatFungsionalController extends Controller
      */
     public function index()
     {
-        //
-        return view('riwayat_diklat_fungsional');
+        $riwayat_diklat_fungsional = DiklatFungsional::get();
+    
+        return view('riwayat_diklat_fungsional', compact('riwayat_diklat_fungsional'));
     }
 
     /**

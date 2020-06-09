@@ -79,17 +79,25 @@
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        Admin
+                                
+                                       {{ auth()->user()->name }}
+                                       
                                     </div>
                                     <div class="widget-subheading">
-                                        Admin
+                                    @if(auth()->user()->level == 'PEGAWAI')
+                                       PEGAWAI
+                                    @elseif(auth()->user()->level == 'TU')
+                                       TU
+                                    @elseif(auth()->user()->level == 'ADMIN')
+                                       ADMIN
+                                    @endif   
                                     </div>
                                 </div>
                                 <div class="widget-content-right header-user-info ml-3">
                                     <form action="{{ route('logout') }}" method="POST">
                                         @csrf
-                                        <button type="submit" class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
-                                            <i class="fa text-white fa-calendar pr-1 pl-1"></i>
+                                        <button type="submit" class="btn-shadow p-1 btn btn-light btn-sm">
+                                            <i class="fa text-dark fa-power-off pr-1 pl-1"></i> Logout &nbsp;
                                         </button>
                                     </form>
                                 </div>

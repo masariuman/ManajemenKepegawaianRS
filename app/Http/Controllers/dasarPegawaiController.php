@@ -17,7 +17,9 @@ class dasarPegawaiController extends Controller
     public function index()
     {
         $pegawai = Pegawai::get();
+        
         $dasar_pegawai = Dasar::get();
+
         $data_telepon = Telepon::get();
         
         return view('dasar_pegawai', compact(['pegawai', 'dasar_pegawai', 'data_telepon']));
@@ -86,7 +88,7 @@ class dasarPegawaiController extends Controller
             'masa_rkk' => $request->masa_rkk,
             'ruangan_id' => $request->input('ruangan', 1),
             'active' => $request->input('active', 1),
-            'user_id' => $request->input('user_id', 1),
+            'user_id' => auth()->user()->id,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
 
@@ -225,7 +227,7 @@ class dasarPegawaiController extends Controller
             'masa_rkk' => $request->masa_rkk,
             'ruangan_id' => $request->input('ruangan', 1),
             'active' => $request->input('active', 1),
-            'user_id' => $request->input('user_id', 1),
+            'user_id' => auth()->user()->id,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
 

@@ -24,24 +24,24 @@ use Illuminate\Support\Facades\Auth;
 Route::group(['middleware'=>['auth','checkRole:PEGAWAI']], function () {
     Route::get('/', 'dasarPegawaiController@index')->name('dasar_pegawai');
     Route::get('/dasar_pegawai/baru', 'dasarPegawaiController@create');
-    Route::post('/dasar_pegawai/tambah', 'dasarPegawaiController@store');
+    Route::post('/dasar_pegawai/tambah', 'dasarPegawaiController@store')->name('dasar_pegawai_tambah');
     Route::get('/dasar_pegawai/{id}/ubah', 'dasarPegawaiController@edit');
     Route::patch('/dasar_pegawai/update/{id}', 'dasarPegawaiController@update');
-    Route::delete('/dasar_pegawai/delete', 'dasarPegawaiController@delete');
+    Route::delete('/dasar_pegawai/delete', 'dasarPegawaiController@destroy');
 
     Route::get('/riwayat_pendidikan_formal', 'riwayatPendidikanFormalController@index')->name('riwayat_pendidikan_formal');
     Route::get('/riwayat_pendidikan_formal/baru', 'riwayatPendidikanFormalController@create');
     Route::post('/riwayat_pendidikan_formal/tambah', 'riwayatPendidikanFormalController@store')->name('riwayat_pendidikan_formal_tambah');
     Route::get('/riwayat_pendidikan_formal/{id}/ubah', 'riwayatPendidikanFormalController@edit');
     Route::patch('/riwayat_pendidikan_formal/update/{id}', 'riwayatPendidikanFormalController@update');
-    Route::delete('/riwayat_pendidikan_formal/delete', 'riwayatPendidikanFormalController@delete');
+    Route::delete('/riwayat_pendidikan_formal/delete', 'riwayatPendidikanFormalController@destroy');
 
     Route::get('/riwayat_diklat_fungsional', 'riwayatDiklatFungsionalController@index')->name('riwayat_diklat_fungsional');
     Route::get('/riwayat_diklat_fungsional/baru', 'riwayatDiklatFungsionalController@create');
-    Route::post('/riwayat_diklat_fungsional/tambah', 'riwayatDiklatFungsionalController@store');
+    Route::post('/riwayat_diklat_fungsional/tambah', 'riwayatDiklatFungsionalController@store')->name('riwayat_diklat_fungsional_tambah');
     Route::get('/riwayat_diklat_fungsional/{id}/ubah', 'riwayatDiklatFungsionalController@edit');
     Route::patch('/riwayat_diklat_fungsional/update/{id}', 'riwayatDiklatFungsionalController@update');
-    Route::delete('/riwayat_diklat_fungsional/delete', 'riwayatDiklatFungsionalController@delete');
+    Route::delete('/riwayat_diklat_fungsional/delete', 'riwayatDiklatFungsionalController@destroy');
 
     Route::get('/riwayat_diklat_teknis', 'riwayatDiklatTeknisController@index')->name('riwayat_diklat_teknis');
     Route::get('/riwayat_diklat_teknis/baru', 'riwayatDiklatTeknisController@create');
