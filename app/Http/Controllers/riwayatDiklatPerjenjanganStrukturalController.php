@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pegawai;
-use App\DiklatPerjenjangan;
+use App\DiklatPenjenjangan;
 
 class riwayatDiklatPerjenjanganStrukturalController extends Controller
 {
@@ -15,8 +15,9 @@ class riwayatDiklatPerjenjanganStrukturalController extends Controller
      */
     public function index()
     {
-        //
-        return view('riwayat_diklat_penjenjangan-struktural');
+        $riwayat_diklat_penjenjangan_struktural = DiklatPenjenjangan::get();
+        
+        return view('riwayat_diklat_penjenjangan-struktural', compact('riwayat_diklat_penjenjangan_struktural'));
     }
 
     /**
@@ -48,7 +49,7 @@ class riwayatDiklatPerjenjanganStrukturalController extends Controller
             'tanggal_mulai' => $request->tanggal_mulai,
             'tanggal_selesai' => $request->tanggal_selesai,
             'jumlah_jam' => $request->jumlah_jam,
-            'penyelenggara' => $request->lokasi,
+            'penyelenggara' => $request->penyelenggara,
             'predikat' => $request->predikat,
             'active' => $request->input('active', 1),
             'created_at' => \Carbon\Carbon::now(),
@@ -91,7 +92,27 @@ class riwayatDiklatPerjenjanganStrukturalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pegawai_id = Pegawai::max('id');
+
+        $pendidikan_formal = DiklatPerjenjangan::where('id', $id)->update([
+            'tahun' => $request->input('tahun', 2019),
+            'pegawai_id' => $pegawai_id,
+            'jenis_diklat' => $request->jenis_diklat,
+            'angkatan' => $request->angkatan,
+            'lokasi' => $request->lokasi,
+            'tanggal_mulai' => $request->tanggal_mulai,
+            'tanggal_selesai' => $request->tanggal_selesai,
+            'jumlah_jam' => $request->jumlah_jam,
+            'penyelenggara' => $request->penyelenggara,
+            'predikat' => $request->predikat,
+            'active' => $request->input('active', 1),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        \Session::flash('Berhasil', 'Data diklat perjenjangan struktural berhasil diubah');
+
+        return back();
     }
 
     /**
@@ -102,6 +123,10 @@ class riwayatDiklatPerjenjanganStrukturalController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pendidikan_formal = DiklatPerjenjangan::where('id', $id)->delete();
+
+        \Session::flash('Berhasil', 'Data diklat perjenjangan struktural berhasil dihapus');
+
+        return back();
     }
 }

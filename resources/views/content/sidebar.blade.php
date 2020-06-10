@@ -58,7 +58,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{route('riwayat_diklat_penjenjangan-struktural')}}" class="{{ Request::is('riwayat_diklat_penjenjangan-struktural') ? 'mm-active' : '' }}">
+                                        <a href="{{route('riwayat_diklat_penjenjangan_struktural')}}" class="{{ Request::is('riwayat_diklat_penjenjangan_struktural') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>
                                             RD Penjenjangan / Struktural
                                         </a>

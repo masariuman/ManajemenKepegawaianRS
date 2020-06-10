@@ -142,6 +142,7 @@
                                             <tbody>
 
                                             @foreach($riwayat_diklat_fungsional as $key => $riwayat_diklat_fungsionals)
+                                            @if(auth()->user()->id == $riwayat_diklat_fungsionals->pegawai_id)
                                             <tr>
                                                 <th scope="row">{{++$key}}</th>
                                                 <td>{{$riwayat_diklat_fungsionals->tahun}}</td>
@@ -161,6 +162,7 @@
                                                     </button>||&nbsp;
                                               </td>
                                             </tr>
+                                            @endif
                                             @endforeach
                                             </tbody>
                                         </table>

@@ -122,9 +122,25 @@
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-1" role="tabpanel">
                                 <div class="main-card mb-3 card">
                                     <div class="card-body"><h5 class="card-title">Masukan Data Dasar Pegawai</h5>
+                                
+                                         
+
+
                                         <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeTambah"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah
                                         </button>
+                                 
+
                                         @foreach($pegawai as $key => $pegawais)
+                                        @if(auth()->user()->id == $pegawais->user_id)
+                                                <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeUbah-{{$pegawais->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah
+                                                </button>
+
+                                                @if(auth()->user()->level == 'ADMIN')
+                                                <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target=".bd-example-modal-sm-delete-{{$pegawais->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus
+                                                </button>
+                                                <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeHistory-{{$pegawais->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use history"></i> History
+                                                </button>
+                                                @endif           
                                         <ul class="list-group">
                                                     <li class="list-group-item"><b>Eselon 1 : {{$pegawais->eselon_1}}</b></li>
                                                     <li class="list-group-item"><b>Eselon 2 : {{$pegawais->eselon_2}}</b></li>
@@ -165,6 +181,7 @@
                                                     <li class="list-group-item"><b>RKK : {{$pegawais->rkk}}</b></li>
                                                     <li class="list-group-item"><b>Masa RKK : {{ date('d/m/Y',strtotime($pegawais->masa_rkk)) }}</b></li>
                                         </ul>
+                                        @endif
                                         @endforeach
 
                                         
@@ -180,6 +197,7 @@
                                             <tbody>
 
                                             @foreach($pegawai as $key => $pegawais)
+                                            @if(auth()->user()->id == $pegawais->user_id)
                                             <tr>
                                                 <th scope="row">{{++$key}}</th>
                                                 <td>{{$pegawais->nip_baru}}</td>
@@ -195,6 +213,7 @@
                                                     </button>
                                               </td>
                                             </tr>
+                                            @endif
                                             @endforeach
                                             </tbody>
                                         </table>
