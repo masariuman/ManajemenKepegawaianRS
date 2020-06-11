@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pegawai;
+use App\IstriSuami;
 
 class istriSuamiController extends Controller
 {
@@ -13,8 +15,9 @@ class istriSuamiController extends Controller
      */
     public function index()
     {
-        //
-        return view('istri-suami');
+        $istri_suami = IstriSuami::get();
+
+        return view('istri_suami', compact('istri_suami'));
     }
 
     /**
@@ -35,7 +38,25 @@ class istriSuamiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pegawai = Pegawai::max('id');
+
+        $istri_suami = IstriSuami::insert([
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id,
+            'nomor_karis_karsu' => $request->nomor_karis_karsu,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'tanggal_nikah' => $request->tanggal_nikah,
+            'tingat_pendidikan' => $request->tingat_pendidikan,
+            'pekerjaan' => $request->pekerjaan,
+            'status_suami_istri' => $request->status_suami_istri,
+            'active' => $request->input('active', 1),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        \Session::flash('Berhasil', 'Data istri suami berhasil ditambahkan');
+
+        return back();
     }
 
     /**
@@ -69,7 +90,25 @@ class istriSuamiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pegawai = Pegawai::max('id');
+
+        $istri_suami = IstriSuami::where('id', $id)->update([
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id,
+            'nomor_karis_karsu' => $request->nomor_karis_karsu,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'tanggal_nikah' => $request->tanggal_nikah,
+            'tingat_pendidikan' => $request->tingat_pendidikan,
+            'pekerjaan' => $request->pekerjaan,
+            'status_suami_istri' => $request->status_suami_istri,
+            'active' => $request->input('active', 1),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        \Session::flash('Berhasil', 'Data istri suami berhasil diubah');
+
+        return back();
     }
 
     /**
@@ -80,6 +119,10 @@ class istriSuamiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $istri_suami = IstriSuami::where('id', $id)->delete();
+
+        \Session::flash('Berhasil', 'Data istri suami berhasil dihapus');
+
+        return back();
     }
 }

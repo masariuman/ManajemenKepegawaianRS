@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pegawai;
+use App\Penghargaan;
 
 class penghargaanController extends Controller
 {
@@ -13,8 +15,9 @@ class penghargaanController extends Controller
      */
     public function index()
     {
-        //
-        return view('tanda_jasa-penghargaan');
+        $tanda_jasa_penghargaan = Penghargaan::get();
+
+        return view('tanda_jasa_penghargaan', compact('tanda_jasa_penghargaan'));
     }
 
     /**
@@ -35,7 +38,24 @@ class penghargaanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pegawai = Pegawai::max('id');
+
+        $tanda_jasa_penghargaan = Penghargaan::insert([
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id,
+            'nama_penghargaan' => $request->nama_penghargaan,
+            'tanggal_peroleh' => $request->tanggal_peroleh,
+            'nomor' => $request->nomor,
+            'pemberi' => $request->pemberi,
+            'jabatan_pemberi' => $request->jabatan_pemberi,
+            'active' => $request->input('active', 1),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        \Session::flash('Berhasil', 'Data tanda jasa / penghargaan berhasil ditambahkan');
+
+        return back();
     }
 
     /**
@@ -69,7 +89,24 @@ class penghargaanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pegawai = Pegawai::max('id');
+
+        $tanda_jasa_penghargaan = Penghargaan::where('id', $id)->update([
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id,
+            'nama_penghargaan' => $request->nama_penghargaan,
+            'tanggal_peroleh' => $request->tanggal_peroleh,
+            'nomor' => $request->nomor,
+            'pemberi' => $request->pemberi,
+            'jabatan_pemberi' => $request->jabatan_pemberi,
+            'active' => $request->input('active', 1),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        \Session::flash('Berhasil', 'Data tanda jasa / penghargaan berhasil diubah');
+
+        return back();
     }
 
     /**
@@ -80,6 +117,10 @@ class penghargaanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tanda_jasa_penghargaan = Penghargaan::where('id', $id)->delete();
+   
+        \Session::flash('Berhasil', 'Data tanda jasa / penghargaan berhasil dihapus');
+
+        return back();    
     }
 }

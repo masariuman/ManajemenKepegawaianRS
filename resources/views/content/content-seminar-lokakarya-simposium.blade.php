@@ -132,7 +132,7 @@
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Tempat Kegiatan</b></label>
                                                 <div class="col-sm-10"><select name="select" id="exampleSelect" class="form-control">
-                                                <option value="" disabled selected>-Pilih Status Anak-</option>
+                                                <option value="" disabled selected>-Pilih Tempat Kegiatan-</option>
                                                 <option value="1">Dalam Negeri</option>
                                                 <option value="2">Luar Negeri</option>
                                                 </select></div>

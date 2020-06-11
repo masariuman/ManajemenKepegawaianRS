@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pegawai;
+use App\Hukuman;
 
 class hukumanController extends Controller
 {
@@ -13,8 +15,9 @@ class hukumanController extends Controller
      */
     public function index()
     {
-        //
-        return view('hukum_disiplin');
+        $hukum_disiplin = Hukuman::get();
+
+        return view('hukum_disiplin', compact('hukuman'));
     }
 
     /**
@@ -35,7 +38,24 @@ class hukumanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pegawai = Pegawai::max('id');
+
+        $hukum_disiplin = Hukuman::insert([
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id,
+            'kode_hukuman' => $request->kode_hukuman,
+            'nomor_sk' => $request->nomor_sk,
+            'tanggal_sk' => $request->tanggal_sk,
+            'tmt_berlaku' => $request->tmt_berlaku,
+            'penjabat_pembuat_sk' => $request->penjabat_pembuat_sk,
+            'active' => $request->input('active', 1),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        \Session::flash('Berhasil', 'Data hukuman disiplin berhasil ditambahkan');
+
+        return back();
     }
 
     /**
@@ -69,7 +89,24 @@ class hukumanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pegawai = Pegawai::max('id');
+
+        $hukum_disiplin = Hukuman::where('id', $id)->update([
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id,
+            'kode_hukuman' => $request->kode_hukuman,
+            'nomor_sk' => $request->nomor_sk,
+            'tanggal_sk' => $request->tanggal_sk,
+            'tmt_berlaku' => $request->tmt_berlaku,
+            'penjabat_pembuat_sk' => $request->penjabat_pembuat_sk,
+            'active' => $request->input('active', 1),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        \Session::flash('Berhasil', 'Data hukuman disiplin berhasil diubah');
+
+        return back();
     }
 
     /**
@@ -80,6 +117,10 @@ class hukumanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $hukum_disiplin = Hukuman::where('id', $id)->delete();
+        
+        \Session::flash('Berhasil', 'Data hukuman disiplin berhasil dihapus');
+
+        return back();
     }
 }
