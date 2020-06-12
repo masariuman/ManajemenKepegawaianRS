@@ -16,9 +16,9 @@ class riwayatPendidikanFormalController extends Controller
     public function index()
     {
         $riwayat_pendidikan_formal = PendidikanFormal::get();
-    
+
         // return $pendidikan_formal;
-      
+
         return view('riwayat_pendidikan_formal', compact('riwayat_pendidikan_formal'));
     }
 
@@ -29,7 +29,7 @@ class riwayatPendidikanFormalController extends Controller
      */
     public function create()
     {
- 
+
     }
 
     /**
@@ -64,7 +64,7 @@ class riwayatPendidikanFormalController extends Controller
         \Session::flash('Berhasil', 'Data riwayat pendidikan formal berhasil ditambahkan');
 
         return back();
-       
+
     }
 
     /**

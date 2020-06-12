@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Setting;
 
 class adminSettingController extends Controller
 {
@@ -14,7 +15,8 @@ class adminSettingController extends Controller
     public function index()
     {
         //
-        return view('admin/setting/index');
+        $data['setting'] = Setting::findOrFail(1);
+        return view('admin/setting/index',$data);
     }
 
     /**
@@ -70,6 +72,11 @@ class adminSettingController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $setting = Setting::findOrFail(1);
+        $setting->update(['tahun' => $request->tahun]);
+
+        $data['setting'] = Setting::findOrFail(1);
+        return view('admin/setting/index',$data);
     }
 
     /**
