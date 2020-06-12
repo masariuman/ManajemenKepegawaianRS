@@ -18,7 +18,7 @@ class seminarController extends Controller
     {
         $seminar_lokakarya_simposium = Seminar::get();
 
-        return view('seminar_lokakarya_simposium', compact('seminar_lokakarya_simposium'));
+        return view('seminar-lokakarya-simposium', compact('seminar_lokakarya_simposium'));
     }
 
     /**
@@ -39,7 +39,7 @@ class seminarController extends Controller
      */
     public function store(Request $request)
     {
-        $pegawai = Pegawai::max('id');
+        $pegawai_id = Pegawai::max('id');
 
         $seminar_lokakarya_simposium = Seminar::insert([
             'tahun' => $request->input('tahun', 2020),
@@ -91,7 +91,7 @@ class seminarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pegawai = Pegawai::max('id');
+        $pegawai_id = Pegawai::max('id');
 
         $seminar_lokakarya_simposium = Seminar::where('id', $id)->update([
             'tahun' => $request->input('tahun', 2020),

@@ -43,7 +43,7 @@ class riwayatKepangkatanController extends Controller
         $riwayat_kepangkatan = Kepangkatan::insert([
             'tahun' => $request->input('tahun', 2020),
             'pegawai_id' => $pegawai_id,
-            'gologan' => $request->gologan,
+            'golongan' => $request->golongan,
             'tmt_golongan' => $request->tmt_golongan,
             'pejabat_penandatangan_sk' => $request->pejabat_penandatangan_sk,
             'nomor_sk' => $request->nomor_sk,
@@ -94,7 +94,7 @@ class riwayatKepangkatanController extends Controller
         $riwayat_kepangkatan = Kepangkatan::where('id', $id)->update([
             'tahun' => $request->input('tahun', 2020),
             'pegawai_id' => $pegawai_id,
-            'gologan' => $request->gologan,
+            'golongan' => $request->golongan,
             'tmt_golongan' => $request->tmt_golongan,
             'pejabat_penandatangan_sk' => $request->pejabat_penandatangan_sk,
             'nomor_sk' => $request->nomor_sk,

@@ -19,6 +19,7 @@ class JabatanTeknis extends Model
         'tanggal_sk',
         'nip_penjabat_penandatangan_sk',
         'nip_lama_penjabat_penandatangan_sk',
+        'pejabat_penandatangan_sk',
         'active',
         'created_at',
         'updated_at'

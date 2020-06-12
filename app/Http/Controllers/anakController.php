@@ -37,7 +37,7 @@ class anakController extends Controller
      */
     public function store(Request $request)
     {
-        $pegawai = Pegawai::max('id');
+        $pegawai_id = Pegawai::max('id');
 
         $istri_suami = Anak::insert([
             'tahun' => $request->input('tahun', 2020),
@@ -90,7 +90,7 @@ class anakController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pegawai = Pegawai::max('id');
+        $pegawai_id = Pegawai::max('id');
 
         $istri_suami = Anak::where('id', $id)->update([
             'tahun' => $request->input('tahun', 2020),

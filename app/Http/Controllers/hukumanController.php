@@ -17,7 +17,7 @@ class hukumanController extends Controller
     {
         $hukum_disiplin = Hukuman::get();
 
-        return view('hukum_disiplin', compact('hukuman'));
+        return view('hukum_disiplin', compact('hukum_disiplin'));
     }
 
     /**
@@ -38,7 +38,7 @@ class hukumanController extends Controller
      */
     public function store(Request $request)
     {
-        $pegawai = Pegawai::max('id');
+        $pegawai_id = Pegawai::max('id');
 
         $hukum_disiplin = Hukuman::insert([
             'tahun' => $request->input('tahun', 2020),

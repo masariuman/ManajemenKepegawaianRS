@@ -15,9 +15,9 @@ class keluargaIstriSuamiController extends Controller
      */
     public function index()
     {
-        $keluarga_kandung = KeluargaIstriSuami::get();
+        $keluarga_istri_suami = KeluargaIstriSuami::get();
        
-        return view('keluarga_istri_suami', compact('keluarga_kandung'));
+        return view('keluarga_istri-suami', compact('keluarga_istri_suami'));
     }
 
     /**
@@ -38,9 +38,9 @@ class keluargaIstriSuamiController extends Controller
      */
     public function store(Request $request)
     {
-        $pegawai = Pegawai::max('id');
+        $pegawai_id = Pegawai::max('id');
 
-        $keluarga_kandung = KeluargaIstriSuami::insert([
+        $keluarga_istri_suami = KeluargaIstriSuami::insert([
             'tahun' => $request->input('tahun', 2020),
             'pegawai_id' => $pegawai_id,
             'nama' => $request->nama,
@@ -92,7 +92,7 @@ class keluargaIstriSuamiController extends Controller
     {
         $pegawai = Pegawai::max('id');
 
-        $keluarga_kandung = KeluargaIstriSuami::where('id', $id)->update([
+        $keluarga_istri_suami = KeluargaIstriSuami::where('id', $id)->update([
             'tahun' => $request->input('tahun', 2020),
             'pegawai_id' => $pegawai_id,
             'nama' => $request->nama,
@@ -119,7 +119,7 @@ class keluargaIstriSuamiController extends Controller
      */
     public function destroy($id)
     {
-        $keluarga_kandung = KeluargaIstriSuami::where('id', $id)->delete();
+        $keluarga_istri_suami = KeluargaIstriSuami::where('id', $id)->delete();
    
         \Session::flash('Berhasil', 'Data keluarga istri suami berhasil dihapus');
 

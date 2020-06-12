@@ -82,7 +82,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{route('istri-suami')}}" class="{{ Request::is('istri-suami') ? 'mm-active' : '' }}">
+                                        <a href="{{route('istri_suami')}}" class="{{ Request::is('istri_suami') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>
                                             Istri / Suami
                                         </a>

@@ -17,7 +17,7 @@ class istriSuamiController extends Controller
     {
         $istri_suami = IstriSuami::get();
 
-        return view('istri_suami', compact('istri_suami'));
+        return view('istri-suami', compact('istri_suami'));
     }
 
     /**
@@ -38,7 +38,7 @@ class istriSuamiController extends Controller
      */
     public function store(Request $request)
     {
-        $pegawai = Pegawai::max('id');
+        $pegawai_id = Pegawai::max('id');
 
         $istri_suami = IstriSuami::insert([
             'tahun' => $request->input('tahun', 2020),
@@ -46,7 +46,7 @@ class istriSuamiController extends Controller
             'nomor_karis_karsu' => $request->nomor_karis_karsu,
             'tanggal_lahir' => $request->tanggal_lahir,
             'tanggal_nikah' => $request->tanggal_nikah,
-            'tingat_pendidikan' => $request->tingat_pendidikan,
+            'tingkat_pendidikan' => $request->tingkat_pendidikan,
             'pekerjaan' => $request->pekerjaan,
             'status_suami_istri' => $request->status_suami_istri,
             'active' => $request->input('active', 1),
@@ -98,7 +98,7 @@ class istriSuamiController extends Controller
             'nomor_karis_karsu' => $request->nomor_karis_karsu,
             'tanggal_lahir' => $request->tanggal_lahir,
             'tanggal_nikah' => $request->tanggal_nikah,
-            'tingat_pendidikan' => $request->tingat_pendidikan,
+            'tingkat_pendidikan' => $request->tingkat_pendidikan,
             'pekerjaan' => $request->pekerjaan,
             'status_suami_istri' => $request->status_suami_istri,
             'active' => $request->input('active', 1),

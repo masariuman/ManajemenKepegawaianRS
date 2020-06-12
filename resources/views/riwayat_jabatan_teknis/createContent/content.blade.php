@@ -22,35 +22,35 @@
                             </div>
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-1" role="tabpanel">
                                 <div class="main-card mb-3 card">
-                                    <div class="card-body"><h5 class="card-title">Masukan Data Keluarga Istri Suami</h5>
+                                    <div class="card-body"><h5 class="card-title">Masukan Data Riwayat Pekerjaan / Jabatan</h5>
                                         <form class="" action="" method="post">
                                             @csrf
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nama Jabatan</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nama Jabatan" type="text" class="form-control" value=""></div>
+                                                <div class="col-sm-10"><input name="nama_jabatan" id="exampleEmail" placeholder="Nama Jabatan" type="text" class="form-control" value=""></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>TMT Jabatan</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="TMT Jabatan" type="text" class="form-control" value=""></div>
+                                                <div class="col-sm-10"><input name="tmt_jabatan" id="exampleEmail" placeholder="TMT Jabatan" type="text" class="form-control" value=""></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor SK</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nomor SK" type="number" class="form-control" value=""></div>
+                                                <div class="col-sm-10"><input name="tahun_mulai" id="exampleEmail" placeholder="Nomor SK" type="number" class="form-control" value=""></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal SK /</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Tanggal SK" type="date" class="form-control" value=""></div>
+                                                <div class="col-sm-10"><input name="tahun_selesai" id="exampleEmail" placeholder="Tanggal SK" type="date" class="form-control" value=""></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>/ Tahun Mulai /</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="/ Tahun Mulai /" type="number" class="form-control" value=""></div>
+                                                <div class="col-sm-10"><input name="nomor_sk" id="exampleEmail" placeholder="/ Tahun Mulai /" type="number" class="form-control" value=""></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>/ s.d (Sampai Dengan)</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="/ s.d (Sampai Dengan)" type="number" class="form-control" value=""></div>
+                                                <div class="col-sm-10"><input name="tanggal_sk" id="exampleEmail" placeholder="/ s.d (Sampai Dengan)" type="number" class="form-control" value=""></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>NIP Pejabat Penandatangan SK</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="NIP Pejabat Penandatangan SK" type="number" class="form-control" value=""></div>
+                                                <div class="col-sm-10"><input name="nip_penjabat_penandatangan_sk" id="exampleEmail" placeholder="NIP Pejabat Penandatangan SK" type="number" class="form-control" value=""></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>NIP Lama Pejabat Penandatangan SK</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="NIP Lama Pejabat Penandatangan SK" type="number" class="form-control" value=""></div>
+                                                <div class="col-sm-10"><input name="nip_lama_penjabat_penandatangan_sk" id="exampleEmail" placeholder="NIP Lama Pejabat Penandatangan SK" type="number" class="form-control" value=""></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Pejabat Penandatangan SK</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Pejabat Penandatangan SK" type="text" class="form-control" value=""></div>
+                                                <div class="col-sm-10"><input name="pejabat_penandatangan_sk" id="exampleEmail" placeholder="Pejabat Penandatangan SK" type="text" class="form-control" value=""></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"></label>
                                                 <div class="col-sm-10">

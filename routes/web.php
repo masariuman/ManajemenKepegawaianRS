@@ -78,12 +78,12 @@ Route::group(['middleware'=>['auth','checkRole:PEGAWAI']], function () {
     Route::patch('/riwayat_jabatan_fungsional/update/{id}', 'riwayatJabatanFungsionalController@update');
     Route::delete('/riwayat_jabatan_fungsional/delete', 'riwayatJabatanFungsionalController@destroy');
 
-    Route::get('/istri-suami', 'istriSuamiController@index')->name('istri-suami');
-    Route::get('/istri-suami/baru', 'istriSuamiController@create');
-    Route::post('/istri-suami/tambah', 'istriSuamiController@store')->name('istri-suami_tambah');
-    Route::get('/istri-suami/{id}/ubah', 'istriSuamiController@edit');
-    Route::patch('/istri-suami/update/{id}', 'istriSuamiController@update');
-    Route::delete('/istri-suami/delete', 'istriSuamiController@destroy');
+    Route::get('/istri_suami', 'istriSuamiController@index')->name('istri_suami');
+    Route::get('/istri_suami/baru', 'istriSuamiController@create');
+    Route::post('/istri_suami/tambah', 'istriSuamiController@store')->name('istri_suami_tambah');
+    Route::get('/istri_suami/{id}/ubah', 'istriSuamiController@edit');
+    Route::patch('/istri_suami/update/{id}', 'istriSuamiController@update');
+    Route::delete('/istri_suami/delete', 'istriSuamiController@destroy');
 
     Route::get('/anak', 'anakController@index')->name('anak');
     Route::get('/anak/baru', 'anakController@create');
@@ -101,14 +101,14 @@ Route::group(['middleware'=>['auth','checkRole:PEGAWAI']], function () {
 
     Route::get('/seminar-lokakarya-simposium', 'seminarController@index')->name('seminar-lokakarya-simposium');
     Route::get('/seminar-lokakarya-simposium/baru', 'seminarController@create');
-    Route::post('/seminar-lokakarya-simposium/tambah', 'seminarController@store')->name('seminar-lokakarya-simposium_tambah');
+    Route::post('/seminar-lokakarya-simposium/tambah', 'seminarController@store')->name('seminar_lokakarya_simposium_tambah');
     Route::get('/seminar-lokakarya-simposium/{id}/ubah', 'seminarController@edit');
     Route::patch('/seminar-lokakarya-simposium/update/{id}', 'seminarController@update');
     Route::delete('/seminar-lokakarya-simposium/delete', 'skpContrseminarControlleroller@destroy');
 
     Route::get('/tanda_jasa-penghargaan', 'penghargaanController@index')->name('tanda_jasa-penghargaan');
     Route::get('/tanda_jasa-penghargaan/baru', 'penghargaanController@create');
-    Route::post('/tanda_jasa-penghargaan/tambah', 'penghargaanController@store')->name('tanda_jasa-penghargaan_tambah');
+    Route::post('/tanda_jasa-penghargaan/tambah', 'penghargaanController@store')->name('tanda_jasa_penghargaan_tambah');
     Route::get('/tanda_jasa-penghargaan/{id}/ubah', 'skpContpenghargaanControllerroller@edit');
     Route::patch('/tanda_jasa-penghargaan/update/{id}', 'penghargaanController@update');
     Route::delete('/tanda_jasa-penghargaan/delete', 'penghargaanController@destroy');
@@ -136,12 +136,19 @@ Route::group(['middleware'=>['auth','checkRole:PEGAWAI']], function () {
 
     Route::get('/keluarga_istri-suami', 'keluargaIstriSuamiController@index')->name('keluarga_istri-suami');
     Route::get('/keluarga_istri-suami/baru', 'keluargaIstriSuamiController@create');
-    Route::post('/keluarga_istri-suami/tambah', 'keluargaIstriSuamiController@store')->name('keluarga_istri-suami_tambah');
+    Route::post('/keluarga_istri-suami/tambah', 'keluargaIstriSuamiController@store')->name('keluarga_istri_suami_tambah');
     Route::get('/keluarga_istri-suami/{id}/ubah', 'keluargaIstriSuamiController@edit');
     Route::patch('/keluarga_istri-suami/update/{id}', 'keluargaIstriSuamiController@update');
     Route::delete('/keluarga_istri-suami/delete', 'keluargaIstriSuamiController@destroy');
 
-    Route::resource('riwayat_pekerjaan-jabatan', 'riwayatJabatanTeknisController');
+    Route::get('/riwayat_pekerjaan-jabatan', 'riwayatJabatanTeknisController@index')->name('riwayat_pekerjaan_jabatan');
+    Route::get('/riwayat_pekerjaan-jabatan', 'riwayatJabatanTeknisController@create');
+    Route::post('/riwayat_pekerjaan-jabatan', 'riwayatJabatanTeknisController@store')->name('riwayat_pekerjaan_jabatan_tambah');
+    Route::get('/riwayat_pekerjaan-jabatan/{id}/ubah', 'riwayatJabatanTeknisController@edit');
+    Route::patch('/riwayat_pekerjaan-jabatan/update/{id}', 'riwayatJabatanTeknisController@update');
+    Route::delete('/riwayat_pekerjaan-jabatan/delete', 'riwayatJabatanTeknisController@destroy');
+
+    // Route::resource('riwayat_pekerjaan_jabatan', 'riwayatJabatanTeknisController');
 });
 
 Route::group(['prefix' => 'admin', 'middleware'=>['auth','checkRole:TU']], function () {

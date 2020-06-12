@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pegawai;
-use App\KelaurgaKandung;
+use App\KeluargaKandung;
 
 class keluargaKandungController extends Controller
 {
@@ -38,7 +38,7 @@ class keluargaKandungController extends Controller
      */
     public function store(Request $request)
     {
-        $pegawai = Pegawai::max('id');
+        $pegawai_id = Pegawai::max('id');
 
         $keluarga_kandung = KeluargaKandung::insert([
             'tahun' => $request->input('tahun', 2020),

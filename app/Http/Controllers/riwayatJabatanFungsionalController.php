@@ -38,14 +38,14 @@ class riwayatJabatanFungsionalController extends Controller
      */
     public function store(Request $request)
     {
-        $pegawai = Pegawai::max('id');
+        $pegawai_id = Pegawai::max('id');
 
         $riwayat_jabatan_fungsional = JabatanFungsional::insert([
             'tahun' => $request->input('tahun', 2020),
             'pegawai_id' => $pegawai_id,
             'eselon' => $request->eselon,
             'nama_jabatan' => $request->nama_jabatan,
-            'tmt_kerja' => $request->tmt_kerja,
+            'tmt_jabatan' => $request->tmt_jabatan,
             'nomor_sk' => $request->nomor_sk,
             'tanggal_sk' => $request->tanggal_sk,
             'penjabat_penandatangan_sk' => $request->penjabat_penandatangan_sk,
@@ -97,7 +97,7 @@ class riwayatJabatanFungsionalController extends Controller
             'pegawai_id' => $pegawai_id,
             'eselon' => $request->eselon,
             'nama_jabatan' => $request->nama_jabatan,
-            'tmt_kerja' => $request->tmt_kerja,
+            'tmt_jabatan' => $request->tmt_jabatan,
             'nomor_sk' => $request->nomor_sk,
             'tanggal_sk' => $request->tanggal_sk,
             'penjabat_penandatangan_sk' => $request->penjabat_penandatangan_sk,

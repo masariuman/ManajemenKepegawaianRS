@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pegawai;
 use App\JabatanStruktural;
 
 class riwayatJabatanStrukturalController extends Controller
@@ -44,7 +45,7 @@ class riwayatJabatanStrukturalController extends Controller
             'eselon' => $request->eselon,
             'nama_jabatan' => $request->nama_jabatan,
             'unit_kerja' => $request->unit_kerja,
-            'tmt_kerja' => $request->tmt_kerja,
+            'tmt_jabatan' => $request->tmt_jabatan,
             'nomor_sk' => $request->nomor_sk,
             'tanggal_sk' => $request->tanggal_sk,
             'penjabat_penandatangan_sk' => $request->penjabat_penandatangan_sk,
@@ -97,7 +98,7 @@ class riwayatJabatanStrukturalController extends Controller
             'eselon' => $request->eselon,
             'nama_jabatan' => $request->nama_jabatan,
             'unit_kerja' => $request->unit_kerja,
-            'tmt_kerja' => $request->tmt_kerja,
+            'tmt_jabatan' => $request->tmt_jabatan,
             'nomor_sk' => $request->nomor_sk,
             'tanggal_sk' => $request->tanggal_sk,
             'penjabat_penandatangan_sk' => $request->penjabat_penandatangan_sk,

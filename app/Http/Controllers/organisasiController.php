@@ -17,7 +17,7 @@ class organisasiController extends Controller
     {
         $keanggotaan_organisasi = Organisasi::get();
 
-        return view('keanggotaan_organisasi', compact('organisasi'));
+        return view('keanggotaan_organisasi', compact('keanggotaan_organisasi'));
     }
 
     /**
@@ -38,7 +38,7 @@ class organisasiController extends Controller
      */
     public function store(Request $request)
     {
-        $pegawai = Pegawai::max('id');
+        $pegawai_id = Pegawai::max('id');
 
         $keanggotaan_organisasi = Organisasi::insert([
             'tahun' => $request->input('tahun', 2020),
@@ -49,7 +49,7 @@ class organisasiController extends Controller
             'tanggal_mulai' => $request->tanggal_mulai,
             'tanggal_selesai' => $request->tanggal_selesai,
             'nomor_sk' => $request->nomor_sk,
-            'jabatn_pembuat_sk' => $request->jabatn_pembuat_sk,
+            'jabatan_pembuat_sk' => $request->jabatan_pembuat_sk,
             'active' => $request->input('active', 1),
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
@@ -91,7 +91,7 @@ class organisasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pegawai = Pegawai::max('id');
+        $pegawai_id = Pegawai::max('id');
 
         $keanggotaan_organisasi = Organisasi::where('id', $id)->update([
             'tahun' => $request->input('tahun', 2020),
@@ -102,7 +102,7 @@ class organisasiController extends Controller
             'tanggal_mulai' => $request->tanggal_mulai,
             'tanggal_selesai' => $request->tanggal_selesai,
             'nomor_sk' => $request->nomor_sk,
-            'jabatn_pembuat_sk' => $request->jabatn_pembuat_sk,
+            'jabatan_pembuat_sk' => $request->jabatan_pembuat_sk,
             'active' => $request->input('active', 1),
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),

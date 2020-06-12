@@ -17,7 +17,7 @@ class penghargaanController extends Controller
     {
         $tanda_jasa_penghargaan = Penghargaan::get();
 
-        return view('tanda_jasa_penghargaan', compact('tanda_jasa_penghargaan'));
+        return view('tanda_jasa-penghargaan', compact('tanda_jasa_penghargaan'));
     }
 
     /**
@@ -38,13 +38,13 @@ class penghargaanController extends Controller
      */
     public function store(Request $request)
     {
-        $pegawai = Pegawai::max('id');
+        $pegawai_id = Pegawai::max('id');
 
         $tanda_jasa_penghargaan = Penghargaan::insert([
             'tahun' => $request->input('tahun', 2020),
             'pegawai_id' => $pegawai_id,
             'nama_penghargaan' => $request->nama_penghargaan,
-            'tanggal_peroleh' => $request->tanggal_peroleh,
+            'tanggal_perolehan' => $request->tanggal_perolehan,
             'nomor' => $request->nomor,
             'pemberi' => $request->pemberi,
             'jabatan_pemberi' => $request->jabatan_pemberi,
@@ -95,7 +95,7 @@ class penghargaanController extends Controller
             'tahun' => $request->input('tahun', 2020),
             'pegawai_id' => $pegawai_id,
             'nama_penghargaan' => $request->nama_penghargaan,
-            'tanggal_peroleh' => $request->tanggal_peroleh,
+            'tanggal_perolehan' => $request->tanggal_perolehan,
             'nomor' => $request->nomor,
             'pemberi' => $request->pemberi,
             'jabatan_pemberi' => $request->jabatan_pemberi,

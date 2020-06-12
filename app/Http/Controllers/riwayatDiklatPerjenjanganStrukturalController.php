@@ -40,7 +40,7 @@ class riwayatDiklatPerjenjanganStrukturalController extends Controller
     {
         $pegawai_id = Pegawai::max('id');
 
-        $pendidikan_formal = DiklatPerjenjangan::insert([
+        $pendidikan_formal = DiklatPenjenjangan::insert([
             'tahun' => $request->input('tahun', 2019),
             'pegawai_id' => $pegawai_id,
             'jenis_diklat' => $request->jenis_diklat,
@@ -94,7 +94,7 @@ class riwayatDiklatPerjenjanganStrukturalController extends Controller
     {
         $pegawai_id = Pegawai::max('id');
 
-        $pendidikan_formal = DiklatPerjenjangan::where('id', $id)->update([
+        $pendidikan_formal = DiklatPenjenjangan::where('id', $id)->update([
             'tahun' => $request->input('tahun', 2019),
             'pegawai_id' => $pegawai_id,
             'jenis_diklat' => $request->jenis_diklat,
@@ -123,7 +123,7 @@ class riwayatDiklatPerjenjanganStrukturalController extends Controller
      */
     public function destroy($id)
     {
-        $pendidikan_formal = DiklatPerjenjangan::where('id', $id)->delete();
+        $pendidikan_formal = DiklatPenjenjangan::where('id', $id)->delete();
 
         \Session::flash('Berhasil', 'Data diklat perjenjangan struktural berhasil dihapus');
 
