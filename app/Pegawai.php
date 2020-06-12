@@ -90,9 +90,9 @@ class Pegawai extends Model
         return $this->hasMany('App\DiklatTeknis', 'pegawai_id');
     }
 
-    public function diklatPerjenjangan()
+    public function diklatPenjenjangan()
     {
-        return $this->hasMany('App\DiklatPerjenjangan', 'pegawai_id');
+        return $this->hasMany('App\DiklatPenjenjangan', 'pegawai_id');
     }
 
     public function hukuman()
@@ -115,9 +115,9 @@ class Pegawai extends Model
         return $this->hasMany('App\JabatanStruktural', 'pegawai_id');
     }
 
-    public function jabatanTeknis()
+    public function pekerjaanJabatan()
     {
-        return $this->hasMany('App\JabatanTeknis', 'pegawai_id');
+        return $this->hasMany('App\PekerjaanJabatan', 'pegawai_id');
     }
 
     public function keluargaIstriSuami()

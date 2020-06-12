@@ -23,7 +23,7 @@ class CreateTablePendidikanJabatabStruktural extends Migration
             $table->datetime('tmt_jabatan')->nullable();
             $table->string('nomor_sk')->nullable();
             $table->datetime('tanggal_sk')->nullable();
-            $table->string('penjabat_penandatangan_sk')->nullable();
+            $table->string('pejabat_penandatangan_sk')->nullable();
             $table->enum('active',['1','0']);
             $table->timestamps();
         });

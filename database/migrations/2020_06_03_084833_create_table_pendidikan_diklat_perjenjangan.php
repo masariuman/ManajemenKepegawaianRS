@@ -13,7 +13,7 @@ class CreateTablePendidikanDiklatPerjenjangan extends Migration
      */
     public function up()
     {
-        Schema::create('diklat_perjenjangan', function (Blueprint $table) {
+        Schema::create('diklat_penjenjangan', function (Blueprint $table) {
             $table->id();
             $table->string('tahun');
             $table->foreignID('pegawai_id')->constrained('pegawai');
@@ -37,6 +37,6 @@ class CreateTablePendidikanDiklatPerjenjangan extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('diklat_perjenjangan');
+        Schema::dropIfExists('diklat_penjenjangan');
     }
 }

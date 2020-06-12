@@ -21,7 +21,7 @@ class CreateTableHukuman extends Migration
             $table->string('nomor_sk')->nullable();
             $table->datetime('tanggal_sk')->nullable();
             $table->datetime('tmt_berlaku')->nullable();
-            $table->string('penjabat_pembuat_sk')->nullable();
+            $table->string('pejabat_pembuat_sk')->nullable();
             $table->enum('active',['1','0']);
             $table->timestamps();
         });
