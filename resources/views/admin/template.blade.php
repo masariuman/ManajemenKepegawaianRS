@@ -19,8 +19,7 @@
             <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
         </div>
     </div>
-    @stack('model')
-    <script type="text/javascript" src="./assets/scripts/main.js"></script>
+    @stack('modal')
     @stack('js')
 </body>
 </html>

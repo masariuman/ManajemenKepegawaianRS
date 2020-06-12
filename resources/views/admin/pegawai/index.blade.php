@@ -105,5 +105,5 @@
 @endpush
 
 @push('js')
-
+    <script type="text/javascript" src="/taxi/assets/scripts/main.js"></script>
 @endpush
