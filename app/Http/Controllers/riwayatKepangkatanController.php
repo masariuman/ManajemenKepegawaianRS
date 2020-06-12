@@ -15,8 +15,9 @@ class riwayatKepangkatanController extends Controller
      */
     public function index()
     {
-        //
-        return view('riwayat_kepangkatan');
+        $riwayat_kepangkatan = Kepangkatan::get();
+
+        return view('riwayat_kepangkatan', compact('riwayat_kepangkatan'));
     }
 
     /**
@@ -39,23 +40,20 @@ class riwayatKepangkatanController extends Controller
     {
         $pegawai_id = Pegawai::max('id');
 
-        $pendidikan_formal = Kepangkatan::insert([
-            'tahun' => $request->input('tahun', 2019),
+        $riwayat_kepangkatan = Kepangkatan::insert([
+            'tahun' => $request->input('tahun', 2020),
             'pegawai_id' => $pegawai_id,
-            'golo' => $request->jenis_diklat,
-            'angkatan' => $request->angkatan,
-            'lokasi' => $request->lokasi,
-            'tanggal_mulai' => $request->tanggal_mulai,
-            'tanggal_selesai' => $request->tanggal_selesai,
-            'jumlah_jam' => $request->jumlah_jam,
-            'penyelenggara' => $request->lokasi,
-            'predikat' => $request->predikat,
+            'golongan' => $request->golongan,
+            'tmt_golongan' => $request->tmt_golongan,
+            'pejabat_penandatangan_sk' => $request->pejabat_penandatangan_sk,
+            'nomor_sk' => $request->nomor_sk,
+            'tanggal_sk' => $request->tanggal_sk,
             'active' => $request->input('active', 1),
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
         ]);
 
-        \Session::flash('Berhasil', 'Data diklat perjenjangan struktural berhasil ditambahkan');
+        \Session::flash('Berhasil', 'Data riwayat kepangkatan berhasil ditambahkan');
 
         return back();
     }
@@ -91,7 +89,24 @@ class riwayatKepangkatanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pegawai_id = Pegawai::max('id');
+
+        $riwayat_kepangkatan = Kepangkatan::where('id', $id)->update([
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id,
+            'golongan' => $request->golongan,
+            'tmt_golongan' => $request->tmt_golongan,
+            'pejabat_penandatangan_sk' => $request->pejabat_penandatangan_sk,
+            'nomor_sk' => $request->nomor_sk,
+            'tanggal_sk' => $request->tanggal_sk,
+            'active' => $request->input('active', 1),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        \Session::flash('Berhasil', 'Data riwayat kepangkatan berhasil diubah');
+
+        return back();
     }
 
     /**
@@ -102,6 +117,10 @@ class riwayatKepangkatanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $riwayat_kepangkatan = Kepangkatan::where('id', $id)->delete();
+
+        \Session::flash('Berhasil', 'Data riwayat kepangkatan berhasil dihapus');
+
+        return back();
     }
 }

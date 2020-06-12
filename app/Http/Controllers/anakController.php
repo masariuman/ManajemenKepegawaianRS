@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pegawai;
+use App\Anak;
 
 class anakController extends Controller
 {
@@ -13,8 +15,8 @@ class anakController extends Controller
      */
     public function index()
     {
-        //
-        return view('anak');
+        $anak = Anak::get();
+        return view('anak', compact('anak'));
     }
 
     /**
@@ -35,7 +37,26 @@ class anakController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pegawai_id = Pegawai::max('id');
+
+        $istri_suami = Anak::insert([
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id,
+            'nama' => $request->nama,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'status_anak' => $request->status_anak,
+            'pendidikan' => $request->pendidikan,
+            'pekerjaan' => $request->pekerjaan,
+            'active' => $request->input('active', 1),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        \Session::flash('Berhasil', 'Data anak berhasil ditambah');
+
+        return back();
     }
 
     /**
@@ -69,7 +90,26 @@ class anakController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pegawai_id = Pegawai::max('id');
+
+        $istri_suami = Anak::where('id', $id)->update([
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id,
+            'nama' => $request->nama,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'status_anak' => $request->status_anak,
+            'pendidikan' => $request->pendidikan,
+            'pekerjaan' => $request->pekerjaan,
+            'active' => $request->input('active', 1),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        \Session::flash('Berhasil', 'Data anak berhasil diubah');
+
+        return back();
     }
 
     /**
@@ -80,6 +120,11 @@ class anakController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $istri_suami = Anak::where('id', $id)->delete();
+        
+        \Session::flash('Berhasil', 'Data anak berhasil dihapus');
+
+        return back();
+
     }
 }

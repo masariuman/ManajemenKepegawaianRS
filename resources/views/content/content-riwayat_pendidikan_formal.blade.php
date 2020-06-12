@@ -143,6 +143,7 @@
                                             <tbody>
 
                                             @foreach($riwayat_pendidikan_formal as $key => $riwayat_pendidikan_formals)
+                                            @if(auth()->user()->id == $riwayat_pendidikan_formals->pegawai_id)
                                             <tr>
                                                 <th scope="row">{{++$key}}</th>
                                                 <td>{{$riwayat_pendidikan_formals->tahun}}</td>
@@ -163,6 +164,7 @@
                                                     </button>||&nbsp;
                                               </td>
                                             </tr>
+                                            @endif
                                             @endforeach
                                             </tbody>
                                         </table>
