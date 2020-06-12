@@ -13,7 +13,7 @@ class CreateTableJabatanTeknis extends Migration
      */
     public function up()
     {
-        Schema::create('jabatan_teknis', function (Blueprint $table) {
+        Schema::create('pekerjaan_jabatan', function (Blueprint $table) {
             $table->id();
             $table->string('tahun');
             $table->foreignID('pegawai_id')->constrained('pegawai');
@@ -22,7 +22,7 @@ class CreateTableJabatanTeknis extends Migration
             $table->datetime('tahun_mulai')->nullable();
             $table->datetime('tahun_selesai')->nullable();
             $table->string('nomor_sk')->nullable();
-            $table->datetime('tanggal_sk')->nullable();
+            $table->datetime('tanggal_sk')->nullable()
             $table->string('nip_penjabat_penandatangan_sk')->nullable();
             $table->string('nip_lama_penjabat_penandatangan_sk')->nullable();
             $table->string('pejabat_penandatangan_sk')->nullable();
@@ -38,6 +38,6 @@ class CreateTableJabatanTeknis extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jabatan_teknis');
+        Schema::dropIfExists('pekerjaan_jabatan');
     }
 }

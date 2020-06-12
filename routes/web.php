@@ -153,6 +153,7 @@ Route::group(['middleware'=>['auth','checkRole:PEGAWAI']], function () {
 
 Route::group(['prefix' => 'admin', 'middleware'=>['auth','checkRole:TU']], function () {
     Route::resource('/','adminDashboardController');
+    Route::resource('/pegawai','adminPegawaiController');
 });
 
 
@@ -160,6 +161,8 @@ Route::group(['prefix' => 'admin', 'middleware'=>['auth','checkRole:TU']], funct
 
 Route::group(['prefix' => 'it', 'middleware'=>['auth','checkRole:ADMIN']], function () {
     Route::resource('/','adminDashboardController');
+    Route::resource('/pegawai','adminPegawaiController');
+    Route::resource('/setting','adminSettingController');
 });
 
 Auth::routes();

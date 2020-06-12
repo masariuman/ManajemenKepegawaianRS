@@ -28,8 +28,8 @@ class CreateTableDasar extends Migration
             $table->string('gelar_belakang')->nullable();
             $table->string('tempat_lahir')->nullable();
             $table->datetime('tanggal_lahir')->nullable();
-            $table->enum('jenis_kelamin',['P','W']);
-            $table->enum('status_keluarga',['K','B','D','J']);
+            $table->enum('jenis_kelamin',['P','W'])->nullable();
+            $table->enum('status_keluarga',['K','B','D','J'])->nullable();
             $table->integer('agama')->nullable();
             $table->string('pendidikan_akhir')->nullable();
             $table->string('nama_sekolah')->nullable();
@@ -55,7 +55,7 @@ class CreateTableDasar extends Migration
             $table->datetime('masa_spk')->nullable();
             $table->string('rkk')->nullable();
             $table->datetime('masa_rkk')->nullable();
-            $table->foreignID('ruangan_id')->constrained('ruangan');
+            $table->foreignID('ruangan_id')->constrained('ruangan')->nullable();
             $table->enum('active',['1','0']);
             $table->timestamps();
         });

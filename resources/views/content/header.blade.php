@@ -79,25 +79,33 @@
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                
-                                       {{ auth()->user()->name }}
-                                       
+                                        @if(auth()->user()->level == 'ADMIN')
+                                            Budak IT
+                                        @endif
+                                        @if(auth()->user()->level == 'TU')
+                                            Admin
+                                        @endif
+                                        @if(auth()->user()->level == 'PEGAWAI')
+                                            Pegawai
+                                        @endif
                                     </div>
                                     <div class="widget-subheading">
-                                    @if(auth()->user()->level == 'PEGAWAI')
-                                       PEGAWAI
-                                    @elseif(auth()->user()->level == 'TU')
-                                       TU
-                                    @elseif(auth()->user()->level == 'ADMIN')
-                                       ADMIN
-                                    @endif   
+                                        @if(auth()->user()->level == 'ADMIN')
+                                            Orang IT
+                                        @endif
+                                        @if(auth()->user()->level == 'TU')
+                                            Admin
+                                        @endif
+                                        @if(auth()->user()->level == 'PEGAWAI')
+                                            Pegawai
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="widget-content-right header-user-info ml-3">
                                     <form action="{{ route('logout') }}" method="POST">
                                         @csrf
-                                        <button type="submit" class="btn-shadow p-1 btn btn-light btn-sm">
-                                            <i class="fa text-dark fa-power-off pr-1 pl-1"></i> Logout &nbsp;
+                                        <button type="submit" class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
+                                            <i class="fa fa-share icon-gradient bg-deep-blue"> </i> Logout
                                         </button>
                                     </form>
                                 </div>
