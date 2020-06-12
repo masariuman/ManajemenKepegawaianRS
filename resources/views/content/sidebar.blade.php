@@ -144,17 +144,35 @@
                                 @endif
                                 @if(auth()->user()->level == 'TU')
                                     <li>
-                                        <a href="/admin" class="{{ Request::is('/admin') ? 'mm-active' : '' }}">
-                                            <i class="metismenu-icon pe-7s-note2"></i>
+                                        <a href="/admin" class="{{ Request::is('admin') ? 'mm-active' : '' }}">
+                                            <i class="metismenu-icon pe-7s-home"></i>
                                             Dashboard
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/admin/pegawai" class="{{ Request::is('admin/pegawai') ? 'mm-active' : Request::is('admin/pegawai/*') ? 'mm-active' : ''  }}">
+                                            <i class="metismenu-icon pe-7s-users"></i>
+                                            Pegawai
                                         </a>
                                     </li>
                                 @endif
                                 @if(auth()->user()->level == 'ADMIN')
                                     <li>
-                                        <a href="/it" class="{{ Request::is('/it') ? 'mm-active' : '' }}">
-                                            <i class="metismenu-icon pe-7s-note2"></i>
+                                        <a href="/it" class="{{ Request::is('it') ? 'mm-active' : '' }}">
+                                            <i class="metismenu-icon pe-7s-home"></i>
                                             Dashboard
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/it/pegawai" class="{{ Request::is('it/pegawai') ? 'mm-active' : Request::is('it/pegawai/*') ? 'mm-active' : '' }}">
+                                            <i class="metismenu-icon pe-7s-users"></i>
+                                            Pegawai
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/it/setting" class="{{ Request::is('it/setting') ? 'mm-active' : Request::is('it/setting/*') ? 'mm-active' : '' }}">
+                                            <i class="metismenu-icon pe-7s-settings"></i>
+                                            Setting
                                         </a>
                                     </li>
                                 @endif
