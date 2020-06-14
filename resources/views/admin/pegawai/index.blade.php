@@ -43,22 +43,30 @@
                         <button class="mb-2 mr-2 btn-transition btn btn-outline-primary width100" data-toggle="modal" data-target="#exampleModalLargeTambah">Tambah Akun Pegawai Baru</button>
                         <table class="mb-0 table table-striped">
                             <thead>
-                            <tr>
-                                <th class="width40 text-center">No</th>
-                                <th class="width200 text-center">NIP</th>
-                                <th class="text-center">Nama</th>
-                                <th class="width200 text-center">Jabatan</th>
-                                <th class="text-center">Aksi</th>
-                            </tr>
+                                <tr>
+                                    <th class="width40 text-center">No</th>
+                                    <th class="width200 text-center">NIP</th>
+                                    <th class="text-center">Nama</th>
+                                    <th class="width200 text-center">Jabatan</th>
+                                    <th class="width200 text-center">Ruangan</th>
+                                    <th class="text-center">Aksi</th>
+                                </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <th class="text-center">1</th>
-                                <td class="text-center">00000000000000000000</td>
-                                <td>Mark zuckerberg</td>
-                                <td>tukang penjabat</td>
-                                <td class="text-center"><a href="#"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info"><i class="pe-7s-info "></i></button></a></td>
-                            </tr>
+                                @foreach ($pegawai as $no => $item)
+                                    <tr>
+                                        <th class="text-center">{{$no+1}}</th>
+                                        <td class="text-center">{{$item->nip_baru}}</td>
+                                        <td>{{$item->user->name}}</td>
+                                        <td>{{$item->nama_jabatan}}</td>
+                                        <td>{{$item->ruangan->ruangan}}</td>
+                                        @if(auth()->user()->level == 'ADMIN')
+                                            <td class="text-center"><a href="/it/pegawai/{{$item->id}}"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info"><i class="pe-7s-info "></i></button></a></td>
+                                        @else
+                                            <td class="text-center"><a href="/admin/pegawai/{{$item->id}}"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info"><i class="pe-7s-info "></i></button></a></td>
+                                        @endif
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -92,6 +100,15 @@
                         <div class="position-relative form-group"><label for="exampleAddress" class="">Gelar Belakang</label><input name="gelar_belakang" id="exampleAddress" placeholder="Isi disini.." type="text" class="form-control"></div>
                         <div class="position-relative form-group"><label for="exampleAddress" class="">Tanggal Lahir</label><input name="tanggal_lahir" id="datepicker" placeholder="Isi disini.." type="date" class="form-control"></div>
                         <div class="position-relative form-group"><label for="exampleAddress" class="">Email</label><input name="email" id="exampleAddress" placeholder="Isi Disini.." type="email" class="form-control"></div>
+                        <div class="position-relative form-group">
+                            <label for="exampleAddress" class="">Ruangan</label>
+                            <select class="mb-2 form-control" name="ruangan">
+                                <option selected disabled>Pilih Data...</option>
+                                @foreach ($ruangan as $data)
+                                    <option value="{{$data->id}}">{{$data->ruangan}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>

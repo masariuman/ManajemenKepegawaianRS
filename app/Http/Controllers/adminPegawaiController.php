@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Pegawai;
 use App\User;
+use App\Ruangan;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Contracts\Session\Session;
 
 class adminPegawaiController extends Controller
 {
@@ -18,7 +19,9 @@ class adminPegawaiController extends Controller
     public function index()
     {
         //
-        return view('admin/pegawai/index');
+        $data['ruangan'] = Ruangan::where('active','1')->get();
+        $data['pegawai'] = Pegawai::where('active','1')->orderBy('id','DESC')->get();
+        return view('admin/pegawai/index',$data);
     }
 
     /**
@@ -63,7 +66,8 @@ class adminPegawaiController extends Controller
             'gelar_depan' => $request->gelar_depan,
             'gelar_belakang'=> $request->gelar_belakang,
             'tanggal_lahir' => $request->tanggal_lahir,
-            'user_id' => $newuser->id
+            'user_id' => $newuser->id,
+            'ruangan_id' => $request->ruangan
         ]);
 
         $pesan = 'User baru telah dibuat. Silahkan memberitahu pegawai untuk login dengan email <b>'.$newuser->email.'</b> dan dengan password tanggal lahir(<b>'.$lahir.'</b>) untuk melengkapi data dasar.';
