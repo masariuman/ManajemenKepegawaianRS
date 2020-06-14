@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Pegawai;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Contracts\Session\Session;
 
 class adminPegawaiController extends Controller
 {
@@ -67,7 +68,7 @@ class adminPegawaiController extends Controller
 
         $pesan = 'User baru telah dibuat. Silahkan memberitahu pegawai untuk login dengan email <b>'.$newuser->email.'</b> dan dengan password tanggal lahir(<b>'.$lahir.'</b>) untuk melengkapi data dasar.';
 
-        \Session::flash('Berhasil', $pesan);
+        Session::flash('Berhasil', $pesan);
 
         return back();
 

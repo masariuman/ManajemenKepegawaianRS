@@ -81,6 +81,15 @@ class adminRuanganController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data = Ruangan::findOrFail($id);
+        $data->update([
+            'ruangan' => $request->ruangan
+        ]);
+        $pesan = 'Nama Ruangan berhasil diubah.';
+
+        Session::flash('Berhasil', $pesan);
+
+        return back();
     }
 
     /**
@@ -92,5 +101,14 @@ class adminRuanganController extends Controller
     public function destroy($id)
     {
         //
+        $data = Ruangan::findOrFail($id);
+        $data->update([
+            'active' => "0"
+        ]);
+        $pesan = 'Ruangan berhasil dihapus.';
+
+        Session::flash('Berhasil', $pesan);
+
+        return back();
     }
 }

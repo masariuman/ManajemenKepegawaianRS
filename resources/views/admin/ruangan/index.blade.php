@@ -61,7 +61,7 @@
                                             <td class="text-center">{{$data->ruangan}}</td>
                                             <td class="text-center">
                                                 <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-warning" title="Ubah Data" data-toggle="modal" data-target="#exampleModalLargeUbah-{{$data->id}}"><i class="pe-7s-pen "></i></button>
-                                                <a href="#"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-danger" title="Hapus Data"><i class="pe-7s-trash "></i></button></a>
+                                                <a href="#"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-danger" title="Hapus Data" data-toggle="modal" data-target="#exampleModalLargeHapus-{{$data->id}}"><i class="pe-7s-trash "></i></button></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -130,6 +130,37 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
                         <button type="submit" class="btn btn-light"> <i class="fa fa-pencil" aria-hidden="true" title="Copy to use plus-square"></i> Ubah</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endforeach
+
+    {{-- Modal Hapus --}}
+    @foreach ($ruangan as $no => $data)
+        <div class="modal fade bd-example-modal-lg" id="exampleModalLargeHapus-{{$data->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Hapus Ruangan</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        @if(auth()->user()->level == 'ADMIN')
+                            <form class="" action="/it/ruangan/{{$data->id}}" method="post">
+                        @else
+                            <form class="" action="/admin/ruangan/{{$data->id}}" method="post">
+                        @endif
+                            @method('delete')
+                            @csrf
+                            <div class="position-relative form-group text-center"><label for="exampleAddress" class="">APAKAH ANDA YAKIN UNTUK MENGHAPUS RUANGAN ATAS NAMA <b>{{$data->ruangan}}</b> ?</label></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
+                        <button type="submit" class="btn btn-light"> <i class="fa fa-pencil" aria-hidden="true" title="Copy to use plus-square"></i> Hapus</button>
                     </div>
                     </form>
                 </div>
