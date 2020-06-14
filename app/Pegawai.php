@@ -95,7 +95,7 @@ class Pegawai extends Model
         return $this->hasMany('App\DiklatPenjenjangan', 'pegawai_id');
     }
 
-    public function hukuman()
+public function hukuman()
     {
         return $this->hasMany('App\hukuman', 'pegawai_id');
     }
