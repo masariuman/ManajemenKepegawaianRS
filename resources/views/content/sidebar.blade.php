@@ -155,6 +155,12 @@
                                             Pegawai
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="/admin/ruangan" class="{{ Request::is('admin/ruangan') ? 'mm-active' : Request::is('admin/ruangan/*') ? 'mm-active' : ''  }}">
+                                            <i class="metismenu-icon pe-7s-users"></i>
+                                            Ruangan
+                                        </a>
+                                    </li>
                                 @endif
                                 @if(auth()->user()->level == 'ADMIN')
                                     <li>
@@ -167,6 +173,12 @@
                                         <a href="/it/pegawai" class="{{ Request::is('it/pegawai') ? 'mm-active' : Request::is('it/pegawai/*') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-users"></i>
                                             Pegawai
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/it/ruangan" class="{{ Request::is('it/ruangan') ? 'mm-active' : Request::is('it/ruangan/*') ? 'mm-active' : '' }}">
+                                            <i class="metismenu-icon pe-7s-users"></i>
+                                            Ruangan
                                         </a>
                                     </li>
                                     <li>
