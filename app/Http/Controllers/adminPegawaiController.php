@@ -87,6 +87,9 @@ class adminPegawaiController extends Controller
     public function show($id)
     {
         //
+        $data['ruangan'] = Ruangan::where('active','1')->get();
+        $data['pegawai'] = Pegawai::findOrFail($id);
+        return view('admin/pegawai/show',$data);
     }
 
     /**
