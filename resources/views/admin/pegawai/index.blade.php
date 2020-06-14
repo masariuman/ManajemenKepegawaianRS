@@ -61,9 +61,9 @@
                                         <td>{{$item->nama_jabatan}}</td>
                                         <td>{{$item->ruangan->ruangan}}</td>
                                         @if(auth()->user()->level == 'ADMIN')
-                                            <td class="text-center"><a href="/it/pegawai/{{$item->id}}"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info"><i class="pe-7s-info "></i></button></a></td>
+                                            <td class="text-center"><a href="/it/pegawai/{{$item->id}}"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info"><i class="fa fa-eye"></i></button></a></td>
                                         @else
-                                            <td class="text-center"><a href="/admin/pegawai/{{$item->id}}"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info"><i class="pe-7s-info "></i></button></a></td>
+                                            <td class="text-center"><a href="/admin/pegawai/{{$item->id}}"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info"><i class="fa fa-eye"></i></button></a></td>
                                         @endif
                                     </tr>
                                 @endforeach
