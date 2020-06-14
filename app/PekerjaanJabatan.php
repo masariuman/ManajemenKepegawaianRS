@@ -6,14 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class PekerjaanJabatan extends Model
 {
-    <?php
-
-namespace App;
-
-use Illuminate\Database\Eloquent\Model;
-
-class JabatanTeknis extends Model
-{
     //
     protected $table = 'pekerjaan_jabatan';
     protected $fillable = [
@@ -36,6 +28,4 @@ class JabatanTeknis extends Model
     {
         return $this->belongsTo('App\Pegawai', 'pegawai_id');
     }
-}
-
 }

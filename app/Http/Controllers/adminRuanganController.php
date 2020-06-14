@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ruangan;
+use Illuminate\Support\Facades\Session;
 
 class adminRuanganController extends Controller
 {
@@ -15,7 +16,8 @@ class adminRuanganController extends Controller
     public function index()
     {
         //
-        return view('admin/ruangan/index');
+        $data['ruangan'] = Ruangan::where('active','1')->get();
+        return view('admin/ruangan/index',$data);
     }
 
     /**
@@ -37,6 +39,14 @@ class adminRuanganController extends Controller
     public function store(Request $request)
     {
         //
+        Ruangan::create([
+            'ruangan' => $request->ruangan
+        ]);
+        $pesan = 'Ruangan <b>'.$request->ruangan.'</b> berhasil dibuat.';
+
+        Session::flash('Berhasil', $pesan);
+
+        return back();
     }
 
     /**

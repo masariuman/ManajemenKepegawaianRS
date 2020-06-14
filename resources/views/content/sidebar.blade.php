@@ -145,7 +145,7 @@
                                 @if(auth()->user()->level == 'TU')
                                     <li>
                                         <a href="/admin" class="{{ Request::is('admin') ? 'mm-active' : '' }}">
-                                            <i class="metismenu-icon pe-7s-home"></i>
+                                            <i class="metismenu-icon pe-7s-rocket"></i>
                                             Dashboard
                                         </a>
                                     </li>
@@ -157,7 +157,7 @@
                                     </li>
                                     <li>
                                         <a href="/admin/ruangan" class="{{ Request::is('admin/ruangan') ? 'mm-active' : Request::is('admin/ruangan/*') ? 'mm-active' : ''  }}">
-                                            <i class="metismenu-icon pe-7s-users"></i>
+                                            <i class="metismenu-icon pe-7s-home"></i>
                                             Ruangan
                                         </a>
                                     </li>
@@ -165,7 +165,7 @@
                                 @if(auth()->user()->level == 'ADMIN')
                                     <li>
                                         <a href="/it" class="{{ Request::is('it') ? 'mm-active' : '' }}">
-                                            <i class="metismenu-icon pe-7s-home"></i>
+                                            <i class="metismenu-icon pe-7s-rocket"></i>
                                             Dashboard
                                         </a>
                                     </li>
@@ -177,7 +177,7 @@
                                     </li>
                                     <li>
                                         <a href="/it/ruangan" class="{{ Request::is('it/ruangan') ? 'mm-active' : Request::is('it/ruangan/*') ? 'mm-active' : '' }}">
-                                            <i class="metismenu-icon pe-7s-users"></i>
+                                            <i class="metismenu-icon pe-7s-home"></i>
                                             Ruangan
                                         </a>
                                     </li>
