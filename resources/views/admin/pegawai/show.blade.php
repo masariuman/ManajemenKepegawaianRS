@@ -18,6 +18,9 @@
         .margintop20 {
             margin-top: 20px;
         }
+        .margintop50 {
+            margin-top: 50px;
+        }
         .sidetable{
             background-image: url(/lojin/sidebarx.png);
             background-repeat: no-repeat;
@@ -247,7 +250,7 @@
                             </table>
                         </div>
                         <div id="riwayat_pendidikan_formal" style="display: none;">
-                            <div class="text-center titlepertab">riwayat pendidikan formal</div>
+                            <div class="text-center titlepertab">data riwayat pendidikan formal</div>
                             <div class="margintop20">
                                 <table class="mb-0 table table-striped table-bordered" id="datatable_riwayat_pendidikan_formal">
                                     <thead>
@@ -272,6 +275,7 @@
                             </div>
                         </div>
                         <div id="riwayat_diklat_fungsional" style="display: none;">
+                            <div class="text-center titlepertab">Data riwayat diklat fungsional</div>
                             <div class="margintop20">
                                 <table class="mb-0 table table-striped table-bordered" id="datatable_riwayat_diklat_fungsional">
                                     <thead>
@@ -296,6 +300,7 @@
                             </div>
                         </div>
                         <div id="riwayat_diklat_teknis" style="display: none;">
+                            <div class="text-center titlepertab">Data riwayat diklat teknis</div>
                             <div class="margintop20">
                                 <table class="mb-0 table table-striped table-bordered" id="datatable_riwayat_diklat_teknis">
                                     <thead>
@@ -320,6 +325,7 @@
                             </div>
                         </div>
                         <div id="riwayat_diklat_penjenjangan" style="display: none;">
+                            <div class="text-center titlepertab">Data riwayat diklat penjenjangan</div>
                             <div class="margintop20">
                                 <table class="mb-0 table table-striped table-bordered" id="datatable_riwayat_diklat_penjenjangan">
                                     <thead>
@@ -344,6 +350,7 @@
                             </div>
                         </div>
                         <div id="riwayat_kepangkatan" style="display: none;">
+                            <div class="text-center titlepertab">Data riwayat kepangkatan</div>
                             <div class="margintop20">
                                 <table class="mb-0 table table-striped table-bordered" id="datatable_riwayat_kepangkatan">
                                     <thead>
@@ -368,6 +375,7 @@
                             </div>
                         </div>
                         <div id="riwayat_jabatan_struktural" style="display: none;">
+                            <div class="text-center titlepertab">Data riwayat jabatan struktural</div>
                             <div class="margintop20">
                                 <table class="mb-0 table table-striped table-bordered" id="datatable_riwayat_jabatan_struktural">
                                     <thead>
@@ -392,6 +400,7 @@
                             </div>
                         </div>
                         <div id="riwayat_jabatan_fungsional" style="display: none;">
+                            <div class="text-center titlepertab">Data riwayat jabatan fungsional</div>
                             <div class="margintop20">
                                 <table class="mb-0 table table-striped table-bordered" id="datatable_riwayat_jabatan_fungsional">
                                     <thead>
@@ -416,6 +425,7 @@
                             </div>
                         </div>
                         <div id="riwayat_pekerjaan" style="display: none;">
+                            <div class="text-center titlepertab">Data riwayat pekerjaan/jabatan</div>
                             <div class="margintop20">
                                 <table class="mb-0 table table-striped table-bordered" id="datatable_riwayat_pekerjaan">
                                     <thead>
@@ -441,6 +451,7 @@
                         </div>
                         <div id="pasangan" style="display: none;">
                             @if ($pegawai->jenis_kelamin === 'W')
+                                <div class="text-center titlepertab">Data suami</div>
                                 <div class="margintop20">
                                     <table class="mb-0 table table-striped table-bordered" id="datatable_suami">
                                         <thead>
@@ -464,31 +475,33 @@
                                     </table>
                                 </div>
                             @else
-                            <div class="margintop20">
-                                <table class="mb-0 table table-striped table-bordered" id="datatable_istri">
-                                    <thead>
-                                    <tr>
-                                        <th class="width40 text-center">No</th>
-                                        <th class="text-center">Nomor Karis (Kartu Istri)</th>
-                                        <th class="text-center">Nama Istri</th>
-                                        <th class="width100px text-center">Aksi</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                            <tr>
-                                                <th class="text-center">1</th>
-                                                <td class="text-center">sadeefew3efewfdfwefefe</td>
-                                                <td class="text-center">Istri Setia Solehah</td>
-                                                <td class="text-center">
-                                                    <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#istri_show"><i class="fa fa-eye"></i></button>
-                                                </td>
-                                            </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                                <div class="text-center titlepertab">Data istri</div>
+                                <div class="margintop20">
+                                    <table class="mb-0 table table-striped table-bordered" id="datatable_istri">
+                                        <thead>
+                                        <tr>
+                                            <th class="width40 text-center">No</th>
+                                            <th class="text-center">Nomor Karis (Kartu Istri)</th>
+                                            <th class="text-center">Nama Istri</th>
+                                            <th class="width100px text-center">Aksi</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                    <th class="text-center">1</th>
+                                                    <td class="text-center">sadeefew3efewfdfwefefe</td>
+                                                    <td class="text-center">Istri Setia Solehah</td>
+                                                    <td class="text-center">
+                                                        <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#istri_show"><i class="fa fa-eye"></i></button>
+                                                    </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             @endif
                         </div>
                         <div id="anak" style="display: none;">
+                            <div class="text-center titlepertab">Data anak</div>
                             <div class="margintop20">
                                 <table class="mb-0 table table-striped table-bordered" id="datatable_anak">
                                     <thead>
@@ -513,6 +526,7 @@
                             </div>
                         </div>
                         <div id="seminar" style="display: none;">
+                            <div class="text-center titlepertab">Data seminar/lokakarya/simposium</div>
                             <div class="margintop20">
                                 <table class="mb-0 table table-striped table-bordered" id="datatable_seminar">
                                     <thead>
@@ -537,6 +551,7 @@
                             </div>
                         </div>
                         <div id="jasa" style="display: none;">
+                            <div class="text-center titlepertab">Data tanda jasa/penghargaan</div>
                             <div class="margintop20">
                                 <table class="mb-0 table table-striped table-bordered" id="datatable_jasa">
                                     <thead>
@@ -561,6 +576,7 @@
                             </div>
                         </div>
                         <div id="hukum" style="display: none;">
+                            <div class="text-center titlepertab">Data hukuman disiplin</div>
                             <div class="margintop20">
                                 <table class="mb-0 table table-striped table-bordered" id="datatable_hukum">
                                     <thead>
@@ -585,6 +601,7 @@
                             </div>
                         </div>
                         <div id="organisasi" style="display: none;">
+                            <div class="text-center titlepertab">Data keanggotaan organisasi</div>
                             <div class="margintop20">
                                 <table class="mb-0 table table-striped table-bordered" id="datatable_organisasi">
                                     <thead>
@@ -609,7 +626,7 @@
                             </div>
                         </div>
                         <div id="keluarga" style="display: none;">
-                            keluarga kandung
+                            <div class="text-center titlepertab">Data keluarga kandung</div>
                             <div class="margintop20">
                                 <table class="mb-0 table table-striped table-bordered" id="datatable_keluarga_kandung">
                                     <thead>
@@ -634,8 +651,9 @@
                                     </tbody>
                                 </table>
                             </div>
+                            <hr class="margintop50" />
                             @if ($pegawai->jenis_kelamin === 'W')
-                                keluarga Suami
+                                <div class="text-center titlepertab">Data Keluarga Suami</div>
                                 <div class="margintop20">
                                     <table class="mb-0 table table-striped table-bordered" id="datatable_keluarga_suami">
                                         <thead>
@@ -661,7 +679,7 @@
                                     </table>
                                 </div>
                             @else
-                                keluarga Istri
+                                <div class="text-center titlepertab">Data keluarga istri</div>
                                 <div class="margintop20">
                                     <table class="mb-0 table table-striped table-bordered" id="datatable_keluarga_istri">
                                         <thead>
