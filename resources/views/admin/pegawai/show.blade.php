@@ -103,6 +103,7 @@
 
 @push('modal')
     @include('admin.pegawai.show_partial.modal_partial.riwayat_pendidikan_formal_show')
+    @include('admin.pegawai.show_partial.modal_partial.riwayat_diklat_fungsional_show')
 @endpush
 
 @push('js')
