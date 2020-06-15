@@ -105,7 +105,7 @@
     @include('admin.pegawai.show_partial.modal_partial.riwayat_pendidikan_formal_show')
     @include('admin.pegawai.show_partial.modal_partial.riwayat_diklat_fungsional_show')
     @include('admin.pegawai.show_partial.modal_partial.riwayat_diklat_teknis_show')
-    @include('admin.pegawai.show_partial.modal_partial.riwayat_diklat_teknis_show')
+    @include('admin.pegawai.show_partial.modal_partial.riwayat_diklat_penjenjangan_show')
     @include('admin.pegawai.show_partial.modal_partial.riwayat_diklat_teknis_show')
     @include('admin.pegawai.show_partial.modal_partial.riwayat_diklat_teknis_show')
     @include('admin.pegawai.show_partial.modal_partial.riwayat_diklat_teknis_show')
