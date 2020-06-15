@@ -111,7 +111,7 @@
     @include('admin.pegawai.show_partial.modal_partial.riwayat_jabatan_fungsional_show')
     @include('admin.pegawai.show_partial.modal_partial.riwayat_pekerjaan_show')
     @include('admin.pegawai.show_partial.modal_partial.suami_show')
-    @include('admin.pegawai.show_partial.modal_partial.riwayat_diklat_teknis_show')
+    @include('admin.pegawai.show_partial.modal_partial.istri_show')
     @include('admin.pegawai.show_partial.modal_partial.riwayat_diklat_teknis_show')
     @include('admin.pegawai.show_partial.modal_partial.riwayat_diklat_teknis_show')
     @include('admin.pegawai.show_partial.modal_partial.riwayat_diklat_teknis_show')
