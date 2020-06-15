@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pegawai;
+use App\Organisasi;
 
 class organisasiController extends Controller
 {
@@ -13,8 +15,9 @@ class organisasiController extends Controller
      */
     public function index()
     {
-        //
-        return view('keanggotaan_organisasi');
+        $keanggotaan_organisasi = Organisasi::get();
+
+        return view('keanggotaan_organisasi', compact('keanggotaan_organisasi'));
     }
 
     /**
@@ -35,7 +38,26 @@ class organisasiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pegawai_id = Pegawai::max('id');
+
+        $keanggotaan_organisasi = Organisasi::insert([
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id,
+            'tahun_organisasi' => $request->tahun_organisasi,
+            'nama_organisasi' => $request->nama_organisasi,
+            'kedudukan' => $request->kedudukan,
+            'tanggal_mulai' => $request->tanggal_mulai,
+            'tanggal_selesai' => $request->tanggal_selesai,
+            'nomor_sk' => $request->nomor_sk,
+            'jabatan_pembuat_sk' => $request->jabatan_pembuat_sk,
+            'active' => $request->input('active', 1),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        \Session::flash('Berhasil', 'Data keanggotaan organisasi berhasil ditambahkan');
+
+        return back();
     }
 
     /**
@@ -69,7 +91,26 @@ class organisasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pegawai_id = Pegawai::max('id');
+
+        $keanggotaan_organisasi = Organisasi::where('id', $id)->update([
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id,
+            'tahun_organisasi' => $request->tahun_organisasi,
+            'nama_organisasi' => $request->nama_organisasi,
+            'kedudukan' => $request->kedudukan,
+            'tanggal_mulai' => $request->tanggal_mulai,
+            'tanggal_selesai' => $request->tanggal_selesai,
+            'nomor_sk' => $request->nomor_sk,
+            'jabatan_pembuat_sk' => $request->jabatan_pembuat_sk,
+            'active' => $request->input('active', 1),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        \Session::flash('Berhasil', 'Data keanggotaan organisasi berhasil diubah');
+
+        return back();
     }
 
     /**
@@ -80,6 +121,10 @@ class organisasiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $keanggotaan_organisasi = Organisasi::where('id', $id)->delete();
+        
+        \Session::flash('Berhasil', 'Data keanggotaan organisasi berhasil dihapus');
+
+        return back();
     }
 }

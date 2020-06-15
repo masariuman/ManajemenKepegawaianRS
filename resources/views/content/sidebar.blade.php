@@ -58,7 +58,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{route('riwayat_diklat_penjenjangan-struktural')}}" class="{{ Request::is('riwayat_diklat_penjenjangan-struktural') ? 'mm-active' : '' }}">
+                                        <a href="{{route('riwayat_diklat_penjenjangan_struktural')}}" class="{{ Request::is('riwayat_diklat_penjenjangan_struktural') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>
                                             RD Penjenjangan / Struktural
                                         </a>
@@ -82,7 +82,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{route('istri-suami')}}" class="{{ Request::is('istri-suami') ? 'mm-active' : '' }}">
+                                        <a href="{{route('istri_suami')}}" class="{{ Request::is('istri_suami') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>
                                             Istri / Suami
                                         </a>

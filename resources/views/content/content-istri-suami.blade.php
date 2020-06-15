@@ -122,151 +122,51 @@
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-1" role="tabpanel">
                                 <div class="main-card mb-3 card">
                                     <div class="card-body"><h5 class="card-title">Masukan Data Istri / Suami</h5>
-                                        <form class="" action="" method="post">
-                                            @csrf  
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nama Istri / Suami</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nama Istri / Suami" type="text" class="form-control" value=""></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor Karis / Karsu</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nomor Karis / Karsu" type="text" class="form-control" value=""></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal Lahir</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Tanggal Lahir" type="date" class="form-control" value=""></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal Nikah</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Tanggal Nikah" type="date" class="form-control" value=""></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Tingkat Pendidikan</b></label>
-                                                <div class="col-sm-10"><select name="select" id="exampleSelect" class="form-control">
-                                                <option value="" disabled selected>-Pilih Tingkat Pendidikan-</option>
-                                                <option value="01">S3 (Setara)</option>
-                                                <option value="02">S2 (Setara)</option>
-                                                <option value="03">S1 (Setara)</option>
-                                                <option value="04">D4</option>
-                                                <option value="05">SM</option>
-                                                <option value="06">D3</option>
-                                                <option value="07">D2</option>
-                                                <option value="08">D1</option>
-                                                <option value="09">SLTA</option>
-                                                <option value="10">SLTP</option>
-                                                <option value="11">SD</option>
-                                                </select></div>
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Pekerjaan</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Pekerjaan" type="text" class="form-control" value=""></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Status Suami / Istri</b></label>
-                                                <div class="col-sm-10"><select name="select" id="exampleSelect" class="form-control">
-                                                <option value="" disabled selected>-Pilih Status Suami / Istri-</option>
-                                                <option value="1">Istri / Suami Saat Ini</option>
-                                                <option value="2">Telah Meninggal Dunia</option>
-                                                <option value="3">Cerai</option>
-                                                </select></div>
-                                            </div>
-                                            <!-- <div class="position-relative row form-group"><label for="exampleFile" class="col-sm-2 col-form-label"><b>Image</b></label>
-                                                <div class="col-sm-10"><input name="image" id="exampleFile" type="file" class="form-control-file  @error('image') is-invalid @enderror" value="{{ old('image')}}"><p class="text-danger">@error('image') {{$message}} @enderror</p>
-                                                    <small class="form-text text-muted">Masukan gambar pilihan anda.</small>
-                                                </div>
-                                            </div> -->
-     
-                                            <!-- <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label">Biaya Program</label>
-                                                <div class="col-sm-10"><input name="biaya_program" id="exampleEmail" placeholder="Isi disini.." type="number" class="form-control @error('biaya_program') is-invalid @enderror" value="{{ old('biaya_program')}}"><p class="text-danger">@error('biaya_program') {{$message}} @enderror</p></div>
-                                            </div> -->
-                                            <!-- <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Biaya Program</b></label>
-                                             <div class="col-sm-10"> 
-                                              <div class="form-row">
-                                                <div class="col-md-6">
-                                                    <div class="position-relative form-group"><label for="exampleEmail11" class="">Branch cluster</label><input name="branch_cluster" id="exampleEmail11" placeholder="Isi disini.." type="text" class="form-control @error('branch_cluster') is-invalid @enderror" value="{{ old('branch_cluster')}}"><p class="text-danger">@error('branch_cluster') {{$message}} @enderror</p></div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="position-relative form-group"><label for="examplePassword11" class="">Potensi</label><input name="potensi" id="examplePassword11" placeholder="Isi disini.." type="text" class="form-control @error('potensi') is-invalid @enderror" value="{{ old('potensi')}}"><p class="text-danger">@error('potensi') {{$message}} @enderror</p></div>
-                                                </div>
-                                               </div>
+                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeTambah"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah
+                                        </button>
+                                        <table class="mb-0 table" id="table">
+                                            <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Tahun</th>
+                                                <th>Nama</th>
+                                                <th>Nomor Karis Karsu</th>
+                                                <th>Tanggal Lahir</th>
+                                                <th>Tanggal Nikah</th>
+                                                <th>Tingkat Pendidikan</th>
+                                                <th>Pekerjaan</th>
+                                                <th>Status Suami Instri</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
 
-                                               <div class="form-row">
-                                                <div class="col-md-6">
-                                                    <div class="position-relative form-group"><label for="exampleEmail11" class="">Akusisi CB</label><input name="akusisi_cb" id="exampleEmail11" placeholder="Isi disini.." type="text" class="form-control @error('akusisi_cb') is-invalid @enderror" value="{{ old('akusisi_cb')}}"><p class="text-danger">@error('akusisi_cb') {{$message}} @enderror</p></div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="position-relative form-group"><label for="examplePassword11" class="">APPU</label><input name="appu" id="examplePassword11" placeholder="Isi disini.." type="text" class="form-control @error('appu') is-invalid @enderror" value="{{ old('appu')}}"><p class="text-danger">@error('appu') {{$message}} @enderror</p></div>
-                                                </div>
-                                               </div>
-
-                                               <div class="form-row">
-                                                <div class="col-md-6">
-                                                    <div class="position-relative form-group"><label for="exampleEmail11" class="">Durasi Waktu</label><input name="durasi_waktu" id="exampleEmail11" placeholder="Isi disini.." type="text" class="form-control @error('durasi_waktu') is-invalid @enderror" value="{{ old('durasi_waktu')}}"><p class="text-danger">@error('durasi_waktu') {{$message}} @enderror</p></div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="position-relative form-group"><label for="examplePassword11" class="">Revenue Incremental</label><input name="revenue_incremental" id="examplePassword11" placeholder="Isi disini.." type="text" class="form-control @error('revenue_incremental') is-invalid @enderror" value="{{ old('revenue_incremental')}}"><p class="text-danger">@error('revenue_incremental') {{$message}} @enderror</p></div>
-                                                </div>
-                                               </div>
-                                               
-                                              </div>
-                                            </div> -->
-
-        
-
-                                            <!-- <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label">Branch cluster</label>
-                                                <div class="col-sm-10"><input name="branch_cluster" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control @error('branch_cluster') is-invalid @enderror" value="{{ old('branch_cluster')}}"><p class="text-danger">@error('branch_cluster') {{$message}} @enderror</p></div>
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label">Potensi</label>
-                                                <div class="col-sm-10"><input name="potensi" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control @error('potensi') is-invalid @enderror" value="{{ old('potensi')}}"><p class="text-danger">@error('potensi') {{$message}} @enderror</p></div>
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label">Akusisi CB</label>
-                                                <div class="col-sm-10"><input name="akusisi_cb" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control @error('akusisi_cb') is-invalid @enderror" value="{{ old('akusisi_cb')}}"><p class="text-danger">@error('akusisi_cb') {{$message}} @enderror</p></div>
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label">APPU</label>
-                                                <div class="col-sm-10"><input name="appu" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control @error('appu') is-invalid @enderror" value="{{ old('appu')}}"><p class="text-danger">@error('appu') {{$message}} @enderror</p></div>
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label">Durasi Waktu</label>
-                                                <div class="col-sm-10"><input name="durasi_waktu" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control @error('durasi_waktu') is-invalid @enderror" value="{{ old('durasi_waktu')}}"><p class="text-danger">@error('durasi_waktu') {{$message}} @enderror</p></div>
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label">Revenue Incremental</label>
-                                                <div class="col-sm-10"><input name="revenue_incremental" id="exampleEmail" placeholder="Isi disini.." type="text" class="form-control @error('revenue_incremental') is-invalid @enderror" value="{{ old('revenue_incremental')}}"><p class="text-danger">@error('revenue_incremental') {{$message}} @enderror</p></div>
-                                            </div> -->
-
-                                            <!-- <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label">Email</label>
-                                                <div class="col-sm-10"><input name="email" id="exampleEmail" placeholder="with a placeholder" type="email" class="form-control"></div>
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="examplePassword" class="col-sm-2 col-form-label">Password</label>
-                                                <div class="col-sm-10"><input name="password" id="examplePassword" placeholder="password placeholder" type="password" class="form-control"></div>
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label">Select</label>
-                                                <div class="col-sm-10"><select name="select" id="exampleSelect" class="form-control"></select></div>
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleSelectMulti" class="col-sm-2 col-form-label">Select Multiple</label>
-                                                <div class="col-sm-10"><select multiple="" name="selectMulti" id="exampleSelectMulti" class="form-control"></select></div>
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleText" class="col-sm-2 col-form-label">Text Area</label>
-                                                <div class="col-sm-10"><textarea name="text" id="exampleText" class="form-control"></textarea></div>
-                                            </div> -->
-                                            <!-- <div class="position-relative row form-group"><label for="exampleFile" class="col-sm-2 col-form-label">File</label>
-                                                <div class="col-sm-10"><input name="file" id="exampleFile" type="file" class="form-control-file">
-                                                    <small class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
-                                                </div>
-                                            </div>
-                                            <fieldset class="position-relative row form-group">
-                                                <legend class="col-form-label col-sm-2">Radio Buttons</legend>
-                                                <div class="col-sm-10">
-                                                    <div class="position-relative form-check"><label class="form-check-label"><input name="radio2" type="radio" class="form-check-input"> Option one is this and that—be sure to include why it's great</label></div>
-                                                    <div class="position-relative form-check"><label class="form-check-label"><input name="radio2" type="radio" class="form-check-input"> Option two can be something else and selecting it will deselect option
-                                                        one</label></div>
-                                                    <div class="position-relative form-check disabled"><label class="form-check-label"><input name="radio2" disabled="" type="radio" class="form-check-input"> Option three is disabled</label></div>
-                                                </div>
-                                            </fieldset>
-                                            <div class="position-relative row form-group"><label for="checkbox2" class="col-sm-2 col-form-label">Checkbox</label>
-                                                <div class="col-sm-10">
-                                                    <div class="position-relative form-check"><label class="form-check-label"><input id="checkbox2" type="checkbox" class="form-check-input"> Check me out</label></div>
-                                                </div>
-                                            </div> -->
-                                            <!-- <div class="position-relative row form-check"> -->
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"></label>
-                                                <div class="col-sm-10">
-                                                    <button class="mt-2 btn btn-light"><i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Submit</button>
-                                                </div>
-                                             </div>   
-                                            <!-- </div> -->
-                                        </form>
+                                            @foreach($istri_suami as $key => $istri_suamis)
+                                            @if(auth()->user()->id == $istri_suamis->pegawai_id)
+                                            <tr>
+                                                <th scope="row">{{++$key}}</th>
+                                                <td>{{$istri_suamis->tahun}}</td>
+                                                <td>{{$istri_suamis->nama}}</td>
+                                                <td>{{$istri_suamis->nomor_karis_karsu}}</td>
+                                                <td>{{$istri_suamis->tanggal_lahir}}</td>
+                                                <td>{{$istri_suamis->tanggal_nikah}}</td>
+                                                <td>{{$istri_suamis->tingkat_pendidikan}}</td>
+                                                <td>{{$istri_suamis->pekerjaan}}</td>
+                                                <td>{{$istri_suamis->status_suami_istri}}</td>
+                                                <td>
+                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeDetail-{{$istri_suamis->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use address-card"></i> Lihat
+                                                    </button>||&nbsp;
+                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeUbah-{{$istri_suamis->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah
+                                                    </button>||&nbsp;
+                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target=".bd-example-modal-sm-delete-{{$istri_suamis->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus
+                                                    </button>||&nbsp;
+                                              </td>
+                                            </tr>
+                                            @endif
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                       
+                                    
                                     </div>
                                 </div>
                             </div>

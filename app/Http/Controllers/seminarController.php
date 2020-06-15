@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pegawai;
+use App\Seminar;
+
 
 class seminarController extends Controller
 {
@@ -13,8 +16,9 @@ class seminarController extends Controller
      */
     public function index()
     {
-        //
-        return view('seminar-lokakarya-simposium');
+        $seminar_lokakarya_simposium = Seminar::get();
+
+        return view('seminar-lokakarya-simposium', compact('seminar_lokakarya_simposium'));
     }
 
     /**
@@ -35,7 +39,25 @@ class seminarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pegawai_id = Pegawai::max('id');
+
+        $seminar_lokakarya_simposium = Seminar::insert([
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id,
+            'nama_kegiatan' => $request->nama_kegiatan,
+            'lokasi' => $request->lokasi,
+            'tempat_kegiatan' => $request->tempat_kegiatan,
+            'penyelenggara' => $request->penyelenggara,
+            'tahun_seminar' => $request->tahun_seminar,
+            'kedudukan_dalam_seminar' => $request->kedudukan_dalam_seminar,
+            'active' => $request->input('active', 1),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        \Session::flash('Berhasil', 'Data seminar berhasil ditambahkan');
+
+        return back();
     }
 
     /**
@@ -69,7 +91,25 @@ class seminarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pegawai_id = Pegawai::max('id');
+
+        $seminar_lokakarya_simposium = Seminar::where('id', $id)->update([
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id,
+            'nama_kegiatan' => $request->nama_kegiatan,
+            'lokasi' => $request->lokasi,
+            'tempat_kegiatan' => $request->tempat_kegiatan,
+            'penyelenggara' => $request->penyelenggara,
+            'tahun_seminar' => $request->tahun_seminar,
+            'kedudukan_dalam_seminar' => $request->kedudukan_dalam_seminar,
+            'active' => $request->input('active', 1),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        \Session::flash('Berhasil', 'Data seminar berhasil diubah');
+
+        return back();
     }
 
     /**
@@ -80,6 +120,10 @@ class seminarController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $seminar_lokakarya_simposium = Seminar::where('id', $id)->delete();
+
+        \Session::flash('Berhasil', 'Data seminar berhasil diubah');
+
+        return back();
     }
 }

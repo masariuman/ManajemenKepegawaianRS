@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pegawai;
+use App\JabatanStruktural;
 
 class riwayatJabatanStrukturalController extends Controller
 {
@@ -13,8 +15,8 @@ class riwayatJabatanStrukturalController extends Controller
      */
     public function index()
     {
-        //
-        return view('riwayat_jabatan_struktural');
+        $riwayat_jabatan_struktural = JabatanStruktural::get();
+        return view('riwayat_jabatan_struktural', compact('riwayat_jabatan_struktural'));
     }
 
     /**
@@ -35,7 +37,26 @@ class riwayatJabatanStrukturalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pegawai_id = Pegawai::max('id');
+
+        $riwayat_jabatan_struktural = JabatanStruktural::insert([
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id,
+            'eselon' => $request->eselon,
+            'nama_jabatan' => $request->nama_jabatan,
+            'unit_kerja' => $request->unit_kerja,
+            'tmt_jabatan' => $request->tmt_jabatan,
+            'nomor_sk' => $request->nomor_sk,
+            'tanggal_sk' => $request->tanggal_sk,
+            'penjabat_penandatangan_sk' => $request->penjabat_penandatangan_sk,
+            'active' => $request->input('active', 1),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        \Session::flash('Berhasil', 'Data riwayat jabatan struktural berhasil ditambahkan');
+
+        return back();
     }
 
     /**
@@ -69,7 +90,26 @@ class riwayatJabatanStrukturalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pegawai_id = Pegawai::max('id');
+
+        $riwayat_jabatan_struktural = JabatanStruktural::where('id', $id)->update([
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id,
+            'eselon' => $request->eselon,
+            'nama_jabatan' => $request->nama_jabatan,
+            'unit_kerja' => $request->unit_kerja,
+            'tmt_jabatan' => $request->tmt_jabatan,
+            'nomor_sk' => $request->nomor_sk,
+            'tanggal_sk' => $request->tanggal_sk,
+            'penjabat_penandatangan_sk' => $request->penjabat_penandatangan_sk,
+            'active' => $request->input('active', 1),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        \Session::flash('Berhasil', 'Data riwayat jabatan struktural berhasil diubah');
+
+        return back();
     }
 
     /**
@@ -80,6 +120,10 @@ class riwayatJabatanStrukturalController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $riwayat_jabatan_struktural = JabatanStruktural::where('id', $id)->delete();
+
+        \Session::flash('Berhasil', 'Data riwayat jabatan struktural berhasil dihapus');
+
+        return back();
     }
 }

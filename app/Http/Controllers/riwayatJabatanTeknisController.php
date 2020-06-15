@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pegawai;
+use App\JabatanTeknis;
 
 class riwayatJabatanTeknisController extends Controller
 {
@@ -13,8 +15,8 @@ class riwayatJabatanTeknisController extends Controller
      */
     public function index()
     {
-        //
-        return view('riwayat_jabatan_teknis/index');
+        $riwayat_pekerjaan_jabatan = JabatanTeknis::get();
+        return view('riwayat_pekerjaan-jabatan', compact('riwayat_pekerjaan_jabatan'));
 
     }
 
@@ -25,8 +27,7 @@ class riwayatJabatanTeknisController extends Controller
      */
     public function create()
     {
-        //
-        return view('riwayat_jabatan_teknis/create');
+       //       
     }
 
     /**
@@ -37,7 +38,28 @@ class riwayatJabatanTeknisController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pegawai_id = Pegawai::max('id');
+
+        $riwayat_pekerjaan_jabatan = JabatanTeknis::insert([
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id,
+            'nama_jabatan' => $request->nama_jabatan,
+            'tmt_golongan' => $request->tmt_jabatan,
+            'tahun_mulai' => $request->tahun_mulai,
+            'tahun_selesai' => $request->tahun_selesai,
+            'nomor_sk' => $request->nomor_sk,
+            'tanggal_sk' => $request->tanggal_sk,
+            'nip_penjabat_penandatangan_sk' => $request->nip_penjabat_penandatangan_sk,
+            'nip_lama_penjabat_penandatangan_sk' => $request->nip_lama_penjabat_penandatangan_sk,
+            'pejabat_penandatangan_sk' => $request->pejabat_penandatangan_sk,
+            'active' => $request->input('active', 1),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        \Session::flash('Berhasil', 'Data riwayat pekerjaaan / jabatan berhasil ditambahkan');
+
+        return back();
     }
 
     /**
@@ -71,7 +93,28 @@ class riwayatJabatanTeknisController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pegawai_id = Pegawai::max('id');
+
+        $riwayat_pekerjaan_jabatan = JabatanTeknis::where('id', $id)->update([
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id,
+            'nama_jabatan' => $request->nama_jabatan,
+            'tmt_golongan' => $request->tmt_jabatan,
+            'tahun_mulai' => $request->tahun_mulai,
+            'tahun_selesai' => $request->tahun_selesai,
+            'nomor_sk' => $request->nomor_sk,
+            'tanggal_sk' => $request->tanggal_sk,
+            'nip_penjabat_penandatangan_sk' => $request->nip_penjabat_penandatangan_sk,
+            'nip_lama_penjabat_penandatangan_sk' => $request->nip_lama_penjabat_penandatangan_sk,
+            'pejabat_penandatangan_sk' => $request->pejabat_penandatangan_sk,
+            'active' => $request->input('active', 1),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        \Session::flash('Berhasil', 'Data riwayat pekerjaaan / jabatan berhasil diubah');
+
+        return back();
     }
 
     /**
@@ -82,6 +125,10 @@ class riwayatJabatanTeknisController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $riwayat_pekerjaan_jabatan = JabatanTeknis::where('id', $id)->delete();
+
+        \Session::flash('Berhasil', 'Data riwayat pekerjaaan / jabatan berhasil dihapus');
+
+        return back();
     }
 }
