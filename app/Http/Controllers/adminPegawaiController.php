@@ -89,6 +89,54 @@ class adminPegawaiController extends Controller
         //
         $data['ruangan'] = Ruangan::where('active','1')->get();
         $data['pegawai'] = Pegawai::findOrFail($id);
+        $data['pegawai']['masa_rkk'] = date("d F Y", strtotime($data['pegawai']['masa_rkk']));
+        $data['pegawai']['masa_spk'] = date("d F Y", strtotime($data['pegawai']['masa_spk']));
+        $data['pegawai']['masa_sikp'] = date("d F Y", strtotime($data['pegawai']['masa_sikp']));
+        $data['pegawai']['masa_str'] = date("d F Y", strtotime($data['pegawai']['masa_str']));
+        $data['pegawai']['tmt_golongan'] = date("d F Y", strtotime($data['pegawai']['tmt_golongan']));
+        $data['pegawai']['tmt_cpns'] = date("d F Y", strtotime($data['pegawai']['tmt_cpns']));
+        $data['pegawai']['tanggal_lahir'] = date("d F Y", strtotime($data['pegawai']['tanggal_lahir']));
+        if ($data['pegawai']['jenis_kelamin'] === "W") {
+            $data['pegawai']['jenis_kelamin'] = "Perempuan";
+        } else {
+            $data['pegawai']['jenis_kelamin'] = "Laki-Laki";
+        }
+        if ($data['pegawai']['status_keluarga'] === "K"){
+            $data['pegawai']['status_keluarga'] = "Sudah Menikah";
+        } else if ($data['pegawai']['status_keluarga'] === "B"){
+            $data['pegawai']['status_keluarga'] = "Belum Menikah";
+        } else if ($data['pegawai']['status_keluarga'] === "D"){
+            $data['pegawai']['status_keluarga'] = "Duda";
+        } else {
+            $data['pegawai']['status_keluarga'] = "Janda";
+        }
+        if ($data['pegawai']['agama'] === "1"){
+            $data['pegawai']['agama'] = "Islam";
+        } else if ($data['pegawai']['agama'] === "2"){
+            $data['pegawai']['agama'] = "Katholik";
+        } else if ($data['pegawai']['agama'] === "3"){
+            $data['pegawai']['agama'] = "Protestan";
+        } else if ($data['pegawai']['agama'] === "4"){
+            $data['pegawai']['agama'] = "Hindu";
+        } else if ($data['pegawai']['agama'] === "5"){
+            $data['pegawai']['agama'] = "Budha";
+        } else {
+            $data['pegawai']['agama'] = "Protestan";
+        }
+        if ($data['pegawai']['status_kepegawaian'] === "1"){
+            $data['pegawai']['status_kepegawaian'] = "CPNS";
+        } else if ($data['pegawai']['status_kepegawaian'] === "2"){
+            $data['pegawai']['status_kepegawaian'] = "PNS";
+        } else if ($data['pegawai']['status_kepegawaian'] === "3"){
+            $data['pegawai']['status_kepegawaian'] = "PNS DPK dari DEP.LAIN";
+        } else {
+            $data['pegawai']['status_kepegawaian'] = "PNS DPK ke DEP.LAIN";
+        }
+        if ($data['pegawai']['taspen'] === "1"){
+            $data['pegawai']['taspen'] = "Sudah";
+        }else {
+            $data['pegawai']['taspen'] === "Belum";
+        }
         return view('admin/pegawai/show',$data);
     }
 
