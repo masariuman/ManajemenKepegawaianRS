@@ -45,7 +45,7 @@
                             <td class="text-center">bapak e</td>
                             <td class="text-center">tukang apa saja</td>
                             <td class="text-center">
-                                <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#riwayat_keluarga_suami"><i class="fa fa-eye"></i></button>
+                                <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#keluarga_suami_show"><i class="fa fa-eye"></i></button>
                             </td>
                         </tr>
                 </tbody>
@@ -69,7 +69,7 @@
                             <td class="text-center">latihan berjoget</td>
                             <td class="text-center">disana disini disitu</td>
                             <td class="text-center">
-                                <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#riwayat_keluarga_istri"><i class="fa fa-eye"></i></button>
+                                <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#keluarga_istri_show"><i class="fa fa-eye"></i></button>
                             </td>
                         </tr>
                 </tbody>
