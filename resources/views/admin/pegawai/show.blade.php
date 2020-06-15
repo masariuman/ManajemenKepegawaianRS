@@ -25,6 +25,20 @@
             height: 41px;
             color: #ffffff;
         }
+        .titlepertab {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+            font-size: 40px;
+            letter-spacing: 0px;
+            word-spacing: 0px;
+            color: #000000;
+            font-weight: 700;
+            text-decoration: none solid rgb(68, 68, 68);
+            font-style: normal;
+            font-variant: small-caps;
+            text-transform: capitalize;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
     </style>
 @endpush
 
@@ -82,6 +96,7 @@
                         <hr />
                         {{-- Dasar --}}
                         <div id="dasar">
+                            <div class="text-center titlepertab">Data Pegawai</div>
                             <table class="mb-0 table table-striped">
                                 <tbody>
                                     <tr>
@@ -232,8 +247,9 @@
                             </table>
                         </div>
                         <div id="riwayat_pendidikan_formal" style="display: none;">
+                            <div class="text-center titlepertab">riwayat pendidikan formal</div>
                             <div class="margintop20">
-                                <table class="mb-0 table table-striped table-bordered" id="riwayat_pendidikan_formal">
+                                <table class="mb-0 table table-striped table-bordered" id="datatable_riwayat_pendidikan_formal">
                                     <thead>
                                     <tr>
                                         <th class="width40 text-center">No</th>
@@ -247,61 +263,428 @@
                                                 <th class="text-center">1</th>
                                                 <td class="text-center">sd</td>
                                                 <td class="text-center">sekolah dasar negeri x pontianak</td>
-                                                @if(auth()->user()->level == 'ADMIN')
-                                                    <td class="text-center"><a href="/it/pegawai/1"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info"><i class="fa fa-eye"></i></button></a></td>
-                                                @else
-                                                    <td class="text-center"><a href="/admin/pegawai/1"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info"><i class="fa fa-eye"></i></button></a></td>
-                                                @endif
+                                                <td class="text-center">
+                                                    <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#riwayat_pendidikan_formal_show"><i class="fa fa-eye"></i></button>
+                                                </td>
                                             </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                         <div id="riwayat_diklat_fungsional" style="display: none;">
-                            Riwayat diklat fungsional
+                            <div class="margintop20">
+                                <table class="mb-0 table table-striped table-bordered" id="datatable_riwayat_diklat_fungsional">
+                                    <thead>
+                                    <tr>
+                                        <th class="width40 text-center">No</th>
+                                        <th class="text-center">Nama Diklat</th>
+                                        <th class="text-center">Lokasi</th>
+                                        <th class="width100px text-center">Aksi</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                            <tr>
+                                                <th class="text-center">1</th>
+                                                <td class="text-center">latihan berjoget</td>
+                                                <td class="text-center">disana disini disitu</td>
+                                                <td class="text-center">
+                                                    <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#riwayat_diklat_fungsional_show"><i class="fa fa-eye"></i></button>
+                                                </td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div id="riwayat_diklat_teknis" style="display: none;">
-                            Riwayat diklat teknis
+                            <div class="margintop20">
+                                <table class="mb-0 table table-striped table-bordered" id="datatable_riwayat_diklat_teknis">
+                                    <thead>
+                                    <tr>
+                                        <th class="width40 text-center">No</th>
+                                        <th class="text-center">Nama Diklat</th>
+                                        <th class="text-center">Lokasi</th>
+                                        <th class="width100px text-center">Aksi</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                            <tr>
+                                                <th class="text-center">1</th>
+                                                <td class="text-center">latihan berjoget</td>
+                                                <td class="text-center">disana disini disitu</td>
+                                                <td class="text-center">
+                                                    <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#riwayat_diklat_teknis_show"><i class="fa fa-eye"></i></button>
+                                                </td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div id="riwayat_diklat_penjenjangan" style="display: none;">
-                            Riwayat diklat penjenangan
+                            <div class="margintop20">
+                                <table class="mb-0 table table-striped table-bordered" id="datatable_riwayat_diklat_penjenjangan">
+                                    <thead>
+                                    <tr>
+                                        <th class="width40 text-center">No</th>
+                                        <th class="text-center">Jenis Diklat</th>
+                                        <th class="text-center">Lokasi</th>
+                                        <th class="width100px text-center">Aksi</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                            <tr>
+                                                <th class="text-center">1</th>
+                                                <td class="text-center">latihan berjoget</td>
+                                                <td class="text-center">disana disini disitu</td>
+                                                <td class="text-center">
+                                                    <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#riwayat_diklat_penjenjangan_show"><i class="fa fa-eye"></i></button>
+                                                </td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div id="riwayat_kepangkatan" style="display: none;">
-                            Riwayat kepangkatan
+                            <div class="margintop20">
+                                <table class="mb-0 table table-striped table-bordered" id="datatable_riwayat_kepangkatan">
+                                    <thead>
+                                    <tr>
+                                        <th class="width40 text-center">No</th>
+                                        <th class="text-center">SK</th>
+                                        <th class="text-center">Golongan</th>
+                                        <th class="width100px text-center">Aksi</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                            <tr>
+                                                <th class="text-center">1</th>
+                                                <td class="text-center">sk sana sini</td>
+                                                <td class="text-center">golongan para pencari berkah</td>
+                                                <td class="text-center">
+                                                    <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#riwayat_kepangkatan_show"><i class="fa fa-eye"></i></button>
+                                                </td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div id="riwayat_jabatan_struktural" style="display: none;">
-                            Riwayat jabatan struktural
+                            <div class="margintop20">
+                                <table class="mb-0 table table-striped table-bordered" id="datatable_riwayat_jabatan_struktural">
+                                    <thead>
+                                    <tr>
+                                        <th class="width40 text-center">No</th>
+                                        <th class="text-center">Nama Jabatan</th>
+                                        <th class="text-center">Unit Kerja</th>
+                                        <th class="width100px text-center">Aksi</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                            <tr>
+                                                <th class="text-center">1</th>
+                                                <td class="text-center">Nama Jabatan</td>
+                                                <td class="text-center">disana disini disitu</td>
+                                                <td class="text-center">
+                                                    <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#riwayat_jabatan_struktural_show"><i class="fa fa-eye"></i></button>
+                                                </td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div id="riwayat_jabatan_fungsional" style="display: none;">
-                            Riwayat jabatan fungsional
+                            <div class="margintop20">
+                                <table class="mb-0 table table-striped table-bordered" id="datatable_riwayat_jabatan_fungsional">
+                                    <thead>
+                                    <tr>
+                                        <th class="width40 text-center">No</th>
+                                        <th class="text-center">Nomor SK</th>
+                                        <th class="text-center">Nama Jabatan</th>
+                                        <th class="width100px text-center">Aksi</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                            <tr>
+                                                <th class="text-center">1</th>
+                                                <td class="text-center">SKS OKE OYE PUNTEN</td>
+                                                <td class="text-center">Tukang Makan Bakso</td>
+                                                <td class="text-center">
+                                                    <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#riwayat_jabatan_fungsional_show"><i class="fa fa-eye"></i></button>
+                                                </td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div id="riwayat_pekerjaan" style="display: none;">
-                            Riwayat pekerjaan
+                            <div class="margintop20">
+                                <table class="mb-0 table table-striped table-bordered" id="datatable_riwayat_pekerjaan">
+                                    <thead>
+                                    <tr>
+                                        <th class="width40 text-center">No</th>
+                                        <th class="text-center">Nomor SK</th>
+                                        <th class="text-center">Nama Jabatan</th>
+                                        <th class="width100px text-center">Aksi</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                            <tr>
+                                                <th class="text-center">1</th>
+                                                <td class="text-center">ESKA 2000 ANJLOK MANTAP</td>
+                                                <td class="text-center">Pemakan Apa Saja</td>
+                                                <td class="text-center">
+                                                    <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#riwayat_pekerjaan_show"><i class="fa fa-eye"></i></button>
+                                                </td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div id="pasangan" style="display: none;">
                             @if ($pegawai->jenis_kelamin === 'W')
-                                Suami
+                                <div class="margintop20">
+                                    <table class="mb-0 table table-striped table-bordered" id="datatable_suami">
+                                        <thead>
+                                        <tr>
+                                            <th class="width40 text-center">No</th>
+                                            <th class="text-center">Nomor Karsu (Kartu Suami)</th>
+                                            <th class="text-center">Nama Suami</th>
+                                            <th class="width100px text-center">Aksi</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                    <th class="text-center">1</th>
+                                                    <td class="text-center">241453432525352532</td>
+                                                    <td class="text-center">Suami Setia</td>
+                                                    <td class="text-center">
+                                                        <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#suami_show"><i class="fa fa-eye"></i></button>
+                                                    </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             @else
-                                Istri
+                            <div class="margintop20">
+                                <table class="mb-0 table table-striped table-bordered" id="datatable_istri">
+                                    <thead>
+                                    <tr>
+                                        <th class="width40 text-center">No</th>
+                                        <th class="text-center">Nomor Karis (Kartu Istri)</th>
+                                        <th class="text-center">Nama Istri</th>
+                                        <th class="width100px text-center">Aksi</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                            <tr>
+                                                <th class="text-center">1</th>
+                                                <td class="text-center">sadeefew3efewfdfwefefe</td>
+                                                <td class="text-center">Istri Setia Solehah</td>
+                                                <td class="text-center">
+                                                    <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#istri_show"><i class="fa fa-eye"></i></button>
+                                                </td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                             @endif
                         </div>
                         <div id="anak" style="display: none;">
-                            anak
+                            <div class="margintop20">
+                                <table class="mb-0 table table-striped table-bordered" id="datatable_anak">
+                                    <thead>
+                                    <tr>
+                                        <th class="width40 text-center">No</th>
+                                        <th class="text-center">Nama Anak</th>
+                                        <th class="text-center">Status Anak</th>
+                                        <th class="width100px text-center">Aksi</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                            <tr>
+                                                <th class="text-center">1</th>
+                                                <td class="text-center">Si anak spd</td>
+                                                <td class="text-center">statusnya anak apa hayo</td>
+                                                <td class="text-center">
+                                                    <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#anak_show"><i class="fa fa-eye"></i></button>
+                                                </td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div id="seminar" style="display: none;">
-                            seminar
+                            <div class="margintop20">
+                                <table class="mb-0 table table-striped table-bordered" id="datatable_seminar">
+                                    <thead>
+                                    <tr>
+                                        <th class="width40 text-center">No</th>
+                                        <th class="text-center">Nama Kegiatan</th>
+                                        <th class="text-center">Lokasi Kegiatan</th>
+                                        <th class="width100px text-center">Aksi</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                            <tr>
+                                                <th class="text-center">1</th>
+                                                <td class="text-center">Seminar Skripsi</td>
+                                                <td class="text-center">Kampus Untan</td>
+                                                <td class="text-center">
+                                                    <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#seminar_show"><i class="fa fa-eye"></i></button>
+                                                </td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div id="jasa" style="display: none;">
-                            jasa
+                            <div class="margintop20">
+                                <table class="mb-0 table table-striped table-bordered" id="datatable_jasa">
+                                    <thead>
+                                    <tr>
+                                        <th class="width40 text-center">No</th>
+                                        <th class="text-center">Nama Tanda Jasa/Penghargaan</th>
+                                        <th class="text-center">Negara/Instansi Pemberi</th>
+                                        <th class="width100px text-center">Aksi</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                            <tr>
+                                                <th class="text-center">1</th>
+                                                <td class="text-center">Juara Tidur Top Global</td>
+                                                <td class="text-center">WHO ORGANIZATION</td>
+                                                <td class="text-center">
+                                                    <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#jasa_show"><i class="fa fa-eye"></i></button>
+                                                </td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div id="hukum" style="display: none;">
-                            hukum
+                            <div class="margintop20">
+                                <table class="mb-0 table table-striped table-bordered" id="datatable_hukum">
+                                    <thead>
+                                    <tr>
+                                        <th class="width40 text-center">No</th>
+                                        <th class="text-center">Kode Hukuman</th>
+                                        <th class="text-center">Nomor SK</th>
+                                        <th class="width100px text-center">Aksi</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                            <tr>
+                                                <th class="text-center">1</th>
+                                                <td class="text-center">q2321</td>
+                                                <td class="text-center">3425235362342364</td>
+                                                <td class="text-center">
+                                                    <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#hukum_show"><i class="fa fa-eye"></i></button>
+                                                </td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div id="organisasi" style="display: none;">
-                            organisasi
+                            <div class="margintop20">
+                                <table class="mb-0 table table-striped table-bordered" id="datatable_organisasi">
+                                    <thead>
+                                    <tr>
+                                        <th class="width40 text-center">No</th>
+                                        <th class="text-center">Nama Organisasi</th>
+                                        <th class="text-center">Kedudukan</th>
+                                        <th class="width100px text-center">Aksi</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                            <tr>
+                                                <th class="text-center">1</th>
+                                                <td class="text-center">Mapala</td>
+                                                <td class="text-center">KETUA</td>
+                                                <td class="text-center">
+                                                    <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#organisasi_show"><i class="fa fa-eye"></i></button>
+                                                </td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div id="keluarga" style="display: none;">
-                            keluarga
+                            keluarga kandung
+                            <div class="margintop20">
+                                <table class="mb-0 table table-striped table-bordered" id="datatable_keluarga_kandung">
+                                    <thead>
+                                    <tr>
+                                        <th class="width40 text-center">No</th>
+                                        <th class="text-center">Nama</th>
+                                        <th class="text-center">Hubungan</th>
+                                        <th class="text-center">Pekerjaan</th>
+                                        <th class="width100px text-center">Aksi</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                            <tr>
+                                                <th class="text-center">1</th>
+                                                <td class="text-center">si anu</td>
+                                                <td class="text-center">Moyang si anu</td>
+                                                <td class="text-center">tukang tukangan</td>
+                                                <td class="text-center">
+                                                    <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#keluarga_kandung_show"><i class="fa fa-eye"></i></button>
+                                                </td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            @if ($pegawai->jenis_kelamin === 'W')
+                                keluarga Suami
+                                <div class="margintop20">
+                                    <table class="mb-0 table table-striped table-bordered" id="datatable_keluarga_suami">
+                                        <thead>
+                                        <tr>
+                                            <th class="width40 text-center">No</th>
+                                            <th class="text-center">Nama</th>
+                                            <th class="text-center">Hubungan</th>
+                                            <th class="text-center">Pekerjaan</th>
+                                            <th class="width100px text-center">Aksi</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                    <th class="text-center">1</th>
+                                                    <td class="text-center">si bapak suami</td>
+                                                    <td class="text-center">bapak e</td>
+                                                    <td class="text-center">tukang apa saja</td>
+                                                    <td class="text-center">
+                                                        <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#riwayat_keluarga_suami"><i class="fa fa-eye"></i></button>
+                                                    </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            @else
+                                keluarga Istri
+                                <div class="margintop20">
+                                    <table class="mb-0 table table-striped table-bordered" id="datatable_keluarga_istri">
+                                        <thead>
+                                        <tr>
+                                            <th class="width40 text-center">No</th>
+                                            <th class="text-center">Nama Diklat</th>
+                                            <th class="text-center">Lokasi</th>
+                                            <th class="width100px text-center">Aksi</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                    <th class="text-center">1</th>
+                                                    <td class="text-center">latihan berjoget</td>
+                                                    <td class="text-center">disana disini disitu</td>
+                                                    <td class="text-center">
+                                                        <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#riwayat_keluarga_istri"><i class="fa fa-eye"></i></button>
+                                                    </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -321,7 +704,7 @@
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/af-2.3.5/fh-3.1.7/r-2.2.5/sp-1.1.1/sl-1.3.1/datatables.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#table').DataTable({
+            $('#datatable_riwayat_pendidikan_formal, #datatable_riwayat_diklat_fungsional, #datatable_riwayat_diklat_fungsional, #datatable_riwayat_diklat_teknis, #datatable_riwayat_diklat_penjenjangan, #datatable_riwayat_kepangkatan, #datatable_riwayat_jabatan_struktural, #datatable_riwayat_jabatan_fungsional, #datatable_riwayat_pekerjaan, #datatable_suami, #datatable_istri, #datatable_anak, #datatable_seminar, #datatable_jasa, #datatable_hukum, #datatable_organisasi, #datatable_keluarga_kandung, #datatable_keluarga_suami, #datatable_keluarga_istri').DataTable({
                 "language": {
                     "search" : "Cari Data: ",
                     "info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
