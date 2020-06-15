@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Detail Pendidikan Formal</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Detail Riwayat Diklat Fungsional</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -11,23 +11,7 @@
                 <table class="mb-0 table table-striped">
                     <tbody>
                         <tr>
-                            <th scope="row" class="sidetable">TINGKAT PENDIDIKAN</th>
-                            <td>Mark</td>
-                        </tr>
-                        <tr>
-                            <th scope="row" class="sidetable">NAMA SEKOLAH/UNIVERSITAS</th>
-                            <td>Mark</td>
-                        </tr>
-                        <tr>
-                            <th scope="row" class="sidetable">JURUSAN/PROGRAM STUDI</th>
-                            <td>Mark</td>
-                        </tr>
-                        <tr>
-                            <th scope="row" class="sidetable">TAHUN MASUK</th>
-                            <td>Mark</td>
-                        </tr>
-                        <tr>
-                            <th scope="row" class="sidetable">TAHUN LULUS</th>
+                            <th scope="row" class="sidetable">NAMA DIKLAT</th>
                             <td>Mark</td>
                         </tr>
                         <tr>
@@ -39,14 +23,26 @@
                             <td>Mark</td>
                         </tr>
                         <tr>
-                            <th scope="row" class="sidetable">NOMOR IJAZAH</th>
+                            <th scope="row" class="sidetable">TANGGAL MULAI</th>
+                            <td>Mark</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="sidetable">TANGGAL SELESAI</th>
+                            <td>Mark</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="sidetable">JUMLAH JAM</th>
+                            <td>Mark</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="sidetable">PENYELENGGARA</th>
                             <td>Mark</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
+                <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Tutup</button>
             </div>
         </div>
     </div>
