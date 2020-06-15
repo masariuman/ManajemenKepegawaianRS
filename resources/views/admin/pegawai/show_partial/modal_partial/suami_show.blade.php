@@ -38,7 +38,6 @@
                             <th scope="row" class="sidetable">STATUS SUAMI</th>
                             <td>Mark</td>
                         </tr>
-                        <tr>
                     </tbody>
                 </table>
             </div>
