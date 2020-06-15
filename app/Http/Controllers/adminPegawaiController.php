@@ -135,7 +135,7 @@ class adminPegawaiController extends Controller
         if ($data['pegawai']['taspen'] === "1"){
             $data['pegawai']['taspen'] = "Sudah";
         }else {
-            $data['pegawai']['taspen'] === "Belum";
+            $data['pegawai']['taspen'] = "Belum";
         }
         return view('admin/pegawai/show',$data);
     }
