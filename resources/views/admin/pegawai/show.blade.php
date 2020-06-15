@@ -58,7 +58,7 @@
                         @endif
                     </div>
                     <div>{{$pegawai->user->name}}
-                        <div class="page-title-subheading">Data {{$pegawai->user->name}}
+                        <div class="page-title-subheading">NIP {{$pegawai->nip_baru}}
                         </div>
                     </div>
                 </div>
