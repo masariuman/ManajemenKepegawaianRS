@@ -88,6 +88,7 @@
                         @include('admin.pegawai.show_partial.riwayat_jabatan_fungsional')
                         @include('admin.pegawai.show_partial.riwayat_pekerjaan')
                         @include('admin.pegawai.show_partial.pasangan')
+                        @include('admin.pegawai.show_partial.anak')
                         @include('admin.pegawai.show_partial.seminar')
                         @include('admin.pegawai.show_partial.jasa')
                         @include('admin.pegawai.show_partial.hukum')
