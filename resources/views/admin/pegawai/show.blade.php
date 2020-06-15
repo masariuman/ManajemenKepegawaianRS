@@ -117,7 +117,7 @@
     @include('admin.pegawai.show_partial.modal_partial.jasa_show')
     @include('admin.pegawai.show_partial.modal_partial.hukum_show')
     @include('admin.pegawai.show_partial.modal_partial.organisasi_show')
-    @include('admin.pegawai.show_partial.modal_partial.riwayat_diklat_teknis_show')
+    @include('admin.pegawai.show_partial.modal_partial.keluarga_kandung_show')
     @include('admin.pegawai.show_partial.modal_partial.riwayat_diklat_teknis_show')
     @include('admin.pegawai.show_partial.modal_partial.riwayat_diklat_teknis_show')
     @include('admin.pegawai.show_partial.modal_partial.riwayat_diklat_teknis_show')
