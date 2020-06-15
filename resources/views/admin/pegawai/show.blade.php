@@ -6,6 +6,9 @@
         .width100{
             width: 100%;
         }
+        .width100px{
+            width: 100px;
+        }
         .width40{
             width: 40px;
         }
@@ -14,6 +17,13 @@
         }
         .margintop20 {
             margin-top: 20px;
+        }
+        .sidetable{
+            background-image: url(/lojin/sidebarx.png);
+            background-repeat: no-repeat;
+            width: 500px;
+            height: 41px;
+            color: #ffffff;
         }
     </style>
 @endpush
@@ -72,10 +82,180 @@
                         <hr />
                         {{-- Dasar --}}
                         <div id="dasar">
-                            dasar
+                            <table class="mb-0 table table-striped">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" class="sidetable">ESELON I</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">ESELON II</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">ESELON III</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">ESELON IV</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">NIP BARU</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">NIP LAMA</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">NAMA PEGAWAI</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">GELAR DEPAN</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">GELAR BELAKANG</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">TANGGAL LAHIR</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">TEMPAT LAHIR</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">JENIS KELAMIN</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">STATUS KELUARGA</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">AGAMA</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">PENDIDIKAN AKHIR</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">NAMA SEKOLAH/TAHUN LULUS</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">JURUSAN / PROGRAM STUDI</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">STATUS KEPEGAWAIAN</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">INSTANSI ASAL</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">TMT CALON PEGAWAI NEGERI SIPIL</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">GOLONGAN/RUANG TERAKHIR</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">NAMA JABATAN</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">NOMOR KARPEG</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">NOMOR NPWP</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">ALAMAT RUMAH</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">KOTA</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">KODE POS</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">NOMOR TELEPON RUMAH</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">NOMOR STR (SURAT TANDA REGISTRASI)</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">MASA BERLAKU STR</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">NOMOR SIKP (SURAT IZIN KERJA PERAWAT)</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">MASA BERLAKU SIKP</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">NOMOR SPK (SURAT PENUGASAAN KEWENANGAN KLINIS)</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">MASA BERLAKU SPK</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">NOMOR RKK (RINCIAN KEWENANGAN KLINIS)</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="sidetable">MASA BERLAKU RKK</th>
+                                        <td>Mark</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                         <div id="riwayat_pendidikan_formal" style="display: none;">
-                            Riwayat Pendidikan Formal
+                            <div class="margintop20">
+                                <table class="mb-0 table table-striped table-bordered" id="riwayat_pendidikan_formal">
+                                    <thead>
+                                    <tr>
+                                        <th class="width40 text-center">No</th>
+                                        <th class="width200 text-center">Tingkat Pendidikan</th>
+                                        <th class="text-center">Nama Sekolah</th>
+                                        <th class="width100px text-center">Aksi</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                            <tr>
+                                                <th class="text-center">1</th>
+                                                <td class="text-center">sd</td>
+                                                <td class="text-center">sekolah dasar negeri x pontianak</td>
+                                                @if(auth()->user()->level == 'ADMIN')
+                                                    <td class="text-center"><a href="/it/pegawai/1"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info"><i class="fa fa-eye"></i></button></a></td>
+                                                @else
+                                                    <td class="text-center"><a href="/admin/pegawai/1"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info"><i class="fa fa-eye"></i></button></a></td>
+                                                @endif
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div id="riwayat_diklat_fungsional" style="display: none;">
                             Riwayat diklat fungsional
