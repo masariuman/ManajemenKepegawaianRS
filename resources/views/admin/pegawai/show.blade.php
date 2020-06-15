@@ -114,7 +114,7 @@
     @include('admin.pegawai.show_partial.modal_partial.istri_show')
     @include('admin.pegawai.show_partial.modal_partial.anak_show')
     @include('admin.pegawai.show_partial.modal_partial.seminar_show')
-    @include('admin.pegawai.show_partial.modal_partial.riwayat_diklat_teknis_show')
+    @include('admin.pegawai.show_partial.modal_partial.jasa_show')
     @include('admin.pegawai.show_partial.modal_partial.riwayat_diklat_teknis_show')
     @include('admin.pegawai.show_partial.modal_partial.riwayat_diklat_teknis_show')
     @include('admin.pegawai.show_partial.modal_partial.riwayat_diklat_teknis_show')
