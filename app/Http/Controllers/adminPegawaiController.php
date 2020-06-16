@@ -190,7 +190,13 @@ class adminPegawaiController extends Controller
         //riwayat diklat fungsional
         $data['diklat_fungsional'] = DiklatFungsional::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['diklat_fungsional'] as $key => $value) {
-            # code...
+            if ($value['tempat_belajar'] === "1") {
+                $value['tempat_belajar'] = "Dalam Negeri";
+            } else {
+                $value['tempat_belajar'] = "Luar Negeri";
+            }
+            $value['tanggal_mulai'] = date("d F Y", strtotime($value['tanggal_mulai']));
+            $value['tanggal_selesai'] = date("d F Y", strtotime($value['tanggal_selesai']));
         }
 
         //riwayat diklat perjenjangan
