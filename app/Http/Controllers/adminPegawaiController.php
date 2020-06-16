@@ -396,22 +396,59 @@ class adminPegawaiController extends Controller
         //organisasi
         $data['organisasi'] = Organisasi::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['organisasi'] as $key => $value) {
-            # code...
+            $value['tanggal_mulai'] = date("d F Y", strtotime($value['tanggal_mulai']));
+            $value['tanggal_selesai'] = date("d F Y", strtotime($value['tanggal_selesai']));
         }
 
         //keluarga kandung
         $data['keluarga_kandung'] = KeluargaKandung::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['keluarga_kandung'] as $key => $value) {
-            # code...
+            if ($value['hubungan'] === "1") {
+                $value['hubungan'] = "Ayah";
+            } else if ($value['hubungan'] === "2") {
+                $value['hubungan'] = "Ibu";
+            } else if ($value['hubungan'] === "3") {
+                $value['hubungan'] = "Kakak";
+            } else {
+                $value['hubungan'] = "Adik";
+            }
+            if ($value['jenis_kelamin'] === "P") {
+                $value['jenis_kelamin'] = "Perempuan";
+            } else {
+                $value['jenis_kelamin'] = "Laki-Laki";
+            }
+            $value['tanggal_lahir'] = date("d F Y", strtotime($value['tanggal_lahir']));
+            if ($value['kondisi'] === "1") {
+                $value['kondisi'] = "Masih Hidup";
+            } else {
+                $value['kondisi'] = "Almarhum";
+            }
         }
 
         //keluarga istri suami
         $data['keluarga_istri_suami'] = KeluargaIstriSuami::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['keluarga_istri_suami'] as $key => $value) {
-            # code...
+            if ($value['hubungan'] === "1") {
+                $value['hubungan'] = "Ayah";
+            } else if ($value['hubungan'] === "2") {
+                $value['hubungan'] = "Ibu";
+            } else if ($value['hubungan'] === "3") {
+                $value['hubungan'] = "Kakak";
+            } else {
+                $value['hubungan'] = "Adik";
+            }
+            if ($value['jenis_kelamin'] === "P") {
+                $value['jenis_kelamin'] = "Perempuan";
+            } else {
+                $value['jenis_kelamin'] = "Laki-Laki";
+            }
+            $value['tanggal_lahir'] = date("d F Y", strtotime($value['tanggal_lahir']));
+            if ($value['kondisi'] === "1") {
+                $value['kondisi'] = "Masih Hidup";
+            } else {
+                $value['kondisi'] = "Almarhum";
+            }
         }
-
-
 
         return view('admin/pegawai/show',$data);
     }
