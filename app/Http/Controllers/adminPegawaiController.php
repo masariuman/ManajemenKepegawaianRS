@@ -220,7 +220,13 @@ class adminPegawaiController extends Controller
         //riwayat diklat teknis
         $data['diklat_teknis'] = DiklatTeknis::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['diklat_teknis'] as $key => $value) {
-            # code...
+            if ($value['tempat_belajar'] === "1") {
+                $value['tempat_belajar'] = "Dalam Negeri";
+            } else {
+                $value['tempat_belajar'] = "Luar Negeri";
+            }
+            $value['tanggal_mulai'] = date("d F Y", strtotime($value['tanggal_mulai']));
+            $value['tanggal_selesai'] = date("d F Y", strtotime($value['tanggal_selesai']));
         }
 
         //riwayat kepangkatan
