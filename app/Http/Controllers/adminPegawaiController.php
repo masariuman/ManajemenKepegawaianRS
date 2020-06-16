@@ -247,7 +247,8 @@ class adminPegawaiController extends Controller
         //riwayat jabatan fungsional
         $data['jabatan_fungsional'] = JabatanFungsional::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['jabatan_fungsional'] as $key => $value) {
-            # code...
+            $value['tmt_jabatan'] = date("d F Y", strtotime($value['tmt_jabatan']));
+            $value['tanggal_sk'] = date("d F Y", strtotime($value['tanggal_sk']));
         }
 
         //pekerjaan jabatan
