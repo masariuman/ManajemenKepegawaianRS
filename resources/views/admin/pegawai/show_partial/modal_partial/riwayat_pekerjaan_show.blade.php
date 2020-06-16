@@ -13,39 +13,39 @@
                         <tbody>
                             <tr>
                                 <th scope="row" class="sidetable">NAMA JABATAN</th>
-                                <td>{{$item->}}</td>
+                                <td>{{$item->nama_jabatan}}</td>
                             </tr>
                             <tr>
                                 <th scope="row" class="sidetable">TMT JABATAN</th>
-                                <td>{{$item->}}</td>
+                                <td>{{$item->tmt_jabatan}}</td>
                             </tr>
                             <tr>
                                 <th scope="row" class="sidetable">TAHUN MULAI</th>
-                                <td>{{$item->}}</td>
+                                <td>{{$item->tahun_mulai}}</td>
                             </tr>
                             <tr>
                                 <th scope="row" class="sidetable">SAMPAI DENGAN</th>
-                                <td>{{$item->}}</td>
+                                <td>{{$item->tahun_selesai}}</td>
                             </tr>
                             <tr>
                                 <th scope="row" class="sidetable">NOMOR SK</th>
-                                <td>{{$item->}}</td>
+                                <td>{{$item->nomor_sk}}</td>
                             </tr>
                             <tr>
                                 <th scope="row" class="sidetable">TANGGAL SK</th>
-                                <td>{{$item->}}</td>
+                                <td>{{$item->tanggal_sk}}</td>
                             </tr>
                             <tr>
                                 <th scope="row" class="sidetable">NIP PEJABAT PENANDATANGAN SK</th>
-                                <td>{{$item->}}</td>
+                                <td>{{$item->nip_pejabat_penandatangan_sk}}</td>
                             </tr>
                             <tr>
                                 <th scope="row" class="sidetable">NIP LAMA PEJABAT PENANDATANGAN SK</th>
-                                <td>{{$item->}}</td>
+                                <td>{{$item->nip_lama_pejabat_penandatangan_sk}}</td>
                             </tr>
                             <tr>
                                 <th scope="row" class="sidetable">PEJABAT PENANDATANGAN SK</th>
-                                <td>{{$item->}}</td>
+                                <td>{{$item->pejabat_penandatangan_sk}}</td>
                             </tr>
                         </tbody>
                     </table>
