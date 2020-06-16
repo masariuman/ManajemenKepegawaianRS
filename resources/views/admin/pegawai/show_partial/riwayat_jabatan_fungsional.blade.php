@@ -11,7 +11,7 @@
             </tr>
             </thead>
             <tbody>
-                @foreach ($diklat_fungsional as $no => $item)
+                @foreach ($jabatan_fungsional as $no => $item)
                     <tr>
                         <th class="text-center">{{$no+1}}</th>
                         <td class="text-center">{{$item->nomor_sk}}</td>

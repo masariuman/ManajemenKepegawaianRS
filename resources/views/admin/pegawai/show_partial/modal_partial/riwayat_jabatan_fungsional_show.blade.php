@@ -1,4 +1,4 @@
-@foreach ($diklat_fungsional as $no => $item)
+@foreach ($jabatan_fungsional as $no => $item)
     <div class="modal fade bd-example-modal-lg" id="riwayat_jabatan_fungsional_show" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
