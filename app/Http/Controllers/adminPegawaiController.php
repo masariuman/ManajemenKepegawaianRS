@@ -12,6 +12,7 @@ use App\DiklatTeknis;
 use App\Kepangkatan;
 use App\JabatanStruktural;
 use App\JabatanFungsional;
+use App\PekerjaanJabatan;
 use App\IstriSuami;
 use App\Anak;
 use App\Seminar;
@@ -239,12 +240,19 @@ class adminPegawaiController extends Controller
         //riwayat jabatan struktural
         $data['jabatan_struktural'] = JabatanStruktural::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['jabatan_struktural'] as $key => $value) {
-            # code...
+            $value['tmt_jabatan'] = date("d F Y", strtotime($value['tmt_jabatan']));
+            $value['tanggal_sk'] = date("d F Y", strtotime($value['tanggal_sk']));
         }
 
         //riwayat jabatan fungsional
         $data['jabatan_fungsional'] = JabatanFungsional::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['jabatan_fungsional'] as $key => $value) {
+            # code...
+        }
+
+        //pekerjaan jabatan
+        $data['pekerjaan_jabatan'] = PekerjaanJabatan::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
+        foreach ($data['pekerjaan_jabatan'] as $key => $value) {
             # code...
         }
 
