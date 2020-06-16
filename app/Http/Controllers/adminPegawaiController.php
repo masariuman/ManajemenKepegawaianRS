@@ -232,7 +232,8 @@ class adminPegawaiController extends Controller
         //riwayat kepangkatan
         $data['kepangkatan'] = Kepangkatan::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['kepangkatan'] as $key => $value) {
-            # code...
+            $value['tmt_golongan'] = date("d F Y", strtotime($value['tmt_golongan']));
+            $value['tanggal_sk'] = date("d F Y", strtotime($value['tanggal_sk']));
         }
 
         //riwayat jabatan struktural
