@@ -6,6 +6,20 @@ use Illuminate\Http\Request;
 use App\Pegawai;
 use App\User;
 use App\PendidikanFormal;
+use App\DiklatFungsional;
+use App\DiklatPenjenjangan;
+use App\DiklatTeknis;
+use App\Kepangkatan;
+use App\JabatanStruktural;
+use App\JabatanFungsional;
+use App\IstriSuami;
+use App\Anak;
+use App\Seminar;
+use App\Penghargaan;
+Use App\Hukuman;
+use App\Organisasi;
+use App\KeluargaKandung;
+use App\KeluargaIstriSuami;
 use App\Ruangan;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
@@ -171,6 +185,11 @@ class adminPegawaiController extends Controller
                 $value['tempat_belajar'] = "Luar Negeri";
             }
         }
+
+
+        //riwayat diklat fungsional
+
+
 
 
         return view('admin/pegawai/show',$data);
