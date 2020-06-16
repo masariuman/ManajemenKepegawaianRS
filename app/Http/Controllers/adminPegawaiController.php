@@ -261,7 +261,42 @@ class adminPegawaiController extends Controller
         //istri suami
         $data['istri_suami'] = IstriSuami::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['istri_suami'] as $key => $value) {
-            # code...
+            $value['tanggal_lahir'] = date("d F Y", strtotime($value['tanggal_lahir']));
+            $value['tanggal_nikah'] = date("d F Y", strtotime($value['tanggal_nikah']));
+            if ($value['tingkat_pendidikan'] === "01") {
+                $value['tingkat_pendidikan'] = "S3 (Setara)";
+            } else if ($value['tingkat_pendidikan'] === "02") {
+                $value['tingkat_pendidikan'] = "S2 (Setara)";
+            } else if ($value['tingkat_pendidikan'] === "03") {
+                $value['tingkat_pendidikan'] = "S1 (Setara)";
+            } else if ($value['tingkat_pendidikan'] === "04") {
+                $value['tingkat_pendidikan'] = "D4";
+            } else if ($value['tingkat_pendidikan'] === "05") {
+                $value['tingkat_pendidikan'] = "SM";
+            } else if ($value['tingkat_pendidikan'] === "06") {
+                $value['tingkat_pendidikan'] = "D3";
+            } else if ($value['tingkat_pendidikan'] === "07") {
+                $value['tingkat_pendidikan'] = "D2";
+            } else if ($value['tingkat_pendidikan'] === "08") {
+                $value['tingkat_pendidikan'] = "D1";
+            } else if ($value['tingkat_pendidikan'] === "09") {
+                $value['tingkat_pendidikan'] = "SLTA";
+            } else if ($value['tingkat_pendidikan'] === "10") {
+                $value['tingkat_pendidikan'] = "SLTP";
+            } else {
+                $value['tingkat_pendidikan'] = "SD";
+            }
+            if ($value['status_suami_istri'] === "1") {
+                if ($data['pegawai']['jenis_kelamin'] === "Perempuan";) {
+                    $value['status_suami_istri'] = "Suami Saat ini";
+                } else {
+                    $value['status_suami_istri'] = "Istri Saat ini";
+                }
+            } else if ($value['status_suami_istri'] === "2") {
+                $value['status_suami_istri'] = "Telah Meninggal Dunia";
+            } else {
+                $value['status_suami_istri'] = "Cerai";
+            }
         }
 
         //anak
