@@ -302,7 +302,44 @@ class adminPegawaiController extends Controller
         //anak
         $data['anak'] = Anak::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['anak'] as $key => $value) {
-            # code...
+            if ($data['anak']['jenis_kelamin'] === "W") {
+                $data['anak']['jenis_kelamin'] = "Perempuan";
+            } else {
+                $data['anak']['jenis_kelamin'] = "Laki-Laki";
+            }
+            $data['anak']['tanggal_lahir'] = date("d F Y", strtotime($data['anak']['tanggal_lahir']));
+            if ($value['anak'] === "1") {
+                $value['anak'] = "Anak Kandung";
+            } else if ($value['anak'] === "2") {
+                $value['anak'] = "Anak Tiri";
+            } else {
+                $value['anak'] = "Anak Angkat";
+            }
+            if ($value['pendidikan'] === "01") {
+                $value['pendidikan'] = "S3 (Setara)";
+            } else if ($value['pendidikan'] === "02") {
+                $value['pendidikan'] = "S2 (Setara)";
+            } else if ($value['pendidikan'] === "03") {
+                $value['pendidikan'] = "S1 (Setara)";
+            } else if ($value['pendidikan'] === "04") {
+                $value['pendidikan'] = "D4";
+            } else if ($value['pendidikan'] === "05") {
+                $value['pendidikan'] = "SM";
+            } else if ($value['pendidikan'] === "06") {
+                $value['pendidikan'] = "D3";
+            } else if ($value['pendidikan'] === "07") {
+                $value['pendidikan'] = "D2";
+            } else if ($value['pendidikan'] === "08") {
+                $value['pendidikan'] = "D1";
+            } else if ($value['pendidikan'] === "09") {
+                $value['pendidikan'] = "SLTA";
+            } else if ($value['pendidikan'] === "10") {
+                $value['pendidikan'] = "SLTP";
+            } else if ($value['pendidikan'] === "11") {
+                $value['pendidikan'] = "SD";
+            } else {
+                $value['pendidikan'] = "Belum Sekolah";
+            }
         }
 
         //seminar
