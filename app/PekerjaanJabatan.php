@@ -30,5 +30,4 @@ class PekerjaanJabatan extends Model
         return $this->belongsTo('App\Pegawai', 'pegawai_id');
     }
 
-
 }
