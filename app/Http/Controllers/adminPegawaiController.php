@@ -154,7 +154,7 @@ class adminPegawaiController extends Controller
         }
 
         //riwayat pendidikan formal
-        $data['pendidikan_formal'] = PendidikanFormal::where('pegawai_id',$id)->where('active','1')->get();
+        $data['pendidikan_formal'] = PendidikanFormal::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['pendidikan_formal'] as $key => $value) {
             if ($value['tingkat_pendidikan'] === "01") {
                 $value['tingkat_pendidikan'] = "S3 (Setara)";
@@ -188,7 +188,88 @@ class adminPegawaiController extends Controller
 
 
         //riwayat diklat fungsional
+        $data['diklat_fungsional'] = DiklatFungsional::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
+        foreach ($data['diklat_fungsional'] as $key => $value) {
+            # code...
+        }
 
+        //riwayat diklat perjenjangan
+        $data['diklat_penjenjangan'] = DiklatPenjenjangan::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
+        foreach ($data['diklat_penjenjangan'] as $key => $value) {
+            # code...
+        }
+
+        //riwayat diklat teknis
+        $data['diklat_teknis'] = DiklatTeknis::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
+        foreach ($data['diklat_teknis'] as $key => $value) {
+            # code...
+        }
+
+        //riwayat kepangkatan
+        $data['kepangkatan'] = Kepangkatan::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
+        foreach ($data['kepangkatan'] as $key => $value) {
+            # code...
+        }
+
+        //riwayat jabatan struktural
+        $data['jabatan_struktural'] = JabatanStruktural::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
+        foreach ($data['jabatan_struktural'] as $key => $value) {
+            # code...
+        }
+
+        //riwayat jabatan fungsional
+        $data['jabatan_fungsional'] = JabatanFungsional::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
+        foreach ($data['jabatan_fungsional'] as $key => $value) {
+            # code...
+        }
+
+        //istri suami
+        $data['istri_suami'] = IstriSuami::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
+        foreach ($data['istri_suami'] as $key => $value) {
+            # code...
+        }
+
+        //anak
+        $data['anak'] = Anak::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
+        foreach ($data['anak'] as $key => $value) {
+            # code...
+        }
+
+        //seminar
+        $data['seminar'] = Seminar::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
+        foreach ($data['seminar'] as $key => $value) {
+            # code...
+        }
+
+        //penghargaan
+        $data['penghargaan'] = Penghargaan::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
+        foreach ($data['penghargaan'] as $key => $value) {
+            # code...
+        }
+
+        //hukuman
+        $data['hukuman'] = Hukuman::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
+        foreach ($data['hukuman'] as $key => $value) {
+            # code...
+        }
+
+        //organisasi
+        $data['organisasi'] = Organisasi::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
+        foreach ($data['organisasi'] as $key => $value) {
+            # code...
+        }
+
+        //keluarga kandung
+        $data['keluarga_kandung'] = KeluargaKandung::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
+        foreach ($data['keluarga_kandung'] as $key => $value) {
+            # code...
+        }
+
+        //keluarga istri suami
+        $data['keluarga_istri_suami'] = KeluargaIstriSuami::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
+        foreach ($data['keluarga_istri_suami'] as $key => $value) {
+            # code...
+        }
 
 
 
