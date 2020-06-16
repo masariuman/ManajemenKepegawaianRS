@@ -307,7 +307,7 @@ class adminPegawaiController extends Controller
             } else {
                 $data['anak']['jenis_kelamin'] = "Laki-Laki";
             }
-            $data['anak']['tanggal_lahir'] = date("d F Y", strtotime($data['anak']['tanggal_lahir']));
+            $value['tanggal_lahir'] = date("d F Y", strtotime($data['anak']['tanggal_lahir']));
             if ($value['anak'] === "1") {
                 $value['anak'] = "Anak Kandung";
             } else if ($value['anak'] === "2") {
@@ -345,19 +345,52 @@ class adminPegawaiController extends Controller
         //seminar
         $data['seminar'] = Seminar::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['seminar'] as $key => $value) {
-            # code...
+            if ($value['tempat_kegiatan'] === "1") {
+                $value['tempat_kegiatan'] = "Dalam Negeri";
+            } else {
+                $value['tempat_kegiatan'] = "Luar Negeri";
+            }
+            if ($value['kedudukan_dalam_seminar'] === "1") {
+                $value['kedudukan_dalam_seminar'] = "Peserta";
+            } else if ($value['kedudukan_dalam_seminar'] === "2") {
+                $value['kedudukan_dalam_seminar'] = "Moderator";
+            } else if ($value['kedudukan_dalam_seminar'] === "3") {
+                $value['kedudukan_dalam_seminar'] = "Pembahas";
+            } else if ($value['kedudukan_dalam_seminar'] === "4") {
+                $value['kedudukan_dalam_seminar'] = "Pembawa Makalah";
+            } else {
+                $value['kedudukan_dalam_seminar'] = "Panitia";
+            }
         }
 
         //penghargaan
         $data['penghargaan'] = Penghargaan::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['penghargaan'] as $key => $value) {
-            # code...
+            $value['tanggal_perolehan'] = date("d F Y", strtotime($value['tanggal_perolehan']));
         }
 
         //hukuman
         $data['hukuman'] = Hukuman::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['hukuman'] as $key => $value) {
-            # code...
+            if ($value['kode_hukuman'] === "11") {
+                $value['kode_hukuman'] = "11 (Hukuman Ringan Teguran Lisan)";
+            } else if ($value['kode_hukuman'] === "12") {
+                $value['kode_hukuman'] = "12 (Hukuman Ringan Teguran Tertulis)";
+            } else if ($value['kode_hukuman'] === "13") {
+                $value['kode_hukuman'] = "13 (Hukuman Ringan Melalui Pernyataan Tidak Puas Secara Tertulis)";
+            } else if ($value['kode_hukuman'] === "21") {
+                $value['kode_hukuman'] = "21 (Hukuman Sedang Penundaan Kenaikan Gaji Berkala Paling Lama 1 Tahun)";
+            } else if ($value['kode_hukuman'] === "22") {
+                $value['kode_hukuman'] = "22 (Hukuman Sedang Penurunan Gaji Sebesar 1x Kenaikan Gaji Berkala Paling Lama 1 Tahun)";
+            } else if ($value['kode_hukuman'] === "23") {
+                $value['kode_hukuman'] = "23 (Hukuman Sedang Penundaan Kenaikan Pangkat Paling Lama 1 Tahun)";
+            } else if ($value['kode_hukuman'] === "31") {
+                $value['kode_hukuman'] = "31 (Hukuman Berat Penurunan Pangkat Setingkat Lebih Rendah Paling Lama 1 Tahun)";
+            } else {
+                $value['kode_hukuman'] = "32 (Hukuman Berat Pembebasan Dari Jabatan)";
+            }
+            $value['tanggal_sk'] = date("d F Y", strtotime($value['tanggal_sk']));
+            $value['tmt_berlaku'] = date("d F Y", strtotime($value['tmt_berlaku']));
         }
 
         //organisasi
