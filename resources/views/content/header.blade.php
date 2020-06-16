@@ -80,13 +80,13 @@
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
                                         @if(auth()->user()->level == 'ADMIN')
-                                            Budak IT
+                                            {{ auth()->user()->name }}
                                         @endif
                                         @if(auth()->user()->level == 'TU')
-                                            Admin
+                                            {{ auth()->user()->name }}
                                         @endif
                                         @if(auth()->user()->level == 'PEGAWAI')
-                                            Pegawai
+                                            {{ auth()->user()->name }}
                                         @endif
                                     </div>
                                     <div class="widget-subheading">
@@ -104,8 +104,8 @@
                                 <div class="widget-content-right header-user-info ml-3">
                                     <form action="{{ route('logout') }}" method="POST">
                                         @csrf
-                                        <button type="submit" class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
-                                            <i class="fa fa-share icon-gradient bg-deep-blue"> </i> Logout
+                                        <button type="submit" class="btn-shadow p-1 btn btn-light btn-sm">
+                                        <i class="fa text-dark fa-power-off pr-1 pl-1"></i>Logout &nbsp;
                                         </button>
                                     </form>
                                 </div>

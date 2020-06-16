@@ -15,7 +15,7 @@ class Hukuman extends Model
         'nomor_sk',
         'tanggal_sk',
         'tmt_berlaku',
-        'penjabat_pembuat_sk',
+        'pejabat_pembuat_sk',
         'active',
         'created_at',
         'updated_at'

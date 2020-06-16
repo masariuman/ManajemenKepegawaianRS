@@ -38,19 +38,17 @@ class penghargaanController extends Controller
      */
     public function store(Request $request)
     {
-        $pegawai_id = Pegawai::max('id');
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
-        $tanda_jasa_penghargaan = Penghargaan::insert([
+        $tanda_jasa_penghargaan = Penghargaan::create([
             'tahun' => $request->input('tahun', 2020),
-            'pegawai_id' => $pegawai_id,
+            'pegawai_id' => $pegawai_id->id,
             'nama_penghargaan' => $request->nama_penghargaan,
             'tanggal_perolehan' => $request->tanggal_perolehan,
             'nomor' => $request->nomor,
             'pemberi' => $request->pemberi,
             'jabatan_pemberi' => $request->jabatan_pemberi,
             'active' => $request->input('active', 1),
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         \Session::flash('Berhasil', 'Data tanda jasa / penghargaan berhasil ditambahkan');
@@ -89,19 +87,17 @@ class penghargaanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pegawai = Pegawai::max('id');
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
         $tanda_jasa_penghargaan = Penghargaan::where('id', $id)->update([
             'tahun' => $request->input('tahun', 2020),
-            'pegawai_id' => $pegawai_id,
+            'pegawai_id' => $pegawai_id->id,
             'nama_penghargaan' => $request->nama_penghargaan,
             'tanggal_perolehan' => $request->tanggal_perolehan,
             'nomor' => $request->nomor,
             'pemberi' => $request->pemberi,
             'jabatan_pemberi' => $request->jabatan_pemberi,
             'active' => $request->input('active', 1),
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         \Session::flash('Berhasil', 'Data tanda jasa / penghargaan berhasil diubah');

@@ -147,12 +147,42 @@
                                             <tr>
                                                 <th scope="row">{{++$key}}</th>
                                                 <td>{{$riwayat_pendidikan_formals->tahun}}</td>
-                                                <td>{{$riwayat_pendidikan_formals->tingkat_pendidikan}}</td>
+                                                <td>
+                                                @if($riwayat_pendidikan_formals->tingkat_pendidikan == "01") 
+                                                S3 (Setara)                                             
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "02") 
+                                                S2 (Setara)                                              
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "03")                                    
+                                                S1 (Setara)                      
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "04")                                              
+                                                D4                                          
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "05")                                             
+                                                SM                                       
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "06")                                   
+                                                D3                                            
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "07")                                              
+                                                D2                                               
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "08")                                             
+                                                D1                                             
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "09")                                     
+                                                SLTA                                    
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "10")                                       
+                                                SLTP                                             
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "11")                                             
+                                                SD
+                                                @endif
+                                                </td>
                                                 <td>{{$riwayat_pendidikan_formals->nama_sekolah}}</td>
                                                 <td>{{$riwayat_pendidikan_formals->jurusan_prodi}}</td>
                                                 <td>{{$riwayat_pendidikan_formals->tahun_masuk}}</td>
                                                 <td>{{$riwayat_pendidikan_formals->tahun_lulus}}</td>
-                                                <td>{{$riwayat_pendidikan_formals->tempat_belajar}}</td>
+                                                <td>
+                                                    @if($riwayat_pendidikan_formals->tempat_belajar == "1")
+                                                    Dalam Negeri
+                                                    @elseif($riwayat_diklat_fungsionals->tempat_belajar == "2")
+                                                    Luar Negeri
+                                                    @endif
+                                                </td>
                                                 <td>{{$riwayat_pendidikan_formals->lokasi}}</td>
                                                 <td>{{$riwayat_pendidikan_formals->nomor_ijazah}}</td>
                                                 <td>

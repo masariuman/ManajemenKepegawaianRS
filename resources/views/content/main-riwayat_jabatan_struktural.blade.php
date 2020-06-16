@@ -33,21 +33,17 @@
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_jabatan_strukturals->unit_kerja}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>TMT Jabatan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_jabatan_strukturals->tmt_jabatan}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($riwayat_jabatan_strukturals->tmt_jabatan)) }}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nomor SK :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_jabatan_strukturals->nomor_sk}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal SK :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_jabatan_strukturals->tanggal_sk}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($riwayat_jabatan_strukturals->tanggal_sk)) }}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Pejabat Penandatangan SK :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_jabatan_strukturals->penjabat_penandatangan_sk}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_jabatan_strukturals->pejabat_penandatangan_sk}}</b></h6></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal SK :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_jabatan_strukturals->tanggal_sk}}</b></h6></div>          
-                                            </div>
- 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Tutup</button>
@@ -75,7 +71,7 @@
             <form class="" action="{{route('riwayat_jabatan_struktural_tambah')}}" method="post">
                                             @csrf  
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Eselon</b></label>
-                                                <div class="col-sm-10"><input name="eselom" id="exampleEmail" placeholder="Contoh : II/a ditulis 2a" type="text" class="form-control" value="" required></div>          
+                                                <div class="col-sm-10"><input name="eselon" id="exampleEmail" placeholder="Contoh : II/a ditulis 2a" type="text" class="form-control" value="" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nama Jabatan</b></label>
                                                 <div class="col-sm-10"><input name="nama_jabatan" id="exampleEmail" placeholder="Nama Jabatan" type="text" class="form-control" value="" required></div>          
@@ -93,7 +89,7 @@
                                                 <div class="col-sm-10"><input name="tanggal_sk" id="exampleEmail" placeholder="Tanggal SK" type="date" class="form-control" value="" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Pejabat Pendatang SK</b></label>
-                                                <div class="col-sm-10"><input name="penjabat_penandatangan_sk" id="exampleEmail" placeholder="Pejabat Pendatang SK" type="text" class="form-control" value="" required></div>          
+                                                <div class="col-sm-10"><input name="pejabat_penandatangan_sk" id="exampleEmail" placeholder="Pejabat Pendatang SK" type="text" class="form-control" value="" required></div>          
                                             </div>                   
             </div>
             <div class="modal-footer">
@@ -120,11 +116,11 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form class="" action="riwayat_diklat_perjenjangan_struktural/update/{{$riwayat_jabatan_strukturals->id}}" method="post">
+            <form class="" action="riwayat_jabatan_struktural/update/{{$riwayat_jabatan_strukturals->id}}" method="post">
                                             @method('patch')
                                             @csrf
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Eselon</b></label>
-                                                <div class="col-sm-10"><input name="eselom" id="exampleEmail" placeholder="Contoh : II/a ditulis 2a" type="text" class="form-control" value="{{$riwayat_jabatan_strukturals->eselon}}" required></div>          
+                                                <div class="col-sm-10"><input name="eselon" id="exampleEmail" placeholder="Contoh : II/a ditulis 2a" type="text" class="form-control" value="{{$riwayat_jabatan_strukturals->eselon}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nama Jabatan</b></label>
                                                 <div class="col-sm-10"><input name="nama_jabatan" id="exampleEmail" placeholder="Nama Jabatan" type="text" class="form-control" value="{{$riwayat_jabatan_strukturals->nama_jabatan}}" required></div>          
@@ -133,16 +129,16 @@
                                                 <div class="col-sm-10"><input name="unit_kerja" id="exampleEmail" placeholder="Unit Kerja" type="text" class="form-control" value="{{$riwayat_jabatan_strukturals->unit_kerja}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>TMT Jabatan</b></label>
-                                                <div class="col-sm-10"><input name="tmt_jabatan" id="exampleEmail" placeholder="TMT Jabatan" type="date" class="form-control" value="{{$riwayat_jabatan_strukturals->tmt_jabatan}}" required></div>          
+                                                <div class="col-sm-10"><input name="tmt_jabatan" id="exampleEmail" placeholder="TMT Jabatan" type="date" class="form-control" value="{{ date('Y-m-d',strtotime($riwayat_jabatan_strukturals->tmt_jabatan)) }}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor SK</b></label>
                                                 <div class="col-sm-10"><input name="nomor_sk" id="exampleEmail" placeholder="Nomor SK" type="number" class="form-control" value="{{$riwayat_jabatan_strukturals->nomor_sk}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal SK</b></label>
-                                                <div class="col-sm-10"><input name="tanggal_sk" id="exampleEmail" placeholder="Tanggal SK" type="date" class="form-control" value="{{$riwayat_jabatan_strukturals->tanggal_sks}}" required></div>          
+                                                <div class="col-sm-10"><input name="tanggal_sk" id="exampleEmail" placeholder="Tanggal SK" type="date" class="form-control" value="{{ date('Y-m-d',strtotime($riwayat_jabatan_strukturals->tanggal_sk)) }}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Pejabat Pendatang SK</b></label>
-                                                <div class="col-sm-10"><input name="penjabat_penandatangan_sk" id="exampleEmail" placeholder="Pejabat Pendatang SK" type="text" class="form-control" value="{{$riwayat_jabatan_strukturals->penjabat_penandatangan_sk}}" required></div>          
+                                                <div class="col-sm-10"><input name="pejabat_penandatangan_sk" id="exampleEmail" placeholder="Pejabat Pendatang SK" type="text" class="form-control" value="{{$riwayat_jabatan_strukturals->pejabat_penandatangan_sk}}" required></div>          
                                             </div>  
                                       
             </div>
@@ -170,7 +166,7 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form action="riwayat_diklat_perjenjangan_struktural/delete/{{$riwayat_jabatan_strukturals->id}}" method="post">
+            <form action="riwayat_jabatan_struktural/delete/{{$riwayat_jabatan_strukturals->id}}" method="post">
             @method('delete')
             @csrf
                 <p><center>Apakah anda yakin <p>"Hapus Data Riwayat Jabatan Struktural" <b></b> </p></center></p>

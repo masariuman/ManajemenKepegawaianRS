@@ -26,19 +26,53 @@
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$anaks->nama}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Jenis Kelamin :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$anaks->jenis_kelamin}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b> @if($anaks->jenis_kelamin == "P")
+                                                                                                            Pria
+                                                                                                            @elseif($anaks->jenis_kelamin == "W")
+                                                                                                            Wanita
+                                                                                                            @endif</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tempat Lahir :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$anaks->tempat_lahir}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal Lahir :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$anaks->tanggal_lahir}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($anaks->tanggal_lahir)) }}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Status Anak :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$anaks->status_anak}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>  @if($anaks->status_anak == "1")
+                                                                                                            Anak Kandung
+                                                                                                            @elseif($anaks->status_anak == "2")
+                                                                                                            Anak Tiri
+                                                                                                            @elseif($anaks->status_anak == "3")
+                                                                                                            Anak Angkat
+                                                                                                            @endif</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Pendidikan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$anaks->pendidikan}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b> @if($anaks->pendidikan == "01") 
+                                                                                                            S3 (Setara)                                             
+                                                                                                            @elseif($anaks->pendidikan == "02") 
+                                                                                                            S2 (Setara)                                              
+                                                                                                            @elseif($anaks->pendidikan == "03")                                    
+                                                                                                            S1 (Setara)                      
+                                                                                                            @elseif($anaks->pendidikan == "04")                                              
+                                                                                                            D4                                          
+                                                                                                            @elseif($anaks->pendidikan == "05")                                             
+                                                                                                            SM                                       
+                                                                                                            @elseif($anaks->pendidikan == "06")                                   
+                                                                                                            D3                                            
+                                                                                                            @elseif($anaks->pendidikan == "07")                                              
+                                                                                                            D2                                               
+                                                                                                            @elseif($anaks->pendidikan == "08")                                             
+                                                                                                            D1                                             
+                                                                                                            @elseif($anaks->pendidikan == "09")                                     
+                                                                                                            SLTA                                    
+                                                                                                            @elseif($anaks->pendidikan == "10")                                       
+                                                                                                            SLTP                                             
+                                                                                                            @elseif($anaks->pendidikan == "11")                                             
+                                                                                                            SD
+                                                                                                            @elseif($anaks->pendidikan == "12")                                             
+                                                                                                            Belum Sekolah
+                                                                                                            @endif</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Pekerjaan :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$anaks->pekerjaan}}</b></h6></div>          
@@ -160,7 +194,7 @@
                                                 <div class="col-sm-10"><input name="tempat_lahir" id="exampleEmail" placeholder="Tempat Lahir" type="text" class="form-control" value="{{$anaks->tempat_lahir}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal Lahir</b></label>
-                                                <div class="col-sm-10"><input name="tanggal_lahir" id="exampleEmail" placeholder="Tanggal Lahir" type="date" class="form-control" value="{{$anaks->tanggal_lahir}}" required></div>          
+                                                <div class="col-sm-10"><input name="tanggal_lahir" id="exampleEmail" placeholder="Tanggal Lahir" type="date" class="form-control" value="{{ date('Y-m-d',strtotime($anaks->tanggal_lahir)) }}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Status Anak</b></label>
                                                 <div class="col-sm-10"><select name="status_anak" id="exampleSelect" class="form-control" value="{{$anaks->status_anak}}"  required>

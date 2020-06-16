@@ -125,14 +125,16 @@
                                 
                                          
 
-
-                                        <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeTambah"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah
+                                    @if(empty($pegawai_id))
+                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeTambah"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah
                                         </button>
-                                 
+                                    @endif         
 
                                         @foreach($pegawai as $key => $pegawais)
-                                        @if(auth()->user()->id == $pegawais->user_id)
+                                                @if(auth()->user()->id == $pegawais->user_id)
                                                 <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeUbah-{{$pegawais->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah
+                                                </button>
+                                                <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeDetail-{{$pegawais->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use address-card"></i> Lihat
                                                 </button>
 
                                                 @if(auth()->user()->level == 'ADMIN')
@@ -152,26 +154,97 @@
                                                     <li class="list-group-item"><b>Gelar Depan : {{$pegawais->gelar_depan}}</b></li>
                                                     <li class="list-group-item"><b>Gelar Belakang : {{$pegawais->gelar_belakang}}</b></li>
                                                     <li class="list-group-item"><b>Tempat Lahir : {{$pegawais->tempat_lahir}}</b></li>                                                   
-                                                    <li class="list-group-item"><b>Tanggal Lahir : {{ date('d/m/Y',strtotime($pegawais->tanggal_lahir)) }}</li>
-                                                    <li class="list-group-item"><b>Jenis Kelamin : {{$pegawais->jenis_kelamin}}</b></li>
-                                                    <li class="list-group-item"><b>Status Keluarga : {{$pegawais->status_keluarga}}</b></li>
-                                                    <li class="list-group-item"><b>Agama : {{$pegawais->agama}}</b></li>
-                                                    <li class="list-group-item"><b>Pendidikan Akhir : {{$pegawais->pendidikan_akhir}}</b></li>
+                                                    <li class="list-group-item"><b>Tanggal Lahir : {{ date('d/m/Y',strtotime($pegawais->tanggal_lahir)) }}</b></li>
+                                                    <li class="list-group-item"><b>Jenis Kelamin : 
+                                                                                    @if($pegawais->jenis_kelamin == "P")
+                                                                                    Pria
+                                                                                    @elseif($pegawais->jenis_kelamin == "W")
+                                                                                    Wanita
+                                                                                    @endif
+                                                                                    </b></li>
+                                                    <li class="list-group-item"><b>Status Keluarga : 
+                                                                                    @if($pegawais->status_keluarga == "K")
+                                                                                    Nikah
+                                                                                    @elseif($pegawais->status_keluarga == "B")
+                                                                                    Belum Menikah
+                                                                                    @elseif($pegawais->status_keluarga == "D")
+                                                                                    Duda
+                                                                                    @elseif($pegawais->status_keluarga == "J")
+                                                                                    Janda
+                                                                                    @endif                                                         
+                                                                                    </b></li>
+                                                    <li class="list-group-item"><b>Agama : 
+                                                                                    @if($pegawais->agama == "1")
+                                                                                    Islam
+                                                                                    @elseif($pegawais->agama == "2")
+                                                                                    Katholik                                     
+                                                                                    @elseif($pegawais->agama == "3")
+                                                                                    Protestan
+                                                                                    @elseif($pegawais->agama == "4")
+                                                                                    Hindu
+                                                                                    @elseif($pegawais->agama == "5")
+                                                                                    Budha 
+                                                                                    @elseif($pegawais->agama == "6")
+                                                                                    Kristen
+                                                                                    @endif
+                                                                                    </b></li>
+                                                    <li class="list-group-item"><b>Pendidikan Akhir : 
+                                                @if($pegawais->pendidikan_akhir == "01")
+                                                S3 (Setara)
+                                                @elseif($pegawais->pendidikan_akhir == "02")
+                                                S2 (Setara)
+                                                @elseif($pegawais->pendidikan_akhir == "03")
+                                                S1 (Setara)
+                                                @elseif($pegawais->pendidikan_akhir == "04")
+                                                D4
+                                                @elseif($pegawais->pendidikan_akhir == "05")
+                                                SM
+                                                @elseif($pegawais->pendidikan_akhir == "06")
+                                                D3
+                                                @elseif($pegawais->pendidikan_akhir == "07")
+                                                D2
+                                                @elseif($pegawais->pendidikan_akhir == "08")
+                                                D1
+                                                @elseif($pegawais->pendidikan_akhir == "09")
+                                                SLTA
+                                                @elseif($pegawais->pendidikan_akhir == "10")
+                                                SLTP
+                                                @elseif($pegawais->pendidikan_akhir == "11")
+                                                SD
+                                                @endif
+                                                                                   </b></li>
                                                     <li class="list-group-item"><b>Nama Sekolah : {{$pegawais->nama_sekolah}}</b></li>
                                                     <li class="list-group-item"><b>Tahun Lulus : {{$pegawais->tahun_lulus}}</b></li>
                                                     <li class="list-group-item"><b>Jurusan / Prodi : {{$pegawais->jurusan_prodi}}</b></li>
-                                                    <li class="list-group-item"><b>Status_kepegawaian : {{$pegawais->status_kepegawaian}}</b></li>
+                                                    <li class="list-group-item"><b>Status Kepegawaian : 
+                                                @if($pegawais->status_kepegawaian == "01")
+                                                CPNS
+                                                @elseif($pegawais->status_kepegawaian == "02")
+                                                PNS
+                                                @elseif($pegawais->status_kepegawaian == "03")
+                                                PNS DPK DARI DEP.LAIN
+                                                @elseif($pegawais->status_kepegawaian == "04")
+                                                PNS DPK KE DEP.LAIN
+                                                @endif
+                                                    </b></li>
                                                     <li class="list-group-item"><b>Instansi Asal : {{$pegawais->instansi_asal}}</b></li>
-                                                    <li class="list-group-item"><b>TMT CPNS : {{$pegawais->tmt_cpns}}</b></li>
+                                                    <li class="list-group-item"><b>TMT CPNS : {{ date('d/m/Y',strtotime($pegawais->tmt_cpns)) }}</b></li>
                                                     <li class="list-group-item"><b>Golongan : {{$pegawais->golongan}}</b></li>
                                                     <li class="list-group-item"><b>TMT Golongan : {{ date('d/m/Y',strtotime($pegawais->tmt_golongan)) }}</b></li>
                                                     <li class="list-group-item"><b>Nama Jabatan : {{$pegawais->nama_jabatan}}</b></li>
                                                     <li class="list-group-item"><b>Nomor Karpeg : {{$pegawais->nomor_karpeg}}</b></li>
-                                                    <li class="list-group-item"><b>Taspen : {{$pegawais->taspen}}</b></li>
+                                                    <li class="list-group-item"><b>Taspen : 
+                                                @if($pegawais->taspen == "1")
+                                                Sudah
+                                                @elseif($pegawais->taspen == "2")
+                                                Belum
+                                                @endif
+                                                    </b></li>
                                                     <li class="list-group-item"><b>Nomor NPWP : {{$pegawais->nomor_npwp}}</b></li>
                                                     <li class="list-group-item"><b>Alamat Rumah : {{$pegawais->alamat_rumah}}</b></li>
                                                     <li class="list-group-item"><b>Kota : {{$pegawais->kota}}</b></li>
                                                     <li class="list-group-item"><b>Kode Pos : {{$pegawais->kode_pos}}</b></li>
+                                                    <li class="list-group-item"><b>Nomor Telepon : {{$pegawais->telepon->first()->telepon}}</b></li>
                                                     <li class="list-group-item"><b>STR : {{$pegawais->str}}</b></li>
                                                     <li class="list-group-item"><b>Masa STR : {{ date('d/m/Y',strtotime($pegawais->masa_str)) }}</b></li>
                                                     <li class="list-group-item"><b>SIKP : {{$pegawais->sikp}}</b></li>
@@ -207,10 +280,12 @@
                                                     </button>||&nbsp;
                                                     <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeUbah-{{$pegawais->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah
                                                     </button>||&nbsp;
+                                                    @if(auth()->user()->level == 'ADMIN')
                                                     <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target=".bd-example-modal-sm-delete-{{$pegawais->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus
                                                     </button>||&nbsp;
                                                     <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeHistory-{{$pegawais->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use history"></i> History
                                                     </button>
+                                                    @endif
                                               </td>
                                             </tr>
                                             @endif

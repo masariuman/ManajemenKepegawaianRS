@@ -121,7 +121,7 @@
                             </div>
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-1" role="tabpanel">
                                 <div class="main-card mb-3 card">
-                                    <div class="card-body"><h5 class="card-title">Masukan Data Keluarga Istri Suami</h5>
+                                    <div class="card-body"><h5 class="card-title">Masukan Data Keluarga Istri / Suami</h5>
                                 
                                             <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeTambah"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah
                                         </button>
@@ -147,11 +147,33 @@
                                                 <th scope="row">{{++$key}}</th>
                                                 <td>{{$keluarga_istri_suamis->tahun}}</td>
                                                 <td>{{$keluarga_istri_suamis->nama}}</td>
-                                                <td>{{$keluarga_istri_suamis->hubungan}}</td>
+                                                <td>
+                                                @if($keluarga_istri_suamis->hubungan == "1")
+                                                Ayah
+                                                @elseif($keluarga_istri_suamis->hubungan == "2")
+                                                Ibu
+                                                @elseif($keluarga_istri_suamis->hubungan == "3")
+                                                Kakak
+                                                @elseif($keluarga_istri_suamis->hubungan == "4")
+                                                Adik
+                                                @endif
+                                                </td>
                                                 <td>{{$keluarga_istri_suamis->pekerjaan}}</td>
-                                                <td>{{$keluarga_istri_suamis->tanggal_lahir}}</td>
-                                                <td>{{$keluarga_istri_suamis->jenis_kelamin}}</td>
-                                                <td>{{$keluarga_istri_suamis->kondisi}}</td>
+                                                <td>{{ date('d/m/Y',strtotime($keluarga_istri_suamis->tanggal_lahir)) }}</td>
+                                                <td>
+                                                @if($keluarga_istri_suamis->jenis_kelamin == "L")
+                                                Laki-laki                                                
+                                                @elseif($keluarga_istri_suamis->jenis_kelamin == "P")                                                
+                                                Perempuan
+                                                @endif
+                                                </td>
+                                                <td>
+                                                @if($keluarga_istri_suamis->kondisi == "1")
+                                                Masih Hidup
+                                                @elseif($keluarga_istri_suamis->kondisi == "0")      
+                                                Almarhun
+                                                @endif
+                                                </td>
                                                 <td>
                                                     <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeDetail-{{$keluarga_istri_suamis->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use address-card"></i> Lihat
                                                     </button>||&nbsp;

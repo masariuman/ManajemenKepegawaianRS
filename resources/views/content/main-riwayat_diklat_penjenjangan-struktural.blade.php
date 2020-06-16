@@ -23,7 +23,15 @@
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_diklat_penjenjangan_strukturals->tahun}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Jenis Diklat :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_diklat_penjenjangan_strukturals->jenis_diklat}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>                                       @if($riwayat_diklat_penjenjangan_strukturals->jenis_diklat == "1")
+                                                                                                                                                    Diklatpim Tk I
+                                                                                                                                                    @elseif($riwayat_diklat_penjenjangan_strukturals->jenis_diklat == "2")
+                                                                                                                                                    Diklatpim Tk II                                              
+                                                                                                                                                    @elseif($riwayat_diklat_penjenjangan_strukturals->jenis_diklat == "3")
+                                                                                                                                                    Diklatpim Tk III
+                                                                                                                                                    @elseif($riwayat_diklat_penjenjangan_strukturals->id == "4")
+                                                                                                                                                    Diklatpim Tk IV Atau diklat lain yang setara
+                                                                                                                                                    @endif</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Angkatan :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_diklat_penjenjangan_strukturals->angkatan}}</b></h6></div>          
@@ -32,10 +40,10 @@
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_diklat_penjenjangan_strukturals->lokasi}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal Mulai :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_diklat_penjenjangan_strukturals->tanggal_mulai}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($riwayat_diklat_penjenjangan_strukturals->tanggal_mulai)) }}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal Selesai :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_diklat_penjenjangan_strukturals->tanggal_selesai}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($riwayat_diklat_penjenjangan_strukturals->tanggal_selesai)) }}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Jumlah Jam :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_diklat_penjenjangan_strukturals->jumlah_jam}}</b></h6></div>          
@@ -127,7 +135,7 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form class="" action="riwayat_diklat_perjenjangan_struktural/update/{{$riwayat_diklat_penjenjangan_strukturals->id}}" method="post">
+            <form class="" action="riwayat_diklat_penjenjangan_struktural/update/{{$riwayat_diklat_penjenjangan_strukturals->id}}" method="post">
                                             @method('patch')
                                             @csrf
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Jenis Diklat</b></label>
@@ -203,7 +211,7 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form action="riwayat_diklat_perjenjangan_struktural/delete/{{$riwayat_diklat_penjenjangan_strukturals->id}}" method="post">
+            <form action="riwayat_diklat_penjenjangan_struktural/delete/{{$riwayat_diklat_penjenjangan_strukturals->id}}" method="post">
             @method('delete')
             @csrf
                 <p><center>Apakah anda yakin <p>"Hapus Data Dasar Pegawai" <b></b> </p></center></p>

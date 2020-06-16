@@ -137,6 +137,7 @@
                                                 <th>Jumlah Jam</th>
                                                 <th>Penyelenggara</th>
                                                 <th>Predikat</th>
+                                                <th>Menu</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -146,11 +147,21 @@
                                             <tr>
                                                 <th scope="row">{{++$key}}</th>
                                                 <td>{{$riwayat_diklat_penjenjangan_strukturals->tahun}}</td>
-                                                <td>{{$riwayat_diklat_penjenjangan_strukturals->jenis_diklat}}</td>
+                                                <td>
+                                                @if($riwayat_diklat_penjenjangan_strukturals->jenis_diklat == "1")
+                                                Diklatpim Tk I
+                                                @elseif($riwayat_diklat_penjenjangan_strukturals->jenis_diklat == "2")
+                                                Diklatpim Tk II                                              
+                                                @elseif($riwayat_diklat_penjenjangan_strukturals->jenis_diklat == "3")
+                                                Diklatpim Tk III
+                                                @elseif($riwayat_diklat_penjenjangan_strukturals->id == "4")
+                                                Diklatpim Tk IV Atau diklat lain yang setara
+                                                @endif
+                                                </td>
                                                 <td>{{$riwayat_diklat_penjenjangan_strukturals->angkatan}}</td>
                                                 <td>{{$riwayat_diklat_penjenjangan_strukturals->lokasi}}</td>
-                                                <td>{{$riwayat_diklat_penjenjangan_strukturals->tanggal_mulai}}</td>
-                                                <td>{{$riwayat_diklat_penjenjangan_strukturals->tanggal_selesai}}</td>
+                                                <td>{{ date('d/m/Y',strtotime($riwayat_diklat_penjenjangan_strukturals->tanggal_mulai)) }}</td>
+                                                <td>{{ date('d/m/Y',strtotime($riwayat_diklat_penjenjangan_strukturals->tanggal_selesai)) }}</td>
                                                 <td>{{$riwayat_diklat_penjenjangan_strukturals->jumlah_jam}}</td>
                                                 <td>{{$riwayat_diklat_penjenjangan_strukturals->penyelenggara}}</td>
                                                 <td>{{$riwayat_diklat_penjenjangan_strukturals->predikat}}</td>

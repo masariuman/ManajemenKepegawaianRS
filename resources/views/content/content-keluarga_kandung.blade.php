@@ -146,11 +146,33 @@
                                                 <th scope="row">{{++$key}}</th>
                                                 <td>{{$keluarga_kandungs->tahun}}</td>
                                                 <td>{{$keluarga_kandungs->nama}}</td>
-                                                <td>{{$keluarga_kandungs->hubungan}}</td>
+                                                <td>
+                                                @if($keluarga_kandungs->hubungan == "1")
+                                                Ayah
+                                                @elseif($keluarga_kandungs->hubungan == "2")
+                                                Ibu
+                                                @elseif($keluarga_kandungs->hubungan == "3")
+                                                Kakak
+                                                @elseif($keluarga_kandungs->hubungan == "4")
+                                                Adik
+                                                @endif
+                                                </td>
                                                 <td>{{$keluarga_kandungs->pekerjaan}}</td>
-                                                <td>{{$keluarga_kandungs->tanggal_lahir}}</td>
-                                                <td>{{$keluarga_kandungs->jenis_kelamin}}</td>
-                                                <td>{{$keluarga_kandungs->kondisi}}</td>
+                                                <td>{{ date('d/m/Y',strtotime($keluarga_kandungs->tanggal_lahir)) }}</td>
+                                                <td>
+                                                @if($keluarga_kandungs->jenis_kelamin == "L")
+                                                Laki-laki                                                
+                                                @elseif($keluarga_kandungs->jenis_kelamin == "P")                                                
+                                                Perempuan
+                                                @endif
+                                                </td>
+                                                <td>
+                                                @if($keluarga_kandungs->kondisi == "1")
+                                                Masih Hidup
+                                                @elseif($keluarga_kandungs->kondisi == "0")      
+                                                Almarhun
+                                                @endif
+                                                </td>
                                                 <td>
                                                     <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeDetail-{{$keluarga_kandungs->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use address-card"></i> Lihat
                                                     </button>||&nbsp;

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class DiklatPenjenjangan extends Model
 {
     //
-    protected $table = 'diklat_perjenjangan';
+    protected $table = 'diklat_penjenjangan';
     protected $fillable = [
         'tahun',
         'pegawai_id',

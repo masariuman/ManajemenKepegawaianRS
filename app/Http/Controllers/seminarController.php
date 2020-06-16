@@ -39,11 +39,11 @@ class seminarController extends Controller
      */
     public function store(Request $request)
     {
-        $pegawai_id = Pegawai::max('id');
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
         $seminar_lokakarya_simposium = Seminar::insert([
             'tahun' => $request->input('tahun', 2020),
-            'pegawai_id' => $pegawai_id,
+            'pegawai_id' => $pegawai_id->id,
             'nama_kegiatan' => $request->nama_kegiatan,
             'lokasi' => $request->lokasi,
             'tempat_kegiatan' => $request->tempat_kegiatan,
@@ -55,7 +55,7 @@ class seminarController extends Controller
             'updated_at' => \Carbon\Carbon::now(),
         ]);
 
-        \Session::flash('Berhasil', 'Data seminar berhasil ditambahkan');
+        \Session::flash('Berhasil', 'Data seminar / lokakarya / simposium berhasil ditambahkan');
 
         return back();
     }
@@ -91,11 +91,11 @@ class seminarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pegawai_id = Pegawai::max('id');
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
         $seminar_lokakarya_simposium = Seminar::where('id', $id)->update([
             'tahun' => $request->input('tahun', 2020),
-            'pegawai_id' => $pegawai_id,
+            'pegawai_id' => $pegawai_id->id,
             'nama_kegiatan' => $request->nama_kegiatan,
             'lokasi' => $request->lokasi,
             'tempat_kegiatan' => $request->tempat_kegiatan,
@@ -107,7 +107,7 @@ class seminarController extends Controller
             'updated_at' => \Carbon\Carbon::now(),
         ]);
 
-        \Session::flash('Berhasil', 'Data seminar berhasil diubah');
+        \Session::flash('Berhasil', 'Data seminar / lokakarya / simposium  berhasil diubah');
 
         return back();
     }
@@ -122,7 +122,7 @@ class seminarController extends Controller
     {
         $seminar_lokakarya_simposium = Seminar::where('id', $id)->delete();
 
-        \Session::flash('Berhasil', 'Data seminar berhasil diubah');
+        \Session::flash('Berhasil', 'Data seminar / lokakarya / simposium  berhasil dihapus');
 
         return back();
     }

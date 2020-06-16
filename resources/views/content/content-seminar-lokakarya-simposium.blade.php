@@ -146,10 +146,28 @@
                                                 <td>{{$seminar_lokakarya_simposiums->tahun}}</td>
                                                 <td>{{$seminar_lokakarya_simposiums->nama_kegiatan}}</td>
                                                 <td>{{$seminar_lokakarya_simposiums->lokasi}}</td>
-                                                <td>{{$seminar_lokakarya_simposiums->tempat_kegiatan}}</td>
+                                                <td>{{$seminar_lokakarya_simposiums->tempat_kegiatan}}
+                                                @if($seminar_lokakarya_simposiums->tempat_kegiatan == "1")
+                                                Dalam Negeri                                                
+                                                @elseif($seminar_lokakarya_simposiums->tempat_kegiatan == "1")                                                
+                                                Luar Negeri
+                                                @endif
+                                                </td>
                                                 <td>{{$seminar_lokakarya_simposiums->penyelenggara}}</td>
                                                 <td>{{$seminar_lokakarya_simposiums->tahun_seminar}}</td>
-                                                <td>{{$seminar_lokakarya_simposiums->kedudukan_dalam_seminar}}</td>
+                                                <td>
+                                                @if($seminar_lokakarya_simposiums->kedudukan_dalam_seminar == "1")
+                                                Peserta                                               
+                                                @elseif($seminar_lokakarya_simposiums->kedudukan_dalam_seminar == "2")                                               
+                                                Moderator                                               
+                                                @elseif($seminar_lokakarya_simposiums->kedudukan_dalam_seminar == "3")                                                                                             
+                                                Pembahas                                                
+                                                @elseif($seminar_lokakarya_simposiums->kedudukan_dalam_seminar == "4")                                            
+                                                Pembawa Makalah
+                                                @elseif($seminar_lokakarya_simposiums->kedudukan_dalam_seminar == "5")                                              
+                                                Panitia
+                                                @endif
+                                                </td>
                                                 <td>
                                                     <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeDetail-{{$seminar_lokakarya_simposiums->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use address-card"></i> Lihat
                                                     </button>||&nbsp;

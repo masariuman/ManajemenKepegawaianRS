@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Pegawai;
 use App\DiklatPenjenjangan;
 
-class riwayatDiklatPerjenjanganStrukturalController extends Controller
+class riwayatDiklatPenjenjanganStrukturalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,11 +38,11 @@ class riwayatDiklatPerjenjanganStrukturalController extends Controller
      */
     public function store(Request $request)
     {
-        $pegawai_id = Pegawai::max('id');
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
-        $pendidikan_formal = DiklatPenjenjangan::insert([
-            'tahun' => $request->input('tahun', 2019),
-            'pegawai_id' => $pegawai_id,
+        $riwayat_diklat_penjenjangan_struktural = DiklatPenjenjangan::create([
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id->id,
             'jenis_diklat' => $request->jenis_diklat,
             'angkatan' => $request->angkatan,
             'lokasi' => $request->lokasi,
@@ -52,8 +52,6 @@ class riwayatDiklatPerjenjanganStrukturalController extends Controller
             'penyelenggara' => $request->penyelenggara,
             'predikat' => $request->predikat,
             'active' => $request->input('active', 1),
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         \Session::flash('Berhasil', 'Data diklat perjenjangan struktural berhasil ditambahkan');
@@ -92,11 +90,11 @@ class riwayatDiklatPerjenjanganStrukturalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pegawai_id = Pegawai::max('id');
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
-        $pendidikan_formal = DiklatPenjenjangan::where('id', $id)->update([
-            'tahun' => $request->input('tahun', 2019),
-            'pegawai_id' => $pegawai_id,
+        $riwayat_diklat_penjenjangan_struktural = DiklatPenjenjangan::where('id', $id)->update([
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id->id,
             'jenis_diklat' => $request->jenis_diklat,
             'angkatan' => $request->angkatan,
             'lokasi' => $request->lokasi,
@@ -106,8 +104,6 @@ class riwayatDiklatPerjenjanganStrukturalController extends Controller
             'penyelenggara' => $request->penyelenggara,
             'predikat' => $request->predikat,
             'active' => $request->input('active', 1),
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         \Session::flash('Berhasil', 'Data diklat perjenjangan struktural berhasil diubah');
@@ -123,7 +119,7 @@ class riwayatDiklatPerjenjanganStrukturalController extends Controller
      */
     public function destroy($id)
     {
-        $pendidikan_formal = DiklatPenjenjangan::where('id', $id)->delete();
+        $riwayat_diklat_penjenjangan_struktural = DiklatPenjenjangan::where('id', $id)->delete();
 
         \Session::flash('Berhasil', 'Data diklat perjenjangan struktural berhasil dihapus');
 

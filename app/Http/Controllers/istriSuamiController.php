@@ -38,11 +38,12 @@ class istriSuamiController extends Controller
      */
     public function store(Request $request)
     {
-        $pegawai_id = Pegawai::max('id');
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
-        $istri_suami = IstriSuami::insert([
+        $istri_suami = IstriSuami::create([
             'tahun' => $request->input('tahun', 2020),
-            'pegawai_id' => $pegawai_id,
+            'pegawai_id' => $pegawai_id->id,
+            'nama' => $request->nama,
             'nomor_karis_karsu' => $request->nomor_karis_karsu,
             'tanggal_lahir' => $request->tanggal_lahir,
             'tanggal_nikah' => $request->tanggal_nikah,
@@ -50,8 +51,6 @@ class istriSuamiController extends Controller
             'pekerjaan' => $request->pekerjaan,
             'status_suami_istri' => $request->status_suami_istri,
             'active' => $request->input('active', 1),
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         \Session::flash('Berhasil', 'Data istri suami berhasil ditambahkan');
@@ -90,11 +89,12 @@ class istriSuamiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pegawai = Pegawai::max('id');
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
         $istri_suami = IstriSuami::where('id', $id)->update([
             'tahun' => $request->input('tahun', 2020),
-            'pegawai_id' => $pegawai_id,
+            'pegawai_id' => $pegawai_id->id,
+            'nama' => $request->nama,
             'nomor_karis_karsu' => $request->nomor_karis_karsu,
             'tanggal_lahir' => $request->tanggal_lahir,
             'tanggal_nikah' => $request->tanggal_nikah,
@@ -102,8 +102,6 @@ class istriSuamiController extends Controller
             'pekerjaan' => $request->pekerjaan,
             'status_suami_istri' => $request->status_suami_istri,
             'active' => $request->input('active', 1),
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         \Session::flash('Berhasil', 'Data istri suami berhasil diubah');

@@ -96,17 +96,17 @@
                                     <li>
                                         <a href="{{route('skp')}}" class="{{ Request::is('skp') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>
-                                            SPK
+                                            SKP
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{route('seminar-lokakarya-simposium')}}" class="{{ Request::is('seminar-lokakarya-simposium') ? 'mm-active' : '' }}">
+                                        <a href="{{route('seminar_lokakarya_simposium')}}" class="{{ Request::is('seminar_lokakarya_simposium') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>
                                             Seminar / Lokakarya / Simposium
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{route('tanda_jasa-penghargaan')}}" class="{{ Request::is('tanda_jasa-penghargaan') ? 'mm-active' : '' }}">
+                                        <a href="{{route('tanda_jasa_penghargaan')}}" class="{{ Request::is('tanda_jasa_penghargaan') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>
                                             Tanda Jasa / Penghargaan
                                         </a>
@@ -130,13 +130,13 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{route('keluarga_istri-suami')}}" class="{{ Request::is('keluarga_istri-suami') ? 'mm-active' : '' }}">
+                                        <a href="{{route('keluarga_istri_suami')}}" class="{{ Request::is('keluarga_istri_suami') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>
                                             Keluarga Istri / Suami
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/riwayat_pekerjaan-jabatan" class="{{ Request::is('riwayat_pekerjaan-jabatan') ? 'mm-active' : '' }}">
+                                        <a href="{{route('riwayat_pekerjaan_jabatan')}}" class="{{ Request::is('riwayat_pekerjaan_jabatan') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>
                                             Riwayat Perkerjaan / Jabatan
                                         </a>
