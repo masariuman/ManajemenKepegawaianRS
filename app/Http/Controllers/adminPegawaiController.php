@@ -254,7 +254,8 @@ class adminPegawaiController extends Controller
         //pekerjaan jabatan
         $data['pekerjaan_jabatan'] = PekerjaanJabatan::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['pekerjaan_jabatan'] as $key => $value) {
-            # code...
+            $value['tmt_jabatan'] = date("d F Y", strtotime($value['tmt_jabatan']));
+            $value['tanggal_sk'] = date("d F Y", strtotime($value['tanggal_sk']));
         }
 
         //istri suami
