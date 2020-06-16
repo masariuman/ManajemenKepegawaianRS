@@ -202,7 +202,19 @@ class adminPegawaiController extends Controller
         //riwayat diklat perjenjangan
         $data['diklat_penjenjangan'] = DiklatPenjenjangan::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['diklat_penjenjangan'] as $key => $value) {
-            # code...
+            if ($value['jenis_diklat'] === "1") {
+                $value['jenis_diklat'] = "Diklatpim Tk I";
+            } else if ($value['jenis_diklat'] === "2"){
+                $value['jenis_diklat'] = "Diklatpim Tk II";
+            } else if ($value['jenis_diklat'] === "3"){
+                $value['jenis_diklat'] = "Diklatpim Tk III";
+            } else if ($value['jenis_diklat'] === "4"){
+                $value['jenis_diklat'] = "Diklatpim Tk IV";
+            } else {
+                $value['jenis_diklat'] = "Diklat Lain Yang Setara";
+            }
+            $value['tanggal_mulai'] = date("d F Y", strtotime($value['tanggal_mulai']));
+            $value['tanggal_selesai'] = date("d F Y", strtotime($value['tanggal_selesai']));
         }
 
         //riwayat diklat teknis
