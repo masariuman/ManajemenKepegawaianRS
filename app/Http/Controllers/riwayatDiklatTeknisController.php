@@ -37,11 +37,11 @@ class riwayatDiklatTeknisController extends Controller
      */
     public function store(Request $request)
     {
-        $pegawai_id = Pegawai::max('id');
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
-        $riwayat_diklat_teknis = DiklatTeknis::insert([
-            'tahun' => $request->input('tahun', 2019),
-            'pegawai_id' => $pegawai_id,
+        $riwayat_diklat_teknis = DiklatTeknis::create([
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id->id,
             'nama_diklat' => $request->nama_diklat,
             'tempat_belajar' => $request->tempat_belajar,
             'lokasi' => $request->lokasi,
@@ -50,8 +50,6 @@ class riwayatDiklatTeknisController extends Controller
             'jumlah_jam' => $request->jumlah_jam,
             'penyelenggara' => $request->lokasi,
             'active' => $request->input('active', 1),
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         \Session::flash('Berhasil', 'Data diklat teknis berhasil ditambahkan');
@@ -90,11 +88,11 @@ class riwayatDiklatTeknisController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pegawai_id = Pegawai::max('id');
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
         $riwayat_diklat_teknis = DiklatTeknis::where('id', $id)->update([
-            'tahun' => $request->input('tahun', 2019),
-            'pegawai_id' => $pegawai_id,
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id->id,
             'nama_diklat' => $request->nama_diklat,
             'tempat_belajar' => $request->tempat_belajar,
             'lokasi' => $request->lokasi,
@@ -103,8 +101,6 @@ class riwayatDiklatTeknisController extends Controller
             'jumlah_jam' => $request->jumlah_jam,
             'penyelenggara' => $request->lokasi,
             'active' => $request->input('active', 1),
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         \Session::flash('Berhasil', 'Data diklat Teknis berhasil diubah');

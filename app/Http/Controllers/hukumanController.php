@@ -38,19 +38,17 @@ class hukumanController extends Controller
      */
     public function store(Request $request)
     {
-        $pegawai_id = Pegawai::max('id');
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
-        $hukum_disiplin = Hukuman::insert([
+        $hukum_disiplin = Hukuman::create([
             'tahun' => $request->input('tahun', 2020),
-            'pegawai_id' => $pegawai_id,
+            'pegawai_id' => $pegawai_id->id,
             'kode_hukuman' => $request->kode_hukuman,
             'nomor_sk' => $request->nomor_sk,
             'tanggal_sk' => $request->tanggal_sk,
             'tmt_berlaku' => $request->tmt_berlaku,
-            'penjabat_pembuat_sk' => $request->penjabat_pembuat_sk,
+            'pejabat_pembuat_sk' => $request->pejabat_pembuat_sk,
             'active' => $request->input('active', 1),
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         \Session::flash('Berhasil', 'Data hukuman disiplin berhasil ditambahkan');
@@ -89,19 +87,17 @@ class hukumanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pegawai = Pegawai::max('id');
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
         $hukum_disiplin = Hukuman::where('id', $id)->update([
             'tahun' => $request->input('tahun', 2020),
-            'pegawai_id' => $pegawai_id,
+            'pegawai_id' => $pegawai_id->id,
             'kode_hukuman' => $request->kode_hukuman,
             'nomor_sk' => $request->nomor_sk,
             'tanggal_sk' => $request->tanggal_sk,
             'tmt_berlaku' => $request->tmt_berlaku,
-            'penjabat_pembuat_sk' => $request->penjabat_pembuat_sk,
+            'pejabat_pembuat_sk' => $request->pejabat_pembuat_sk,
             'active' => $request->input('active', 1),
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         \Session::flash('Berhasil', 'Data hukuman disiplin berhasil diubah');

@@ -26,7 +26,7 @@
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_kepangkatans->golongan}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>TMT Golongan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_kepangkatans->tmt_golongan}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($riwayat_kepangkatans->tmt_golongan)) }}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Pejabat Penandatangan SK :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_kepangkatans->pejabat_penandatangan_sk}}</b></h6></div>          
@@ -35,7 +35,7 @@
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_kepangkatans->nomor_sk}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal SK :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_kepangkatans->tanggal_sk}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($riwayat_kepangkatans->tanggal_sk)) }}</b></h6></div>          
                                             </div>
  
             </div>
@@ -74,7 +74,7 @@
                                                 <div class="col-sm-10"><input name="pejabat_penandatangan_sk" id="exampleEmail" placeholder="Pejabat Penandatangan SK" type="text" class="form-control" value="" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor SK</b></label>
-                                                <div class="col-sm-10"><input name="nomor_sk" id="exampleEmail" placeholder="Nomor SK" type="date" class="form-control" value="" required></div>          
+                                                <div class="col-sm-10"><input name="nomor_sk" id="exampleEmail" placeholder="Nomor SK" type="number" class="form-control" value="" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal SK</b></label>
                                                 <div class="col-sm-10"><input name="tanggal_sk" id="exampleEmail" placeholder="Tanggal SK" type="date" class="form-control" value="" required></div>          
@@ -104,23 +104,23 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form class="" action="riwayat_diklat_perjenjangan_struktural/update/{{$riwayat_kepangkatans->id}}" method="post">
+            <form class="" action="riwayat_kepangkatan/update/{{$riwayat_kepangkatans->id}}" method="post">
                                             @method('patch')
                                             @csrf
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Golongan / Ruang</b></label>
                                                 <div class="col-sm-10"><input name="golongan" id="exampleEmail" placeholder="Contoh : Gol/ruang II/a ditulis 2A" type="text" class="form-control" value="{{$riwayat_kepangkatans->golongan}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>TMT Golongan / Ruang</b></label>
-                                                <div class="col-sm-10"><input name="tmt_golongan" id="exampleEmail" placeholder="TMT Golongan / Ruang" type="date" class="form-control" value="{{$riwayat_kepangkatans->tmt_golongan}}" required></div>          
+                                                <div class="col-sm-10"><input name="tmt_golongan" id="exampleEmail" placeholder="TMT Golongan / Ruang" type="date" class="form-control" value="{{ date('Y-m-d',strtotime($riwayat_kepangkatans->tmt_golongan)) }}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Pejabat Penandatangan SK</b></label>
-                                                <div class="col-sm-10"><input name="pejabat_pendatangan_sk" id="exampleEmail" placeholder="Pejabat Penandatangan SK" type="text" class="form-control" value="{{$riwayat_kepangkatans->pejabat_penandatangan_sk}}" required></div>          
+                                                <div class="col-sm-10"><input name="pejabat_penandatangan_sk" id="exampleEmail" placeholder="Pejabat Penandatangan SK" type="text" class="form-control" value="{{$riwayat_kepangkatans->pejabat_penandatangan_sk}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor SK</b></label>
-                                                <div class="col-sm-10"><input name="nomor_sk" id="exampleEmail" placeholder="Nomor SK" type="date" class="form-control" value="{{$riwayat_kepangkatans->nomor_sk}}" required></div>          
+                                                <div class="col-sm-10"><input name="nomor_sk" id="exampleEmail" placeholder="Nomor SK" type="number" class="form-control" value="{{$riwayat_kepangkatans->nomor_sk}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal SK</b></label>
-                                                <div class="col-sm-10"><input name="tanggal_sk" id="exampleEmail" placeholder="Tanggal SK" type="date" class="form-control" value="{{$riwayat_kepangkatans->tanggal_sk}}" required></div>          
+                                                <div class="col-sm-10"><input name="tanggal_sk" id="exampleEmail" placeholder="Tanggal SK" type="date" class="form-control" value="{{ date('Y-m-d',strtotime($riwayat_kepangkatans->tanggal_sk)) }}" required></div>          
                                             </div>  
                                       
             </div>
@@ -148,7 +148,7 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form action="riwayat_diklat_perjenjangan_struktural/delete/{{$riwayat_kepangkatans->id}}" method="post">
+            <form action="riwayat_kepangkatan/delete/{{$riwayat_kepangkatans->id}}" method="post">
             @method('delete')
             @csrf
                 <p><center>Apakah anda yakin <p>"Hapus Data Riwayat Kepangkatan" <b></b> </p></center></p>

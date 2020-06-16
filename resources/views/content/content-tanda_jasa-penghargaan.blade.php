@@ -130,9 +130,9 @@
                                                 <th>No</th>
                                                 <th>Tahun</th>
                                                 <th>Nama Penghargaan</th>
-                                                <th>tanggal perolehan</th>
-                                                <th>nomor</th>
-                                                <th>pemberi</th>
+                                                <th>Tanggal Perolehan</th>
+                                                <th>Nomor</th>
+                                                <th>Negara / Instansi Pemberi</th>
                                                 <th>Jabatan pemberi</th>
                                                 <th>Menu</th>
                                             </tr>
@@ -145,7 +145,7 @@
                                                 <th scope="row">{{++$key}}</th>
                                                 <td>{{$tanda_jasa_penghargaans->tahun}}</td>
                                                 <td>{{$tanda_jasa_penghargaans->nama_penghargaan}}</td>
-                                                <td>{{$tanda_jasa_penghargaans->tanggal_perolehan}}</td>
+                                                <td>{{ date('d/m/Y',strtotime($tanda_jasa_penghargaans->tanggal_perolehan)) }}</td>
                                                 <td>{{$tanda_jasa_penghargaans->nomor}}</td>
                                                 <td>{{$tanda_jasa_penghargaans->pemberi}}</td>
                                                 <td>{{$tanda_jasa_penghargaans->jabatan_pemberi}}</td>

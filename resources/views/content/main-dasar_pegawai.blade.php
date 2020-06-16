@@ -54,16 +54,62 @@
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($pegawais->tanggal_lahir)) }}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-4 col-form-label"><b>Jenis Kelamin :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->jenis_kelamin}}</b></h6></div>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($pegawais->jenis_kelamin == "P")
+                                                                                    Pria
+                                                                                    @elseif($pegawais->jenis_kelamin == "W")
+                                                                                    Wanita
+                                                                                    @endif</b></h6></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-4 col-form-label"><b>Status Keluarga :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->status_keluarga}}</b></h6></div>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($pegawais->status_keluarga == "K")
+                                                                                    Nikah
+                                                                                    @elseif($pegawais->status_keluarga == "B")
+                                                                                    Belum Menikah
+                                                                                    @elseif($pegawais->status_keluarga == "D")
+                                                                                    Duda
+                                                                                    @elseif($pegawais->status_keluarga == "J")
+                                                                                    Janda
+                                                                                    @endif</b></h6></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-4 col-form-label"><b>Agama :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->agama}}</b></h6></div>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($pegawais->agama == "1")
+                                                                                    Islam
+                                                                                    @elseif($pegawais->agama == "2")
+                                                                                    Katholik                                     
+                                                                                    @elseif($pegawais->agama == "3")
+                                                                                    Protestan
+                                                                                    @elseif($pegawais->agama == "4")
+                                                                                    Hindu
+                                                                                    @elseif($pegawais->agama == "5")
+                                                                                    Budha 
+                                                                                    @elseif($pegawais->agama == "6")
+                                                                                    Kristen
+                                                                                    @endif</b></h6></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-4 col-form-label"><b>Pendidikan Akhir :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->pendidikan_akhir}}</b></h6></div>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($pegawais->pendidikan_akhir == "01")
+                                                S3 (Setara)
+                                                @elseif($pegawais->pendidikan_akhir == "02")
+                                                S2 (Setara)
+                                                @elseif($pegawais->pendidikan_akhir == "03")
+                                                S1 (Setara)
+                                                @elseif($pegawais->pendidikan_akhir == "04")
+                                                D4
+                                                @elseif($pegawais->pendidikan_akhir == "05")
+                                                SM
+                                                @elseif($pegawais->pendidikan_akhir == "06")
+                                                D3
+                                                @elseif($pegawais->pendidikan_akhir == "07")
+                                                D2
+                                                @elseif($pegawais->pendidikan_akhir == "08")
+                                                D1
+                                                @elseif($pegawais->pendidikan_akhir == "09")
+                                                SLTA
+                                                @elseif($pegawais->pendidikan_akhir == "10")
+                                                SLTP
+                                                @elseif($pegawais->pendidikan_akhir == "11")
+                                                SD
+                                                @endif</b></h6></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nama Sekolah :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->nama_sekolah}}</b></h6></div>          
@@ -75,7 +121,15 @@
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->jurusan_prodi}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-4 col-form-label"><b>Status Kepegawaian :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->status_kepegawaian}}</b></h6></div>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($pegawais->status_kepegawaian == "01")
+                                                CPNS
+                                                @elseif($pegawais->status_kepegawaian == "02")
+                                                PNS
+                                                @elseif($pegawais->status_kepegawaian == "03")
+                                                PNS DPK DARI DEP.LAIN
+                                                @elseif($pegawais->status_kepegawaian == "04")
+                                                PNS DPK KE DEP.LAIN
+                                                @endif</b></h6></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Instansi Asal :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->instansi_asal}}</b></h6></div>          
@@ -96,7 +150,11 @@
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->nomor_karpeg}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-4 col-form-label"><b>Taspen :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->taspen}}</b></h6></div>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($pegawais->taspen == "1")
+                                                Sudah
+                                                @elseif($pegawais->taspen == "2")
+                                                Belum
+                                                @endif</b></h6></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nomor NPWP :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->nomor_npwp}}</b></h6></div>          
@@ -110,7 +168,7 @@
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Kode Pos :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->kode_pos}}</b></h6></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nomor Telepon Rumah :</b></label>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nomor Telepon :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->telepon->first()->telepon}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nomor STR :</b></label>
@@ -294,8 +352,8 @@
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Kode Pos</b></label>
                                                 <div class="col-sm-10"><input name="kode_pos" id="exampleEmail" placeholder="Kode Pos" type="number" class="form-control" value="" required></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor Telepon Rumah</b></label>
-                                                <div class="col-sm-10"><input name="telepon" id="exampleEmail" placeholder="Nomor Telepon Rumah" type="number" class="form-control" value="" required></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor Telepon</b></label>
+                                                <div class="col-sm-10"><input name="telepon" id="exampleEmail" placeholder="Nomor Telepon" type="number" class="form-control" value="" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor STR</b></label>
                                                 <div class="col-sm-10"><input name="str" id="exampleEmail" placeholder="Nomor Surat Tanda Registrasi" type="number" class="form-control" value="" required></div>          
@@ -677,8 +735,8 @@
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Kode Pos</b></label>
                                                 <div class="col-sm-10"><input name="kode_pos" id="exampleEmail" placeholder="Kode Pos" type="number" class="form-control" value="{{$pegawais->kode_pos}}" required></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor Telepon Rumah</b></label>
-                                                <div class="col-sm-10"><input name="telepon" id="exampleEmail" placeholder="Nomor Telepon Rumah" type="number" class="form-control" value="{{$pegawais->telepon->first()->telepon}}" required></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor Telepon</b></label>
+                                                <div class="col-sm-10"><input name="telepon" id="exampleEmail" placeholder="Nomor Telepon" type="number" class="form-control" value="{{$pegawais->telepon->first()->telepon}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor STR</b></label>
                                                 <div class="col-sm-10"><input name="str" id="exampleEmail" placeholder="Nomor Surat Tanda Registrasi" type="number" class="form-control" value="{{$pegawais->str}}" required></div>          
@@ -792,16 +850,62 @@
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($pegawais->tanggal_lahir)) }}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-4 col-form-label"><b>Jenis Kelamin :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->jenis_kelamin}}</b></h6></div>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($pegawais->jenis_kelamin == "P")
+                                                                                    Pria
+                                                                                    @elseif($pegawais->jenis_kelamin == "W")
+                                                                                    Wanita
+                                                                                    @endif</b></h6></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-4 col-form-label"><b>Status Keluarga :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->status_keluarga}}</b></h6></div>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($pegawais->status_keluarga == "K")
+                                                                                    Nikah
+                                                                                    @elseif($pegawais->status_keluarga == "B")
+                                                                                    Belum Menikah
+                                                                                    @elseif($pegawais->status_keluarga == "D")
+                                                                                    Duda
+                                                                                    @elseif($pegawais->status_keluarga == "J")
+                                                                                    Janda
+                                                                                    @endif</b></h6></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-4 col-form-label"><b>Agama :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->agama}}</b></h6></div>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($pegawais->agama == "1")
+                                                                                    Islam
+                                                                                    @elseif($pegawais->agama == "2")
+                                                                                    Katholik                                     
+                                                                                    @elseif($pegawais->agama == "3")
+                                                                                    Protestan
+                                                                                    @elseif($pegawais->agama == "4")
+                                                                                    Hindu
+                                                                                    @elseif($pegawais->agama == "5")
+                                                                                    Budha 
+                                                                                    @elseif($pegawais->agama == "6")
+                                                                                    Kristen
+                                                                                    @endif</b></h6></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-4 col-form-label"><b>Pendidikan Akhir :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->pendidikan_akhir}}</b></h6></div>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($pegawais->pendidikan_akhir == "01")
+                                                S3 (Setara)
+                                                @elseif($pegawais->pendidikan_akhir == "02")
+                                                S2 (Setara)
+                                                @elseif($pegawais->pendidikan_akhir == "03")
+                                                S1 (Setara)
+                                                @elseif($pegawais->pendidikan_akhir == "04")
+                                                D4
+                                                @elseif($pegawais->pendidikan_akhir == "05")
+                                                SM
+                                                @elseif($pegawais->pendidikan_akhir == "06")
+                                                D3
+                                                @elseif($pegawais->pendidikan_akhir == "07")
+                                                D2
+                                                @elseif($pegawais->pendidikan_akhir == "08")
+                                                D1
+                                                @elseif($pegawais->pendidikan_akhir == "09")
+                                                SLTA
+                                                @elseif($pegawais->pendidikan_akhir == "10")
+                                                SLTP
+                                                @elseif($pegawais->pendidikan_akhir == "11")
+                                                SD
+                                                @endif</b></h6></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nama Sekolah :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->nama_sekolah}}</b></h6></div>          
@@ -813,7 +917,15 @@
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->jurusan_prodi}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-4 col-form-label"><b>Status Kepegawaian :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->status_kepegawaian}}</b></h6></div>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($pegawais->status_kepegawaian == "01")
+                                                CPNS
+                                                @elseif($pegawais->status_kepegawaian == "02")
+                                                PNS
+                                                @elseif($pegawais->status_kepegawaian == "03")
+                                                PNS DPK DARI DEP.LAIN
+                                                @elseif($pegawais->status_kepegawaian == "04")
+                                                PNS DPK KE DEP.LAIN
+                                                @endif</b></h6></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Instansi Asal :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->instansi_asal}}</b></h6></div>          
@@ -834,7 +946,11 @@
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->nomor_karpeg}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-4 col-form-label"><b>Taspen :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->taspen}}</b></h6></div>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($pegawais->taspen == "1")
+                                                Sudah
+                                                @elseif($pegawais->taspen == "2")
+                                                Belum
+                                                @endif</b></h6></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nomor NPWP :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->nomor_npwp}}</b></h6></div>          
@@ -848,7 +964,7 @@
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Kode Pos :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->kode_pos}}</b></h6></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nomor Telepon Rumah :</b></label>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nomor Telepon :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->telepon->first()->telepon}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nomor STR :</b></label>

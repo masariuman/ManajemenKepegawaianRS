@@ -17,8 +17,9 @@ class PekerjaanJabatan extends Model
         'tahun_selesai',
         'nomor_sk',
         'tanggal_sk',
-        'nip_penjabat_penandatangan_sk',
-        'nip_lama_penjabat_penandatangan_sk',
+        'nip_pejabat_penandatangan_sk',
+        'nip_lama_pejabat_penandatangan_sk',
+        'pejabat_penandatangan_sk',
         'active',
         'created_at',
         'updated_at'
@@ -28,4 +29,5 @@ class PekerjaanJabatan extends Model
     {
         return $this->belongsTo('App\Pegawai', 'pegawai_id');
     }
+
 }

@@ -147,10 +147,15 @@
                                                 <th scope="row">{{++$key}}</th>
                                                 <td>{{$riwayat_diklat_fungsionals->tahun}}</td>
                                                 <td>{{$riwayat_diklat_fungsionals->nama_diklat}}</td>
-                                                <td>{{$riwayat_diklat_fungsionals->tempat_belajar}}</td>
+                                                <td>@if($riwayat_diklat_fungsionals->tempat_belajar == "1")
+                                                    Dalam Negeri
+                                                    @elseif($riwayat_diklat_fungsionals->tempat_belajar == "2")
+                                                    Luar Negeri
+                                                    @endif
+                                                </td>
                                                 <td>{{$riwayat_diklat_fungsionals->lokasi}}</td>
-                                                <td>{{$riwayat_diklat_fungsionals->tanggal_mulai}}</td>
-                                                <td>{{$riwayat_diklat_fungsionals->tanggal_selesai}}</td>
+                                                <td>{{ date('d/m/Y',strtotime($riwayat_diklat_fungsionals->tanggal_mulai)) }}</td>
+                                                <td>{{ date('d/m/Y',strtotime($riwayat_diklat_fungsionals->tanggal_selesai)) }}</td>
                                                 <td>{{$riwayat_diklat_fungsionals->jumlah_jam}}</td>
                                                 <td>{{$riwayat_diklat_fungsionals->penyelenggara}}</td>
                                                 <td>

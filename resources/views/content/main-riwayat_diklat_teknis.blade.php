@@ -26,16 +26,20 @@
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_diklat_tekniss->nama_diklat}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tempat Belajar :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_diklat_tekniss->tempat_belajar}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($riwayat_diklat_tekniss->tempat_belajar == "1")
+                                                                                                            Dalam Negeri
+                                                                                                            @elseif($riwayat_diklat_tekniss->tempat_belajar == "2")
+                                                                                                            Luar Negeri
+                                                                                                            @endif</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Lokasi :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_diklat_tekniss->lokasi}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal Mulai :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_diklat_tekniss->tanggal_mulai}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($riwayat_diklat_tekniss->tanggal_mulai)) }}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal Selesai :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_diklat_tekniss->tanggal_selesai}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($riwayat_diklat_tekniss->tanggal_selesai)) }}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Jumlah Jam :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_diklat_tekniss->jumlah_jam}}</b></h6></div>          
@@ -43,9 +47,7 @@
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Penyelenggara :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_diklat_tekniss->penyelenggara}}</b></h6></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nomor Ijazah :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_diklat_tekniss->nomor_ijazah}}</b></h6></div>          
-                                            </div>
+                                          
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Tutup</button>
@@ -144,10 +146,10 @@
                                                 <div class="col-sm-10"><input name="lokasi" id="exampleEmail" placeholder="Lokasi" type="text" class="form-control" value="{{$riwayat_diklat_tekniss->lokasi}}"></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal Mulai</b></label>
-                                                <div class="col-sm-10"><input name="tanggal_mulai" id="exampleEmail" placeholder="Tanggal Mulai" type="date" class="form-control" value="{{$riwayat_diklat_tekniss->tanggal_mulai}}"></div>          
+                                                <div class="col-sm-10"><input name="tanggal_mulai" id="exampleEmail" placeholder="Tanggal Mulai" type="date" class="form-control" value="{{ date('Y-m-d',strtotime($riwayat_diklat_tekniss->tanggal_mulai)) }}"></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal Selesai</b></label>
-                                                <div class="col-sm-10"><input name="tanggal_selesai" id="exampleEmail" placeholder="Tanggal Selesai" type="date" class="form-control" value="{{$riwayat_diklat_tekniss->tanggal_selesai}}"></div>          
+                                                <div class="col-sm-10"><input name="tanggal_selesai" id="exampleEmail" placeholder="Tanggal Selesai" type="date" class="form-control" value="{{ date('Y-m-d',strtotime($riwayat_diklat_tekniss->tanggal_selesai)) }}"></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Jumlah Jam</b></label>
                                                 <div class="col-sm-10"><input name="jumlah_jam" id="exampleEmail" placeholder="Jumlah Jam" type="number" class="form-control" value="{{$riwayat_diklat_tekniss->jumlah_jam}}"></div>          

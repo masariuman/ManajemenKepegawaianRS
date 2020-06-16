@@ -129,13 +129,14 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Tahun</th>
-                                                <th>Eselom</th>
+                                                <th>Eselon</th>
                                                 <th>Nama Jabatan</th>
                                                 <th>Unit Kerja</th>
                                                 <th>TMT Jabatan</th>
                                                 <th>Nomor SK</th>
                                                 <th>Tanggal SK</th>
                                                 <th>Pejabat Penandatangan SK</th>
+                                                <th>Menu</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -146,12 +147,12 @@
                                                 <th scope="row">{{++$key}}</th>
                                                 <td>{{$riwayat_jabatan_strukturals->tahun}}</td>
                                                 <td>{{$riwayat_jabatan_strukturals->eselon}}</td>
-                                                <td>{{$riwayat_jabatan_strukturals->nama_jebatan}}</td>
+                                                <td>{{$riwayat_jabatan_strukturals->nama_jabatan}}</td>
                                                 <td>{{$riwayat_jabatan_strukturals->unit_kerja}}</td>
-                                                <td>{{$riwayat_jabatan_strukturals->tmt_jabatan}}</td>
+                                                <td>{{ date('d/m/Y',strtotime($riwayat_jabatan_strukturals->tmt_jabatan)) }}</td>
                                                 <td>{{$riwayat_jabatan_strukturals->nomor_sk}}</td>
-                                                <td>{{$riwayat_jabatan_strukturals->tanggal_sk}}</td>
-                                                <td>{{$riwayat_jabatan_strukturals->penjabat_penandatangan_sk}}</td>
+                                                <td>{{ date('d/m/Y',strtotime($riwayat_jabatan_strukturals->tanggal_sk)) }}</td>
+                                                <td>{{$riwayat_jabatan_strukturals->pejabat_penandatangan_sk}}</td>
                                                 <td>
                                                     <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeDetail-{{$riwayat_jabatan_strukturals->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use address-card"></i> Lihat
                                                     </button>||&nbsp;

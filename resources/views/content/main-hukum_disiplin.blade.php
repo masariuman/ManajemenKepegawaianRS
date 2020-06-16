@@ -23,20 +23,36 @@
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tahun :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$hukum_disiplins->tahun}}</b></h6></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Golongan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$hukum_disiplins->golongan}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>TMT Golongan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$hukum_disiplins->tmt_golongan}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Pejabat Penandatangan SK :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$hukum_disiplins->pejabat_penandatangan_sk}}</b></h6></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Kode Hukuman :</b></label>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($hukum_disiplins->kode_hukuman == "11")
+                                                                                                            11 - Hukuman Ringan Teguran Lisan                                             
+                                                                                                            @elseif($hukum_disiplins->kode_hukuman == "12")                                               
+                                                                                                            12 - Hukuman Ringan Teguran Tertulis                                          
+                                                                                                            @elseif($hukum_disiplins->kode_hukuman == "13")                                             
+                                                                                                            13 - Hukuman Ringan Melalui Pernyataan Tidak Puas Secara Tertulis                                       
+                                                                                                            @elseif($hukum_disiplins->kode_hukuman == "21")
+                                                                                                            21 - Hukuman Sedang Penundaan Kenaikan Gaji Sebesar 1x Kenaikan Gaji Berkala Paling Lama 1 Tahun                                          
+                                                                                                            @elseif($hukum_disiplins->kode_hukuman == "22")                                              
+                                                                                                            22 - Hukuman Sedang Penurunan Gaji Sebesar 1x Kenaikan Gaji Berkala Paling Lama 1 Tahun                                             
+                                                                                                            @elseif($hukum_disiplins->kode_hukuman == "23")                                              
+                                                                                                            23 - Hukuman Sedang Penundaan Kenaikan Pangkat Paling Lama 1 Tahun                     
+                                                                                                            @elseif($hukum_disiplins->kode_hukuman == "31")                                            
+                                                                                                            31 - Hukuman Berat Penurunan Pangkat Setingkat Lebih Rendah Paling Lama 1 Tahun                                             
+                                                                                                            @elseif($hukum_disiplins->kode_hukuman == "32")                                         
+                                                                                                            32 - Hukuman Berat Pembebasan dari Jabatan
+                                                                                                            @endif</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nomor SK :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$hukum_disiplins->nomor_sk}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal SK :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$hukum_disiplins->tanggal_sk}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($hukum_disiplins->tanggal_sk)) }}</b></h6></div>          
+                                            </div>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>TMT Berlaku :</b></label>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($hukum_disiplins->tmt_berlaku)) }}</b></h6></div>          
+                                            </div>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Pejabat Pembuat SK :</b></label>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$hukum_disiplins->pejabat_pembuat_sk}}</b></h6></div>          
                                             </div>
  
             </div>
@@ -84,11 +100,11 @@
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal SK</b></label>
                                                 <div class="col-sm-10"><input name="tanggal_sk" id="exampleEmail" placeholder="Tanggal SK" type="date" class="form-control" value="" required></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>TMT BERLAKU</b></label>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>TMT Berlaku</b></label>
                                                 <div class="col-sm-10"><input name="tmt_berlaku" id="exampleEmail" placeholder="TMT BERLAKU" type="date" class="form-control" value="" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Pejabat Pembuat SK</b></label>
-                                                <div class="col-sm-10"><input name="penjabat_pembuat_sk" id="exampleEmail" placeholder="Pejabat Pembuat SK" type="text" class="form-control" value="" required></div>          
+                                                <div class="col-sm-10"><input name="pejabat_pembuat_sk" id="exampleEmail" placeholder="Pejabat Pembuat SK" type="text" class="form-control" value="" required></div>          
                                             </div>                    
             </div>
             <div class="modal-footer">
@@ -115,7 +131,7 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form class="" action="riwayat_diklat_perjenjangan_struktural/update/{{$hukum_disiplins->id}}" method="post">
+            <form class="" action="hukum_disiplin/update/{{$hukum_disiplins->id}}" method="post">
                                             @method('patch')
                                             @csrf
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Kode Hukuman</b></label>
@@ -199,13 +215,13 @@
                                                 <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Nomor SK" type="number" class="form-control" value="{{$hukum_disiplins->nomor_sk}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal SK</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Tanggal SK" type="date" class="form-control" value="{{$hukum_disiplins->tanggal_sk}}" required></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Tanggal SK" type="date" class="form-control" value="{{ date('Y-m-d',strtotime($hukum_disiplins->tanggal_sk)) }}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>TMT BERLAKU</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="TMT BERLAKU" type="date" class="form-control" value="{{$hukum_disiplins->tmt_berlaku}}" required></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="TMT BERLAKU" type="date" class="form-control" value="{{ date('Y-m-d',strtotime($hukum_disiplins->tmt_berlaku)) }}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Pejabat Pembuat SK</b></label>
-                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Pejabat Pembuat SK" type="text" class="form-control" value="{{$hukum_disiplins->penjabat_pembuat_sk}}" required></div>          
+                                                <div class="col-sm-10"><input name="title" id="exampleEmail" placeholder="Pejabat Pembuat SK" type="text" class="form-control" value="{{$hukum_disiplins->pejabat_pembuat_sk}}" required></div>          
                                             </div> 
                                       
             </div>
@@ -233,7 +249,7 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form action="riwayat_diklat_perjenjangan_struktural/delete/{{$hukum_disiplins->id}}" method="post">
+            <form action="hukum_disiplin/delete/{{$hukum_disiplins->id}}" method="post">
             @method('delete')
             @csrf
                 <p><center>Apakah anda yakin <p>"Hapus Data Hukum Disiplin" <b></b> </p></center></p>

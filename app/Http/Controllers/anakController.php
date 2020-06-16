@@ -37,11 +37,11 @@ class anakController extends Controller
      */
     public function store(Request $request)
     {
-        $pegawai_id = Pegawai::max('id');
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
-        $istri_suami = Anak::insert([
+        $anak = Anak::create([
             'tahun' => $request->input('tahun', 2020),
-            'pegawai_id' => $pegawai_id,
+            'pegawai_id' => $pegawai_id->id,
             'nama' => $request->nama,
             'jenis_kelamin' => $request->jenis_kelamin,
             'tempat_lahir' => $request->tempat_lahir,
@@ -50,8 +50,6 @@ class anakController extends Controller
             'pendidikan' => $request->pendidikan,
             'pekerjaan' => $request->pekerjaan,
             'active' => $request->input('active', 1),
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         \Session::flash('Berhasil', 'Data anak berhasil ditambah');
@@ -90,11 +88,11 @@ class anakController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pegawai_id = Pegawai::max('id');
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
-        $istri_suami = Anak::where('id', $id)->update([
+        $anak = Anak::where('id', $id)->update([
             'tahun' => $request->input('tahun', 2020),
-            'pegawai_id' => $pegawai_id,
+            'pegawai_id' => $pegawai_id->id,
             'nama' => $request->nama,
             'jenis_kelamin' => $request->jenis_kelamin,
             'tempat_lahir' => $request->tempat_lahir,
@@ -103,8 +101,6 @@ class anakController extends Controller
             'pendidikan' => $request->pendidikan,
             'pekerjaan' => $request->pekerjaan,
             'active' => $request->input('active', 1),
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         \Session::flash('Berhasil', 'Data anak berhasil diubah');
@@ -120,7 +116,7 @@ class anakController extends Controller
      */
     public function destroy($id)
     {
-        $istri_suami = Anak::where('id', $id)->delete();
+        $anak = Anak::where('id', $id)->delete();
         
         \Session::flash('Berhasil', 'Data anak berhasil dihapus');
 

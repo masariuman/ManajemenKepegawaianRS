@@ -144,10 +144,10 @@
                                                 <th scope="row">{{++$key}}</th>
                                                 <td>{{$riwayat_kepangkatans->tahun}}</td>
                                                 <td>{{$riwayat_kepangkatans->golongan}}</td>
-                                                <td>{{$riwayat_kepangkatans->tmt_golongan}}</td>
+                                                <td>{{ date('d/m/Y',strtotime($riwayat_kepangkatans->tmt_golongan)) }}</td>
                                                 <td>{{$riwayat_kepangkatans->pejabat_penandatangan_sk}}</td>
                                                 <td>{{$riwayat_kepangkatans->nomor_sk}}</td>
-                                                <td>{{$riwayat_kepangkatans->tanggal_sk}}</td>
+                                                <td>{{ date('d/m/Y',strtotime($riwayat_kepangkatans->tanggal_sk)) }}</td>
                                                 <td>
                                                     <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeDetail-{{$riwayat_kepangkatans->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use address-card"></i> Lihat
                                                     </button>||&nbsp;

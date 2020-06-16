@@ -147,11 +147,16 @@
                                                 <th scope="row">{{++$key}}</th>
                                                 <td>{{$riwayat_diklat_tekniss->tahun}}</td>
                                                 <td>{{$riwayat_diklat_tekniss->nama_diklat}}</td>
-                                                <td>{{$riwayat_diklat_tekniss->tempat_belajar}}</td>
+                                                <td>@if($riwayat_diklat_tekniss->tempat_belajar == "1")
+                                                    Dalam Negeri
+                                                    @elseif($riwayat_diklat_tekniss->tempat_belajar == "2")
+                                                    Luar Negeri
+                                                    @endif
+                                                </td>
                                                 <td>{{$riwayat_diklat_tekniss->lokasi}}</td>
-                                                <td>{{$riwayat_diklat_tekniss->tanggal_mulai}}</td>
+                                                <td>{{ date('d/m/Y',strtotime($riwayat_diklat_tekniss->tanggal_mulai)) }}</td>
+                                                <td>{{ date('d/m/Y',strtotime($riwayat_diklat_tekniss->tanggal_selesai)) }}</td>
                                                 <td>{{$riwayat_diklat_tekniss->jumlah_jam}}</td>
-                                                <td>{{$riwayat_diklat_tekniss->tanggal_selesai}}</td>
                                                 <td>{{$riwayat_diklat_tekniss->penyelenggara}}</td>
                                                 <td>
                                                     <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeDetail-{{$riwayat_diklat_tekniss->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use address-card"></i> Lihat
