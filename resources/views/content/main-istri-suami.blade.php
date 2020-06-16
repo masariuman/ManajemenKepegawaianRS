@@ -26,22 +26,50 @@
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$istri_suamis->nama}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nomor Karsi Karsu :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$istri_suamis->nomor_karsi_karsu}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$istri_suamis->nomor_karis_karsu}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal Lahir :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$istri_suamis->tanggal_lahir}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($istri_suamis->tanggal_lahir)) }}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal Nikah :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$istri_suamis->tanggal_nikah}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($istri_suamis->tanggal_nikah)) }}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tingkat Pendidikan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$istri_suamis->tingkat_pendidikan}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>      @if($istri_suamis->tingkat_pendidikan == "01") 
+                                                                                                                    S3 (Setara)                                             
+                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "02") 
+                                                                                                                    S2 (Setara)                                              
+                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "03")                                    
+                                                                                                                    S1 (Setara)                      
+                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "04")                                              
+                                                                                                                    D4                                          
+                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "05")                                             
+                                                                                                                    SM                                       
+                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "06")                                   
+                                                                                                                    D3                                            
+                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "07")                                              
+                                                                                                                    D2                                               
+                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "08")                                             
+                                                                                                                    D1                                             
+                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "09")                                     
+                                                                                                                    SLTA                                    
+                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "10")                                       
+                                                                                                                    SLTP                                             
+                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "11")                                             
+                                                                                                                    SD
+                                                                                                                    @endif</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Pekerjaan :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$istri_suamis->pekerjaan}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Staus Suami / Istri :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$istri_suamis->status_suami_istri}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($istri_suamis->status_suami_istri == "1")
+                                                                                                            Istri / Suami Saat Ini                                          
+                                                                                                            @elseif($istri_suamis->status_suami_istri == "2")                                              
+                                                                                                            Telah Meninggal Dunia                                              
+                                                                                                            @elseif($istri_suamis->status_suami_istri == "3")                                 
+                                                                                                            Cerai
+                                                                                                            @endif</b></h6></div>          
                                             </div>
             
             </div>
@@ -74,7 +102,7 @@
                                                 <div class="col-sm-10"><input name="nama" id="exampleEmail" placeholder="Nama Istri / Suami" type="text" class="form-control" value="" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor Karis / Karsu</b></label>
-                                                <div class="col-sm-10"><input name="nomor_karis_karsu" id="exampleEmail" placeholder="Nomor Karis / Karsu" type="text" class="form-control" value="" required></div>          
+                                                <div class="col-sm-10"><input name="nomor_karis_karsu" id="exampleEmail" placeholder="Nomor Karis / Karsu" type="number" class="form-control" value="" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal Lahir</b></label>
                                                 <div class="col-sm-10"><input name="tanggal_lahir" id="exampleEmail" placeholder="Tanggal Lahir" type="date" class="form-control" value="" required></div>          
@@ -134,20 +162,20 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form class="" action="riwayat_diklat_perjenjangan_struktural/update/{{$istri_suamis->id}}" method="post">
+            <form class="" action="istri_suami/update/{{$istri_suamis->id}}" method="post">
                                             @method('patch')
                                             @csrf
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nama Istri / Suami</b></label>
                                                 <div class="col-sm-10"><input name="nama" id="exampleEmail" placeholder="Nama Istri / Suami" type="text" class="form-control" value="{{$istri_suamis->nama}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor Karis / Karsu</b></label>
-                                                <div class="col-sm-10"><input name="nomor_karis_karsu" id="exampleEmail" placeholder="Nomor Karis / Karsu" type="text" class="form-control" value="{{$istri_suamis->nomor_karis_karsu}}" required></div>          
+                                                <div class="col-sm-10"><input name="nomor_karis_karsu" id="exampleEmail" placeholder="Nomor Karis / Karsu" type="number" class="form-control" value="{{$istri_suamis->nomor_karis_karsu}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal Lahir</b></label>
-                                                <div class="col-sm-10"><input name="tanggal_lahir" id="exampleEmail" placeholder="Tanggal Lahir" type="date" class="form-control" value="{{$istri_suamis->tanggal_lahir}}" required></div>          
+                                                <div class="col-sm-10"><input name="tanggal_lahir" id="exampleEmail" placeholder="Tanggal Lahir" type="date" class="form-control" value="{{ date('Y-m-d',strtotime($istri_suamis->tanggal_lahir)) }}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal Nikah</b></label>
-                                                <div class="col-sm-10"><input name="tanggal_nikah" id="exampleEmail" placeholder="Tanggal Nikah" type="date" class="form-control" value="{{$istri_suamis->tanggal_nikah}}" required></div>          
+                                                <div class="col-sm-10"><input name="tanggal_nikah" id="exampleEmail" placeholder="Tanggal Nikah" type="date" class="form-control" value="{{ date('Y-m-d',strtotime($istri_suamis->tanggal_nikah)) }}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Tingkat Pendidikan</b></label>
                                                 <div class="col-sm-10"><select name="tingkat_pendidikan" id="exampleSelect" class="form-control" value="{{$istri_suamis->tingkat_pendidikan}}" required>
@@ -189,7 +217,7 @@
                                                 <option value="11">SD</option>
                                                 @elseif($istri_suamis->tingkat_pendidikan == "04") 
                                                 <option value="01">S3 (Setara)</option>
-                                                <option value="02" selected>S2 (Setara)</option>
+                                                <option value="02">S2 (Setara)</option>
                                                 <option value="03">S1 (Setara)</option>
                                                 <option value="04" selected>D4</option>
                                                 <option value="05">SM</option>
@@ -332,7 +360,7 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form action="riwayat_diklat_perjenjangan_struktural/delete/{{$istri_suamis->id}}" method="post">
+            <form action="istri_suami/delete/{{$istri_suamis->id}}" method="post">
             @method('delete')
             @csrf
                 <p><center>Apakah anda yakin <p>"Hapus Data Istri / Suami" <b></b> </p></center></p>

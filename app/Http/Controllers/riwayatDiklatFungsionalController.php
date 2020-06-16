@@ -39,11 +39,11 @@ class riwayatDiklatFungsionalController extends Controller
     public function store(Request $request)
     {
 
-        $pegawai_id = Pegawai::max('id');
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
-        $pendidikan_formal = DiklatFungsional::insert([
+        $riwayat_diklat_fungsional = DiklatFungsional::create([
             'tahun' => $request->input('tahun', 2019),
-            'pegawai_id' => $pegawai_id,
+            'pegawai_id' => $pegawai_id->id,
             'nama_diklat' => $request->nama_diklat,
             'tempat_belajar' => $request->tempat_belajar,
             'lokasi' => $request->lokasi,
@@ -52,8 +52,6 @@ class riwayatDiklatFungsionalController extends Controller
             'jumlah_jam' => $request->jumlah_jam,
             'penyelenggara' => $request->lokasi,
             'active' => $request->input('active', 1),
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         \Session::flash('Berhasil', 'Data diklat fungsional berhasil ditambahkan');
@@ -92,7 +90,24 @@ class riwayatDiklatFungsionalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
+
+        $riwayat_diklat_fungsional = DiklatFungsional::where('id', $id)->update([
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id->id,
+            'nama_diklat' => $request->nama_diklat,
+            'tempat_belajar' => $request->tempat_belajar,
+            'lokasi' => $request->lokasi,
+            'tanggal_mulai' => $request->tanggal_mulai,
+            'tanggal_selesai' => $request->tanggal_selesai,
+            'jumlah_jam' => $request->jumlah_jam,
+            'penyelenggara' => $request->lokasi,
+            'active' => $request->input('active', 1),
+        ]);
+
+        \Session::flash('Berhasil', 'Data diklat fungsional berhasil diubah');
+
+        return back();
     }
 
     /**
@@ -103,6 +118,10 @@ class riwayatDiklatFungsionalController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $riwayat_diklat_fungsional = DiklatFungsional::where('id', $id)->delete();
+
+        \Session::flash('Berhasil', 'Data diklat fungsional berhasil dihapus');
+
+        return back();
     }
 }

@@ -13,7 +13,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Lihat Data Riwayat Kepangkatan</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Lihat Data Seminar / Lokakarya / Simposium</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -29,7 +29,11 @@
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$seminar_lokakarya_simposiums->lokasi}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tempat Kegiatan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$seminar_lokakarya_simposiums->tempat_kegiatan}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>  @if($seminar_lokakarya_simposiums->tempat_kegiatan == "1")
+                                                                                                            Dalam Negeri                                                
+                                                                                                            @elseif($seminar_lokakarya_simposiums->tempat_kegiatan == "1")                                                
+                                                                                                            Luar Negeri
+                                                                                                            @endif</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Penyelenggara :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$seminar_lokakarya_simposiums->penyelenggara}}</b></h6></div>          
@@ -38,7 +42,17 @@
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$seminar_lokakarya_simposiums->tahun_seminar}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Kedudukan Dalam Seminar :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$seminar_lokakarya_simposiums->kedudukan_dalam_seminar}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($seminar_lokakarya_simposiums->kedudukan_dalam_seminar == "1")
+                                                                                                            Peserta                                               
+                                                                                                            @elseif($seminar_lokakarya_simposiums->kedudukan_dalam_seminar == "2")                                               
+                                                                                                            Moderator                                               
+                                                                                                            @elseif($seminar_lokakarya_simposiums->kedudukan_dalam_seminar == "3")                                                                                             
+                                                                                                            Pembahas                                                
+                                                                                                            @elseif($seminar_lokakarya_simposiums->kedudukan_dalam_seminar == "4")                                            
+                                                                                                            Pembawa Makalah
+                                                                                                            @elseif($seminar_lokakarya_simposiums->kedudukan_dalam_seminar == "5")                                              
+                                                                                                            Panitia
+                                                                                                            @endif</b></h6></div>          
                                             </div>
  
             </div>
@@ -59,7 +73,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Tambah Data Riwayat Diklat Penjenjang Struktural</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Tambah Data Seminar / Lokakarya / Simposium</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -115,13 +129,13 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Ubah Data Riwayat Diklat Penjenjang Struktural</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Ubah Data Seminar / Lokakarya / Simposium</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-            <form class="" action="riwayat_diklat_perjenjangan_struktural/update/{{$seminar_lokakarya_simposiums->id}}" method="post">
+            <form class="" action="seminar_lokakarya_simposium/update/{{$seminar_lokakarya_simposiums->id}}" method="post">
                                             @method('patch')
                                             @csrf
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nama Kegiatan</b></label>
@@ -208,7 +222,7 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form action="riwayat_diklat_perjenjangan_struktural/delete/{{$seminar_lokakarya_simposiums->id}}" method="post">
+            <form action="seminar_lokakarya_simposium/delete/{{$seminar_lokakarya_simposiums->id}}" method="post">
             @method('delete')
             @csrf
                 <p><center>Apakah anda yakin <p>"Hapus Data Seminar / Lokakarya / Simposium" <b></b> </p></center></p>

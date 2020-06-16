@@ -129,11 +129,13 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Tahun</th>
-                                                <th>Golongan</th>
-                                                <th>TMT Golongan</th>
-                                                <th>Pejabat Penandatangan SK</th>
+                                                <th>Tahun Organisasi</th>
+                                                <th>Kedudukan Organisasi</th>
+                                                <th>Tanggal Mulai</th>
+                                                <th>Tanggal Selsai</th>
                                                 <th>Nomor SK</th>
-                                                <th>Tanggal SK</th>
+                                                <th>Jabatan Pembuat SK</th>
+                                                <th>Menu</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -145,8 +147,8 @@
                                                 <td>{{$keanggotaan_organisasis->tahun_organisasi}}</td>
                                                 <td>{{$keanggotaan_organisasis->nama_organisasi}}</td>
                                                 <td>{{$keanggotaan_organisasis->kedudukan}}</td>
-                                                <td>{{$keanggotaan_organisasis->tanggal_mulai}}</td>
-                                                <td>{{$keanggotaan_organisasis->tanggal_selesai}}</td>
+                                                <td>{{ date('d/m/Y',strtotime($keanggotaan_organisasis->tanggal_mulai)) }}</td>
+                                                <td>{{ date('d/m/Y',strtotime($keanggotaan_organisasis->tanggal_selesai)) }}</td>
                                                 <td>{{$keanggotaan_organisasis->nomor_sk}}</td>
                                                 <td>{{$keanggotaan_organisasis->jabatan_pembuat_sk}}</td>
                                                 <td>

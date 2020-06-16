@@ -32,13 +32,14 @@
                                                 <th>Tahun</th>
                                                 <th>Nama Jabatan</th>
                                                 <th>TMT Jabatan</th>
-                                                <th>Tahun Mulai</th>
-                                                <th>Tahun Selesai</th>
                                                 <th>Nomor SK</th>
                                                 <th>Tanggal SK</th>
-                                                <th>Nip Pejabat Penandatanganan SK</th>
-                                                <th>Nip Lama Pejabat Penandatanganan SK</th>
+                                                <th>Tahun Mulai</th>
+                                                <th>Tahun Selesai</th>
+                                                <th>NIP Pejabat Penandatangan SK</th>
+                                                <th>NIP Lama Pejabat Penandatangan SK</th>
                                                 <th>Pejabat Penandatangan SK</th>
+                                                <th>Menu</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -49,12 +50,13 @@
                                                 <th scope="row">{{++$key}}</th>
                                                 <td>{{$riwayat_pekerjaan_jabatans->tahun}}</td>
                                                 <td>{{$riwayat_pekerjaan_jabatans->nama_jabatan}}</td>
-                                                <td>{{$riwayat_pekerjaan_jabatans->tmt_jabatan}}</td>
-                                                <td>{{$riwayat_pekerjaan_jabatans->tahun_mulai}}</td>
-                                                <td>{{$riwayat_pekerjaan_jabatans->tahun_selesai}}</td>
+                                                <td>{{ date('d/m/Y',strtotime($riwayat_pekerjaan_jabatans->tmt_jabatan)) }}</td>
                                                 <td>{{$riwayat_pekerjaan_jabatans->nomor_sk}}</td>
-                                                <td>{{$riwayat_pekerjaan_jabatans->nip_penjabat_penandatangan_sk}}</td>
-                                                <td>{{$riwayat_pekerjaan_jabatans->nip_lama_penjabat_penandatangan_sk}}</td>
+                                                <td>{{ date('d/m/Y',strtotime($riwayat_pekerjaan_jabatans->tanggal_sk)) }} </td>
+                                                <td>{{$riwayat_pekerjaan_jabatans->tahun_mulai}}</td>
+                                                <td>{{$riwayat_pekerjaan_jabatans->tahun_selesai}}</td>                   
+                                                <td>{{$riwayat_pekerjaan_jabatans->nip_pejabat_penandatangan_sk}}</td>
+                                                <td>{{$riwayat_pekerjaan_jabatans->nip_lama_pejabat_penandatangan_sk}}</td>
                                                 <td>{{$riwayat_pekerjaan_jabatans->pejabat_penandatangan_sk}}</td>
                                                 <td>
                                                     <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeDetail-{{$riwayat_pekerjaan_jabatans->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use address-card"></i> Lihat

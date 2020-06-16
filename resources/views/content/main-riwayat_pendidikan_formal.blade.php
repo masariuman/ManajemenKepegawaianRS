@@ -23,7 +23,29 @@
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_pendidikan_formals->tahun}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tingkat Pendidikan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_pendidikan_formals->tingkat_pendidikan}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($riwayat_pendidikan_formals->tingkat_pendidikan == "01") 
+                                                                                                            S3 (Setara)                                             
+                                                                                                            @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "02") 
+                                                                                                            S2 (Setara)                                              
+                                                                                                            @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "03")                                    
+                                                                                                            S1 (Setara)                      
+                                                                                                            @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "04")                                              
+                                                                                                            D4                                          
+                                                                                                            @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "05")                                             
+                                                                                                            SM                                       
+                                                                                                            @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "06")                                   
+                                                                                                            D3                                            
+                                                                                                            @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "07")                                              
+                                                                                                            D2                                               
+                                                                                                            @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "08")                                             
+                                                                                                            D1                                             
+                                                                                                            @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "09")                                     
+                                                                                                            SLTA                                    
+                                                                                                            @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "10")                                       
+                                                                                                            SLTP                                             
+                                                                                                            @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "11")                                             
+                                                                                                            SD
+                                                                                                            @endif</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nama Sekolah :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_pendidikan_formals->nama_sekolah}}</b></h6></div>          
@@ -38,7 +60,11 @@
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_pendidikan_formals->tahun_lulus}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tempat Belajar :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_pendidikan_formals->tempat_belajar}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($riwayat_pendidikan_formals->tempat_belajar == "1")
+                                                                                                            Dalam Negeri
+                                                                                                            @elseif($riwayat_diklat_fungsionals->tempat_belajar == "2")
+                                                                                                            Luar Negeri
+                                                                                                            @endif</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Lokasi :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_pendidikan_formals->lokasi}}</b></h6></div>          
@@ -179,7 +205,7 @@
                                                 <option value="09">SLTA</option>
                                                 <option value="10">SLTP</option>
                                                 <option value="11">SD</option>
-                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "03")
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "04")
                                                 <option value="01">S3 (Setara)</option>
                                                 <option value="02">S2 (Setara)</option>
                                                 <option value="03">S1 (Setara)</option>
@@ -191,7 +217,7 @@
                                                 <option value="09">SLTA</option>
                                                 <option value="10">SLTP</option>
                                                 <option value="11">SD</option>
-                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "03")
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "05")
                                                 <option value="01">S3 (Setara)</option>
                                                 <option value="02">S2 (Setara)</option>
                                                 <option value="03">S1 (Setara)</option>
@@ -203,7 +229,7 @@
                                                 <option value="09">SLTA</option>
                                                 <option value="10">SLTP</option>
                                                 <option value="11">SD</option>
-                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "03")
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "06")
                                                 <option value="01">S3 (Setara)</option>
                                                 <option value="02">S2 (Setara)</option>
                                                 <option value="03">S1 (Setara)</option>
@@ -215,7 +241,7 @@
                                                 <option value="09">SLTA</option>
                                                 <option value="10">SLTP</option>
                                                 <option value="11">SD</option>
-                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "03")
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "07")
                                                 <option value="01">S3 (Setara)</option>
                                                 <option value="02">S2 (Setara)</option>
                                                 <option value="03">S1 (Setara)</option>
@@ -227,7 +253,7 @@
                                                 <option value="09">SLTA</option>
                                                 <option value="10">SLTP</option>
                                                 <option value="11">SD</option>
-                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "03")
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "08")
                                                 <option value="01">S3 (Setara)</option>
                                                 <option value="02">S2 (Setara)</option>
                                                 <option value="03">S1 (Setara)</option>

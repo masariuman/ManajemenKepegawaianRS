@@ -38,19 +38,17 @@ class riwayatKepangkatanController extends Controller
      */
     public function store(Request $request)
     {
-        $pegawai_id = Pegawai::max('id');
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
-        $riwayat_kepangkatan = Kepangkatan::insert([
+        $riwayat_kepangkatan = Kepangkatan::create([
             'tahun' => $request->input('tahun', 2020),
-            'pegawai_id' => $pegawai_id,
+            'pegawai_id' => $pegawai_id->id,
             'golongan' => $request->golongan,
             'tmt_golongan' => $request->tmt_golongan,
             'pejabat_penandatangan_sk' => $request->pejabat_penandatangan_sk,
             'nomor_sk' => $request->nomor_sk,
             'tanggal_sk' => $request->tanggal_sk,
             'active' => $request->input('active', 1),
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         \Session::flash('Berhasil', 'Data riwayat kepangkatan berhasil ditambahkan');
@@ -89,19 +87,17 @@ class riwayatKepangkatanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pegawai_id = Pegawai::max('id');
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
         $riwayat_kepangkatan = Kepangkatan::where('id', $id)->update([
             'tahun' => $request->input('tahun', 2020),
-            'pegawai_id' => $pegawai_id,
+            'pegawai_id' => $pegawai_id->id,
             'golongan' => $request->golongan,
             'tmt_golongan' => $request->tmt_golongan,
             'pejabat_penandatangan_sk' => $request->pejabat_penandatangan_sk,
             'nomor_sk' => $request->nomor_sk,
             'tanggal_sk' => $request->tanggal_sk,
             'active' => $request->input('active', 1),
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         \Session::flash('Berhasil', 'Data riwayat kepangkatan berhasil diubah');

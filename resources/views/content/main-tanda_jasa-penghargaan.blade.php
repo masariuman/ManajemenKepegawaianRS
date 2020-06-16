@@ -26,13 +26,13 @@
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$tanda_jasa_penghargaans->nama_penghargaan}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal Perolehan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$tanda_jasa_penghargaans->tanggal_perolehan}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($tanda_jasa_penghargaans->tanggal_perolehan)) }}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nomor :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$tanda_jasa_penghargaans->nomor}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Negara / Instansi Pemberi :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$tanda_jasa_penghargaans->pembari}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$tanda_jasa_penghargaans->pemberi}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Jabatan Pemberi :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$tanda_jasa_penghargaans->jabatan_pemberi}}</b></h6></div>          
@@ -104,14 +104,14 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form class="" action="riwayat_diklat_perjenjangan_struktural/update/{{$tanda_jasa_penghargaans->id}}" method="post">
+            <form class="" action="tanda_jasa_penghargaan/update/{{$tanda_jasa_penghargaans->id}}" method="post">
                                             @method('patch')
                                             @csrf
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nama Tanda Jasa / Penghargaan</b></label>
                                                 <div class="col-sm-10"><input name="nama_penghargaan" id="exampleEmail" placeholder="Nama Tanda Jasa / Penghargaan" type="text" class="form-control" value="{{$tanda_jasa_penghargaans->nama_penghargaan}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal Perolehan</b></label>
-                                                <div class="col-sm-10"><input name="tanggal_perolehan" id="exampleEmail" placeholder="Tanggal Perolehan" type="date" class="form-control" value="{{$tanda_jasa_penghargaans->tanggal_perolehan}}" required></div>          
+                                                <div class="col-sm-10"><input name="tanggal_perolehan" id="exampleEmail" placeholder="Tanggal Perolehan" type="date" class="form-control" value="{{ date('Y-m-d',strtotime($tanda_jasa_penghargaans->tanggal_perolehan)) }}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor</b></label>
                                                 <div class="col-sm-10"><input name="nomor" id="exampleEmail" placeholder="Nomor" type="number" class="form-control" value="{{$tanda_jasa_penghargaans->nomor}}" required></div>          
@@ -148,7 +148,7 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form action="riwayat_diklat_perjenjangan_struktural/delete/{{$tanda_jasa_penghargaans->id}}" method="post">
+            <form action="tanda_jasa_penghargaan/delete/{{$tanda_jasa_penghargaans->id}}" method="post">
             @method('delete')
             @csrf
                 <p><center>Apakah anda yakin <p>"Hapus Data Tanda Jasa Penghargaan" <b></b> </p></center></p>

@@ -14,29 +14,45 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Lihat Data Riwayat Kepangkatan</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Lihat Data Keluarga Kandung</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tahun :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$keluarga_kandungs->tahun}}</b></h6></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nama :</b></label>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$keluarga_kandungs->nama}}</b></h6></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Golongan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$keluarga_kandungs->golongan}}</b></h6></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Hubungan :</b></label>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($keluarga_kandungs->hubungan == "1")
+                                                                                                            Ayah
+                                                                                                            @elseif($keluarga_kandungs->hubungan == "2")
+                                                                                                            Ibu
+                                                                                                            @elseif($keluarga_kandungs->hubungan == "3")
+                                                                                                            Kakak
+                                                                                                            @elseif($keluarga_kandungs->hubungan == "4")
+                                                                                                            Adik
+                                                                                                            @endif</b></h6></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>TMT Golongan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$keluarga_kandungs->tmt_golongan}}</b></h6></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Pekerjaan :</b></label>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$keluarga_kandungs->pekerjaan}}</b></h6></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Pejabat Penandatangan SK :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$keluarga_kandungs->pejabat_penandatangan_sk}}</b></h6></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal Lahir :</b></label>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($keluarga_kandungs->tanggal_lahir)) }}</b></h6></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nomor SK :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$keluarga_kandungs->nomor_sk}}</b></h6></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Jenis Kelamin :</b></label>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($keluarga_kandungs->jenis_kelamin == "L")
+                                                                                                            Laki-laki                                                
+                                                                                                            @elseif($keluarga_kandungs->jenis_kelamin == "P")                                                
+                                                                                                            Perempuan
+                                                                                                            @endif</b></h6></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal SK :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$keluarga_kandungs->tanggal_sk}}</b></h6></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Kondisi :</b></label>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($keluarga_kandungs->kondisi == "1")
+                                                Masih Hidup
+                                                @elseif($keluarga_kandungs->kondisi == "0")      
+                                                Almarhun
+                                                @endif</b></h6></div>          
                                             </div>
  
             </div>
@@ -57,7 +73,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Tambah Data Data Riwayat Kepangkatan</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Tambah Data Keluarga Kandung</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -157,20 +173,29 @@
                                                 <div class="col-sm-10"><input name="pekerjaan" id="exampleEmail" placeholder="Pekerjaan" type="text" class="form-control" value="{{$keluarga_kandungs->pekerjaan}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal Lahir</b></label>
-                                                <div class="col-sm-10"><input name="tanggal_lahir" id="exampleEmail" placeholder="Tanggal Lahir" type="date" class="form-control" value="{{$keluarga_kandungs->tanggal_lahir}}" required></div>          
+                                                <div class="col-sm-10"><input name="tanggal_lahir" id="exampleEmail" placeholder="Tanggal Lahir" type="date" class="form-control" value="{{ date('Y-m-d',strtotime($keluarga_kandungs->tanggal_lahir)) }}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Jenis Kelamin</b></label>
                                                 <div class="col-sm-10"><select name="jenis_kelamin" id="exampleSelect" class="form-control" required value="{{$keluarga_kandungs->jenis_kelamin}}">
-                                                <option value="" disabled selected>-Pilih Jenis Kelamin-</option>
-                                                <option value="L">Laki-laki</option>
+                                                @if($keluarga_kandungs->jenis_kelamin == "L")
+                                                <option value="L" selected>Laki-laki</option>
                                                 <option value="P">Perempuan</option>
+                                                @elseif($keluarga_kandungs->jenis_kelamin == "P")
+                                                <option value="L">Laki-laki</option>
+                                                <option value="P" selected>Perempuan</option>
+                                                @endif
                                                 </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Kondisi</b></label>
                                                 <div class="col-sm-10"><select name="kondisi" id="exampleSelect" class="form-control" required value="{{$keluarga_kandungs->kondisi}}">
                                                 <option value="" disabled selected>-Pilih Kondisi-</option>
-                                                <option value="1">Masih Hidup</option>
+                                                @if($keluarga_kandungs->kondisi == "1")
+                                                <option value="1" selected>Masih Hidup</option>
                                                 <option value="0">Almarhun</option>
+                                                @elseif($keluarga_kandungs->kondisi == "0")
+                                                <option value="1">Masih Hidup</option>
+                                                <option value="0" selected>Almarhun</option>
+                                                @endif
                                                 </select></div>
                                             </div>   
                                       

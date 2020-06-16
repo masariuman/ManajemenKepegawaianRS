@@ -136,6 +136,7 @@
                                                 <th>Status Anak</th>
                                                 <th>Pendididkan</th>
                                                 <th>Pekerjaan</th>
+                                                <th>Menu</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -146,11 +147,48 @@
                                                 <th scope="row">{{++$key}}</th>
                                                 <td>{{$anaks->tahun}}</td>
                                                 <td>{{$anaks->nama}}</td>
-                                                <td>{{$anaks->jenis_kelamin}}</td>
+                                                <td>
+                                                @if($anaks->jenis_kelamin == "P")
+                                                Pria
+                                                @elseif($anaks->jenis_kelamin == "W")
+                                                Wanita
+                                                @endif</td>
                                                 <td>{{$anaks->tempat_lahir}}</td>
-                                                <td>{{$anaks->tanggal_lahir}}</td>
-                                                <td>{{$anaks->status_anak}}</td>
-                                                <td>{{$anaks->pendidikan}}</td>
+                                                <td>{{ date('d/m/Y',strtotime($anaks->tanggal_lahir)) }}</td>
+                                                <td>
+                                                @if($anaks->status_anak == "1")
+                                                Anak Kandung
+                                                @elseif($anaks->status_anak == "2")
+                                                Anak Tiri
+                                                @elseif($anaks->status_anak == "3")
+                                                Anak Angkat
+                                                @endif</td>
+                                                <td>
+                                                @if($anaks->pendidikan == "01") 
+                                                S3 (Setara)                                             
+                                                @elseif($anaks->pendidikan == "02") 
+                                                S2 (Setara)                                              
+                                                @elseif($anaks->pendidikan == "03")                                    
+                                                S1 (Setara)                      
+                                                @elseif($anaks->pendidikan == "04")                                              
+                                                D4                                          
+                                                @elseif($anaks->pendidikan == "05")                                             
+                                                SM                                       
+                                                @elseif($anaks->pendidikan == "06")                                   
+                                                D3                                            
+                                                @elseif($anaks->pendidikan == "07")                                              
+                                                D2                                               
+                                                @elseif($anaks->pendidikan == "08")                                             
+                                                D1                                             
+                                                @elseif($anaks->pendidikan == "09")                                     
+                                                SLTA                                    
+                                                @elseif($anaks->pendidikan == "10")                                       
+                                                SLTP                                             
+                                                @elseif($anaks->pendidikan == "11")                                             
+                                                SD
+                                                @elseif($anaks->pendidikan == "12")                                             
+                                                Belum Sekolah
+                                                @endif</td>
                                                 <td>{{$anaks->pekerjaan}}</td>
                                                 <td>
                                                     <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeDetail-{{$anaks->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use address-card"></i> Lihat

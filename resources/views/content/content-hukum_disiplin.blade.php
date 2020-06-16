@@ -133,7 +133,8 @@
                                                 <th>Nomor SK</th>
                                                 <th>Tanggal SK</th>
                                                 <th>TMT Berlaku</th>
-                                                <th>Penjabat Pembuat SK</th>
+                                                <th>Pejabat Pembuat SK</th>
+                                                <th>Menu</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -143,11 +144,29 @@
                                             <tr>
                                                 <th scope="row">{{++$key}}</th>
                                                 <td>{{$hukum_disiplins->tahun}}</td>
-                                                <td>{{$hukum_disiplins->kode_hukuman}}</td>
+                                                <td>
+                                                @if($hukum_disiplins->kode_hukuman == "11")
+                                                11 - Hukuman Ringan Teguran Lisan                                             
+                                                @elseif($hukum_disiplins->kode_hukuman == "12")                                               
+                                                12 - Hukuman Ringan Teguran Tertulis                                          
+                                                @elseif($hukum_disiplins->kode_hukuman == "13")                                             
+                                                13 - Hukuman Ringan Melalui Pernyataan Tidak Puas Secara Tertulis                                       
+                                                @elseif($hukum_disiplins->kode_hukuman == "21")
+                                                21 - Hukuman Sedang Penundaan Kenaikan Gaji Sebesar 1x Kenaikan Gaji Berkala Paling Lama 1 Tahun                                          
+                                                @elseif($hukum_disiplins->kode_hukuman == "22")                                              
+                                                22 - Hukuman Sedang Penurunan Gaji Sebesar 1x Kenaikan Gaji Berkala Paling Lama 1 Tahun                                             
+                                                @elseif($hukum_disiplins->kode_hukuman == "23")                                              
+                                                23 - Hukuman Sedang Penundaan Kenaikan Pangkat Paling Lama 1 Tahun                     
+                                                @elseif($hukum_disiplins->kode_hukuman == "31")                                            
+                                                31 - Hukuman Berat Penurunan Pangkat Setingkat Lebih Rendah Paling Lama 1 Tahun                                             
+                                                @elseif($hukum_disiplins->kode_hukuman == "32")                                         
+                                                32 - Hukuman Berat Pembebasan dari Jabatan
+                                                @endif
+                                                </td>
                                                 <td>{{$hukum_disiplins->nomor_sk}}</td>
-                                                <td>{{$hukum_disiplins->tanggal_sk}}</td>
-                                                <td>{{$hukum_disiplins->tmt_berlaku}}</td>
-                                                <td>{{$hukum_disiplins->penjabat_pembuat_sk}}</td>
+                                                <td>{{ date('d/m/Y',strtotime($hukum_disiplins->tanggal_sk)) }}</td>
+                                                <td>{{ date('d/m/Y',strtotime($hukum_disiplins->tmt_berlaku)) }}</td>
+                                                <td>{{$hukum_disiplins->pejabat_pembuat_sk}}</td>
                                                 <td>
                                                     <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeDetail-{{$hukum_disiplins->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use address-card"></i> Lihat
                                                     </button>||&nbsp;

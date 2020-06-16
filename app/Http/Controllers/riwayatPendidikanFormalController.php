@@ -41,11 +41,11 @@ class riwayatPendidikanFormalController extends Controller
     public function store(Request $request)
     {
 
-        $pegawai_id = Pegawai::max('id');
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
-        $riwayat_pendidikan_formal = PendidikanFormal::insert([
-            'tahun' => $request->input('tahun', 2019),
-            'pegawai_id' => $pegawai_id,
+        $riwayat_pendidikan_formal = PendidikanFormal::create([
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id->id,
             'tingkat_pendidikan' => $request->tingkat_pendidikan,
             'nama_sekolah' => $request->nama_sekolah,
             'jurusan_prodi' => $request->jurusan_prodi,
@@ -55,8 +55,6 @@ class riwayatPendidikanFormalController extends Controller
             'lokasi' => $request->lokasi,
             'nomor_ijazah' => $request->nomor_ijazah,
             'active' => $request->input('active', 1),
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         // dd($pendidikan_formal);
@@ -98,11 +96,11 @@ class riwayatPendidikanFormalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pegawai_id = Pegawai::max('id');
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
         $riwayat_pendidikan_formal = PendidikanFormal::where('id', $id)->update([
-            'tahun' => $request->input('tahun', 2019),
-            'pegawai_id' => $pegawai_id,
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id->id,
             'tingkat_pendidikan' => $request->tingkat_pendidikan,
             'nama_sekolah' => $request->nama_sekolah,
             'jurusan_prodi' => $request->jurusan_prodi,
@@ -112,13 +110,11 @@ class riwayatPendidikanFormalController extends Controller
             'lokasi' => $request->lokasi,
             'nomor_ijazah' => $request->nomor_ijazah,
             'active' => $request->input('active', 1),
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         // dd($pendidikan_formal);
 
-        \Session::flash('Berhasil', 'Data riwayat pendidikan formal berhasil ditambahkan');
+        \Session::flash('Berhasil', 'Data riwayat pendidikan formal berhasil diubah');
 
         return back();
     }

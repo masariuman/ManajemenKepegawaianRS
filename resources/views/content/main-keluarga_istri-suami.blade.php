@@ -13,29 +13,45 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Lihat Data Keluarga Istri Suami</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Lihat Data Keluarga Istri / Suami</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tahun :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$keluarga_istri_suamis->tahun}}</b></h6></div>          
+            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nama :</b></label>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$keluarga_istri_suamis->nama}}</b></h6></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Golongan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$keluarga_istri_suamis->golongan}}</b></h6></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Hubungan :</b></label>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($keluarga_istri_suamis->hubungan == "1")
+                                                                                                            Ayah
+                                                                                                            @elseif($keluarga_istri_suamis->hubungan == "2")
+                                                                                                            Ibu
+                                                                                                            @elseif($keluarga_istri_suamis->hubungan == "3")
+                                                                                                            Kakak
+                                                                                                            @elseif($keluarga_istri_suamis->hubungan == "4")
+                                                                                                            Adik
+                                                                                                            @endif</b></h6></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>TMT Golongan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$keluarga_istri_suamis->tmt_golongan}}</b></h6></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Pekerjaan :</b></label>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$keluarga_istri_suamis->pekerjaan}}</b></h6></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Pejabat Penandatangan SK :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$keluarga_istri_suamis->pejabat_penandatangan_sk}}</b></h6></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal Lahir :</b></label>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($keluarga_istri_suamis->tanggal_lahir)) }}</b></h6></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nomor SK :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$keluarga_istri_suamis->nomor_sk}}</b></h6></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Jenis Kelamin :</b></label>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($keluarga_istri_suamis->jenis_kelamin == "L")
+                                                                                                            Laki-laki                                                
+                                                                                                            @elseif($keluarga_istri_suamis->jenis_kelamin == "P")                                                
+                                                                                                            Perempuan
+                                                                                                            @endif</b></h6></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal SK :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$keluarga_istri_suamis->tanggal_sk}}</b></h6></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Kondisi :</b></label>
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($keluarga_istri_suamis->kondisi == "1")
+                                                Masih Hidup
+                                                @elseif($keluarga_istri_suamis->kondisi == "0")      
+                                                Almarhun
+                                                @endif</b></h6></div>          
                                             </div>
  
             </div>
@@ -56,7 +72,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Tambah Data Keluarga Istri Suami</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Tambah Data Keluarga Istri / Suami</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -115,7 +131,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Ubah Data Keluarga Istri Suami</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Ubah Data Keluarga Istri / Suami</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -156,22 +172,31 @@
                                                 <div class="col-sm-10"><input name="pekerjaan" id="exampleEmail" placeholder="Pekerjaan" type="text" class="form-control" value="{{$keluarga_istri_suamis->pekerjaan}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal Lahir</b></label>
-                                                <div class="col-sm-10"><input name="tanggal_lahir" id="exampleEmail" placeholder="Tanggal Lahir" type="date" class="form-control" value="{{$keluarga_istri_suamis->tanggal_lahir}}" required></div>          
+                                                <div class="col-sm-10"><input name="tanggal_lahir" id="exampleEmail" placeholder="Tanggal Lahir" type="date" class="form-control" value="{{ date('Y-m-d',strtotime($keluarga_istri_suamis->tanggal_lahir)) }}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Jenis Kelamin</b></label>
                                                 <div class="col-sm-10"><select name="jenis_kelamin" id="exampleSelect" class="form-control" required value="{{$keluarga_istri_suamis->jenis_kelamin}}">
-                                                <option value="" disabled selected>-Pilih Jenis Kelamin-</option>
-                                                <option value="L">Laki-laki</option>
+                                                @if($keluarga_istri_suamis->jenis_kelamin == "L")
+                                                <option value="L" selected>Laki-laki</option>
                                                 <option value="P">Perempuan</option>
+                                                @elseif($keluarga_istri_suamis->jenis_kelamin == "P")
+                                                <option value="L">Laki-laki</option>
+                                                <option value="P" selected>Perempuan</option>
+                                                @endif
                                                 </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Kondisi</b></label>
                                                 <div class="col-sm-10"><select name="kondisi" id="exampleSelect" class="form-control" required value="{{$keluarga_istri_suamis->kondisi}}">
                                                 <option value="" disabled selected>-Pilih Kondisi-</option>
-                                                <option value="1">Masih Hidup</option>
+                                                @if($keluarga_istri_suamis->kondisi == "1")
+                                                <option value="1" selected>Masih Hidup</option>
                                                 <option value="0">Almarhun</option>
+                                                @elseif($keluarga_istri_suamis->kondisi == "0")
+                                                <option value="1">Masih Hidup</option>
+                                                <option value="0" selected>Almarhun</option>
+                                                @endif
                                                 </select></div>
-                                            </div>   
+                                            </div>    
                                       
             </div>
             <div class="modal-footer">
@@ -192,7 +217,7 @@
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Hapus Data Keluarga Istri Suami</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Hapus Data Keluarga Istri / Suami</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -201,7 +226,7 @@
             <form action="keluarga_istri_suami/delete/{{$keluarga_istri_suamis->id}}" method="post">
             @method('delete')
             @csrf
-                <p><center>Apakah anda yakin <p>"Hapus Data Keluarga Istri Suami" <b></b> </p></center></p>
+                <p><center>Apakah anda yakin <p>"Hapus Data Keluarga Istri / Suami" <b></b> </p></center></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>

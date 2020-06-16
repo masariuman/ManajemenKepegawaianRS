@@ -25,14 +25,14 @@
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nama Organisasi :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$keanggotaan_organisasis->nama_organisasi}}</b></h6></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Kedudukan :</b></label>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Kedudukan Organisasi :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$keanggotaan_organisasis->kedudukan}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal Mulai :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$keanggotaan_organisasis->tanggal_mulai}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($keanggotaan_organisasis->tanggal_mulai)) }}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal Selesai :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$keanggotaan_organisasis->tanggal_selesai}}</b></h6></div>          
+                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($keanggotaan_organisasis->tanggal_selesai)) }}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nomor SK :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$keanggotaan_organisasis->nomor_sk}}</b></h6></div>          
@@ -126,10 +126,10 @@
                                                 <div class="col-sm-10"><input name="kedudukan" id="exampleEmail" placeholder="Kedudukan Organisasi" type="text" class="form-control" value="{{$keanggotaan_organisasis->kedudukan}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal Mulai</b></label>
-                                                <div class="col-sm-10"><input name="tanggal_mulai" id="exampleEmail" placeholder="Tanggal Mulai" type="date" class="form-control" value="{{$keanggotaan_organisasis->tanggal_mulai}}" required></div>          
+                                                <div class="col-sm-10"><input name="tanggal_mulai" id="exampleEmail" placeholder="Tanggal Mulai" type="date" class="form-control" value="{{ date('Y-m-d',strtotime($keanggotaan_organisasis->tanggal_mulai)) }}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal Selesai</b></label>
-                                                <div class="col-sm-10"><input name="tanggal_selesai" id="exampleEmail" placeholder="Tanggal Selesai" type="date" class="form-control" value="{{$keanggotaan_organisasis->tanggal_selesai}}" required></div>          
+                                                <div class="col-sm-10"><input name="tanggal_selesai" id="exampleEmail" placeholder="Tanggal Selesai" type="date" class="form-control" value="{{ date('Y-m-d',strtotime($keanggotaan_organisasis->tanggal_selesai)) }}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor SK</b></label>
                                                 <div class="col-sm-10"><input name="nomor_sk" id="exampleEmail" placeholder="Nomor SK" type="number" class="form-control" value="{{$keanggotaan_organisasis->nomor_sk}}" required></div>          

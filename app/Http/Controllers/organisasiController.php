@@ -38,11 +38,11 @@ class organisasiController extends Controller
      */
     public function store(Request $request)
     {
-        $pegawai_id = Pegawai::max('id');
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
-        $keanggotaan_organisasi = Organisasi::insert([
+        $keanggotaan_organisasi = Organisasi::create([
             'tahun' => $request->input('tahun', 2020),
-            'pegawai_id' => $pegawai_id,
+            'pegawai_id' => $pegawai_id->id,
             'tahun_organisasi' => $request->tahun_organisasi,
             'nama_organisasi' => $request->nama_organisasi,
             'kedudukan' => $request->kedudukan,
@@ -51,8 +51,6 @@ class organisasiController extends Controller
             'nomor_sk' => $request->nomor_sk,
             'jabatan_pembuat_sk' => $request->jabatan_pembuat_sk,
             'active' => $request->input('active', 1),
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         \Session::flash('Berhasil', 'Data keanggotaan organisasi berhasil ditambahkan');
@@ -91,11 +89,11 @@ class organisasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pegawai_id = Pegawai::max('id');
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
         $keanggotaan_organisasi = Organisasi::where('id', $id)->update([
             'tahun' => $request->input('tahun', 2020),
-            'pegawai_id' => $pegawai_id,
+            'pegawai_id' => $pegawai_id->id,
             'tahun_organisasi' => $request->tahun_organisasi,
             'nama_organisasi' => $request->nama_organisasi,
             'kedudukan' => $request->kedudukan,
@@ -104,8 +102,6 @@ class organisasiController extends Controller
             'nomor_sk' => $request->nomor_sk,
             'jabatan_pembuat_sk' => $request->jabatan_pembuat_sk,
             'active' => $request->input('active', 1),
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         \Session::flash('Berhasil', 'Data keanggotaan organisasi berhasil diubah');

@@ -38,11 +38,11 @@ class keluargaKandungController extends Controller
      */
     public function store(Request $request)
     {
-        $pegawai_id = Pegawai::max('id');
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
-        $keluarga_kandung = KeluargaKandung::insert([
+        $keluarga_kandung = KeluargaKandung::create([
             'tahun' => $request->input('tahun', 2020),
-            'pegawai_id' => $pegawai_id,
+            'pegawai_id' => $pegawai_id->id,
             'nama' => $request->nama,
             'hubungan' => $request->hubungan,
             'pekerjaan' => $request->pekerjaan,
@@ -50,8 +50,6 @@ class keluargaKandungController extends Controller
             'jenis_kelamin' => $request->jenis_kelamin,
             'kondisi' => $request->kondisi,
             'active' => $request->input('active', 1),
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         \Session::flash('Berhasil', 'Data keluarga kandung berhasil ditambahkan');
@@ -90,11 +88,11 @@ class keluargaKandungController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pegawai = Pegawai::max('id');
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
         $keluarga_kandung = KeluargaKandung::where('id', $id)->update([
             'tahun' => $request->input('tahun', 2020),
-            'pegawai_id' => $pegawai_id,
+            'pegawai_id' => $pegawai_id->id,
             'nama' => $request->nama,
             'hubungan' => $request->hubungan,
             'pekerjaan' => $request->pekerjaan,
@@ -102,8 +100,6 @@ class keluargaKandungController extends Controller
             'jenis_kelamin' => $request->jenis_kelamin,
             'kondisi' => $request->kondisi,
             'active' => $request->input('active', 1),
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         \Session::flash('Berhasil', 'Data keluarga kandung berhasil diubah');
@@ -119,7 +115,7 @@ class keluargaKandungController extends Controller
      */
     public function destroy($id)
     {
-        $keluarga_kandung = KeluargaKandung::where('id', $id)->update();
+        $keluarga_kandung = KeluargaKandung::where('id', $id)->delete();
 
         \Session::flash('Berhasil', 'Data keluarga kandung berhasil dihapus');
 

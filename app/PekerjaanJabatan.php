@@ -6,14 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class PekerjaanJabatan extends Model
 {
-    <?php
-
-namespace App;
-
-use Illuminate\Database\Eloquent\Model;
-
-class JabatanTeknis extends Model
-{
     //
     protected $table = 'pekerjaan_jabatan';
     protected $fillable = [
@@ -25,8 +17,9 @@ class JabatanTeknis extends Model
         'tahun_selesai',
         'nomor_sk',
         'tanggal_sk',
-        'nip_penjabat_penandatangan_sk',
-        'nip_lama_penjabat_penandatangan_sk',
+        'nip_pejabat_penandatangan_sk',
+        'nip_lama_pejabat_penandatangan_sk',
+        'pejabat_penandatangan_sk',
         'active',
         'created_at',
         'updated_at'
@@ -36,6 +29,6 @@ class JabatanTeknis extends Model
     {
         return $this->belongsTo('App\Pegawai', 'pegawai_id');
     }
-}
+
 
 }

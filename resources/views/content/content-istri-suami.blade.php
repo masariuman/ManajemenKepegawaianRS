@@ -135,7 +135,7 @@
                                                 <th>Tanggal Nikah</th>
                                                 <th>Tingkat Pendidikan</th>
                                                 <th>Pekerjaan</th>
-                                                <th>Status Suami Instri</th>
+                                                <th>Status Suami Istri</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -147,11 +147,43 @@
                                                 <td>{{$istri_suamis->tahun}}</td>
                                                 <td>{{$istri_suamis->nama}}</td>
                                                 <td>{{$istri_suamis->nomor_karis_karsu}}</td>
-                                                <td>{{$istri_suamis->tanggal_lahir}}</td>
-                                                <td>{{$istri_suamis->tanggal_nikah}}</td>
-                                                <td>{{$istri_suamis->tingkat_pendidikan}}</td>
+                                                <td>{{ date('d/m/Y',strtotime($istri_suamis->tanggal_lahir)) }}</td>
+                                                <td>{{ date('d/m/Y',strtotime($istri_suamis->tanggal_nikah)) }}</td>
+                                                <td>
+                                                @if($istri_suamis->tingkat_pendidikan == "01") 
+                                                S3 (Setara)                                             
+                                                @elseif($istri_suamis->tingkat_pendidikan == "02") 
+                                                S2 (Setara)                                              
+                                                @elseif($istri_suamis->tingkat_pendidikan == "03")                                    
+                                                S1 (Setara)                      
+                                                @elseif($istri_suamis->tingkat_pendidikan == "04")                                              
+                                                D4                                          
+                                                @elseif($istri_suamis->tingkat_pendidikan == "05")                                             
+                                                SM                                       
+                                                @elseif($istri_suamis->tingkat_pendidikan == "06")                                   
+                                                D3                                            
+                                                @elseif($istri_suamis->tingkat_pendidikan == "07")                                              
+                                                D2                                               
+                                                @elseif($istri_suamis->tingkat_pendidikan == "08")                                             
+                                                D1                                             
+                                                @elseif($istri_suamis->tingkat_pendidikan == "09")                                     
+                                                SLTA                                    
+                                                @elseif($istri_suamis->tingkat_pendidikan == "10")                                       
+                                                SLTP                                             
+                                                @elseif($istri_suamis->tingkat_pendidikan == "11")                                             
+                                                SD
+                                                @endif
+                                                </td>
                                                 <td>{{$istri_suamis->pekerjaan}}</td>
-                                                <td>{{$istri_suamis->status_suami_istri}}</td>
+                                                <td>
+                                                @if($istri_suamis->status_suami_istri == "1")
+                                                Istri / Suami Saat Ini                                          
+                                                @elseif($istri_suamis->status_suami_istri == "2")                                              
+                                                Telah Meninggal Dunia                                              
+                                                @elseif($istri_suamis->status_suami_istri == "3")                                 
+                                                Cerai
+                                                @endif
+                                                </td>
                                                 <td>
                                                     <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeDetail-{{$istri_suamis->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use address-card"></i> Lihat
                                                     </button>||&nbsp;
