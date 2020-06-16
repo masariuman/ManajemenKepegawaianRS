@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Pegawai;
 use App\User;
+use App\PendidikanFormal;
 use App\Ruangan;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
@@ -86,7 +87,7 @@ class adminPegawaiController extends Controller
      */
     public function show($id)
     {
-        //
+        //dasar
         $data['ruangan'] = Ruangan::where('active','1')->get();
         $data['pegawai'] = Pegawai::findOrFail($id);
         $data['pegawai']['masa_rkk'] = date("d F Y", strtotime($data['pegawai']['masa_rkk']));
@@ -137,6 +138,41 @@ class adminPegawaiController extends Controller
         }else {
             $data['pegawai']['taspen'] = "Belum";
         }
+
+        //riwayat pendidikan formal
+        $data['pendidikan_formal'] = PendidikanFormal::where('pegawai_id',$id)->where('active','1')->get();
+        foreach ($data['pendidikan_formal'] as $key => $value) {
+            if ($value['tingkat_pendidikan'] === "01") {
+                $value['tingkat_pendidikan'] = "S3 (Setara)";
+            } else if ($value['tingkat_pendidikan'] === "02") {
+                $value['tingkat_pendidikan'] = "S2 (Setara)";
+            } else if ($value['tingkat_pendidikan'] === "03") {
+                $value['tingkat_pendidikan'] = "S1 (Setara)";
+            } else if ($value['tingkat_pendidikan'] === "04") {
+                $value['tingkat_pendidikan'] = "D4";
+            } else if ($value['tingkat_pendidikan'] === "05") {
+                $value['tingkat_pendidikan'] = "SM";
+            } else if ($value['tingkat_pendidikan'] === "06") {
+                $value['tingkat_pendidikan'] = "D3";
+            } else if ($value['tingkat_pendidikan'] === "07") {
+                $value['tingkat_pendidikan'] = "D2";
+            } else if ($value['tingkat_pendidikan'] === "08") {
+                $value['tingkat_pendidikan'] = "D1";
+            } else if ($value['tingkat_pendidikan'] === "09") {
+                $value['tingkat_pendidikan'] = "SLTA";
+            } else if ($value['tingkat_pendidikan'] === "10") {
+                $value['tingkat_pendidikan'] = "SLTP";
+            } else {
+                $value['tingkat_pendidikan'] = "SD";
+            }
+            if ($value['tempat_belajar'] === "1") {
+                $value['tempat_belajar'] = "Dalam Negeri";
+            } else {
+                $value['tempat_belajar'] = "Luar Negeri";
+            }
+        }
+
+
         return view('admin/pegawai/show',$data);
     }
 
