@@ -17,7 +17,7 @@
                         <td class="text-center">{{$item->nama_organisasi}}</td>
                         <td class="text-center">{{$item->kedudukan}}</td>
                         <td class="text-center">
-                            <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#organisasi_show"><i class="fa fa-eye"></i></button>
+                            <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#organisasi_show_{{$item->id}}"><i class="fa fa-eye"></i></button>
                         </td>
                     </tr>
                 @endforeach
