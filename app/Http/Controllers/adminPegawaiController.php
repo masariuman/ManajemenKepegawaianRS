@@ -287,7 +287,7 @@ class adminPegawaiController extends Controller
                 $value['tingkat_pendidikan'] = "SD";
             }
             if ($value['status_suami_istri'] === "1") {
-                if ($data['pegawai']['jenis_kelamin'] === "Perempuan";) {
+                if ($data['pegawai']['jenis_kelamin'] === "Perempuan") {
                     $value['status_suami_istri'] = "Suami Saat ini";
                 } else {
                     $value['status_suami_istri'] = "Istri Saat ini";
