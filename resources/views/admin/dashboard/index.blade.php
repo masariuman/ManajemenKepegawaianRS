@@ -80,6 +80,10 @@
                             @include('admin.dashboard.index_partial.button')
                         </div>
                         <hr />
+                        @include('admin.dashboard.str')
+                        @include('admin.dashboard.sikp')
+                        @include('admin.dashboard.spk')
+                        @include('admin.dashboard.rkk')
                         <div class="text-center titlepertab">Data STR Pegawai Yang Akan Habis</div>
                         <div class="margintop20">
                             <table class="mb-0 table table-striped table-bordered" id="datatable_anak">
