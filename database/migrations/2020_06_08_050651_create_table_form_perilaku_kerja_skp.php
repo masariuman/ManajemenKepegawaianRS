@@ -15,7 +15,9 @@ class CreateTableFormPerilakuKerjaSkp extends Migration
     {
         Schema::create('perilaku_kerja_skp', function (Blueprint $table) {
             $table->id();
-            $table->foreignID('skp_id')->constrained('skp');
+            $table->string('tahun');
+            $table->enum('kategori',['Semester 1','Semester 2','Setahun']);
+            $table->foreignID('pegawai_id')->constrained('pegawai');
             $table->string('orientasi_pelayanan')->nullable();
             $table->string('integritas')->nullable();
             $table->string('komitmen')->nullable();

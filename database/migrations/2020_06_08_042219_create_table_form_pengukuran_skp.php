@@ -15,9 +15,11 @@ class CreateTableFormPengukuranSkp extends Migration
     {
         Schema::create('pengukuran_skp', function (Blueprint $table) {
             $table->id();
-            $table->foreignID('skp_id')->constrained('skp');
+            $table->string('tahun');
+            $table->enum('kategori',['Semester 1','Semester 2','Setahun']);
+            $table->foreignID('pegawai_id')->constrained('pegawai');
             $table->string('kegiatan_tugas_tambahan')->nullable();
-            $table->enum('kategori',['kegiatan_tugas_tambahan','tugas_tambahan','kreativitas']);
+            $table->enum('kategori_pengukuran',['Kegiatan Tugas Tambahan','Tugas Tambahan','Kreativitas']);
             $table->string('ak_target')->nullable();
             $table->string('target_kuant_output_1')->nullable();
             $table->string('target_kuant_output_2')->nullable();

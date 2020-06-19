@@ -95,7 +95,7 @@ class Pegawai extends Model
         return $this->hasMany('App\DiklatPenjenjangan', 'pegawai_id');
     }
 
-public function hukuman()
+    public function hukuman()
     {
         return $this->hasMany('App\hukuman', 'pegawai_id');
     }
@@ -153,5 +153,30 @@ public function hukuman()
     public function seminar()
     {
         return $this->hasMany('App\Seminar', 'pegawai_id');
+    }
+
+    public function skp()
+    {
+        return $this->hasMany('App\Skp', 'pegawai_id');
+    }
+
+    public function formSkp()
+    {
+        return $this->hasMany('App\FormSkp', 'pegawai_id');
+    }
+
+    public function pengukuranSkp()
+    {
+        return $this->hasMany('App\PengukuranSkp', 'pegawai_id');
+    }
+
+    public function penilaianSkp()
+    {
+        return $this->hasMany('App\PenilaianSkp', 'pegawai_id');
+    }
+
+    public function perilakuKerjaSkp()
+    {
+        return $this->hasMany('App\PerilakuKerjaSkp', 'pegawai_id');
     }
 }

@@ -15,7 +15,9 @@ class CreateTableFormSkp extends Migration
     {
         Schema::create('form_skp', function (Blueprint $table) {
             $table->id();
-            $table->foreignID('skp_id')->constrained('skp');
+            $table->string('tahun');
+            $table->enum('kategori',['Semester 1','Semester 2','Setahun']);
+            $table->foreignID('pegawai_id')->constrained('pegawai');
             $table->string('kegiatan_tugas_jabatan_1')->nullable();
             $table->string('kegiatan_tugas_jabatan_2')->nullable();
             $table->string('ak')->nullable();

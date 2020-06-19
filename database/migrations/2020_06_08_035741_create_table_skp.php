@@ -16,7 +16,7 @@ class CreateTableSkp extends Migration
         Schema::create('skp', function (Blueprint $table) {
             $table->id();
             $table->string('tahun');
-            $table->enum('kategori',['semester 1','semester 2','setahun']);
+            $table->enum('kategori',['Semester 1','Semester 2','Setahun']);
             $table->foreignID('pegawai_id')->constrained('pegawai');
             $table->string('nama_pejabat_penilai')->nullable();
             $table->string('nip_pejabat_penilai')->nullable();

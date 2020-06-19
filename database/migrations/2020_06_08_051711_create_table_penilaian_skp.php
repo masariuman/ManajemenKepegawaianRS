@@ -15,7 +15,9 @@ class CreateTablePenilaianSkp extends Migration
     {
         Schema::create('penilaian_skp', function (Blueprint $table) {
             $table->id();
-            $table->foreignID('skp_id')->constrained('skp');
+            $table->string('tahun');
+            $table->enum('kategori',['Semester 1','Semester 2','Setahun']);
+            $table->foreignID('pegawai_id')->constrained('pegawai');
             $table->string('sasaran_kerja_pegawai')->nullable();
             $table->string('orientasi_pelayanan')->nullable();
             $table->string('integritas')->nullable();
