@@ -76,6 +76,10 @@
             <div class="tab-pane tabs-animation fade show active" id="tab-content-1" role="tabpanel">
                 <div class="main-card mb-3 card">
                     <div class="card-body">
+                        <div class="text-center">
+                            @include('admin.dashboard.index_partial.button')
+                        </div>
+                        <hr />
                         <div class="text-center titlepertab">Data STR Pegawai Yang Akan Habis</div>
                         <div class="margintop20">
                             <table class="mb-0 table table-striped table-bordered" id="datatable_anak">
