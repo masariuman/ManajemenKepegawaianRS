@@ -161,6 +161,12 @@
                                             Ruangan
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="/admin/setting" class="{{ Request::is('admin/setting') ? 'mm-active' : Request::is('admin/setting/*') ? 'mm-active' : '' }}">
+                                            <i class="metismenu-icon pe-7s-settings"></i>
+                                            Setting
+                                        </a>
+                                    </li>
                                 @endif
                                 @if(auth()->user()->level == 'ADMIN')
                                     <li>
