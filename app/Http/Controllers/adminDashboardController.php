@@ -22,6 +22,10 @@ class adminDashboardController extends Controller
 
         //skp str sikp rkk
         $data['pegawai'] = Pegawai::where('active','1')->orderBy('id','DESC')->get();
+        $data['spk'] = [];
+        $data['sikp'] = [];
+        $data['str'] = [];
+        $data['rkk'] = [];
         foreach ($data['pegawai'] as $key => $value) {
             $masa_str = date("Y-m-d", strtotime($value->masa_str));
             $masa_str = date_create($masa_str);

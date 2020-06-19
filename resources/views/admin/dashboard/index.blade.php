@@ -80,10 +80,10 @@
                             @include('admin.dashboard.index_partial.button')
                         </div>
                         <hr />
-                        @include('admin.dashboard.str')
-                        @include('admin.dashboard.sikp')
-                        @include('admin.dashboard.spk')
-                        @include('admin.dashboard.rkk')
+                        @include('admin.dashboard.index_partial.str')
+                        @include('admin.dashboard.index_partial.sikp')
+                        @include('admin.dashboard.index_partial.spk')
+                        @include('admin.dashboard.index_partial.rkk')
                     </div>
                 </div>
             </div>
@@ -117,4 +117,5 @@
             });
         } );
     </script>
+    @include('admin.dashboard.index_partial.hide_show')
 @endpush
