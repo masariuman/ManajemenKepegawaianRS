@@ -9,7 +9,9 @@ class FormSkp extends Model
     //
     protected $table = 'form_skp';
     protected $fillable = [
-        'skp_id',
+        'tahun',
+        'kategori',
+        'pegawai_id',
         'kegiatan_tugas_jabatan_1',
         'kegiatan_tugas_jabatan_2',
         'ak',
@@ -22,8 +24,8 @@ class FormSkp extends Model
         'updated_at'
     ];
 
-    public function skp()
+    public function pegawai()
     {
-        return $this->belongsTo('App\Skp', 'skp_id');
+        return $this->belongsTo('App\Pegawai', 'pegawai_id');
     }
 }

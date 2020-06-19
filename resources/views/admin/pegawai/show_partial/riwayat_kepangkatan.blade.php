@@ -11,14 +11,16 @@
             </tr>
             </thead>
             <tbody>
+                @foreach ($kepangkatan as $no => $item)
                     <tr>
-                        <th class="text-center">1</th>
-                        <td class="text-center">sk sana sini</td>
-                        <td class="text-center">golongan para pencari berkah</td>
+                        <th class="text-center">{{$no+1}}</th>
+                        <td class="text-center">{{$item->nomor_sk}}</td>
+                        <td class="text-center">{{$item->golongan}}</td>
                         <td class="text-center">
-                            <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#riwayat_kepangkatan_show"><i class="fa fa-eye"></i></button>
+                            <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#riwayat_kepangkatan_show_{{$item->id}}"><i class="fa fa-eye"></i></button>
                         </td>
                     </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

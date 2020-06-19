@@ -9,9 +9,11 @@ class PengukuranSkp extends Model
     //
     protected $table = 'pengukuran_skp';
     protected $fillable = [
-        'skp_id',
-        'kegiatan_tugas_tambahan',
+        'tahun',
         'kategori',
+        'pegawai_id',
+        'kegiatan_tugas_tambahan',
+        'kategori_pengukuran',
         'ak_target',
         'target_kuant_output_1',
         'target_kuant_output_2',
@@ -43,8 +45,8 @@ class PengukuranSkp extends Model
         'updated_at'
     ];
 
-    public function skp()
+    public function pegawai()
     {
-        return $this->belongsTo('App\Skp', 'skp_id');
+        return $this->belongsTo('App\Pegawai', 'pegawai_id');
     }
 }

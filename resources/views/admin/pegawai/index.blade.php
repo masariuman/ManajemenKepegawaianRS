@@ -53,7 +53,7 @@
                                         <th class="width200 text-center">NIP</th>
                                         <th class="text-center">Nama</th>
                                         <th class="width200 text-center">Jabatan</th>
-                                        <th class="width200 text-center">Ruangan</th>
+                                        <th class="width100px text-center">Ruangan</th>
                                         <th class="text-center">Aksi</th>
                                     </tr>
                                 </thead>
@@ -64,7 +64,7 @@
                                             <td class="text-center">{{$item->nip_baru}}</td>
                                             <td>{{$item->user->name}}</td>
                                             <td>{{$item->nama_jabatan}}</td>
-                                            <td>{{$item->ruangan->ruangan}}</td>
+                                            <td class="text-center">{{$item->ruangan->ruangan}}</td>
                                             @if(auth()->user()->level == 'ADMIN')
                                                 <td class="text-center"><a href="/it/pegawai/{{$item->id}}"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info"><i class="fa fa-eye"></i></button></a></td>
                                             @else

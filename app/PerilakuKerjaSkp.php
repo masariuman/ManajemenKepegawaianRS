@@ -9,7 +9,9 @@ class PerilakuKerjaSkp extends Model
     //
     protected $table = 'perilaku_kerja_skp';
     protected $fillable = [
-        'skp_id',
+        'tahun',
+        'kategori',
+        'pegawai_id',
         'orientasi_pelayanan',
         'integritas',
         'komitmen',
@@ -23,8 +25,8 @@ class PerilakuKerjaSkp extends Model
         'updated_at'
     ];
 
-    public function skp()
+    public function pegawai()
     {
-        return $this->belongsTo('App\Skp', 'skp_id');
+        return $this->belongsTo('App\Pegawai', 'pegawai_id');
     }
 }

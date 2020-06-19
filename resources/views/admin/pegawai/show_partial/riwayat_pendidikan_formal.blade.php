@@ -17,7 +17,7 @@
                         <td class="text-center">{{$item->tingkat_pendidikan}}</td>
                         <td class="text-center">{{$item->nama_sekolah}}</td>
                         <td class="text-center">
-                            <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#riwayat_pendidikan_formal_show"><i class="fa fa-eye"></i></button>
+                            <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#riwayat_pendidikan_formal_show_{{$item->id}}"><i class="fa fa-eye"></i></button>
                         </td>
                     </tr>
                 @endforeach

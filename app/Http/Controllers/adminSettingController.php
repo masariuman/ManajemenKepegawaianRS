@@ -16,7 +16,8 @@ class adminSettingController extends Controller
     {
         //
         $data['setting'] = Setting::findOrFail(1);
-        return view('admin/setting/index',$data);
+        $data['setting']['terakhir_isi_skp'] = date("Y-m-d", strtotime($data['setting']['terakhir_isi_skp']));
+        return view('admin.setting.index',$data);
     }
 
     /**
@@ -73,10 +74,10 @@ class adminSettingController extends Controller
     {
         //
         $setting = Setting::findOrFail(1);
-        $setting->update(['tahun' => $request->tahun]);
+        $setting->update(['tahun' => $request->tahun, 'terakhir_isi_skp' => $request->tanggal_skp, 'active_skp' => $request->active_skp]);
 
         $data['setting'] = Setting::findOrFail(1);
-        return view('admin/setting/index',$data);
+        return back();
     }
 
     /**

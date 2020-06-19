@@ -12,14 +12,16 @@
                 </tr>
                 </thead>
                 <tbody>
+                    @foreach ($istri_suami as $no => $item)
                         <tr>
-                            <th class="text-center">1</th>
-                            <td class="text-center">241453432525352532</td>
-                            <td class="text-center">Suami Setia</td>
+                            <th class="text-center">{{$no+1}}</th>
+                            <td class="text-center">{{$item->nama}}</td>
+                            <td class="text-center">{{$item->nomor_karis_karsu}}</td>
                             <td class="text-center">
                                 <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#suami_show"><i class="fa fa-eye"></i></button>
                             </td>
                         </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -36,14 +38,16 @@
                 </tr>
                 </thead>
                 <tbody>
+                    @foreach ($istri_suami as $no => $item)
                         <tr>
-                            <th class="text-center">1</th>
-                            <td class="text-center">sadeefew3efewfdfwefefe</td>
-                            <td class="text-center">Istri Setia Solehah</td>
+                            <th class="text-center">{{$no+1}}</th>
+                            <td class="text-center">{{$item->nama}}</td>
+                            <td class="text-center">{{$item->nomor_karis_karsu}}</td>
                             <td class="text-center">
-                                <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#istri_show"><i class="fa fa-eye"></i></button>
+                                <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" title="Lihat Data" data-toggle="modal" data-target="#istri_show_{{$item->id}}"><i class="fa fa-eye"></i></button>
                             </td>
                         </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
