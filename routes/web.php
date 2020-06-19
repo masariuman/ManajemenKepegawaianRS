@@ -146,13 +146,14 @@ Route::group(['middleware'=>['auth','checkRole:PEGAWAI']], function () {
     Route::post('/riwayat_pekerjaan_jabatan', 'riwayatPekerjaanJabatanController@store')->name('riwayat_pekerjaan_jabatan_tambah');
     Route::get('/riwayat_pekerjaan_jabatan/{id}/ubah', 'riwayatPekerjaanJabatanController@edit');
     Route::patch('/riwayat_pekerjaan_jabatan/update/{id}', 'riwayatPekerjaanJabatanController@update');
-    Route::delete('/riwayat_pekerjaan_jabatan/delete/{id}', 'riwayatPekerjaanJabatanController@destroy');  
+    Route::delete('/riwayat_pekerjaan_jabatan/delete/{id}', 'riwayatPekerjaanJabatanController@destroy');
 });
 
 Route::group(['prefix' => 'admin', 'middleware'=>['auth','checkRole:TU']], function () {
     Route::resource('/','adminDashboardController');
     Route::resource('/pegawai','adminPegawaiController');
     Route::resource('/ruangan','adminRuanganController');
+    Route::resource('/setting','adminSettingController');
 });
 
 
