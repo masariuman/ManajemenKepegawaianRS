@@ -2,6 +2,50 @@
     @include('content.sidebar')
     <div class="app-main__outer">
     @include('content.content-riwayat_jabatan_struktural')
+    @push('css')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/af-2.3.5/fh-3.1.7/r-2.2.5/sp-1.1.1/sl-1.3.1/datatables.min.css"/>
+    <style>
+        .width100{
+            width: 100%;
+        }
+        .width100px{
+            width: 100px;
+        }
+        .width40{
+            width: 40px;
+        }
+        .width200{
+            width: 200px;
+        }
+        .margintop20 {
+            margin-top: 20px;
+        }
+        .margintop50 {
+            margin-top: 50px;
+        }
+        .sidetable{
+            background-image: url(/lojin/sidebarx.png);
+            background-repeat: no-repeat;
+            width: 500px;
+            height: 41px;
+            color: #ffffff;
+        }
+        .titlepertab {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+            font-size: 40px;
+            letter-spacing: 0px;
+            word-spacing: 0px;
+            color: #000000;
+            font-weight: 700;
+            text-decoration: none solid rgb(68, 68, 68);
+            font-style: normal;
+            font-variant: small-caps;
+            text-transform: capitalize;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+    </style>
+@endpush
     @include('content.footer')
     </div>
     <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
@@ -20,7 +64,39 @@
                 </button>
             </div>
             <div class="modal-body">
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tahun :</b></label>
+            <table class="mb-0 table table-striped">
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="sidetable">ESELON</th>
+                            <td><b>{{$riwayat_jabatan_strukturals->eselon}}</b></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="sidetable">NAMA JABATAN</th>
+                            <td><b>{{$riwayat_jabatan_strukturals->nama_jabatan}}</b></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="sidetable">UNIT KERJA</th>
+                            <td><b>{{$riwayat_jabatan_strukturals->unit_kerja}}</b></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="sidetable">TMT JABATAN</th>
+                            <td><b>{{ date('d/m/Y',strtotime($riwayat_jabatan_strukturals->tmt_jabatan)) }}</b></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="sidetable">NOMOR SK</th>
+                            <td><b>{{$riwayat_jabatan_strukturals->nomor_sk}}</b></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="sidetable">TANGGAL SK</th>
+                            <td><b>{{ date('d/m/Y',strtotime($riwayat_jabatan_strukturals->tanggal_sk)) }}</b></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="sidetable">PEJABAT PENANDATANGAN SK</th>
+                            <td><b>{{$riwayat_jabatan_strukturals->pejabat_penandatangan_sk}}</b></td>
+                        </tr>
+                    </tbody>
+                </table>
+                                            <!-- <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tahun :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_jabatan_strukturals->tahun}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Eselon :</b></label>
@@ -43,7 +119,7 @@
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Pejabat Penandatangan SK :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_jabatan_strukturals->pejabat_penandatangan_sk}}</b></h6></div>          
-                                            </div>
+                                            </div> -->
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Tutup</button>

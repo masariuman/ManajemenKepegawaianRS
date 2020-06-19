@@ -129,7 +129,8 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Tahun</th>
-                                                <th>Eselom</th>
+                                                <th>Eselon</th>
+                                                <th>Nama Jabatan</th>
                                                 <th>TMT Jabatan</th>
                                                 <th>Nomor SK</th>
                                                 <th>Tanggal SK</th>
@@ -145,6 +146,7 @@
                                                 <th scope="row">{{++$key}}</th>
                                                 <td>{{$riwayat_jabatan_fungsionals->tahun}}</td>
                                                 <td>{{$riwayat_jabatan_fungsionals->eselon}}</td>
+                                                <td>{{$riwayat_jabatan_fungsionals->nama_jabatan}}</td>
                                                 <td>{{ date('d/m/Y',strtotime($riwayat_jabatan_fungsionals->tmt_jabatan)) }}</td>
                                                 <td>{{$riwayat_jabatan_fungsionals->nomor_sk}}</td>
                                                 <td>{{ date('d/m/Y',strtotime($riwayat_jabatan_fungsionals->tanggal_sk)) }}</td>

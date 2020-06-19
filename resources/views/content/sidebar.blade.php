@@ -40,6 +40,44 @@
                                         </a>
                                     </li>
                                     <li>
+                                        <a href="#">
+                                            <i class="metismenu-icon pe-7s-note2"></i>
+                                            SKP
+                                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                        </a>
+
+
+                                       <ul class="@if(Request::is('skp')) {{ Request::is('skp') ? 'mm-show' : '' }} @elseif(Request::is('pengukuran_skp')) {{ Request::is('pengukuran_skp') ? 'mm-show' : '' }} @elseif(Request::is('perilaku_kerja_skp')) {{ Request::is('perilaku_kerja_skp') ? 'mm-show' : '' }} @elseif(Request::is('penilaian_skp')) {{ Request::is('penilaian_skp') ? 'mm-show' : '' }}@endif ">
+
+                                 
+
+                                            <li>
+                                                <a href="{{route('skp')}}" class="{{ Request::is('skp') ? 'mm-active' : '' }}">
+                                                    <i class="metismenu-icon"></i>
+                                                    FORM SKP
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{route('pengukuran_skp')}}" class="{{ Request::is('pengukuran_skp') ? 'mm-active' : '' }}">
+                                                    <i class="metismenu-icon">
+                                                    </i>PENGUKURAN
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{route('perilaku_kerja_skp')}}" class="{{ Request::is('perilaku_kerja_skp') ? 'mm-active' : '' }}">
+                                                    <i class="metismenu-icon">
+                                                    </i>PERILAKU KERJA
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{route('penilaian_skp')}}" class="{{ Request::is('penilaian_skp') ? 'mm-active' : '' }}">
+                                                    <i class="metismenu-icon">
+                                                    </i>PENIILAIAN
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
                                         <a href="{{route('riwayat_pendidikan_formal')}}" class="{{ Request::is('riwayat_pendidikan_formal') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>
                                             Riwayat Pendidikan Formal
@@ -93,12 +131,12 @@
                                             Anak
                                         </a>
                                     </li>
-                                    <li>
+                                    <!-- <li>
                                         <a href="{{route('skp')}}" class="{{ Request::is('skp') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>
                                             SKP
                                         </a>
-                                    </li>
+                                    </li> -->
                                     <li>
                                         <a href="{{route('seminar_lokakarya_simposium')}}" class="{{ Request::is('seminar_lokakarya_simposium') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>

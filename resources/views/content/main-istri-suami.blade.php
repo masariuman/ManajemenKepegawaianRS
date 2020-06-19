@@ -2,6 +2,50 @@
     @include('content.sidebar')
     <div class="app-main__outer">
     @include('content.content-istri-suami')
+    @push('css')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/af-2.3.5/fh-3.1.7/r-2.2.5/sp-1.1.1/sl-1.3.1/datatables.min.css"/>
+    <style>
+        .width100{
+            width: 100%;
+        }
+        .width100px{
+            width: 100px;
+        }
+        .width40{
+            width: 40px;
+        }
+        .width200{
+            width: 200px;
+        }
+        .margintop20 {
+            margin-top: 20px;
+        }
+        .margintop50 {
+            margin-top: 50px;
+        }
+        .sidetable{
+            background-image: url(/lojin/sidebarx.png);
+            background-repeat: no-repeat;
+            width: 500px;
+            height: 41px;
+            color: #ffffff;
+        }
+        .titlepertab {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+            font-size: 40px;
+            letter-spacing: 0px;
+            word-spacing: 0px;
+            color: #000000;
+            font-weight: 700;
+            text-decoration: none solid rgb(68, 68, 68);
+            font-style: normal;
+            font-variant: small-caps;
+            text-transform: capitalize;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+    </style>
+@endpush
     @include('content.footer')
     </div>
     <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
@@ -19,7 +63,68 @@
                 </button>
             </div>
             <div class="modal-body">
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tahun :</b></label>
+            <table class="mb-0 table table-striped">
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="sidetable">NAMA ISTRI</th>
+                            <td><b>{{$istri_suamis->nama}}</b></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="sidetable">NOMOR KARIS (KARTU ISTRI)</th>
+                            <td><b>{{$istri_suamis->nomor_karis_karsu}}</b></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="sidetable">TANGGAL LAHIR</th>
+                            <td><b>{{ date('d/m/Y',strtotime($istri_suamis->tanggal_lahir)) }}</b></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="sidetable">TANGGAL NIKAH</th>
+                            <td><b>{{ date('d/m/Y',strtotime($istri_suamis->tanggal_nikah)) }}</b></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="sidetable">TINGKAT PENDIDIKAN</th>
+                            <td><b>@if($istri_suamis->tingkat_pendidikan == "01") 
+                                S3 (Setara)                                             
+                                @elseif($istri_suamis->tingkat_pendidikan == "02") 
+                                S2 (Setara)                                              
+                                @elseif($istri_suamis->tingkat_pendidikan == "03")                                    
+                                S1 (Setara)                      
+                                @elseif($istri_suamis->tingkat_pendidikan == "04")                                              
+                                D4                                          
+                                @elseif($istri_suamis->tingkat_pendidikan == "05")                                             
+                                SM                                       
+                                @elseif($istri_suamis->tingkat_pendidikan == "06")                                   
+                                D3                                            
+                                @elseif($istri_suamis->tingkat_pendidikan == "07")                                              
+                                D2                                               
+                                @elseif($istri_suamis->tingkat_pendidikan == "08")                                             
+                                D1                                             
+                                @elseif($istri_suamis->tingkat_pendidikan == "09")                                     
+                                SLTA                                    
+                                @elseif($istri_suamis->tingkat_pendidikan == "10")                                       
+                                SLTP                                             
+                                @elseif($istri_suamis->tingkat_pendidikan == "11")                                             
+                                SD
+                                @endif</b></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="sidetable">PEKERJAAN</th>
+                            <td><b>{{$istri_suamis->pekerjaan}}</b></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="sidetable">STATUS ISTRI</th>
+                            <td><b>@if($istri_suamis->status_suami_istri == "1")
+                                    Istri / Suami Saat Ini                                          
+                                    @elseif($istri_suamis->status_suami_istri == "2")                                              
+                                    Telah Meninggal Dunia                                              
+                                    @elseif($istri_suamis->status_suami_istri == "3")                                 
+                                    Cerai
+                                    @endif</b></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                                            <!-- <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tahun :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$istri_suamis->tahun}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nama :</b></label>
@@ -70,7 +175,7 @@
                                                                                                             @elseif($istri_suamis->status_suami_istri == "3")                                 
                                                                                                             Cerai
                                                                                                             @endif</b></h6></div>          
-                                            </div>
+                                            </div> -->
             
             </div>
             <div class="modal-footer">
