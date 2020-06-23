@@ -15,7 +15,7 @@ class hukumanController extends Controller
      */
     public function index()
     {
-        $hukum_disiplin = Hukuman::get();
+        $hukum_disiplin = Hukuman::where('active', '1')->get();
 
         return view('hukum_disiplin', compact('hukum_disiplin'));
     }

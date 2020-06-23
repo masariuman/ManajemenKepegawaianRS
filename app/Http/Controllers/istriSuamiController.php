@@ -15,9 +15,11 @@ class istriSuamiController extends Controller
      */
     public function index()
     {
-        $istri_suami = IstriSuami::get();
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
-        return view('istri-suami', compact('istri_suami'));
+        $istri_suami = IstriSuami::where('active', '1')->get();
+
+        return view('istri-suami', compact(['istri_suami', 'pegawai_id']));
     }
 
     /**

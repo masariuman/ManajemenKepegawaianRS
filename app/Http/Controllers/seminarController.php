@@ -16,7 +16,7 @@ class seminarController extends Controller
      */
     public function index()
     {
-        $seminar_lokakarya_simposium = Seminar::get();
+        $seminar_lokakarya_simposium = Seminar::where('active', '1')->get();
 
         return view('seminar-lokakarya-simposium', compact('seminar_lokakarya_simposium'));
     }

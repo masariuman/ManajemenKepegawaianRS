@@ -2,6 +2,50 @@
     @include('content.sidebar')
     <div class="app-main__outer">
     @include('content.content-keluarga_kandung')
+    @push('css')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/af-2.3.5/fh-3.1.7/r-2.2.5/sp-1.1.1/sl-1.3.1/datatables.min.css"/>
+    <style>
+        .width100{
+            width: 100%;
+        }
+        .width100px{
+            width: 100px;
+        }
+        .width40{
+            width: 40px;
+        }
+        .width200{
+            width: 200px;
+        }
+        .margintop20 {
+            margin-top: 20px;
+        }
+        .margintop50 {
+            margin-top: 50px;
+        }
+        .sidetable{
+            background-image: url(/lojin/sidebarx.png);
+            background-repeat: no-repeat;
+            width: 500px;
+            height: 41px;
+            color: #ffffff;
+        }
+        .titlepertab {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+            font-size: 40px;
+            letter-spacing: 0px;
+            word-spacing: 0px;
+            color: #000000;
+            font-weight: 700;
+            text-decoration: none solid rgb(68, 68, 68);
+            font-style: normal;
+            font-variant: small-caps;
+            text-transform: capitalize;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+    </style>
+@endpush
     @include('content.footer')
     </div>
     <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
@@ -20,7 +64,52 @@
                 </button>
             </div>
             <div class="modal-body">
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nama :</b></label>
+            <table class="mb-0 table table-striped">
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="sidetable">NAMA</th>
+                            <td><b>{{$keluarga_kandungs->nama}}</b></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="sidetable">HUBUNGAN</th>
+                            <td><b>@if($keluarga_kandungs->hubungan == "1")
+                                   Ayah
+                                   @elseif($keluarga_kandungs->hubungan == "2")
+                                   Ibu
+                                   @elseif($keluarga_kandungs->hubungan == "3")
+                                   Kakak
+                                   @elseif($keluarga_kandungs->hubungan == "4")
+                                   Adik
+                                   @endif</b></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="sidetable">PEKERJAAN</th>
+                            <td><b>{{$keluarga_kandungs->pekerjaan}}</b></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="sidetable">TANGGAL LAHIR</th>
+                            <td><b>{{ date('d/m/Y',strtotime($keluarga_kandungs->tanggal_lahir)) }}</b></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="sidetable">JENIS KELAMIN</th>
+                            <td><b>@if($keluarga_kandungs->jenis_kelamin == "L")
+                                   Laki-laki                                                
+                                   @elseif($keluarga_kandungs->jenis_kelamin == "P")                                                
+                                   Perempuan
+                                   @endif</b></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="sidetable">KONDISI</th>
+                            <td><b>@if($keluarga_kandungs->kondisi == "1")
+                                   Masih Hidup
+                                   @elseif($keluarga_kandungs->kondisi == "0")      
+                                   Almarhun
+                                   @endif</b></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                                            <!-- <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nama :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$keluarga_kandungs->nama}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Hubungan :</b></label>
@@ -53,7 +142,7 @@
                                                 @elseif($keluarga_kandungs->kondisi == "0")      
                                                 Almarhun
                                                 @endif</b></h6></div>          
-                                            </div>
+                                            </div> -->
  
             </div>
             <div class="modal-footer">
@@ -146,6 +235,7 @@
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Hubungan</b></label>
                                                 <div class="col-sm-10"><select name="hubungan" id="exampleSelect" class="form-control" value="{{$keluarga_kandungs->hubungan}}" required>
+                                                <option value="" disabled selected>-Pilih Hubungan-</option>
                                                 @if($keluarga_kandungs->hubungan == "1")
                                                 <option value="1" selected>Ayah</option>
                                                 <option value="2">Ibu</option>
@@ -176,7 +266,8 @@
                                                 <div class="col-sm-10"><input name="tanggal_lahir" id="exampleEmail" placeholder="Tanggal Lahir" type="date" class="form-control" value="{{ date('Y-m-d',strtotime($keluarga_kandungs->tanggal_lahir)) }}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Jenis Kelamin</b></label>
-                                                <div class="col-sm-10"><select name="jenis_kelamin" id="exampleSelect" class="form-control" required value="{{$keluarga_kandungs->jenis_kelamin}}">
+                                                <div class="col-sm-10"><select name="jenis_kelamin" id="exampleSelect" class="form-control" value="{{$keluarga_kandungs->jenis_kelamin}}" required>
+                                                <option value="" disabled selected>-Pilih Jenis Kelamin-</option>
                                                 @if($keluarga_kandungs->jenis_kelamin == "L")
                                                 <option value="L" selected>Laki-laki</option>
                                                 <option value="P">Perempuan</option>
@@ -187,7 +278,7 @@
                                                 </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Kondisi</b></label>
-                                                <div class="col-sm-10"><select name="kondisi" id="exampleSelect" class="form-control" required value="{{$keluarga_kandungs->kondisi}}">
+                                                <div class="col-sm-10"><select name="kondisi" id="exampleSelect" class="form-control" value="{{$keluarga_kandungs->kondisi}}" required>
                                                 <option value="" disabled selected>-Pilih Kondisi-</option>
                                                 @if($keluarga_kandungs->kondisi == "1")
                                                 <option value="1" selected>Masih Hidup</option>

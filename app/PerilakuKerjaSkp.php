@@ -19,7 +19,7 @@ class PerilakuKerjaSkp extends Model
         'kerjasama',
         'kepemimpinan',
         'jumlah',
-        'rata-rata',
+        'rata_rata',
         'active',
         'created_at',
         'updated_at'

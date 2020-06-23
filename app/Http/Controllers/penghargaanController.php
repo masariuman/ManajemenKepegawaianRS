@@ -15,7 +15,7 @@ class penghargaanController extends Controller
      */
     public function index()
     {
-        $tanda_jasa_penghargaan = Penghargaan::get();
+        $tanda_jasa_penghargaan = Penghargaan::where('active', '1')->get();
 
         return view('tanda_jasa-penghargaan', compact('tanda_jasa_penghargaan'));
     }

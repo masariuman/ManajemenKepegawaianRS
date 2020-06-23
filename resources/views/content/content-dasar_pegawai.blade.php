@@ -121,9 +121,11 @@
                             </div>
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-1" role="tabpanel">
                                 <div class="main-card mb-3 card">
+                                @if(empty($pegawai_id))
                                     <div class="card-body"><h5 class="card-title">Masukan Data Dasar Pegawai</h5>
-                                
-                                         
+                                @elseif(!empty($pegawai_id))
+                                    <div class="card-body"><h5 class="card-title">Data Dasar Pegawai Anda</h5>
+                                @endif   
 
                                     @if(empty($pegawai_id))
                                     <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeTambah"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah
@@ -134,16 +136,225 @@
                                                 @if(auth()->user()->id == $pegawais->user_id)
                                                 <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeUbah-{{$pegawais->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah
                                                 </button>
-                                                <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeDetail-{{$pegawais->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use address-card"></i> Lihat
-                                                </button>
+                                                <table class="mb-0 table table-striped">
+        <tbody>
+            <tr>
+                <th scope="row" class="sidetable">ESELON I</th>
+                <td><b>{{$pegawais->eselon_1}}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">ESELON II</th>
+                <td><b>{{$pegawais->eselon_2}}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">ESELON III</th>
+                <td><b>{{$pegawais->eselon_3}}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">ESELON IV</th>
+                <td><b>{{$pegawais->eselon_4}}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">NIP BARU</th>
+                <td><b>{{$pegawais->nip_baru}}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">NIP LAMA</th>
+                <td><b>{{$pegawais->nip_lama}}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">NAMA PEGAWAI</th>
+                <td><b>{{$pegawais->nama_pegawai}}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">GELAR DEPAN</th>
+                <td><b>{{$pegawais->gelar_depan}}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">GELAR BELAKANG</th>
+                <td><b>{{$pegawais->gelar_belakang}}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">TEMPAT LAHIR</th>
+                <td><b>{{$pegawais->tempat_lahir}}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">TANGGAL LAHIR</th>
+                <td><b>{{ date('d/m/Y',strtotime($pegawais->tanggal_lahir)) }}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">JENIS KELAMIN</th>
+                <td><b>@if($pegawais->jenis_kelamin == "P")
+                        Pria
+                        @elseif($pegawais->jenis_kelamin == "W")
+                        Wanita
+                        @endif</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">STATUS KELUARGA</th>
+                <td><b>@if($pegawais->status_keluarga == "K")
+                        Nikah
+                       @elseif($pegawais->status_keluarga == "B")
+                        Belum Menikah
+                       @elseif($pegawais->status_keluarga == "D")
+                        Duda
+                       @elseif($pegawais->status_keluarga == "J")
+                          Janda
+                       @endif</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">AGAMA</th>
+                <td><b>@if($pegawais->agama == "1")
+                        Islam
+                        @elseif($pegawais->agama == "2")
+                        Katholik                                     
+                        @elseif($pegawais->agama == "3")
+                        Protestan
+                        @elseif($pegawais->agama == "4")
+                        Hindu
+                        @elseif($pegawais->agama == "5")
+                        Budha 
+                        @elseif($pegawais->agama == "6")
+                        Kristen
+                        @endif</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">PENDIDIKAN AKHIR</th>
+                <td><b>@if($pegawais->pendidikan_akhir == "01")
+                        S3 (Setara)
+                        @elseif($pegawais->pendidikan_akhir == "02")
+                        S2 (Setara)
+                        @elseif($pegawais->pendidikan_akhir == "03")
+                        S1 (Setara)
+                        @elseif($pegawais->pendidikan_akhir == "04")
+                        D4
+                        @elseif($pegawais->pendidikan_akhir == "05")
+                        SM
+                        @elseif($pegawais->pendidikan_akhir == "06")
+                        D3
+                        @elseif($pegawais->pendidikan_akhir == "07")
+                        D2
+                        @elseif($pegawais->pendidikan_akhir == "08")
+                        D1
+                        @elseif($pegawais->pendidikan_akhir == "09")
+                        SLTA
+                        @elseif($pegawais->pendidikan_akhir == "10")
+                        SLTP
+                        @elseif($pegawais->pendidikan_akhir == "11")
+                        SD
+                        @endif</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">NAMA SEKOLAH / TAHUN LULUS</th>
+                <td><b>{{$pegawais->nama_sekolah}} / {{$pegawais->tahun_lulus}}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">JURUSAN / PROGRAM STUDI</th>
+                <td><b>{{$pegawais->jurusan_prodi}}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">STATUS KEPEGAWAIAN</th>
+                <td><b>@if($pegawais->status_kepegawaian == "01")
+                       CPNS
+                       @elseif($pegawais->status_kepegawaian == "02")
+                       PNS
+                       @elseif($pegawais->status_kepegawaian == "03")
+                       PNS DPK DARI DEP.LAIN
+                       @elseif($pegawais->status_kepegawaian == "04")
+                       PNS DPK KE DEP.LAIN
+                       @endif</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">INSTANSI ASAL</th>
+                <td><b>{{$pegawais->instansi_asal}}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">TMT CALON PEGAWAI NEGERI SIPIL</th>
+                <td><b>{{ date('d/m/Y',strtotime($pegawais->tmt_cpns)) }}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">GOLONGAN / RUANG TERAKHIR</th>
+                <td><b>{{$pegawais->golongan}}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">TMT GOLONGAN</th>
+                <td><b>{{ date('d/m/Y',strtotime($pegawais->tmt_golongan)) }}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">NAMA JABATAN</th>
+                <td><b>{{$pegawais->nama_jabatan}}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">NOMOR KARPEG</th>
+                <td><b>{{$pegawais->nomor_karpeg}}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">TASPEN</th>
+                <td><b>@if($pegawais->taspen == "1")
+                                                Sudah
+                                                @elseif($pegawais->taspen == "2")
+                                                Belum
+                                                @endif</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">NOMOR NPWP</th>
+                <td><b>{{$pegawais->nomor_npwp}}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">ALAMAT RUMAH</th>
+                <td><b>{{$pegawais->alamat_rumah}}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">KOTA</th>
+                <td><b>{{$pegawais->kota}}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">KODE POS</th>
+                <td><b>{{$pegawais->kode_pos}}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">NOMOR TELEPON</th>
+                <td>
+                    <b>{{$pegawais->telepon->first()->telepon}}</b>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">NOMOR STR (SURAT TANDA REGISTRASI)</th>
+                <td><b>{{$pegawais->str}}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">MASA BERLAKU STR</th>
+                <td><b>{{ date('d/m/Y',strtotime($pegawais->masa_str)) }}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">NOMOR SIKP (SURAT IZIN KERJA PERAWAT)</th>
+                <td><b>{{$pegawais->sikp}}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">MASA BERLAKU SIKP</th>
+                <td><b>{{ date('d/m/Y',strtotime($pegawais->masa_sikp)) }}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">NOMOR SPK (SURAT PENUGASAAN KEWENANGAN KLINIS)</th>
+                <td><b>{{$pegawais->spk}}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">MASA BERLAKU SPK</th>
+                <td><b>{{ date('d/m/Y',strtotime($pegawais->masa_spk)) }}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">NOMOR RKK (RINCIAN KEWENANGAN KLINIS)</th>
+                <td><b>{{$pegawais->rkk}}</b></td>
+            </tr>
+            <tr>
+                <th scope="row" class="sidetable">MASA BERLAKU RKK</th>
+                <td><b>{{ date('d/m/Y',strtotime($pegawais->masa_rkk)) }}</b></td>
+            </tr>
+        </tbody>
+    </table>
 
-                                                @if(auth()->user()->level == 'ADMIN')
-                                                <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target=".bd-example-modal-sm-delete-{{$pegawais->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus
-                                                </button>
-                                                <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeHistory-{{$pegawais->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use history"></i> History
-                                                </button>
-                                                @endif           
-                                        <ul class="list-group">
+
+                                        <!-- <ul class="list-group">
                                                     <li class="list-group-item"><b>Eselon 1 : {{$pegawais->eselon_1}}</b></li>
                                                     <li class="list-group-item"><b>Eselon 2 : {{$pegawais->eselon_2}}</b></li>
                                                     <li class="list-group-item"><b>Eselon 3 : {{$pegawais->eselon_3}}</b></li>
@@ -253,47 +464,10 @@
                                                     <li class="list-group-item"><b>Masa SPK : {{ date('d/m/Y',strtotime($pegawais->masa_spk)) }}</b></li>
                                                     <li class="list-group-item"><b>RKK : {{$pegawais->rkk}}</b></li>
                                                     <li class="list-group-item"><b>Masa RKK : {{ date('d/m/Y',strtotime($pegawais->masa_rkk)) }}</b></li>
-                                        </ul>
+                                        </ul> -->
                                         @endif
                                         @endforeach
-
-                                        
-                                        <table class="mb-0 table" id="table">
-                                            <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>NIP</th>
-                                                <th>Nama</th>
-                                                <th>Option</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-
-                                            @foreach($pegawai as $key => $pegawais)
-                                            @if(auth()->user()->id == $pegawais->user_id)
-                                            <tr>
-                                                <th scope="row">{{++$key}}</th>
-                                                <td>{{$pegawais->nip_baru}}</td>
-                                                <td>{{$pegawais->nama_pegawai}}</td>
-                                                <td>
-                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeDetail-{{$pegawais->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use address-card"></i> Lihat
-                                                    </button>||&nbsp;
-                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeUbah-{{$pegawais->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah
-                                                    </button>||&nbsp;
-                                                    @if(auth()->user()->level == 'ADMIN')
-                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target=".bd-example-modal-sm-delete-{{$pegawais->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus
-                                                    </button>||&nbsp;
-                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeHistory-{{$pegawais->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use history"></i> History
-                                                    </button>
-                                                    @endif
-                                              </td>
-                                            </tr>
-                                            @endif
-                                            @endforeach
-                                            </tbody>
-                                        </table>
-                                            
-                                     
+                                                                            
                                     </div>
                                 </div>
                             </div>

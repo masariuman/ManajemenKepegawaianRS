@@ -15,7 +15,7 @@ class riwayatDiklatFungsionalController extends Controller
      */
     public function index()
     {
-        $riwayat_diklat_fungsional = DiklatFungsional::get();
+        $riwayat_diklat_fungsional = DiklatFungsional::where('active', '1')->get();
     
         return view('riwayat_diklat_fungsional', compact('riwayat_diklat_fungsional'));
     }

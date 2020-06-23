@@ -85,6 +85,7 @@ Route::group(['middleware'=>['auth','checkRole:PEGAWAI']], function () {
     Route::patch('/istri_suami/update/{id}', 'istriSuamiController@update');
     Route::delete('/istri_suami/delete/{id}', 'istriSuamiController@destroy');
 
+    Route::get('table', 'anakController@getTable')->name('getTable');
     Route::get('/anak', 'anakController@index')->name('anak');
     Route::get('/anak/baru', 'anakController@create');
     Route::post('/anak/tambah', 'anakController@store')->name('anak_tambah');
@@ -92,12 +93,33 @@ Route::group(['middleware'=>['auth','checkRole:PEGAWAI']], function () {
     Route::patch('/anak/update/{id}', 'anakController@update');
     Route::delete('/anak/delete/{id}', 'anakController@destroy');
 
-    Route::get('/skp', 'skpController@index')->name('skp');
+    Route::get('/skp', 'skpController@indexSkp')->name('skp');
     Route::get('/skp/baru', 'skpController@create');
-    Route::post('/skp/tambah', 'skpController@store')->name('skp_tambah');
+    Route::post('/skp/tambah', 'skpController@storeSkp')->name('skp_tambah');
     Route::get('/skp/{id}/ubah', 'skpController@edit');
-    Route::patch('/skp/update/{id}', 'skpController@update');
-    Route::delete('/skp/delete/{id}', 'skpController@destroy');
+    Route::patch('/skp/update/{id}', 'skpController@updateSkp');
+    Route::delete('/skp/delete/{id}', 'skpController@destroySkp');
+
+    Route::get('/pengukuran_skp', 'skpController@indexPengukuranSkp')->name('pengukuran_skp');
+    Route::get('/pengukuran_skp/baru', 'skpController@createPengukuranSkp');
+    Route::post('/pengukuran_skp/tambah', 'skpController@storePengukuranSkp')->name('pengukuran_skp_tambah');
+    Route::get('/pengukuran_skp/{id}/ubah', 'skpController@editPengukuranSkp');
+    Route::patch('/pengukuran_skp/update/{id}', 'skpController@updatePengukuranSkp');
+    Route::delete('/pengukuran_skp/delete/{id}', 'skpController@destroyPengukuranSkp');
+
+    Route::get('/perilaku_kerja_skp', 'skpController@indexPerilakuKerjaSkp')->name('perilaku_kerja_skp');
+    Route::get('/perilaku_kerja_skp/baru', 'skpController@createPerilakuKerjaSkp');
+    Route::post('/perilaku_kerja_skp/tambah', 'skpController@storePerilakuKerjaSkp')->name('perilaku_kerja_skp_tambah');
+    Route::get('/perilaku_kerja_skp/{id}/ubah', 'skpController@editPerilakuKerjaSkp');
+    Route::patch('/perilaku_kerja_skp/update/{id}', 'skpController@updatePerilakuKerjaSkp');
+    Route::delete('/perilaku_kerja_skp/delete/{id}', 'skpController@destroyPerilakuKerjaSkp');
+
+    Route::get('/penilaian_skp', 'skpController@indexPenilaianSkp')->name('penilaian_skp');
+    Route::get('/penilaian_skp/baru', 'skpController@createPenilaianSkp');
+    Route::post('/penilaian_skp/tambah', 'skpController@storePenilaianSkp')->name('penilaian_skp_tambah');
+    Route::get('/penilaian_skp/{id}/ubah', 'skpController@editPenilaianSkp');
+    Route::patch('/penilaian_skp/update/{id}', 'skpController@updatePenilaianSkp');
+    Route::delete('/penilaian_skp/delete/{id}', 'skpController@destroyPenilaianSkp');
 
     Route::get('/seminar_lokakarya_simposium', 'seminarController@index')->name('seminar_lokakarya_simposium');
     Route::get('/seminar_lokakarya_simposium/baru', 'seminarController@create');

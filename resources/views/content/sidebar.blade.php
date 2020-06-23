@@ -39,48 +39,71 @@
                                             Dasar Pegawai
                                         </a>
                                     </li>
-                                    <li>
+                            <li>
+                                <a href="#">
+                                    <i class="metismenu-icon pe-7s-note2"></i>
+                                        Riwayat
+                                    <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                </a>
+                                <ul class="@if(Request::is('riwayat_pendidikan_formal')) {{ Request::is('riwayat_pendidikan_formal') ? 'mm-show' : '' }} 
+                                @elseif(Request::is('riwayat_diklat_fungsional')) {{ Request::is('riwayat_diklat_fungsional') ? 'mm-show' : '' }} 
+                                @elseif(Request::is('riwayat_diklat_teknis')) {{ Request::is('riwayat_diklat_teknis') ? 'mm-show' : '' }} 
+                                @elseif(Request::is('riwayat_diklat_penjenjangan_struktural')) {{ Request::is('riwayat_diklat_penjenjangan_struktural') ? 'mm-show' : '' }} 
+                                @elseif(Request::is('riwayat_kepangkatan')) {{ Request::is('riwayat_kepangkatan') ? 'mm-show' : '' }} 
+                                @elseif(Request::is('riwayat_jabatan_struktural')) {{ Request::is('riwayat_jabatan_struktural') ? 'mm-show' : '' }} 
+                                @elseif(Request::is('riwayat_jabatan_fungsional')) {{ Request::is('riwayat_jabatan_fungsional') ? 'mm-show' : '' }} 
+                                @elseif(Request::is('riwayat_pekerjaan_jabatan')) {{ Request::is('riwayat_pekerjaan_jabatan') ? 'mm-show' : '' }}@endif ">
+                                       <li>
                                         <a href="{{route('riwayat_pendidikan_formal')}}" class="{{ Request::is('riwayat_pendidikan_formal') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>
-                                            Riwayat Pendidikan Formal
+                                            Pendidikan Formal
                                         </a>
                                     </li>
                                     <li>
                                         <a href="{{route('riwayat_diklat_fungsional')}}" class="{{ Request::is('riwayat_diklat_fungsional') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>
-                                            Riwayat Diklat Fungsional
+                                            Diklat Fungsional
                                         </a>
                                     </li>
                                     <li>
                                         <a href="{{route('riwayat_diklat_teknis')}}" class="{{ Request::is('riwayat_diklat_teknis') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>
-                                            Riwayat Diklat Teknis
+                                            Diklat Teknis
                                         </a>
                                     </li>
                                     <li>
                                         <a href="{{route('riwayat_diklat_penjenjangan_struktural')}}" class="{{ Request::is('riwayat_diklat_penjenjangan_struktural') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>
-                                            RD Penjenjangan / Struktural
+                                            Diklat Penjenjangan / Struktural
                                         </a>
                                     </li>
                                     <li>
                                         <a href="{{route('riwayat_kepangkatan')}}" class="{{ Request::is('riwayat_kepangkatan') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>
-                                            Riwayat Kepangkatan
+                                            Kepangkatan
                                         </a>
                                     </li>
                                     <li>
                                         <a href="{{route('riwayat_jabatan_struktural')}}" class="{{ Request::is('riwayat_jabatan_struktural') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>
-                                            Riwayat Jabatan Struktural
+                                            Jabatan Struktural
                                         </a>
                                     </li>
                                     <li>
                                         <a href="{{route('riwayat_jabatan_fungsional')}}" class="{{ Request::is('riwayat_jabatan_fungsional') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>
-                                            Riwayat Jabatan Fungsional
+                                            Jabatan Fungsional
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="{{route('riwayat_pekerjaan_jabatan')}}" class="{{ Request::is('riwayat_pekerjaan_jabatan') ? 'mm-active' : '' }}">
+                                            <i class="metismenu-icon pe-7s-note2"></i>
+                                            Perkerjaan / Jabatan
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+       
                                     <li>
                                         <a href="{{route('istri_suami')}}" class="{{ Request::is('istri_suami') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>
@@ -91,12 +114,6 @@
                                         <a href="{{route('anak')}}" class="{{ Request::is('anak') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>
                                             Anak
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('skp')}}" class="{{ Request::is('skp') ? 'mm-active' : '' }}">
-                                            <i class="metismenu-icon pe-7s-note2"></i>
-                                            SKP
                                         </a>
                                     </li>
                                     <li>
@@ -123,23 +140,62 @@
                                             Keanggotaan Organisasi
                                         </a>
                                     </li>
+
+
+
+                                    <li>
+                                        <a href="#">
+                                            <i class="metismenu-icon pe-7s-note2"></i>
+                                            Keluarga
+                                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                        </a>
+                                       <ul class="@if(Request::is('keluarga_kandung')) {{ Request::is('keluarga_kandung') ? 'mm-show' : '' }} @elseif(Request::is('keluarga_istri_suami')) {{ Request::is('keluarga_istri_suami') ? 'mm-show' : '' }}@endif ">
                                     <li>
                                         <a href="{{route('keluarga_kandung')}}" class="{{ Request::is('keluarga_kandung') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>
-                                            Keluarga Kandung
+                                            Kandung
                                         </a>
                                     </li>
                                     <li>
                                         <a href="{{route('keluarga_istri_suami')}}" class="{{ Request::is('keluarga_istri_suami') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>
-                                            Keluarga Istri / Suami
+                                            Istri / Suami
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="{{route('riwayat_pekerjaan_jabatan')}}" class="{{ Request::is('riwayat_pekerjaan_jabatan') ? 'mm-active' : '' }}">
+                                </ul>
+                            </li>
+                            <li>
+                                        <a href="#">
                                             <i class="metismenu-icon pe-7s-note2"></i>
-                                            Riwayat Perkerjaan / Jabatan
+                                            SKP
+                                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                         </a>
+                                       <ul class="@if(Request::is('skp')) {{ Request::is('skp') ? 'mm-show' : '' }} @elseif(Request::is('pengukuran_skp')) {{ Request::is('pengukuran_skp') ? 'mm-show' : '' }} @elseif(Request::is('perilaku_kerja_skp')) {{ Request::is('perilaku_kerja_skp') ? 'mm-show' : '' }} @elseif(Request::is('penilaian_skp')) {{ Request::is('penilaian_skp') ? 'mm-show' : '' }}@endif ">
+                                            <li>
+                                                <a href="{{route('skp')}}" class="{{ Request::is('skp') ? 'mm-active' : '' }}">
+                                                    <i class="metismenu-icon"></i>
+                                                    FORM SKP
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{route('pengukuran_skp')}}" class="{{ Request::is('pengukuran_skp') ? 'mm-active' : '' }}">
+                                                    <i class="metismenu-icon">
+                                                    </i>PENGUKURAN
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{route('perilaku_kerja_skp')}}" class="{{ Request::is('perilaku_kerja_skp') ? 'mm-active' : '' }}">
+                                                    <i class="metismenu-icon">
+                                                    </i>PERILAKU KERJA
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{route('penilaian_skp')}}" class="{{ Request::is('penilaian_skp') ? 'mm-active' : '' }}">
+                                                    <i class="metismenu-icon">
+                                                    </i>PENIILAIAN
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </li>
                                 @endif
                                 @if(auth()->user()->level == 'TU')

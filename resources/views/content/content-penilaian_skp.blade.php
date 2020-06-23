@@ -6,8 +6,8 @@
                                         <i class="pe-7s-note2 icon-gradient bg-happy-fisher">
                                         </i>
                                     </div>
-                                    <div>SKP
-                                        <div class="page-title-subheading">Isi data SKP anda disini.
+                                    <div>Penilaian SKP
+                                        <div class="page-title-subheading">Isi data Penilaian SKP anda disini.
                                         </div>
                                     </div>
                                 </div>               
@@ -121,7 +121,7 @@
                             </div>
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-1" role="tabpanel">
                                 <div class="main-card mb-3 card">
-                                    <div class="card-body"><h5 class="card-title">Masukan Data SKP</h5>
+                                    <div class="card-body"><h5 class="card-title">Masukan Data Penilaian SKP</h5>
                                     <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeTambah"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah
                                         </button>
                                         <table class="mb-0 table" id="table">
@@ -130,51 +130,90 @@
                                                 <th>No</th>
                                                 <th>Tahun</th>
                                                 <th>Kategori</th>
-                                                <th>Nama Pejabat Penilai</th>
-                                                <th>NIP Pejabat Penilai</th>
-                                                <th>Pangkat Golongan Ruang Penilai</th>
-                                                <th>Jabatan Penilai</th>
-                                                <th>Unit Kerja Penilai</th>
-                                                <th>Nama Atasan Pejabat Penilai</th>
-                                                <th>NIP Atasan Pejabat Penilai</th>
-                                                <th>Pangkat Golongan Ruang Atasan Penilai</th>
-                                                <th>Jabatan Atassan Penilai</th>
-                                                <th>Unit kerja Atasan Penilai</th>
-                                                <th>Menu</th>
+                                                <th>Sarana Kerja Pegawai</th>
+                                                <th>Orientasi Pelayanan</th>
+                                                <th>Integritas</th>
+                                                <th>Komitmen</th>
+                                                <th>Disiplin</th>
+                                                <th>Kerjasama</th>
+                                                <th>Kepemimpinan</th>
+                                                <th>Jumlah</th>
+                                                <th>Rata - Rata</th>
+                                                <th>Nilai Perilaku Kerja</th>
+                                                <th>Jumlah Orientasi Pelayanan</th>
+                                                <th>Jumlah Integritas</th>
+                                                <th>Jumlah Komitmen</th>
+                                                <th>Jumlah Disiplin</th>
+                                                <th>Jumlah Kerjasama</th>
+                                                <th>Jumlah Kepemimpinan</th>
+                                                <th>Jumlah jumlah</th>
+                                                <th>Jumlah Rata - Rata</th>
+                                                <th>Jumlah Nilai Perilaku kerja</th>
+                                                <th>Jumlah Prestasi Kerja 1</th>
+                                                <th>Jumlah Prestasi Kerja 2</th>
+                                                <th>Keberatan Pegawai</th>
+                                                <th>Tanggal Keberatan Pegawai</th>
+                                                <th>Tanggapan Pejabat</th>
+                                                <th>Tanggal Tanggapan Pejabat</th>
+                                                <th>Keputusan Atasan Pejabat</th>
+                                                <th>Tanggal Keputusan Atasan Pejabat</th>
+                                                <th>Rekomendasi</th>
+                                                <th>Dibuat Tanggal Pejabat Penilai</th>
+                                                <th>Diterima Tanggal Pegawai</th>
+                                                <th>Diterima Tanggal Atasan Pejabat Penilai</th>
                                             </tr>
                                             </thead>
                                             <tbody>
 
-                                            @foreach($skp as $key => $skps)
-                                            @if(auth()->user()->id == $skps->pegawai_id)
+                                            @foreach($penilaian_skp as $key => $penilaian_skps)                                           
                                             <tr>
                                                 <th scope="row">{{++$key}}</th>
-                                                <td>{{$skps->tahun}}</td>
-                                                <td>{{$skps->kategori}}</td>
-                                                <td>{{$skps->nama_pejabat_penilai}}</td>
-                                                <td>{{$skps->nip_pejabat_penilai}}</td>
-                                                <td>{{$skps->pangkat_golongan_ruang_penilai}}</td>
-                                                <td>{{$skps->jabatan_penilai}}</td>
-                                                <td>{{$skps->unit_kerja_penilai}}</td>
-                                                <td>{{$skps->nama_atasan_pejabat_penilai}}</td>
-                                                <td>{{$skps->nip_atasan_pejabat_penilai}}</td>
-                                                <td>{{$skps->pangkat_golongan_ruang_atasan_penilai}}</td>
-                                                <td>{{$skps->jabatan_atasan_penilai}}</td>
-                                                <td>{{$skps->unit_kerja_atasan_penilai}}</td>
+                                                <td>{{$penilaian_skps->kategori}}</td>
+                                                <td>{{$penilaian_skps->sasaran_kerja_pegawai}}</td>
+                                                <td>{{$penilaian_skps->orientasi_pelayanan}}</td>
+                                                <td>{{$penilaian_skps->integritas}}</td>
+                                                <td>{{$penilaian_skps->komitmen}}</td>
+                                                <td>{{$penilaian_skps->disiplin}}</td>
+                                                <td>{{$penilaian_skps->kerjasama}}</td>
+                                                <td>{{$penilaian_skps->kepemimpinan}}</td>
+                                                <td>{{$penilaian_skps->jumlah}}</td>
+                                                <td>{{$penilaian_skps->rata_rata}}</td>
+                                                <td>{{$penilaian_skps->nilai_perilaku_kerja}}</td>
+                                                <td>{{$penilaian_skps->jumlah_sasaran_kerja_pegawai}}</td>
+                                                <td>{{$penilaian_skps->jumlah_orientasi_pelayanan}}</td>
+                                                <td>{{$penilaian_skps->jumlah_integritas}}</td>
+                                                <td>{{$penilaian_skps->jumlah_komitmen}}</td>
+                                                <td>{{$penilaian_skps->jumlah_disiplin}}</td>
+                                                <td>{{$penilaian_skps->jumlah_kerjasama}}</td>
+                                                <td>{{$penilaian_skps->jumlah_kepemimpinan}}</td>
+                                                <td>{{$penilaian_skps->jumlah_jumlah}}</td>
+                                                <td>{{$penilaian_skps->jumlah_rata_rata}}</td>
+                                                <td>{{$penilaian_skps->jumlah_nilai_perilaku_kerja}}</td>
+                                                <td>{{$penilaian_skps->nilai_prestasi_kerja_1}}</td>
+                                                <td>{{$penilaian_skps->nilai_prestasi_kerja_2}}</td>
+                                                <td>{{$penilaian_skps->keberatan_pegawai}}</td>
+                                                <td>{{ date('d/m/Y',strtotime($penilaian_skps->tanggal_keberatan_pegawai)) }}</td>
+                                                <td>{{$penilaian_skps->tanggapan_pejabat}}</td>
+                                                <td>{{ date('d/m/Y',strtotime($penilaian_skps->tanggal_tanggapan_pejabat)) }}</td>
+                                                <td>{{$penilaian_skps->keputusan_atasan_pejabat}}</td>
+                                                <td>{{ date('d/m/Y',strtotime($penilaian_skps->tanggal_keputusan_atasan_pejabat)) }}</td>
+                                                <td>{{$penilaian_skps->rekomendasi}}</td>
+                                                <td>{{ date('d/m/Y',strtotime($penilaian_skps->dibuat_tanggal_pejabat_penilai)) }}</td>
+                                                <td>{{ date('d/m/Y',strtotime($penilaian_skps->diterima_tanggal_pegawai)) }}</td>
+                                                <td>{{ date('d/m/Y',strtotime($penilaian_skps->diterima_tanggal_atasan_pejabat_penilai)) }}</td>
                                                 <td>
-                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeDetail-{{$skps->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use address-card"></i> Lihat
+                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeDetail-{{$penilaian_skps->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use address-card"></i> Lihat
                                                     </button>||&nbsp;
-                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeUbah-{{$skps->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah
+                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeUbah-{{$penilaian_skps->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah
                                                     </button>||&nbsp;
-                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target=".bd-example-modal-sm-delete-{{$skps->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus
+                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target=".bd-example-modal-sm-delete-{{$penilaian_skps->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus
                                                     </button>||&nbsp;
                                               </td>
                                             </tr>
-                                            @endif
+                                         
                                             @endforeach
                                             </tbody>
                                         </table>
-
                                     </div>
                                 </div>
                             </div>

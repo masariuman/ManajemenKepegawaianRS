@@ -15,7 +15,7 @@ class riwayatDiklatTeknisController extends Controller
      */
     public function index()
     {
-        $riwayat_diklat_teknis = DiklatTeknis::get(); 
+        $riwayat_diklat_teknis = DiklatTeknis::where('active', '1')->get(); 
         return view('riwayat_diklat_teknis', compact('riwayat_diklat_teknis'));
     }
 

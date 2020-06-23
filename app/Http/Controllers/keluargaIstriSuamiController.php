@@ -15,9 +15,12 @@ class keluargaIstriSuamiController extends Controller
      */
     public function index()
     {
-        $keluarga_istri_suami = KeluargaIstriSuami::get();
+
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
+
+        $keluarga_istri_suami = KeluargaIstriSuami::where('active', '1')->get();
        
-        return view('keluarga_istri-suami', compact('keluarga_istri_suami'));
+        return view('keluarga_istri-suami', compact(['keluarga_istri_suami', 'pegawai_id']));
     }
 
     /**

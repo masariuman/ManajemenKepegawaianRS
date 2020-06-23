@@ -15,7 +15,7 @@ class riwayatPekerjaanJabatanController extends Controller
      */
     public function index()
     {
-        $riwayat_pekerjaan_jabatan = PekerjaanJabatan::get();
+        $riwayat_pekerjaan_jabatan = PekerjaanJabatan::where('active', '1')->get();
         return view('riwayat_pekerjaan-jabatan', compact('riwayat_pekerjaan_jabatan'));
     }
 

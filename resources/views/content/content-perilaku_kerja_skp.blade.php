@@ -6,8 +6,8 @@
                                         <i class="pe-7s-note2 icon-gradient bg-happy-fisher">
                                         </i>
                                     </div>
-                                    <div>SKP
-                                        <div class="page-title-subheading">Isi data SKP anda disini.
+                                    <div>Perilaku Kerja SKP
+                                        <div class="page-title-subheading">Isi data perilaku kerja SKP anda disini.
                                         </div>
                                     </div>
                                 </div>               
@@ -121,7 +121,7 @@
                             </div>
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-1" role="tabpanel">
                                 <div class="main-card mb-3 card">
-                                    <div class="card-body"><h5 class="card-title">Masukan Data SKP</h5>
+                                    <div class="card-body"><h5 class="card-title">Masukan Data Perilaku Kerja SKP</h5>
                                     <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeTambah"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah
                                         </button>
                                         <table class="mb-0 table" id="table">
@@ -130,43 +130,39 @@
                                                 <th>No</th>
                                                 <th>Tahun</th>
                                                 <th>Kategori</th>
-                                                <th>Nama Pejabat Penilai</th>
-                                                <th>NIP Pejabat Penilai</th>
-                                                <th>Pangkat Golongan Ruang Penilai</th>
-                                                <th>Jabatan Penilai</th>
-                                                <th>Unit Kerja Penilai</th>
-                                                <th>Nama Atasan Pejabat Penilai</th>
-                                                <th>NIP Atasan Pejabat Penilai</th>
-                                                <th>Pangkat Golongan Ruang Atasan Penilai</th>
-                                                <th>Jabatan Atassan Penilai</th>
-                                                <th>Unit kerja Atasan Penilai</th>
+                                                <th>Orientasi Pelayanan</th>
+                                                <th>Integritas</th>
+                                                <th>Komitmen</th>
+                                                <th>Disiplin</th>
+                                                <th>Kerjasama</th>
+                                                <th>Kepemimpinan</th>
+                                                <th>Jumlah</th>
+                                                <th>Rata-Rata</th>
                                                 <th>Menu</th>
                                             </tr>
                                             </thead>
                                             <tbody>
 
-                                            @foreach($skp as $key => $skps)
-                                            @if(auth()->user()->id == $skps->pegawai_id)
+                                            @foreach($perilaku_kerja_skp as $key => $perilaku_kerja_skps)
+                                            @if(auth()->user()->id == $perilaku_kerja_skps->pegawai_id)
                                             <tr>
                                                 <th scope="row">{{++$key}}</th>
-                                                <td>{{$skps->tahun}}</td>
-                                                <td>{{$skps->kategori}}</td>
-                                                <td>{{$skps->nama_pejabat_penilai}}</td>
-                                                <td>{{$skps->nip_pejabat_penilai}}</td>
-                                                <td>{{$skps->pangkat_golongan_ruang_penilai}}</td>
-                                                <td>{{$skps->jabatan_penilai}}</td>
-                                                <td>{{$skps->unit_kerja_penilai}}</td>
-                                                <td>{{$skps->nama_atasan_pejabat_penilai}}</td>
-                                                <td>{{$skps->nip_atasan_pejabat_penilai}}</td>
-                                                <td>{{$skps->pangkat_golongan_ruang_atasan_penilai}}</td>
-                                                <td>{{$skps->jabatan_atasan_penilai}}</td>
-                                                <td>{{$skps->unit_kerja_atasan_penilai}}</td>
+                                                <td>{{$perilaku_kerja_skps->tahun}}</td>
+                                                <td>{{$perilaku_kerja_skps->kategori}}</td>
+                                                <td>{{$perilaku_kerja_skps->orientasi_pelayanan}}</td>
+                                                <td>{{$perilaku_kerja_skps->integritas}}</td>
+                                                <td>{{$perilaku_kerja_skps->komitmen}}</td>
+                                                <td>{{$perilaku_kerja_skps->disiplin}}</td>
+                                                <td>{{$perilaku_kerja_skps->kerjasama}}</td>
+                                                <td>{{$perilaku_kerja_skps->kepemimpinan}}</td>
+                                                <td>{{$perilaku_kerja_skps->jumlah}}</td>
+                                                <td>{{$perilaku_kerja_skps->rata_rata}}</td>
                                                 <td>
-                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeDetail-{{$skps->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use address-card"></i> Lihat
+                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeDetail-{{$perilaku_kerja_skps->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use address-card"></i> Lihat
                                                     </button>||&nbsp;
-                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeUbah-{{$skps->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah
+                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeUbah-{{$perilaku_kerja_skps->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah
                                                     </button>||&nbsp;
-                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target=".bd-example-modal-sm-delete-{{$skps->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus
+                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target=".bd-example-modal-sm-delete-{{$perilaku_kerja_skps->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus
                                                     </button>||&nbsp;
                                               </td>
                                             </tr>
@@ -174,7 +170,6 @@
                                             @endforeach
                                             </tbody>
                                         </table>
-
                                     </div>
                                 </div>
                             </div>

@@ -6,8 +6,8 @@
                                         <i class="pe-7s-note2 icon-gradient bg-happy-fisher">
                                         </i>
                                     </div>
-                                    <div>SKP
-                                        <div class="page-title-subheading">Isi data SKP anda disini.
+                                    <div>Pengukuran SKP
+                                        <div class="page-title-subheading">Isi data Pengukuran SKP anda disini.
                                         </div>
                                     </div>
                                 </div>               
@@ -121,7 +121,7 @@
                             </div>
                             <div class="tab-pane tabs-animation fade show active" id="tab-content-1" role="tabpanel">
                                 <div class="main-card mb-3 card">
-                                    <div class="card-body"><h5 class="card-title">Masukan Data SKP</h5>
+                                    <div class="card-body"><h5 class="card-title">Masukan Data Pengukuran SKP</h5>
                                     <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeTambah"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah
                                         </button>
                                         <table class="mb-0 table" id="table">
@@ -130,47 +130,81 @@
                                                 <th>No</th>
                                                 <th>Tahun</th>
                                                 <th>Kategori</th>
-                                                <th>Nama Pejabat Penilai</th>
-                                                <th>NIP Pejabat Penilai</th>
-                                                <th>Pangkat Golongan Ruang Penilai</th>
-                                                <th>Jabatan Penilai</th>
-                                                <th>Unit Kerja Penilai</th>
-                                                <th>Nama Atasan Pejabat Penilai</th>
-                                                <th>NIP Atasan Pejabat Penilai</th>
-                                                <th>Pangkat Golongan Ruang Atasan Penilai</th>
-                                                <th>Jabatan Atassan Penilai</th>
-                                                <th>Unit kerja Atasan Penilai</th>
-                                                <th>Menu</th>
+                                                <th>Kegiatan tugas Tambahan</th>
+                                                <th>Kategori Pengukuran</th>
+                                                <th>AK Target</th>
+                                                <th>Target Kuant Output 1</th>
+                                                <th>Target Kuant Output 2</th>
+                                                <th>Target Kuant Mutu</th>
+                                                <th>Target Biaya</th>
+                                                <th>Ak Realisasi</th>
+                                                <th>Realisasi Kuant Output 1</th>
+                                                <th>Realisasi Kuant Output 2</th>
+                                                <th>Realisasi Kual Mutu</th>
+                                                <th>Realisasi Biaya</th>
+                                                <th>Perhituangan</th>
+                                                <th>Nilai Capaian SKP</th>
+                                                <th>Nilai Capaian Total AK Target</th>
+                                                <th>Total AK Target</th>
+                                                <th>Total Target Kuant Output 1</th>
+                                                <th>Total Target Kuant Output 2</th>
+                                                <th>Total Target Kuant Mutu</th>
+                                                <th>Total Target Biaya</th>
+                                                <th>Total AK Realisasi</th>
+                                                <th>Total Realisasi Kuant Output 1</th>
+                                                <th>Total Realisasi Kuant Output 2</th>
+                                                <th>Total Realisai</th>
+                                                <th>Total Target Biaya</th>
+                                                <th>Total Target Biaya</th>
+
                                             </tr>
                                             </thead>
                                             <tbody>
 
-                                            @foreach($skp as $key => $skps)
-                                            @if(auth()->user()->id == $skps->pegawai_id)
+                                            @foreach($pengukuran_skp as $key => $pengukuran_skps)
+                                            
                                             <tr>
                                                 <th scope="row">{{++$key}}</th>
-                                                <td>{{$skps->tahun}}</td>
-                                                <td>{{$skps->kategori}}</td>
-                                                <td>{{$skps->nama_pejabat_penilai}}</td>
-                                                <td>{{$skps->nip_pejabat_penilai}}</td>
-                                                <td>{{$skps->pangkat_golongan_ruang_penilai}}</td>
-                                                <td>{{$skps->jabatan_penilai}}</td>
-                                                <td>{{$skps->unit_kerja_penilai}}</td>
-                                                <td>{{$skps->nama_atasan_pejabat_penilai}}</td>
-                                                <td>{{$skps->nip_atasan_pejabat_penilai}}</td>
-                                                <td>{{$skps->pangkat_golongan_ruang_atasan_penilai}}</td>
-                                                <td>{{$skps->jabatan_atasan_penilai}}</td>
-                                                <td>{{$skps->unit_kerja_atasan_penilai}}</td>
+                                                <td>{{$pengukuran_skps->skp_id}}</td>
+                                                <td>{{$pengukuran_skps->kategori}}</td>
+                                                <td>{{$pengukuran_skps->kegiatan_tugas_tambahan}}</td>
+                                                <td>{{$pengukuran_skps->kategori_pengukuran}}</td>
+                                                <td>{{$pengukuran_skps->ak_target}}</td>
+                                                <td>{{$pengukuran_skps->target_kuant_output_1}}</td>
+                                                <td>{{$pengukuran_skps->target_kuant_output_2}}</td>
+                                                <td>{{$pengukuran_skps->target_kual_mutu}}</td>
+                                                <td>{{$pengukuran_skps->target_biaya}}</td>
+                                                <td>{{$pengukuran_skps->ak_realisasi}}</td>
+                                                <td>{{$pengukuran_skps->realisasi_kuant_output_1}}</td>
+                                                <td>{{$pengukuran_skps->realisasi_kuant_output_2}}</td>
+                                                <td>{{$pengukuran_skps->realisasi_kual_mutu}}</td>
+                                                <td>{{$pengukuran_skps->realisasi_biaya}}</td>
+                                                <td>{{$pengukuran_skps->penghitungan}}</td>
+                                                <td>{{$pengukuran_skps->nilai_capaian_skp}}</td>
+                                                <td>{{$pengukuran_skps->total_ak_target}}</td>
+                                                <td>{{$pengukuran_skps->total_target_kuant_output_1}}</td>
+                                                <td>{{$pengukuran_skps->total_target_kuant_output_2}}</td>
+                                                <td>{{$pengukuran_skps->total_target_kual_mutu}}</td>
+                                                <td>{{$pengukuran_skps->total_target_biaya}}</td>
+                                                <td>{{$pengukuran_skps->total_ak_realisasi}}</td>
+                                                <td>{{$pengukuran_skps->total_realisasi_kuant_output_1}}</td>
+                                                <td>{{$pengukuran_skps->total_realisasi_kuant_output_2}}</td>
+                                                <td>{{$pengukuran_skps->total_realisasi_kual_mutu}}</td>
+                                                <td>{{$pengukuran_skps->total_realisasi_biaya}}</td>
+                                                <td>{{$pengukuran_skps->total_penghitungan}}</td>
+                                                <td>{{$pengukuran_skps->total_nilai_capaian_skp_1}}</td>
+                                                <td>{{$pengukuran_skps->total_nilai_capaian_skp_2}}</td>
+                                                <td>{{$pengukuran_skps->total_nilai_capaian_skp_3}}</td>
                                                 <td>
-                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeDetail-{{$skps->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use address-card"></i> Lihat
+                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeDetail-{{$pengukuran_skps->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use address-card"></i> Lihat
                                                     </button>||&nbsp;
-                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeUbah-{{$skps->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah
+                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeUbah-{{$pengukuran_skps->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah
                                                     </button>||&nbsp;
-                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target=".bd-example-modal-sm-delete-{{$skps->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus
+                                                    <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target=".bd-example-modal-sm-delete-{{$pengukuran_skps->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus
                                                     </button>||&nbsp;
                                               </td>
                                             </tr>
-                                            @endif
+                                         
                                             @endforeach
                                             </tbody>
                                         </table>

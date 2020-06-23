@@ -26,7 +26,7 @@ class CreateTablePenilaianSkp extends Migration
             $table->string('kerjasama')->nullable();
             $table->string('kepemimpinan')->nullable();
             $table->string('jumlah')->nullable();
-            $table->string('rata-rata')->nullable();
+            $table->string('rata_rata')->nullable();
             $table->string('nilai_perilaku_kerja')->nullable();
             $table->string('jumlah_sasaran_kerja_pegawai')->nullable();
             $table->string('jumlah_orientasi_pelayanan')->nullable();
@@ -36,7 +36,7 @@ class CreateTablePenilaianSkp extends Migration
             $table->string('jumlah_kerjasama')->nullable();
             $table->string('jumlah_kepemimpinan')->nullable();
             $table->string('jumlah_jumlah')->nullable();
-            $table->string('jumlah_rata-rata')->nullable();
+            $table->string('jumlah_rata_rata')->nullable();
             $table->string('jumlah_nilai_perilaku_kerja')->nullable();
             $table->string('nilai_prestasi_kerja_1')->nullable();
             $table->string('nilai_prestasi_kerja_2')->nullable();

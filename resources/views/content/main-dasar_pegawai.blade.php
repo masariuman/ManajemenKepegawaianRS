@@ -2,6 +2,50 @@
     @include('content.sidebar')
     <div class="app-main__outer">
     @include('content.content-dasar_pegawai')
+    @push('css')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/af-2.3.5/fh-3.1.7/r-2.2.5/sp-1.1.1/sl-1.3.1/datatables.min.css"/>
+    <style>
+        .width100{
+            width: 100%;
+        }
+        .width100px{
+            width: 100px;
+        }
+        .width40{
+            width: 40px;
+        }
+        .width200{
+            width: 200px;
+        }
+        .margintop20 {
+            margin-top: 20px;
+        }
+        .margintop50 {
+            margin-top: 50px;
+        }
+        .sidetable{
+            background-image: url(/lojin/sidebarx.png);
+            background-repeat: no-repeat;
+            width: 500px;
+            height: 41px;
+            color: #ffffff;
+        }
+        .titlepertab {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+            font-size: 40px;
+            letter-spacing: 0px;
+            word-spacing: 0px;
+            color: #000000;
+            font-weight: 700;
+            text-decoration: none solid rgb(68, 68, 68);
+            font-style: normal;
+            font-variant: small-caps;
+            text-transform: capitalize;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+    </style>
+@endpush
     @include('content.footer')
     </div>
     <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
@@ -111,10 +155,10 @@
                                                 SD
                                                 @endif</b></h6></div>
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nama Sekolah :</b></label>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nama Sekolah / :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->nama_sekolah}}</b></h6></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tahun Lulus :</b></label>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>/ Tahun Lulus :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->tahun_lulus}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Jurusan Program Studi :</b></label>
@@ -213,7 +257,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Tambah Data Dasar</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Tambah Data Dasar Pegawai</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -297,11 +341,11 @@
                                                 <option value="11">SD</option>
                                                 </select></div>
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nama Sekolah</b></label>
-                                                <div class="col-sm-10"><input name="nama_sekolah" id="exampleEmail" placeholder="Nama Sekolah" type="text" class="form-control" value="" required></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nama Sekolah /</b></label>
+                                                <div class="col-sm-10"><input name="nama_sekolah" id="exampleEmail" placeholder="Nama Sekolah /" type="text" class="form-control" value="" required></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tahun Lulus</b></label>
-                                                <div class="col-sm-10"><input name="tahun_lulus" id="exampleEmail" placeholder="Tahun Lulus" type="number" class="form-control" value="" required></div>          
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>/ Tahun Lulus</b></label>
+                                                <div class="col-sm-10"><input name="tahun_lulus" id="exampleEmail" placeholder="/ Tahun Lulus" type="number" class="form-control" value="" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Jurusan / Program Studi</b></label>
                                                 <div class="col-sm-10"><input name="jurusan_prodi" id="exampleEmail" placeholder="Jurusan / Program Studi" type="text" class="form-control" value="" required></div>          
@@ -398,7 +442,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Ubah Data Dasar</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Ubah Data Dasar Pegawai</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -441,7 +485,8 @@
                                                 <div class="col-sm-10"><input name="tanggal_lahir" id="exampleEmail" placeholder="Tanggal Lahir" type="date" class="form-control" value="{{ date('Y-m-d',strtotime($pegawais->tanggal_lahir)) }}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Jenis Kelamin</b></label>
-                                                <div class="col-sm-10"><select name="jenis_kelamin" id="exampleSelect" class="form-control" required>
+                                                <div class="col-sm-10"><select name="jenis_kelamin" id="exampleSelect" class="form-control" value="{{$pegawais->jenis_kelamin}}" required>
+                                                <option value="" disabled selected>-Pilih Jenis Kelamin-</option>                                               
                                                 @if($pegawais->jenis_kelamin == "P")
                                                 <option value="P" selected>Pria</option>
                                                 <option value="W">Wanita</option>
@@ -452,7 +497,8 @@
                                                 </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Status Keluarga</b></label>
-                                                <div class="col-sm-10"><select name="status_keluarga" id="exampleSelect" class="form-control" required>
+                                                <div class="col-sm-10"><select name="status_keluarga" id="exampleSelect" class="form-control" value="{{$pegawais->status_keluarga}}" required>
+                                                <option value="" disabled selected>-Pilih Status Keluarga-</option>
                                                 @if($pegawais->status_keluarga == "K")
                                                 <option value="K" selected>Nikah</option>
                                                 <option value="B">Belum Menikah</option>
@@ -477,7 +523,8 @@
                                                 </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Agama</b></label>
-                                                <div class="col-sm-10"><select name="agama" id="exampleSelect" class="form-control" required>
+                                                <div class="col-sm-10"><select name="agama" id="exampleSelect" class="form-control" value="{{$pegawais->agama}}" required>
+                                                <option value="" disabled selected>-Pilih Agama-</option>
                                                 @if($pegawais->agama == "1")
                                                 <option value="1" selected>Islam</option>
                                                 <option value="2">Katholik</option>
@@ -524,7 +571,8 @@
                                                 </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Pendidikan Akhir</b></label>
-                                                <div class="col-sm-10"><select name="pendidikan_akhir" id="exampleSelect" class="form-control" required>
+                                                <div class="col-sm-10"><select name="pendidikan_akhir" id="exampleSelect" class="form-control" value="{{$pegawais->pendidikan_akhir}}" required>
+                                                <option value="" disabled selected>-Pilih Pendidikan Akhir-</option>
                                                 @if($pegawais->pendidikan_akhir == "01")
                                                 <option value="01" selected>S3 (Setara)</option>
                                                 <option value="02">S2 (Setara)</option>
@@ -660,17 +708,18 @@
                                                 @endif
                                                 </select></div>
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nama Sekolah</b></label>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nama Sekolah /</b></label>
                                                 <div class="col-sm-10"><input name="nama_sekolah" id="exampleEmail" placeholder="Nama Sekolah" type="text" class="form-control" value="{{$pegawais->nama_sekolah}}" required></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tahun Lulus</b></label>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>/ Tahun Lulus</b></label>
                                                 <div class="col-sm-10"><input name="tahun_lulus" id="exampleEmail" placeholder="Tahun Lulus" type="number" class="form-control" value="{{$pegawais->tahun_lulus}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Jurusan / Program Studi</b></label>
                                                 <div class="col-sm-10"><input name="jurusan_prodi" id="exampleEmail" placeholder="Jurusan / Program Studi" type="text" class="form-control" value="{{$pegawais->jurusan_prodi}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Status Kepegawaian</b></label>
-                                                <div class="col-sm-10"><select name="status_kepegawaian" id="exampleSelect" class="form-control" required>
+                                                <div class="col-sm-10"><select name="status_kepegawaian" id="exampleSelect" class="form-control" value="{{$pegawais->status_kepegawaian}}" required>
+                                                <option value="" disabled selected>-Pilih Status Kepegawaian-</option>
                                                 @if($pegawais->status_kepegawaian == "01")
                                                 <option value="01" selected>CPNS</option>
                                                 <option value="02">PNS</option>
@@ -713,7 +762,8 @@
                                                 <div class="col-sm-10"><input name="nomor_karpeg" id="exampleEmail" placeholder="Nomor KARPEG" type="number" class="form-control" value="{{$pegawais->nomor_karpeg}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Taspen</b></label>
-                                                <div class="col-sm-10"><select name="taspen" id="exampleSelect" class="form-control" required>
+                                                <div class="col-sm-10"><select name="taspen" id="exampleSelect" class="form-control" value="{{$pegawais->taspen}}" required>
+                                                <option value="" disabled selected>-Pilih Taspen-</option>
                                                 @if($pegawais->taspen == "1")
                                                 <option value="1" selected>Sudah</option>
                                                 <option value="2">Belum</option>
@@ -907,10 +957,10 @@
                                                 SD
                                                 @endif</b></h6></div>
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nama Sekolah :</b></label>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nama Sekolah / :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->nama_sekolah}}</b></h6></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tahun Lulus :</b></label>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>/ Tahun Lulus :</b></label>
                                                 <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pegawais->tahun_lulus}}</b></h6></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Jurusan Program Studi :</b></label>
