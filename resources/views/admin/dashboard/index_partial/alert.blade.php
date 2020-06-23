@@ -1,8 +1,8 @@
         @if ($setting->active_skp === "1")
               <div class="alert alert-warning alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h4><i class="icon fa fa-exclamation"></i> PENGISIAN SKP</h4>
-                Pengisian SKP Dibuka Sampai Tanggal {{$setting->terakhir_isi_skp}}
+                <h4><i class="icon fa fa-exclamation"></i> PENGISIAN SKP DIBUKA SAMPAI TANGGAL {{$setting->terakhir_isi_skp}}</h4>
+                {{$setting->pesan_skp}}
               </div>
         @endif
         @if ($count_str != 0)
