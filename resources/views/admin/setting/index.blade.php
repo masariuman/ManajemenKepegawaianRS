@@ -56,6 +56,10 @@
                                 <input name="tanggal_skp" id="asd" placeholder="Isi disini.." type="date" class="form-control" value="{{$setting->terakhir_isi_skp}}" />
                             </div>
                             <div class="position-relative form-group">
+                                <label for="exampleAddress" class="">Pesan Untuk Pengisian SKP</label>
+                                <input name="pesan" id="asd" placeholder="Isi disini.." type="text" class="form-control" value="{{$setting->pesan}}" />
+                            </div>
+                            <div class="position-relative form-group">
                                 <label for="exampleAddress" class="">Status Pengisian SKP : </label>
                                 <button type="button" class="mb-2 mr-2 border-0 btn-transition btn btn-outline-success active" id="buka">Dibuka</button>
                                 <button type="button" class="mb-2 mr-2 border-0 btn-transition btn btn-outline-dark" id="tutup">Tutup</button>
