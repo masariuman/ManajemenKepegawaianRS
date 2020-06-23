@@ -19,11 +19,11 @@ class dasarPegawaiController extends Controller
 
         $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
-        $pegawai = Pegawai::get();
+        $pegawai = Pegawai::where('active', '1')->get();
         
-        $dasar_pegawai = Dasar::get();
+        $dasar_pegawai = Dasar::where('active', '1')->get();
 
-        $data_telepon = Telepon::get();
+        $data_telepon = Telepon::where('active', '1')->get();
         
         return view('dasar_pegawai', compact(['pegawai', 'dasar_pegawai', 'data_telepon', 'pegawai_id']));
     }

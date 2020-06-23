@@ -85,6 +85,7 @@ Route::group(['middleware'=>['auth','checkRole:PEGAWAI']], function () {
     Route::patch('/istri_suami/update/{id}', 'istriSuamiController@update');
     Route::delete('/istri_suami/delete/{id}', 'istriSuamiController@destroy');
 
+    Route::get('table', 'anakController@getTable')->name('getTable');
     Route::get('/anak', 'anakController@index')->name('anak');
     Route::get('/anak/baru', 'anakController@create');
     Route::post('/anak/tambah', 'anakController@store')->name('anak_tambah');

@@ -220,7 +220,8 @@
                                             @method('patch')
                                             @csrf
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Kode Hukuman</b></label>
-                                                <div class="col-sm-10"><select name="kode_hukuman" id="exampleSelect" class="form-control" required value="{{$hukum_disiplins->kode_hukuman}}">
+                                                <div class="col-sm-10"><select name="kode_hukuman" id="exampleSelect" class="form-control" value="{{$hukum_disiplins->kode_hukuman}}" required>
+                                                <option value="" disabled selected>-Pilih Kode Hukuman-</option>
                                                 @if($hukum_disiplins->kode_hukuman == "11")
                                                 <option value="11" selected>11 - Hukuman Ringan Teguran Lisan</option>
                                                 <option value="12">12 - Hukuman Ringan Teguran Tertulis</option>

@@ -231,7 +231,8 @@
                                                 <div class="col-sm-10"><input name="lokasi" id="exampleEmail" placeholder="Lokasi Kegiatan" type="text" class="form-control" value="{{$seminar_lokakarya_simposiums->lokasi}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Tempat Kegiatan</b></label>
-                                                <div class="col-sm-10"><select name="tempat_kegiatan" id="exampleSelect" class="form-control" required value="{{$seminar_lokakarya_simposiums->tempat_kegiatan}}">
+                                                <div class="col-sm-10"><select name="tempat_kegiatan" id="exampleSelect" class="form-control" value="{{$seminar_lokakarya_simposiums->tempat_kegiatan}}" required>
+                                                <option value="" disabled selected>-Pilih Tempat Kegiatan-</option>
                                                 @if($seminar_lokakarya_simposiums->tempat_kegiatan == "1")
                                                 <option value="1" selected>Dalam Negeri</option>
                                                 <option value="2">Luar Negeri</option>
@@ -248,7 +249,8 @@
                                                 <div class="col-sm-10"><input name="tahun_seminar" id="exampleEmail" placeholder="Tahun" type="number" class="form-control" value="{{$seminar_lokakarya_simposiums->tahun_seminar}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Kedudukan Dalam Seminar</b></label>
-                                                <div class="col-sm-10"><select name="kedudukan_dalam_seminar" id="exampleSelect" class="form-control" required value="{{$seminar_lokakarya_simposiums->kedudukan_dalam_seminar}}">
+                                                <div class="col-sm-10"><select name="kedudukan_dalam_seminar" id="exampleSelect" class="form-control" value="{{$seminar_lokakarya_simposiums->kedudukan_dalam_seminar}}" required>
+                                                <option value="" disabled selected>-Pilih Kedudukan Dalam Seminar-</option>
                                                 @if($seminar_lokakarya_simposiums->kedudukan_dalam_seminar == "1")
                                                 <option value="1" selected>Peserta</option>
                                                 <option value="2">Moderator</option>

@@ -15,7 +15,7 @@ class riwayatJabatanFungsionalController extends Controller
      */
     public function index()
     {
-        $riwayat_jabatan_fungsional = JabatanFungsional::get();
+        $riwayat_jabatan_fungsional = JabatanFungsional::where('active', '1')->get();
 
         return view('riwayat_jabatan_fungsional', compact('riwayat_jabatan_fungsional'));
     }

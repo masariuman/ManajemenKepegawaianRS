@@ -235,6 +235,7 @@
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Hubungan</b></label>
                                                 <div class="col-sm-10"><select name="hubungan" id="exampleSelect" class="form-control" value="{{$keluarga_kandungs->hubungan}}" required>
+                                                <option value="" disabled selected>-Pilih Hubungan-</option>
                                                 @if($keluarga_kandungs->hubungan == "1")
                                                 <option value="1" selected>Ayah</option>
                                                 <option value="2">Ibu</option>
@@ -265,7 +266,8 @@
                                                 <div class="col-sm-10"><input name="tanggal_lahir" id="exampleEmail" placeholder="Tanggal Lahir" type="date" class="form-control" value="{{ date('Y-m-d',strtotime($keluarga_kandungs->tanggal_lahir)) }}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Jenis Kelamin</b></label>
-                                                <div class="col-sm-10"><select name="jenis_kelamin" id="exampleSelect" class="form-control" required value="{{$keluarga_kandungs->jenis_kelamin}}">
+                                                <div class="col-sm-10"><select name="jenis_kelamin" id="exampleSelect" class="form-control" value="{{$keluarga_kandungs->jenis_kelamin}}" required>
+                                                <option value="" disabled selected>-Pilih Jenis Kelamin-</option>
                                                 @if($keluarga_kandungs->jenis_kelamin == "L")
                                                 <option value="L" selected>Laki-laki</option>
                                                 <option value="P">Perempuan</option>
@@ -276,7 +278,7 @@
                                                 </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Kondisi</b></label>
-                                                <div class="col-sm-10"><select name="kondisi" id="exampleSelect" class="form-control" required value="{{$keluarga_kandungs->kondisi}}">
+                                                <div class="col-sm-10"><select name="kondisi" id="exampleSelect" class="form-control" value="{{$keluarga_kandungs->kondisi}}" required>
                                                 <option value="" disabled selected>-Pilih Kondisi-</option>
                                                 @if($keluarga_kandungs->kondisi == "1")
                                                 <option value="1" selected>Masih Hidup</option>

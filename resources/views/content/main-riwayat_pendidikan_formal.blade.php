@@ -171,7 +171,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Tambah Data Dasar</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Tambah Data Riwayat Pendidikan Formal</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -180,7 +180,7 @@
             <form class="" action="{{route('riwayat_pendidikan_formal_tambah')}}" method="post">
                                             @csrf  
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Tingkat Pendidikan</b></label>
-                                                <div class="col-sm-10"><select name="tingkat_pendidikan" id="exampleSelect" class="form-control">
+                                                <div class="col-sm-10"><select name="tingkat_pendidikan" id="exampleSelect" class="form-control" required>
                                                 <option value="" disabled selected>-Pilih Tingkat Pendidikan-</option>
                                                 <option value="01">S3 (Setara)</option>
                                                 <option value="02">S2 (Setara)</option>
@@ -196,29 +196,29 @@
                                                 </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nama Sekolah / Universitas</b></label>
-                                                <div class="col-sm-10"><input name="nama_sekolah" id="exampleEmail" placeholder="Nama Sekolah / Universitas" type="text" class="form-control" value=""></div>
+                                                <div class="col-sm-10"><input name="nama_sekolah" id="exampleEmail" placeholder="Nama Sekolah / Universitas" type="text" class="form-control" value="" required></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Jurusan / Program Studi</b></label>
-                                                <div class="col-sm-10"><input name="jurusan_prodi" id="exampleEmail" placeholder="Jurusan / Program Studi" type="text" class="form-control" value=""></div>
+                                                <div class="col-sm-10"><input name="jurusan_prodi" id="exampleEmail" placeholder="Jurusan / Program Studi" type="text" class="form-control" value="" required></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tahun Masuk</b></label>
-                                                <div class="col-sm-10"><input name="tahun_masuk" id="exampleEmail" placeholder="Tahun Masuk" type="number" class="form-control" value=""></div>
+                                                <div class="col-sm-10"><input name="tahun_masuk" id="exampleEmail" placeholder="Tahun Masuk" type="number" class="form-control" value="" required></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tahun Lulus</b></label>
-                                                <div class="col-sm-10"><input name="tahun_lulus" id="exampleEmail" placeholder="Tahun Lulus" type="number" class="form-control" value=""></div>
+                                                <div class="col-sm-10"><input name="tahun_lulus" id="exampleEmail" placeholder="Tahun Lulus" type="number" class="form-control" value="" required></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Tempat Belajar</b></label>
-                                                <div class="col-sm-10"><select name="tempat_belajar" id="exampleSelect" class="form-control">
+                                                <div class="col-sm-10"><select name="tempat_belajar" id="exampleSelect" class="form-control" required>
                                                 <option value="" disabled selected>-Pilih Tempat Belajar-</option>
                                                 <option value="1">Dalam Negeri</option>
                                                 <option value="2">Luar Negeri</option>
                                                 </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Lokasi</b></label>
-                                                <div class="col-sm-10"><input name="lokasi" id="exampleEmail" placeholder="Lokasi" type="text" class="form-control" value=""></div>
+                                                <div class="col-sm-10"><input name="lokasi" id="exampleEmail" placeholder="Lokasi" type="text" class="form-control" value="" required></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor ijazah</b></label>
-                                                <div class="col-sm-10"><input name="nomor_ijazah" id="exampleEmail" placeholder="Nomor ijazah" type="number" class="form-control" value=""></div>
+                                                <div class="col-sm-10"><input name="nomor_ijazah" id="exampleEmail" placeholder="Nomor ijazah" type="number" class="form-control" value="" required></div>
                                             </div>                        
             </div>
             <div class="modal-footer">
@@ -239,7 +239,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Ubah Data Dasar</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Ubah Data Riwayat Pendidikan Formal</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -249,7 +249,8 @@
                                             @method('patch')
                                             @csrf
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Tingkat Pendidikan</b></label>
-                                                <div class="col-sm-10"><select name="tingkat_pendidikan" id="exampleSelect" class="form-control" value="{{ $riwayat_pendidikan_formals->tingkat_pendidikan }}" >
+                                                <div class="col-sm-10"><select name="tingkat_pendidikan" id="exampleSelect" class="form-control" value="{{ $riwayat_pendidikan_formals->tingkat_pendidikan }}" required>
+                                                <option value="" disabled selected>-Pilih Tingkat Pendidikan-</option>
                                                 @if($riwayat_pendidikan_formals->tingkat_pendidikan == "01")
                                                 <option value="01" selected>S3 (Setara)</option>
                                                 <option value="02">S2 (Setara)</option>
@@ -386,19 +387,20 @@
                                                 </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nama Sekolah / Universitas</b></label>
-                                                <div class="col-sm-10"><input name="nama_sekolah" id="exampleEmail" placeholder="Nama Sekolah / Universitas" type="text" class="form-control" value="{{ $riwayat_pendidikan_formals->nama_sekolah }}"></div>
+                                                <div class="col-sm-10"><input name="nama_sekolah" id="exampleEmail" placeholder="Nama Sekolah / Universitas" type="text" class="form-control" value="{{ $riwayat_pendidikan_formals->nama_sekolah }}" required></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Jurusan / Program Studi</b></label>
-                                                <div class="col-sm-10"><input name="jurusan_prodi" id="exampleEmail" placeholder="Jurusan / Program Studi" type="text" class="form-control" value="{{ $riwayat_pendidikan_formals->jurusan_prodi }}"></div>
+                                                <div class="col-sm-10"><input name="jurusan_prodi" id="exampleEmail" placeholder="Jurusan / Program Studi" type="text" class="form-control" value="{{ $riwayat_pendidikan_formals->jurusan_prodi }}" required></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tahun Masuk</b></label>
-                                                <div class="col-sm-10"><input name="tahun_masuk" id="exampleEmail" placeholder="Tahun Masuk" type="number" class="form-control" value="{{ $riwayat_pendidikan_formals->tahun_masuk }}"></div>
+                                                <div class="col-sm-10"><input name="tahun_masuk" id="exampleEmail" placeholder="Tahun Masuk" type="number" class="form-control" value="{{ $riwayat_pendidikan_formals->tahun_masuk }}" required></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tahun Lulus</b></label>
-                                                <div class="col-sm-10"><input name="tahun_lulus" id="exampleEmail" placeholder="Tahun Lulus" type="number" class="form-control" value="{{ $riwayat_pendidikan_formals->tahun_lulus }}"></div>
+                                                <div class="col-sm-10"><input name="tahun_lulus" id="exampleEmail" placeholder="Tahun Lulus" type="number" class="form-control" value="{{ $riwayat_pendidikan_formals->tahun_lulus }}" required></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Tempat Belajar</b></label>
-                                                <div class="col-sm-10"><select name="tempat_belajar" id="exampleSelect" class="form-control" value="{{ $riwayat_pendidikan_formals->tempat_belajar }}">
+                                                <div class="col-sm-10"><select name="tempat_belajar" id="exampleSelect" class="form-control" value="{{ $riwayat_pendidikan_formals->tempat_belajar }}" required>
+                                                <option value="" disabled selected>-Pilih Tempat Belajar-</option>
                                                 @if($riwayat_pendidikan_formals->tempat_belajar == "1")
                                                 <option value="1" selected>Dalam Negeri</option>
                                                 <option value="2">Luar Negeri</option>
@@ -409,10 +411,10 @@
                                                 </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Lokasi</b></label>
-                                                <div class="col-sm-10"><input name="lokasi" id="exampleEmail" placeholder="Lokasi" type="text" class="form-control" value="{{ $riwayat_pendidikan_formals->lokasi }}"></div>
+                                                <div class="col-sm-10"><input name="lokasi" id="exampleEmail" placeholder="Lokasi" type="text" class="form-control" value="{{ $riwayat_pendidikan_formals->lokasi }}" required></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nomor ijazah</b></label>
-                                                <div class="col-sm-10"><input name="nomor_ijazah" id="exampleEmail" placeholder="Nomor ijazah" type="number" class="form-control" value="{{ $riwayat_pendidikan_formals->nomor_ijazah }}"></div>
+                                                <div class="col-sm-10"><input name="nomor_ijazah" id="exampleEmail" placeholder="Nomor ijazah" type="number" class="form-control" value="{{ $riwayat_pendidikan_formals->nomor_ijazah }}" required></div>
                                             </div>  
                                       
             </div>
@@ -434,7 +436,7 @@
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Hapus Data Dasar Pegawai</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Hapus Data Riwayat Pendidikan Formal</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -443,7 +445,7 @@
             <form action="riwayat_pendidikan_formal/delete/{{$riwayat_pendidikan_formals->id}}" method="post">
             @method('delete')
             @csrf
-                <p><center>Apakah anda yakin <p>"Hapus Data Dasar Pegawai" <b></b> </p></center></p>
+                <p><center>Apakah anda yakin <p>"Hapus Data Riwayat Pendidikan Formal" <b></b> </p></center></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>

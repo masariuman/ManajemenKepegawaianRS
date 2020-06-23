@@ -66,12 +66,16 @@
             <table class="mb-0 table table-striped">
                     <tbody>
                         <tr>
+                            <th scope="row" class="sidetable">KATEGORI</th>
+                            <td><b>{{$pengukuran_skps->kategori}}</b></td>
+                        </tr>
+                        <tr>
                             <th scope="row" class="sidetable">KEGIATAN TUGAS TAMBAHAN</th>
                             <td><b>{{$pengukuran_skps->kegiatan_tugas_tambahan}}</b></td>
                         </tr>
                         <tr>
-                            <th scope="row" class="sidetable">KATEGORI</th>
-                            <td><b>{{$pengukuran_skps->kategori}}</b></td>
+                            <th scope="row" class="sidetable">KATEGORI PENGUKURAN</th>
+                            <td><b>{{$pengukuran_skps->kategori_pengukuran}}</b></td>
                         </tr>
                         <tr>
                             <th scope="row" class="sidetable">AK TARGET</th>
@@ -179,24 +183,6 @@
                         </tr>
                     </tbody>
                 </table>
-                                            <!-- <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tahun :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pengukuran_skps->tahun}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nama Penghargaan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pengukuran_skps->nama_penghargaan}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal Perolehan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($pengukuran_skps->tanggal_perolehan)) }}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nomor :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pengukuran_skps->nomor}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Negara / Instansi Pemberi :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pengukuran_skps->pemberi}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Jabatan Pemberi :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$pengukuran_skps->jabatan_pemberi}}</b></h6></div>          
-                                            </div> -->
  
             </div>
             <div class="modal-footer">
@@ -223,15 +209,23 @@
             </div>
             <div class="modal-body">
             <form class="" action="{{route('pengukuran_skp_tambah')}}" method="post">
-                                            @csrf 
+                                            @csrf
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Kategori</b></label>
+                                                <div class="col-sm-10"><select name="kategori" id="exampleSelect" class="form-control" required>
+                                                                            <option value="" disabled selected>-Pilih Kategori-</option>
+                                                                            <option value="Semester 1">Semester 1</option>
+                                                                            <option value="semester 2">Semester 2</option>
+                                                                            <option value="Setahun">Setahun</option>
+                                                                        </select></div>          
+                                            </div> 
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Kegiatan Tugas Tambahan</b></label>
                                                 <div class="col-sm-10"><input name="kegiatan_tugas_tambahan" id="exampleEmail" placeholder="Kegiatan Tugas Tambahan" type="number" class="form-control" value="" required></div>          
                                             </div> 
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Kategori</b></label>
-                                                <div class="col-sm-10"><select name="kategori" id="exampleSelect" class="form-control" required>
-                                                                            <option value="" disabled selected>-Pilih Kategori-</option>
-                                                                            <option value="kegiatan_tugas_tambahan">Kegiatan Tugas Tambahan</option>
-                                                                            <option value="tugas_tambahan">Tugas Tambahan</option>
+                                                <div class="col-sm-10"><select name="kategori_pengukuran" id="exampleSelect" class="form-control" required>
+                                                                            <option value="" disabled selected>-Pilih Kategori Pengukuran-</option>
+                                                                            <option value="kegiatan Tugas Tambahan">Kegiatan Tugas Tambahan</option>
+                                                                            <option value="Tugas Tambahan">Tugas Tambahan</option>
                                                                             <option value="kreativitas">Kreativitas</option>
                                                                         </select></div>          
                                             </div>
@@ -341,20 +335,40 @@
             <form class="" action="pengukuran_skp/update/{{$pengukuran_skps->id}}" method="post">
                                             @method('patch')
                                             @csrf
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Kategori</b></label>
+                                                <div class="col-sm-10"><select name="kategori" id="exampleSelect" class="form-control" value="{{$pengukuran_skps->kategori}}" required>
+                                                                            <option value="" disabled selected>-Pilih Kategori-</option>
+                                                                            @if($pengukuran_skps->kategori == "Semester 1")
+                                                                            <option value="Semester 1" selected>Semester 1</option>
+                                                                            <option value="Semester 2">Semester 2</option>
+                                                                            <option value="Setahun">Setahun</option>
+                                                                            @elseif($pengukuran_skps->kategori == "Semester 2")
+                                                                            <option value="Semester 1">Semester 1</option>
+                                                                            <option value="Semester 2" selected>Semester 2</option>
+                                                                            <option value="Setahun">setahun</option>
+                                                                            @elseif($pengukuran_skps->kategori == "Setahun")
+                                                                            <option value="Semester 1">Semester 1</option>
+                                                                            <option value="Semester 2">Semester 2</option>
+                                                                            <option value="Setahun" selected>Setahun</option>
+                                                                            @endif
+                                                                            
+                                                                        </select></div>          
+                                            </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Kegiatan Tugas Tambahan</b></label>
                                                 <div class="col-sm-10"><input name="kegiatan_tugas_tambahan" id="exampleEmail" placeholder="Kegiatan Tugas Tambahan" type="number" class="form-control" value="{{$pengukuran_skps->kegiatan_tugas_tambahan}}" required></div>          
                                             </div> 
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Kategori</b></label>
-                                                <div class="col-sm-10"><select name="kategori" id="exampleSelect" class="form-control" required>
-                                                                            @if($pengukuran_skps->kategori == "kegitan_tugas_tambah")
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Kategori Pengukuran</b></label>
+                                                <div class="col-sm-10"><select name="kategori_pengukuran" id="exampleSelect" class="form-control" value="{{$pengukuran_skps->kategori_pengukuran}}" required>
+                                                                            <option value="" disabled selected>-Pilih Kategori Pengukuran-</option>
+                                                                            @if($pengukuran_skps->kategori_pengukuran == "kegitan_tugas_tambah")
                                                                             <option value="kegiatan_tugas_tambahan" selected>Kegiatan Tugas Tambahan</option>
                                                                             <option value="tugas_tambahan">Tugas Tambahan</option>
                                                                             <option value="kreativitas">Kreativitas</option>
-                                                                            @elseif($pengukuran_skps->kategori == "tugas_tambahan")
+                                                                            @elseif($pengukuran_skps->kategori_pengukuran == "tugas_tambahan")
                                                                             <option value="kegiatan_tugas_tambahan">Kegiatan Tugas Tambahan</option>
                                                                             <option value="tugas_tambahan" selected>Tugas Tambahan</option>
                                                                             <option value="kreativitas">Kreativitas</option>
-                                                                            @elseif($pengukuran_skps->kategori == "tugas_tambahan")
+                                                                            @elseif($pengukuran_skps->kategori_pengukuran == "tugas_tambahan")
                                                                             <option value="kegiatan_tugas_tambahan">Kegiatan Tugas Tambahan</option>
                                                                             <option value="tugas_tambahan">Tugas Tambahan</option>
                                                                             <option value="kreativitas" selected>Kreativitas</option>

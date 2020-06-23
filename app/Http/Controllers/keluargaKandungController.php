@@ -15,7 +15,7 @@ class keluargaKandungController extends Controller
      */
     public function index()
     {
-        $keluarga_kandung = KeluargaKandung::get();
+        $keluarga_kandung = KeluargaKandung::where('active', '1')->get();
 
         return view('keluarga_kandung', compact('keluarga_kandung'));
     }

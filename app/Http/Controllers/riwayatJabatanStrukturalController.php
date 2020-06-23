@@ -15,7 +15,7 @@ class riwayatJabatanStrukturalController extends Controller
      */
     public function index()
     {
-        $riwayat_jabatan_struktural = JabatanStruktural::get();
+        $riwayat_jabatan_struktural = JabatanStruktural::where('active', '1')->get();
         return view('riwayat_jabatan_struktural', compact('riwayat_jabatan_struktural'));
     }
 

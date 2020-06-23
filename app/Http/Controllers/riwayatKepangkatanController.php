@@ -15,7 +15,7 @@ class riwayatKepangkatanController extends Controller
      */
     public function index()
     {
-        $riwayat_kepangkatan = Kepangkatan::get();
+        $riwayat_kepangkatan = Kepangkatan::where('active', '1')->get();
 
         return view('riwayat_kepangkatan', compact('riwayat_kepangkatan'));
     }

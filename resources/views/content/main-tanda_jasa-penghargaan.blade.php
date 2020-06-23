@@ -219,7 +219,7 @@
             <form action="tanda_jasa_penghargaan/delete/{{$tanda_jasa_penghargaans->id}}" method="post">
             @method('delete')
             @csrf
-                <p><center>Apakah anda yakin <p>"Hapus Data Tanda Jasa Penghargaan" <b></b> </p></center></p>
+                <p><center>Apakah anda yakin <p>"Hapus Data Tanda Jasa / Penghargaan" <b></b> </p></center></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>

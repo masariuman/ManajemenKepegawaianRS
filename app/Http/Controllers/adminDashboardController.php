@@ -56,6 +56,7 @@ class adminDashboardController extends Controller
         $data['count_sikp'] = count($data['sikp']);
         $data['count_spk'] = count($data['spk']);
         $data['count_rkk'] = count($data['rkk']);
+        
         return view('admin/dashboard/index',$data);
     }
 

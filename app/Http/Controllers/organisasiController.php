@@ -15,7 +15,7 @@ class organisasiController extends Controller
      */
     public function index()
     {
-        $keanggotaan_organisasi = Organisasi::get();
+        $keanggotaan_organisasi = Organisasi::where('active', '1')->get();
 
         return view('keanggotaan_organisasi', compact('keanggotaan_organisasi'));
     }

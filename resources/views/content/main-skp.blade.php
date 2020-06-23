@@ -159,9 +159,9 @@
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Kategori</b></label>
                                                 <div class="col-sm-10"><select name="kategori" id="exampleSelect" class="form-control" required>
                                                                             <option value="" disabled selected>-Pilih Kategori-</option>
-                                                                            <option value="semester 1">Semester 1</option>
+                                                                            <option value="Semester 1">Semester 1</option>
                                                                             <option value="semester 2">Semester 2</option>
-                                                                            <option value="setahun">Setahun</option>
+                                                                            <option value="Setahun">Setahun</option>
                                                                         </select></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nama Pejabat Penilai</b></label>
@@ -223,19 +223,20 @@
                                             @method('patch')
                                             @csrf
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Kategori</b></label>
-                                                <div class="col-sm-10"><select name="kategori" id="exampleSelect" class="form-control" required>
-                                                                            @if($skps->kategori == "semester 1")
-                                                                            <option value="semester 1" selected>Semester 1</option>
-                                                                            <option value="semester 2">Semester 2</option>
-                                                                            <option value="setahun">Setahun</option>
-                                                                            @elseif($skps->kategori == "semester 2")
-                                                                            <option value="semester 1">Semester 1</option>
-                                                                            <option value="semester 2" selected>Semester 2</option>
-                                                                            <option value="setahun">setahun</option>
-                                                                            @elseif($skps->kategori == "semester 1")
-                                                                            <option value="semester 1">semester 1</option>
-                                                                            <option value="semester 2">semester 2</option>
-                                                                            <option value="setahun" selected>Setahun</option>
+                                                <div class="col-sm-10"><select name="kategori" id="exampleSelect" class="form-control" value="{{$skps->kategori}}" required>
+                                                                            <option value="" disabled selected>-Pilih Kategori-</option>
+                                                                            @if($skps->kategori == "Semester 1")
+                                                                            <option value="Semester 1" selected>Semester 1</option>
+                                                                            <option value="Semester 2">Semester 2</option>
+                                                                            <option value="Setahun">Setahun</option>
+                                                                            @elseif($skps->kategori == "Semester 2")
+                                                                            <option value="Semester 1">Semester 1</option>
+                                                                            <option value="Semester 2" selected>Semester 2</option>
+                                                                            <option value="Setahun">setahun</option>
+                                                                            @elseif($skps->kategori == "Setahun")
+                                                                            <option value="Semester 1">Semester 1</option>
+                                                                            <option value="Semester 2">Semester 2</option>
+                                                                            <option value="Setahun" selected>Setahun</option>
                                                                             @endif
                                                                             
                                                                         </select></div>          

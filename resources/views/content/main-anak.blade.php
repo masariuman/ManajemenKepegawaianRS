@@ -291,6 +291,7 @@
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Jenis Kelamin</b></label>
                                                 <div class="col-sm-10"><select name="jenis_kelamin" id="exampleSelect" class="form-control" value="{{$anaks->jenis_kelamin}}" required>
+                                                <option value="" disabled selected>-Pilih Jenis Kelamin-</option>
                                                 @if($anaks->jenis_kelamin == "P")
                                                 <option value="P" selected>Pria</option>
                                                 <option value="W">Wanita</option>
@@ -308,6 +309,7 @@
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Status Anak</b></label>
                                                 <div class="col-sm-10"><select name="status_anak" id="exampleSelect" class="form-control" value="{{$anaks->status_anak}}"  required>
+                                                <option value="" disabled selected>-Pilih Status Anak-</option>
                                                 @if($anaks->status_anak == "1")
                                                 <option value="1" selected>Anak Kandung</option>
                                                 <option value="2">Anak Tiri</option>

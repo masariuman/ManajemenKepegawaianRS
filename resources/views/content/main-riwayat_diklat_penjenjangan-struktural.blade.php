@@ -57,7 +57,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Lihat Data Riwayat Diklat Penjenjang Struktural</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Lihat Data Riwayat Diklat Penjenjang / Struktural</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -162,7 +162,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Tambah Data Riwayat Diklat Penjenjang Struktural</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Tambah Data Riwayat Diklat Penjenjang / Struktural</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -171,7 +171,7 @@
             <form class="" action="{{route('riwayat_diklat_penjenjangan_struktural_tambah')}}" method="post">
                                             @csrf  
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Jenis Diklat</b></label>
-                                                <div class="col-sm-10"><select name="jenis_diklat" id="exampleSelect" class="form-control">
+                                                <div class="col-sm-10"><select name="jenis_diklat" id="exampleSelect" class="form-control" required>
                                                 <option value="" disabled selected>-Pilih Jenis Diklat-</option>
                                                 <option value="1">Diklatpim Tk I</option>
                                                 <option value="2">Diklatpim Tk II</option>
@@ -180,25 +180,25 @@
                                                 </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Angkatan</b></label>
-                                                <div class="col-sm-10"><input name="angkatan" id="exampleEmail" placeholder="Angkatan" type="number" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="angkatan" id="exampleEmail" placeholder="Angkatan" type="number" class="form-control" value="" required</div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>lokasi</b></label>
-                                                <div class="col-sm-10"><input name="lokasi" id="exampleEmail" placeholder="Penyelenggara" type="text" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="lokasi" id="exampleEmail" placeholder="Penyelenggara" type="text" class="form-control" value="" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal Mulai</b></label>
-                                                <div class="col-sm-10"><input name="tanggal_mulai" id="exampleEmail" placeholder="Tanggal Mulai" type="date" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="tanggal_mulai" id="exampleEmail" placeholder="Tanggal Mulai" type="date" class="form-control" value="" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal Selesai</b></label>
-                                                <div class="col-sm-10"><input name="tanggal_selesai" id="exampleEmail" placeholder="Tanggal Selesai" type="date" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="tanggal_selesai" id="exampleEmail" placeholder="Tanggal Selesai" type="date" class="form-control" value="" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Jumlah Jam</b></label>
-                                                <div class="col-sm-10"><input name="jumlah_jam" id="exampleEmail" placeholder="Jumlah Jam" type="number" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="jumlah_jam" id="exampleEmail" placeholder="Jumlah Jam" type="number" class="form-control" value="" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Penyelenggara</b></label>
-                                                <div class="col-sm-10"><input name="penyelenggara" id="exampleEmail" placeholder="Penyelenggara" type="text" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="penyelenggara" id="exampleEmail" placeholder="Penyelenggara" type="text" class="form-control" value="" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Predikat</b></label>
-                                                <div class="col-sm-10"><input name="predikat" id="exampleEmail" placeholder="Predikat" type="text" class="form-control" value=""></div>          
+                                                <div class="col-sm-10"><input name="predikat" id="exampleEmail" placeholder="Predikat" type="text" class="form-control" value="" required></div>          
                                             </div>                      
             </div>
             <div class="modal-footer">
@@ -219,7 +219,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Ubah Data Riwayat Diklat Penjenjang Struktural</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Ubah Data Riwayat Diklat Penjenjang / Struktural</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -229,7 +229,7 @@
                                             @method('patch')
                                             @csrf
                                             <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label"><b>Jenis Diklat</b></label>
-                                                <div class="col-sm-10"><select name="jenis_diklat" id="exampleSelect" class="form-control">
+                                                <div class="col-sm-10"><select name="jenis_diklat" id="exampleSelect" class="form-control" value="{{$riwayat_diklat_penjenjangan_strukturals->jenis_diklat}}" required>
                                                 <option value="" disabled selected>-Pilih Jenis Diklat-</option>
                                                 @if($riwayat_diklat_penjenjangan_strukturals->jenis_diklat == "1")
                                                 <option value="1" selected>Diklatpim Tk I</option>
@@ -255,25 +255,25 @@
                                                 </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Angkatan</b></label>
-                                                <div class="col-sm-10"><input name="angkatan" id="exampleEmail" placeholder="Angkatan" type="number" class="form-control" value="{{$riwayat_diklat_penjenjangan_strukturals->angkatan}}"></div>          
+                                                <div class="col-sm-10"><input name="angkatan" id="exampleEmail" placeholder="Angkatan" type="number" class="form-control" value="{{$riwayat_diklat_penjenjangan_strukturals->angkatan}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>lokasi</b></label>
-                                                <div class="col-sm-10"><input name="lokasi" id="exampleEmail" placeholder="Penyelenggara" type="text" class="form-control" value="{{$riwayat_diklat_penjenjangan_strukturals->lokasi}}"></div>          
+                                                <div class="col-sm-10"><input name="lokasi" id="exampleEmail" placeholder="Penyelenggara" type="text" class="form-control" value="{{$riwayat_diklat_penjenjangan_strukturals->lokasi}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal Mulai</b></label>
-                                                <div class="col-sm-10"><input name="tanggal_mulai" id="exampleEmail" placeholder="Tanggal Mulai" type="date" class="form-control" value="{{$riwayat_diklat_penjenjangan_strukturals->tanggal_mulai}}"></div>          
+                                                <div class="col-sm-10"><input name="tanggal_mulai" id="exampleEmail" placeholder="Tanggal Mulai" type="date" class="form-control" value="{{$riwayat_diklat_penjenjangan_strukturals->tanggal_mulai}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Tanggal Selesai</b></label>
-                                                <div class="col-sm-10"><input name="tanggal_selesai" id="exampleEmail" placeholder="Tanggal Selesai" type="date" class="form-control" value="{{$riwayat_diklat_penjenjangan_strukturals->tanggal_selesai}}"></div>          
+                                                <div class="col-sm-10"><input name="tanggal_selesai" id="exampleEmail" placeholder="Tanggal Selesai" type="date" class="form-control" value="{{$riwayat_diklat_penjenjangan_strukturals->tanggal_selesai}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Jumlah Jam</b></label>
-                                                <div class="col-sm-10"><input name="jumlah_jam" id="exampleEmail" placeholder="Jumlah Jam" type="number" class="form-control" value="{{$riwayat_diklat_penjenjangan_strukturals->jumlah_jam}}"></div>          
+                                                <div class="col-sm-10"><input name="jumlah_jam" id="exampleEmail" placeholder="Jumlah Jam" type="number" class="form-control" value="{{$riwayat_diklat_penjenjangan_strukturals->jumlah_jam}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Penyelenggara</b></label>
-                                                <div class="col-sm-10"><input name="penyelenggara" id="exampleEmail" placeholder="Penyelenggara" type="text" class="form-control" value="{{$riwayat_diklat_penjenjangan_strukturals->penyelenggara}}"></div>          
+                                                <div class="col-sm-10"><input name="penyelenggara" id="exampleEmail" placeholder="Penyelenggara" type="text" class="form-control" value="{{$riwayat_diklat_penjenjangan_strukturals->penyelenggara}}" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Predikat</b></label>
-                                                <div class="col-sm-10"><input name="predikat" id="exampleEmail" placeholder="Predikat" type="text" class="form-control" value="{{$riwayat_diklat_penjenjangan_strukturals->predikat}}"></div>          
+                                                <div class="col-sm-10"><input name="predikat" id="exampleEmail" placeholder="Predikat" type="text" class="form-control" value="{{$riwayat_diklat_penjenjangan_strukturals->predikat}}" required></div>          
                                             </div>
                                       
             </div>
@@ -295,7 +295,7 @@
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Hapus Data Riwayat Penjenjang Struktural</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Hapus Data Riwayat Penjenjang / Struktural</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -304,7 +304,7 @@
             <form action="riwayat_diklat_penjenjangan_struktural/delete/{{$riwayat_diklat_penjenjangan_strukturals->id}}" method="post">
             @method('delete')
             @csrf
-                <p><center>Apakah anda yakin <p>"Hapus Data Dasar Pegawai" <b></b> </p></center></p>
+                <p><center>Apakah anda yakin <p>"Hapus Data Riwayat Penjenjang / Struktural" <b></b> </p></center></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>

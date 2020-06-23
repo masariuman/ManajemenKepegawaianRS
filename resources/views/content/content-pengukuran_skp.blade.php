@@ -129,8 +129,9 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Tahun</th>
-                                                <th>Kegiatan_tugas Tambah</th>
                                                 <th>Kategori</th>
+                                                <th>Kegiatan tugas Tambahan</th>
+                                                <th>Kategori Pengukuran</th>
                                                 <th>AK Target</th>
                                                 <th>Target Kuant Output 1</th>
                                                 <th>Target Kuant Output 2</th>
@@ -165,8 +166,9 @@
                                             <tr>
                                                 <th scope="row">{{++$key}}</th>
                                                 <td>{{$pengukuran_skps->skp_id}}</td>
-                                                <td>{{$pengukuran_skps->kegiatan_tugas_tambahan}}</td>
                                                 <td>{{$pengukuran_skps->kategori}}</td>
+                                                <td>{{$pengukuran_skps->kegiatan_tugas_tambahan}}</td>
+                                                <td>{{$pengukuran_skps->kategori_pengukuran}}</td>
                                                 <td>{{$pengukuran_skps->ak_target}}</td>
                                                 <td>{{$pengukuran_skps->target_kuant_output_1}}</td>
                                                 <td>{{$pengukuran_skps->target_kuant_output_2}}</td>

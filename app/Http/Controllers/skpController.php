@@ -18,7 +18,7 @@ class skpController extends Controller
      */
     public function indexSkp()
     {
-        $skp = Skp::get();
+        $skp = Skp::where('active', '1')->get();
 
         return view('skp', compact('skp'));
     }
@@ -27,7 +27,7 @@ class skpController extends Controller
     public function indexPengukuranSkp()
     {
 
-        $pengukuran_skp = PengukuranSkp::get();
+        $pengukuran_skp = PengukuranSkp::where('active', '1')->get();
 
         return view('pengukuran_skp', compact('pengukuran_skp'));
     }
@@ -35,7 +35,7 @@ class skpController extends Controller
 
     public function indexPerilakuKerjaSkp()
     {
-        $perilaku_kerja_skp = PerilakuKerjaSkp::get();
+        $perilaku_kerja_skp = PerilakuKerjaSkp::where('active', '1')->get();
 
         return view('perilaku_kerja_skp', compact('perilaku_kerja_skp'));
     }
@@ -43,7 +43,7 @@ class skpController extends Controller
 
     public function indexPenilaianSkp()
     {
-        $penilaian_skp = PenilaianSkp::get();
+        $penilaian_skp = PenilaianSkp::where('active', '1')->get();
 
         return view('penilaian_skp', compact('penilaian_skp'));
     }
@@ -92,11 +92,11 @@ class skpController extends Controller
 
     public function storePengukuranSkp(Request $request)
     {
-        $skp_id = Skp::where('pegawai_id', Auth()->user()->id)->first();
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
         
-
         $pengukuran_skp = PengukuranSkp::create([
-            'skp_id' => $skp_id->id,
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id->id,
             'kegiatan_tugas_tambahan' => $request->kegiatan_tugas_tambahan,
             'kategori' => $request->kategori,
             'ak_target' => $request->ak_target,
@@ -136,10 +136,11 @@ class skpController extends Controller
 
     public function storePerilakuKerjaSkp(Request $request)
     {
-        $skp_id = Skp::where('pegawai_id', Auth()->user()->id)->first();
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
-        $perilaku_kerja_skp = PerilakuKerjaSpk::create([
-            'skp_id' => $skp_id->id,
+        $perilaku_kerja_skp = PerilakuKerjaSkp::create([
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id->id,
             'orientasi_pelayanan' => $request->orientasi_pelayanan,
             'integritas' => $request->integritas,
             'komitmen' => $request->komitmen,
@@ -147,11 +148,11 @@ class skpController extends Controller
             'kerjasama' => $request->kerjasama,
             'kepemimpinan' => $request->kepemimpinan,
             'jumlah' => $request->jumlah,
-            'rata-rata' => $request->rata_rata,
+            'rata_rata' => $request->rata_rata,
             'active' => $request->input('active', 1),
         ]);
 
-        \Session::flash('Berhasil', 'Data Perilaju Kerja SKP berhasil ditambahkan');
+        \Session::flash('Berhasil', 'Data PerilaKu Kerja SKP berhasil ditambahkan');
 
         return back();
     }
@@ -159,10 +160,11 @@ class skpController extends Controller
 
     public function storePenilaianSkp(Request $request)
     {
-        $skp_id = Skp::where('pegawai_id', Auth()->user()->id)->first();
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
         $penilaian_skp = PenilaianSkp::create([
-            'skp_id' => $skp_id->id,
+            'tahun' => $request->input('tahun', 2020),
+            'pegawai_id' => $pegawai_id->id,
             'sasaran_kerja_pegawai' => $request->sasaran_kerja_pegawai,
             'orientasi_pelayanan' => $request->orientasi_pelayanan,
             'integritas' => $request->integritas,
@@ -171,7 +173,7 @@ class skpController extends Controller
             'kerjasama' => $request->kerjasama,
             'kepemimpinan' => $request->kepemimpinan,
             'jumlah' => $request->jumlah,
-            'rata-rata' => $request->rata_rata,
+            'rata_rata' => $request->rata_rata,
             'nilai_perilaku_kerja' => $request->nilai_perilaku_kerja,
             'jumlah_sasaran_kerja_pegawai' => $request->jumlah_sasaran_kerja_pegawai,
             'jumlah_orientasi_pelayanan' => $request->jumlah_orientasi_pelayanan,
@@ -181,7 +183,7 @@ class skpController extends Controller
             'jumlah_kerjasama' => $request->jumlah_kerjasama,
             'jumlah_kepemimpinan' => $request->jumlah_kepemimpinan,
             'jumlah_jumlah' => $request->jumlah_jumlah,
-            'jumlah_rata-rata' => $request->jumlah_rata_rata,
+            'jumlah_rata_rata' => $request->jumlah_rata_rata,
             'jumlah_nilai_perilaku_kerja' => $request->jumlah_nilai_perilaku_kerja,
             'nilai_prestasi_kerja_1' => $request->nilai_prestasi_kerja_1,
             'nilai_prestasi_kerja_2' => $request->nilai_prestasi_kerja_2,
@@ -262,10 +264,10 @@ class skpController extends Controller
 
     public function updatePengukuranSkp(Request $request, $id)
     {
-        $skp_id = Skp::where('pegawai_id', Auth()->user()->id)->first();
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
         $pengukuran_skp = PengukuranSkp::where('id', $id)->update([
-            'skp_id' => $skp_id->id,
+            'pegawai_id' => $pegawai_id->id,
             'kegiatan_tugas_tambahan' => $request->kegiatan_tugas_tambahan,
             'kategori' => $request->kategori,
             'ak_target' => $request->ak_target,
@@ -305,10 +307,10 @@ class skpController extends Controller
 
     public function updatePerilakuKerjaSkp(Request $request, $id)
     {
-        $skp_id = Skp::where('pegawai_id', Auth()->user()->id)->first();
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
-        $perilaku_kerja_skp = PerilakuKerjaSpk::where('id', $id)->update([
-            'skp_id' => $skp_id->id,
+        $perilaku_kerja_skp = PerilakuKerjaSkp::where('id', $id)->update([
+            'pegawai_id' => $pegawai_id->id,
             'orientasi_pelayanan' => $request->orientasi_pelayanan,
             'integritas' => $request->integritas,
             'komitmen' => $request->komitmen,
@@ -316,7 +318,7 @@ class skpController extends Controller
             'kerjasama' => $request->kerjasama,
             'kepemimpinan' => $request->kepemimpinan,
             'jumlah' => $request->jumlah,
-            'rata-rata' => $request->rata_rata,
+            'rata_rata' => $request->rata_rata,
             'active' => $request->input('active', 1),
         ]);
 
@@ -328,10 +330,10 @@ class skpController extends Controller
 
     public function updatePenilaianSkp(Request $request, $id)
     {
-        $skp_id = Skp::where('pegawai_id', Auth()->user()->id)->first();
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
 
         $penilaian_skp = PenilaianSkp::where('id', $id)->update([
-            'skp_id' => $skp_id->id,
+            'pegawai_id' => $pegawai_id->id,
             'sasaran_kerja_pegawai' => $request->sasaran_kerja_pegawai,
             'orientasi_pelayanan' => $request->orientasi_pelayanan,
             'integritas' => $request->integritas,
@@ -340,7 +342,7 @@ class skpController extends Controller
             'kerjasama' => $request->kerjasama,
             'kepemimpinan' => $request->kepemimpinan,
             'jumlah' => $request->jumlah,
-            'rata-rata' => $request->rata_rata,
+            'rata_rata' => $request->rata_rata,
             'nilai_perilaku_kerja' => $request->nilai_perilaku_kerja,
             'jumlah_sasaran_kerja_pegawai' => $request->jumlah_sasaran_kerja_pegawai,
             'jumlah_orientasi_pelayanan' => $request->jumlah_orientasi_pelayanan,
@@ -350,7 +352,7 @@ class skpController extends Controller
             'jumlah_kerjasama' => $request->jumlah_kerjasama,
             'jumlah_kepemimpinan' => $request->jumlah_kepemimpinan,
             'jumlah_jumlah' => $request->jumlah_jumlah,
-            'jumlah_rata-rata' => $request->jumlah_rata_rata,
+            'jumlah_rata_rata' => $request->jumlah_rata_rata,
             'jumlah_nilai_perilaku_kerja' => $request->jumlah_nilai_perilaku_kerja,
             'nilai_prestasi_kerja_1' => $request->nilai_prestasi_kerja_1,
             'nilai_prestasi_kerja_2' => $request->nilai_prestasi_kerja_2,
@@ -398,7 +400,7 @@ class skpController extends Controller
     }
 
 
-    public function destroyPerilakuKerja($id)
+    public function destroyPerilakuKerjaSkp($id)
     {
         $perilaku_kerja_skp = PerilakuKerjaSkp::where('id', $id)->delete();
    
@@ -408,9 +410,9 @@ class skpController extends Controller
     }
 
 
-    public function destroyPenilaian($id)
+    public function destroyPenilaianSkp($id)
     {
-        $penilaian_skp = PenilainSkp::where('id', $id)->delete();
+        $penilaian_skp = PenilaianSkp::where('id', $id)->delete();
    
         \Session::flash('Berhasil', 'Data Penilaian SPK berhasil dihapus');
 

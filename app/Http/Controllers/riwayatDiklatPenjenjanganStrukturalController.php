@@ -15,7 +15,7 @@ class riwayatDiklatPenjenjanganStrukturalController extends Controller
      */
     public function index()
     {
-        $riwayat_diklat_penjenjangan_struktural = DiklatPenjenjangan::get();
+        $riwayat_diklat_penjenjangan_struktural = DiklatPenjenjangan::where('active', '1')->get();
         
         return view('riwayat_diklat_penjenjangan-struktural', compact('riwayat_diklat_penjenjangan_struktural'));
     }

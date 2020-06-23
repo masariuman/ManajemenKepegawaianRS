@@ -15,7 +15,7 @@ class riwayatPendidikanFormalController extends Controller
      */
     public function index()
     {
-        $riwayat_pendidikan_formal = PendidikanFormal::get();
+        $riwayat_pendidikan_formal = PendidikanFormal::where('active', '1')->get();
 
         // return $pendidikan_formal;
 
