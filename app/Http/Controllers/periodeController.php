@@ -15,6 +15,8 @@ class periodeController extends Controller
     public function index()
     {
         //
+        $data['periode'] = Periode::all();
+        return view('admin/periode/index',$data);
     }
 
     /**

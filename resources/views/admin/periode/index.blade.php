@@ -27,8 +27,8 @@
                         <i class="pe-7s-home icon-gradient bg-happy-fisher">
                         </i>
                     </div>
-                    <div>Ruangan
-                        <div class="page-title-subheading">Data Ruangan
+                    <div>Periode
+                        <div class="page-title-subheading">Data Periode
                         </div>
                     </div>
                 </div>
@@ -44,21 +44,23 @@
             <div class="tab-pane tabs-animation fade show active" id="tab-content-1" role="tabpanel">
                 <div class="main-card mb-3 card">
                     <div class="card-body">
-                        <button class="mb-2 mr-2 btn-transition btn btn-outline-primary width100" data-toggle="modal" data-target="#exampleModalLargeTambah" title="Tambah Ruangan Baru">Tambah Ruangan Baru</button>
+                        <button class="mb-2 mr-2 btn-transition btn btn-outline-primary width100" data-toggle="modal" data-target="#exampleModalLargeTambah" title="Tambah Periode Baru">Tambah Periode Baru</button>
                         <div class="margintop20">
                             <table class="mb-0 table table-striped" id="table">
                                 <thead>
                                 <tr>
                                     <th class="width40 text-center">No</th>
-                                    <th class="text-center">Ruangan</th>
+                                    <th class="text-center">Tahun</th>
+                                    <th class="text-center">Semester</th>
                                     <th class="width200 text-center">Aksi</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($ruangan as $no => $data)
+                                    @foreach ($periode as $no => $data)
                                         <tr>
                                             <th class="text-center">{{$no+1}}</th>
-                                            <td class="text-center">{{$data->ruangan}}</td>
+                                            <td class="text-center">{{$data->tahun}}</td>
+                                            <td class="text-center">{{$data->periode}}</td>
                                             <td class="text-center">
                                                 <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-warning" title="Ubah Data" data-toggle="modal" data-target="#exampleModalLargeUbah-{{$data->id}}"><i class="pe-7s-pen "></i></button>
                                                 <a href="#"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-danger" title="Hapus Data" data-toggle="modal" data-target="#exampleModalLargeHapus-{{$data->id}}"><i class="pe-7s-trash "></i></button></a>
@@ -82,19 +84,20 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Tambah Ruangan Baru</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Tambah Periode Baru</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     @if(auth()->user()->level == 'ADMIN')
-                        <form class="" action="/it/ruangan" method="post">
+                        <form class="" action="/it/periode" method="post">
                     @else
-                        <form class="" action="/admin/ruangan" method="post">
+                        <form class="" action="/admin/periode" method="post">
                     @endif
                         @csrf
-                        <div class="position-relative form-group"><label for="exampleAddress" class="">Nama Ruangan</label><input name="ruangan" id="exampleAddress" placeholder="Isi disini.." type="text" class="form-control"></div>
+                        <div class="position-relative form-group"><label for="exampleAddress" class="">Tahun</label><input name="tahun" id="exampleAddress" placeholder="Isi disini.." type="text" class="form-control"></div>
+                        <div class="position-relative form-group"><label for="exampleAddress" class="">Periode</label><input name="periode" id="exampleAddress" placeholder="Isi disini.." type="text" class="form-control"></div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
@@ -107,25 +110,26 @@
     <!-- Modal Tambah -->
 
     {{-- Modal Ubah --}}
-    @foreach ($ruangan as $no => $data)
+    @foreach ($periode as $no => $data)
         <div class="modal fade bd-example-modal-lg" id="exampleModalLargeUbah-{{$data->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Ubah Nama Ruangan</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Ubah Periode</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
                         @if(auth()->user()->level == 'ADMIN')
-                            <form class="" action="/it/ruangan/{{$data->id}}" method="post">
+                            <form class="" action="/it/periode/{{$data->id}}" method="post">
                         @else
-                            <form class="" action="/admin/ruangan/{{$data->id}}" method="post">
+                            <form class="" action="/admin/periode/{{$data->id}}" method="post">
                         @endif
                             @method('patch')
                             @csrf
-                            <div class="position-relative form-group"><label for="exampleAddress" class="">Nama Ruangan</label><input name="ruangan" id="exampleAddress" placeholder="Isi disini.." type="text" class="form-control" value="{{$data->ruangan}}"></div>
+                            <div class="position-relative form-group"><label for="exampleAddress" class="">Tahun</label><input name="tahun" id="exampleAddress" placeholder="Isi disini.." type="text" class="form-control" value="{{$data->tahun}}"></div>
+                            <div class="position-relative form-group"><label for="exampleAddress" class="">Periode</label><input name="tahun" id="exampleAddress" placeholder="Isi disini.." type="text" class="form-control" value="{{$data->periode}}"></div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
@@ -138,25 +142,25 @@
     @endforeach
 
     {{-- Modal Hapus --}}
-    @foreach ($ruangan as $no => $data)
+    @foreach ($periode as $no => $data)
         <div class="modal fade bd-example-modal-lg" id="exampleModalLargeHapus-{{$data->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Hapus Ruangan</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Hapus Periode</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
                         @if(auth()->user()->level == 'ADMIN')
-                            <form class="" action="/it/ruangan/{{$data->id}}" method="post">
+                            <form class="" action="/it/periode/{{$data->id}}" method="post">
                         @else
-                            <form class="" action="/admin/ruangan/{{$data->id}}" method="post">
+                            <form class="" action="/admin/periode/{{$data->id}}" method="post">
                         @endif
                             @method('delete')
                             @csrf
-                            <div class="position-relative form-group text-center"><label for="exampleAddress" class="">APAKAH ANDA YAKIN UNTUK MENGHAPUS RUANGAN ATAS NAMA <b>{{$data->ruangan}}</b> ?</label></div>
+                            <div class="position-relative form-group text-center"><label for="exampleAddress" class="">APAKAH ANDA YAKIN UNTUK MENGHAPUS PERIODE TAHUN <b>{{$data->tahun}}</b> PERIODE <b>{{$data->periode}}</b> ?</label></div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>

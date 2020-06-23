@@ -187,6 +187,7 @@ Route::group(['prefix' => 'it', 'middleware'=>['auth','checkRole:ADMIN']], funct
     Route::resource('/pegawai','adminPegawaiController');
     Route::resource('/skp','adminSkpController');
     Route::resource('/ruangan','adminRuanganController');
+    Route::resource('/periode','periodeController');
     Route::resource('/setting','adminSettingController');
 });
 
