@@ -17,7 +17,7 @@ class CreateTableSetting extends Migration
             $table->id();
             $table->string('tahun')->nullable();
             $table->datetime('terakhir_isi_skp')->nullable();
-            $table->string('pesan')->nullable();
+            $table->string('pesan_skp')->nullable();
             $table->enum('active_skp',['1','0'])->nullable();
             $table->timestamps();
         });

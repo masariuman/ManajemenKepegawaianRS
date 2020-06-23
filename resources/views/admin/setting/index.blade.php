@@ -57,7 +57,7 @@
                             </div>
                             <div class="position-relative form-group">
                                 <label for="exampleAddress" class="">Pesan Untuk Pengisian SKP</label>
-                                <input name="pesan" id="asd" placeholder="Isi disini.." type="text" class="form-control" value="{{$setting->pesan}}" />
+                                <input name="pesan_skp" id="asd" placeholder="Isi disini.." type="text" class="form-control" value="{{$setting->pesan_skp}}" />
                             </div>
                             <div class="position-relative form-group">
                                 <label for="exampleAddress" class="">Status Pengisian SKP : </label>

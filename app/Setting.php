@@ -11,7 +11,7 @@ class Setting extends Model
     protected $fillable = [
         'tahun',
         'terakhir_isi_skp',
-        'pesan',
+        'pesan_skp',
         'active_skp',
         'created_at',
         'updated_at'
