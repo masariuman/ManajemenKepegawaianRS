@@ -72,7 +72,6 @@
                 </div>
             </div>
         </div>
-        @include('admin.dashboard.index_partial.alert')
         <div class="tab-content">
             <div class="tab-pane tabs-animation fade" id="tab-content-0" role="tabpanel">
             </div>
@@ -80,13 +79,20 @@
                 <div class="main-card mb-3 card">
                     <div class="card-body">
                         <div class="text-center">
-                            @include('admin.dashboard.index_partial.button')
+                            @include('admin.skp.index_partial.button')
                         </div>
                         <hr />
-                        @include('admin.dashboard.index_partial.str')
-                        @include('admin.dashboard.index_partial.sikp')
-                        @include('admin.dashboard.index_partial.spk')
-                        @include('admin.dashboard.index_partial.rkk')
+                        <div class="text-center margintop50">
+                            <select id="tahun" class="mb-2 mr-2 btn-transition btn btn-outline-dark">
+                                <option value="2020">2020</option>
+                            </select>
+                            <select id="kategori" class="mb-2 mr-2 btn-transition btn btn-outline-dark">
+                                <option value="semester1">Semester 1</option>
+                                <option value="semester2">Semester 2</option>
+                                <option value="setahun">Setahun</option>
+                            </select>
+                        </div>
+                        @include('admin.skp.index_partial.str')
                     </div>
                 </div>
             </div>
@@ -119,6 +125,15 @@
                 }
             });
         } );
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("select").change(function(){
+                var table = $("#tahun").val()+$("#kategori").val();
+                $("table").hide();
+                $("#"+table).show();
+            });
+        });
     </script>
     @include('admin.dashboard.index_partial.hide_show')
 @endpush
