@@ -10,7 +10,7 @@
                                         <div class="page-title-subheading">Isi data dasar pegawai anda disini.
                                         </div>
                                     </div>
-                                </div>               
+                                </div>
                                 <div class="page-title-actions">
                                     <!-- <button type="button" data-toggle="tooltip" title="Example Tooltip" data-placement="bottom" class="btn-shadow mr-3 btn btn-dark">
                                         <i class="fa fa-star"></i>
@@ -62,7 +62,7 @@
                                         </div>
                                     </div> -->
                                 </div>    </div>
-                        </div>           
+                        </div>
                          <!-- <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
                             <li class="nav-item">
                                 <a role="tab" class="nav-link active" id="tab-0" data-toggle="tab" href="#tab-content-0">
@@ -81,7 +81,7 @@
                                 <!-- <div class="main-card mb-3 card">
                                     <div class="card-body"><h5 class="card-title">E-Proposal</h5>
                                         <form class="" action="" method="post">
-                                            @csrf   
+                                            @csrf
                                             <div class="position-relative form-group"><label for="exampleAddress" class="">Judul Program</label><input name="judul_program" id="exampleAddress" placeholder="Isi disini.." type="text" class="form-control"></div>
                                             <div class="position-relative form-group"><label for="exampleAddress" class="">Latar Belakang</label><textarea name="latar_belakang" id="exampleAddress" placeholder="Isi disini.." type="text" class="form-control" rows="10"></textarea></div>
                                             <div class="position-relative form-group"><label for="exampleAddress" class="">Tujuan Program</label><textarea name="address" id="exampleAddress" placeholder="Isi disini.." type="text" class="form-control" rows="10"></textarea></div>
@@ -125,12 +125,12 @@
                                     <div class="card-body"><h5 class="card-title">Masukan Data Dasar Pegawai</h5>
                                 @elseif(!empty($pegawai_id))
                                     <div class="card-body"><h5 class="card-title">Data Dasar Pegawai Anda</h5>
-                                @endif   
+                                @endif
 
                                     @if(empty($pegawai_id))
                                     <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeTambah"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah
                                         </button>
-                                    @endif         
+                                    @endif
 
                                         @foreach($pegawai as $key => $pegawais)
                                                 @if(auth()->user()->id == $pegawais->user_id)
@@ -207,13 +207,13 @@
                 <td><b>@if($pegawais->agama == "1")
                         Islam
                         @elseif($pegawais->agama == "2")
-                        Katholik                                     
+                        Katholik
                         @elseif($pegawais->agama == "3")
                         Protestan
                         @elseif($pegawais->agama == "4")
                         Hindu
                         @elseif($pegawais->agama == "5")
-                        Budha 
+                        Budha
                         @elseif($pegawais->agama == "6")
                         Kristen
                         @endif</b></td>
@@ -315,7 +315,11 @@
             <tr>
                 <th scope="row" class="sidetable">NOMOR TELEPON</th>
                 <td>
-                    <b>{{$pegawais->telepon->first()->telepon}}</b>
+                    @if ($pegawais->telepon->first())
+                        <b>{{$pegawais->telepon->first()->telepon}}</b>
+                    @else
+                        <b></b>
+                    @endif
                 </td>
             </tr>
             <tr>
@@ -364,16 +368,16 @@
                                                     <li class="list-group-item"><b>Nama Pegawai : {{$pegawais->nama_pegawai}}</b></li>
                                                     <li class="list-group-item"><b>Gelar Depan : {{$pegawais->gelar_depan}}</b></li>
                                                     <li class="list-group-item"><b>Gelar Belakang : {{$pegawais->gelar_belakang}}</b></li>
-                                                    <li class="list-group-item"><b>Tempat Lahir : {{$pegawais->tempat_lahir}}</b></li>                                                   
+                                                    <li class="list-group-item"><b>Tempat Lahir : {{$pegawais->tempat_lahir}}</b></li>
                                                     <li class="list-group-item"><b>Tanggal Lahir : {{ date('d/m/Y',strtotime($pegawais->tanggal_lahir)) }}</b></li>
-                                                    <li class="list-group-item"><b>Jenis Kelamin : 
+                                                    <li class="list-group-item"><b>Jenis Kelamin :
                                                                                     @if($pegawais->jenis_kelamin == "P")
                                                                                     Pria
                                                                                     @elseif($pegawais->jenis_kelamin == "W")
                                                                                     Wanita
                                                                                     @endif
                                                                                     </b></li>
-                                                    <li class="list-group-item"><b>Status Keluarga : 
+                                                    <li class="list-group-item"><b>Status Keluarga :
                                                                                     @if($pegawais->status_keluarga == "K")
                                                                                     Nikah
                                                                                     @elseif($pegawais->status_keluarga == "B")
@@ -382,24 +386,24 @@
                                                                                     Duda
                                                                                     @elseif($pegawais->status_keluarga == "J")
                                                                                     Janda
-                                                                                    @endif                                                         
+                                                                                    @endif
                                                                                     </b></li>
-                                                    <li class="list-group-item"><b>Agama : 
+                                                    <li class="list-group-item"><b>Agama :
                                                                                     @if($pegawais->agama == "1")
                                                                                     Islam
                                                                                     @elseif($pegawais->agama == "2")
-                                                                                    Katholik                                     
+                                                                                    Katholik
                                                                                     @elseif($pegawais->agama == "3")
                                                                                     Protestan
                                                                                     @elseif($pegawais->agama == "4")
                                                                                     Hindu
                                                                                     @elseif($pegawais->agama == "5")
-                                                                                    Budha 
+                                                                                    Budha
                                                                                     @elseif($pegawais->agama == "6")
                                                                                     Kristen
                                                                                     @endif
                                                                                     </b></li>
-                                                    <li class="list-group-item"><b>Pendidikan Akhir : 
+                                                    <li class="list-group-item"><b>Pendidikan Akhir :
                                                 @if($pegawais->pendidikan_akhir == "01")
                                                 S3 (Setara)
                                                 @elseif($pegawais->pendidikan_akhir == "02")
@@ -427,7 +431,7 @@
                                                     <li class="list-group-item"><b>Nama Sekolah : {{$pegawais->nama_sekolah}}</b></li>
                                                     <li class="list-group-item"><b>Tahun Lulus : {{$pegawais->tahun_lulus}}</b></li>
                                                     <li class="list-group-item"><b>Jurusan / Prodi : {{$pegawais->jurusan_prodi}}</b></li>
-                                                    <li class="list-group-item"><b>Status Kepegawaian : 
+                                                    <li class="list-group-item"><b>Status Kepegawaian :
                                                 @if($pegawais->status_kepegawaian == "01")
                                                 CPNS
                                                 @elseif($pegawais->status_kepegawaian == "02")
@@ -444,7 +448,7 @@
                                                     <li class="list-group-item"><b>TMT Golongan : {{ date('d/m/Y',strtotime($pegawais->tmt_golongan)) }}</b></li>
                                                     <li class="list-group-item"><b>Nama Jabatan : {{$pegawais->nama_jabatan}}</b></li>
                                                     <li class="list-group-item"><b>Nomor Karpeg : {{$pegawais->nomor_karpeg}}</b></li>
-                                                    <li class="list-group-item"><b>Taspen : 
+                                                    <li class="list-group-item"><b>Taspen :
                                                 @if($pegawais->taspen == "1")
                                                 Sudah
                                                 @elseif($pegawais->taspen == "2")
@@ -455,7 +459,7 @@
                                                     <li class="list-group-item"><b>Alamat Rumah : {{$pegawais->alamat_rumah}}</b></li>
                                                     <li class="list-group-item"><b>Kota : {{$pegawais->kota}}</b></li>
                                                     <li class="list-group-item"><b>Kode Pos : {{$pegawais->kode_pos}}</b></li>
-                                                    <li class="list-group-item"><b>Nomor Telepon : {{$pegawais->telepon->first()->telepon}}</b></li>
+                                                    {{-- <li class="list-group-item"><b>Nomor Telepon : {{$pegawais->telepon->first()->telepon}}</b></li> --}}
                                                     <li class="list-group-item"><b>STR : {{$pegawais->str}}</b></li>
                                                     <li class="list-group-item"><b>Masa STR : {{ date('d/m/Y',strtotime($pegawais->masa_str)) }}</b></li>
                                                     <li class="list-group-item"><b>SIKP : {{$pegawais->sikp}}</b></li>
@@ -467,7 +471,7 @@
                                         </ul> -->
                                         @endif
                                         @endforeach
-                                                                            
+
                                     </div>
                                 </div>
                             </div>
