@@ -70,6 +70,7 @@ class periodeController extends Controller
     public function edit($id)
     {
         //
+
     }
 
     /**
@@ -82,6 +83,16 @@ class periodeController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data = Periode::findOrFail($id);
+        $data->update([
+            'tahun' => $request->tahun,
+            'periode' => $request->periode
+        ]);
+        $pesan = 'Nama Periode berhasil diubah.';
+
+        Session::flash('Berhasil', $pesan);
+
+        return back();
     }
 
     /**
