@@ -45,13 +45,13 @@
                                         Riwayat
                                     <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                 </a>
-                                <ul class="@if(Request::is('riwayat_pendidikan_formal')) {{ Request::is('riwayat_pendidikan_formal') ? 'mm-show' : '' }} 
-                                @elseif(Request::is('riwayat_diklat_fungsional')) {{ Request::is('riwayat_diklat_fungsional') ? 'mm-show' : '' }} 
-                                @elseif(Request::is('riwayat_diklat_teknis')) {{ Request::is('riwayat_diklat_teknis') ? 'mm-show' : '' }} 
-                                @elseif(Request::is('riwayat_diklat_penjenjangan_struktural')) {{ Request::is('riwayat_diklat_penjenjangan_struktural') ? 'mm-show' : '' }} 
-                                @elseif(Request::is('riwayat_kepangkatan')) {{ Request::is('riwayat_kepangkatan') ? 'mm-show' : '' }} 
-                                @elseif(Request::is('riwayat_jabatan_struktural')) {{ Request::is('riwayat_jabatan_struktural') ? 'mm-show' : '' }} 
-                                @elseif(Request::is('riwayat_jabatan_fungsional')) {{ Request::is('riwayat_jabatan_fungsional') ? 'mm-show' : '' }} 
+                                <ul class="@if(Request::is('riwayat_pendidikan_formal')) {{ Request::is('riwayat_pendidikan_formal') ? 'mm-show' : '' }}
+                                @elseif(Request::is('riwayat_diklat_fungsional')) {{ Request::is('riwayat_diklat_fungsional') ? 'mm-show' : '' }}
+                                @elseif(Request::is('riwayat_diklat_teknis')) {{ Request::is('riwayat_diklat_teknis') ? 'mm-show' : '' }}
+                                @elseif(Request::is('riwayat_diklat_penjenjangan_struktural')) {{ Request::is('riwayat_diklat_penjenjangan_struktural') ? 'mm-show' : '' }}
+                                @elseif(Request::is('riwayat_kepangkatan')) {{ Request::is('riwayat_kepangkatan') ? 'mm-show' : '' }}
+                                @elseif(Request::is('riwayat_jabatan_struktural')) {{ Request::is('riwayat_jabatan_struktural') ? 'mm-show' : '' }}
+                                @elseif(Request::is('riwayat_jabatan_fungsional')) {{ Request::is('riwayat_jabatan_fungsional') ? 'mm-show' : '' }}
                                 @elseif(Request::is('riwayat_pekerjaan_jabatan')) {{ Request::is('riwayat_pekerjaan_jabatan') ? 'mm-show' : '' }}@endif ">
                                        <li>
                                         <a href="{{route('riwayat_pendidikan_formal')}}" class="{{ Request::is('riwayat_pendidikan_formal') ? 'mm-active' : '' }}">
@@ -103,7 +103,7 @@
                                     </li>
                                 </ul>
                             </li>
-       
+
                                     <li>
                                         <a href="{{route('istri_suami')}}" class="{{ Request::is('istri_suami') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>
@@ -212,6 +212,12 @@
                                         </a>
                                     </li>
                                     <li>
+                                        <a href="/admin/skp" class="{{ Request::is('admin/skp') ? 'mm-active' : Request::is('admin/skp/*') ? 'mm-active' : '' }}">
+                                            <i class="metismenu-icon fa fa-braille"></i>
+                                            SKP
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="/admin/ruangan" class="{{ Request::is('admin/ruangan') ? 'mm-active' : Request::is('admin/ruangan/*') ? 'mm-active' : ''  }}">
                                             <i class="metismenu-icon pe-7s-home"></i>
                                             Ruangan
@@ -238,9 +244,21 @@
                                         </a>
                                     </li>
                                     <li>
+                                        <a href="/it/skp" class="{{ Request::is('it/skp') ? 'mm-active' : Request::is('it/skp/*') ? 'mm-active' : '' }}">
+                                            <i class="metismenu-icon fa fa-braille"></i>
+                                            SKP
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="/it/ruangan" class="{{ Request::is('it/ruangan') ? 'mm-active' : Request::is('it/ruangan/*') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-home"></i>
                                             Ruangan
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/it/periode" class="{{ Request::is('it/periode') ? 'mm-active' : Request::is('it/periode/*') ? 'mm-active' : '' }}">
+                                            <i class="metismenu-icon fa fa-calendar"></i>
+                                            Periode
                                         </a>
                                     </li>
                                     <li>

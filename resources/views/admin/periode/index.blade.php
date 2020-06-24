@@ -24,7 +24,7 @@
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
                     <div class="page-title-icon">
-                        <i class="pe-7s-home icon-gradient bg-happy-fisher">
+                        <i class="fa fa-calendar icon-gradient bg-happy-fisher">
                         </i>
                     </div>
                     <div>Periode
@@ -63,7 +63,6 @@
                                             <td class="text-center">{{$data->periode}}</td>
                                             <td class="text-center">
                                                 <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-warning" title="Ubah Data" data-toggle="modal" data-target="#exampleModalLargeUbah-{{$data->id}}"><i class="pe-7s-pen "></i></button>
-                                                <a href="#"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-danger" title="Hapus Data" data-toggle="modal" data-target="#exampleModalLargeHapus-{{$data->id}}"><i class="pe-7s-trash "></i></button></a>
                                             </td>
                                         </tr>
                                     @endforeach
