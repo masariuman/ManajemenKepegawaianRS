@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableSetting extends Migration
+class CreateTablePeriode extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateTableSetting extends Migration
      */
     public function up()
     {
-        Schema::create('setting', function (Blueprint $table) {
+        Schema::create('periode', function (Blueprint $table) {
             $table->id();
-            $table->string('tahun')->nullable();
-            $table->datetime('terakhir_isi_skp')->nullable();
-            $table->string('pesan_skp')->nullable();
-            $table->enum('active_skp',['1','0'])->nullable();
+            $table->string('tahun');
+            $table->string('periode');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateTableSetting extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('setting');
+        Schema::dropIfExists('periode');
     }
 }

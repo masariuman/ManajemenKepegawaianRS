@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Setting;
+use App\Periode;
+use Illuminate\Support\Facades\Session;
 
-class adminSettingController extends Controller
+class periodeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,8 @@ class adminSettingController extends Controller
     public function index()
     {
         //
-        $data['setting'] = Setting::findOrFail(1);
-        $data['setting']['terakhir_isi_skp'] = date("Y-m-d", strtotime($data['setting']['terakhir_isi_skp']));
-        return view('admin.setting.index',$data);
+        $data['periode'] = Periode::all();
+        return view('admin/periode/index',$data);
     }
 
     /**
@@ -39,6 +39,15 @@ class adminSettingController extends Controller
     public function store(Request $request)
     {
         //
+        Periode::create([
+            'tahun' => $request->tahun,
+            'periode' => $request->periode
+        ]);
+        $pesan = 'Periode <b>'.$request->tahun.' '.$request->periode.'</b> berhasil dibuat.';
+
+        Session::flash('Berhasil', $pesan);
+
+        return back();
     }
 
     /**
@@ -61,6 +70,7 @@ class adminSettingController extends Controller
     public function edit($id)
     {
         //
+
     }
 
     /**
@@ -73,15 +83,15 @@ class adminSettingController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $setting = Setting::findOrFail(1);
-        $setting->update([
+        $data = Periode::findOrFail($id);
+        $data->update([
             'tahun' => $request->tahun,
-            'terakhir_isi_skp' => $request->tanggal_skp,
-            'pesan_skp' => $request->pesan_skp,
-            'active_skp' => $request->active_skp
+            'periode' => $request->periode
         ]);
+        $pesan = 'Nama Periode berhasil diubah.';
 
-        $data['setting'] = Setting::findOrFail(1);
+        Session::flash('Berhasil', $pesan);
+
         return back();
     }
 

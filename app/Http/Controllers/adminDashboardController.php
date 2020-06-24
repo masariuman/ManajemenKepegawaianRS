@@ -18,7 +18,8 @@ class adminDashboardController extends Controller
     {
         //setting
         $data['setting'] = Setting::findOrFail(1);
-        $data['setting']['terakhir_isi_skp'] = date("d F Y", strtotime($data['setting']['terakhir_isi_skp']));
+        $terakhir_isi_skp = New Carbon($data['setting']['terakhir_isi_skp']);
+        $data['setting']['terakhir_isi_skp'] = $terakhir_isi_skp->translatedFormat('d F Y');
 
         //skp str sikp rkk
         $data['pegawai'] = Pegawai::where('active','1')->orderBy('id','DESC')->get();
