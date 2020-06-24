@@ -97,7 +97,13 @@
                     @endif
                         @csrf
                         <div class="position-relative form-group"><label for="exampleAddress" class="">Tahun</label><input name="tahun" id="exampleAddress" placeholder="Isi disini.." type="text" class="form-control"></div>
-                        <div class="position-relative form-group"><label for="exampleAddress" class="">Periode</label><input name="periode" id="exampleAddress" placeholder="Isi disini.." type="text" class="form-control"></div>
+                        <div class="position-relative form-group"><label for="exampleAddress" class="">Periode</label>
+                            <select class="form-control" name="periode">
+                                <option value="Semester 1">Semester 1</option>
+                                <option value="Semester 2">Semester 2</option>
+                                <option value="Setahun">Setahun</option>
+                            </select>
+                        </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
@@ -129,7 +135,13 @@
                             @method('patch')
                             @csrf
                             <div class="position-relative form-group"><label for="exampleAddress" class="">Tahun</label><input name="tahun" id="exampleAddress" placeholder="Isi disini.." type="text" class="form-control" value="{{$data->tahun}}"></div>
-                            <div class="position-relative form-group"><label for="exampleAddress" class="">Periode</label><input name="tahun" id="exampleAddress" placeholder="Isi disini.." type="text" class="form-control" value="{{$data->periode}}"></div>
+                            <div class="position-relative form-group"><label for="exampleAddress" class="">Periode</label>
+                                <select class="form-control" value="{{$data->periode}}" name="periode">
+                                    <option value="Semester 1">Semester 1</option>
+                                    <option value="Semester 2">Semester 2</option>
+                                    <option value="Setahun">Setahun</option>
+                                </select>
+                            </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Periode;
+use Illuminate\Support\Facades\Session;
 
 class periodeController extends Controller
 {
@@ -38,6 +39,15 @@ class periodeController extends Controller
     public function store(Request $request)
     {
         //
+        Periode::create([
+            'tahun' => $request->tahun,
+            'periode' => $request->periode
+        ]);
+        $pesan = 'Periode <b>'.$request->tahun.' '.$request->periode.'</b> berhasil dibuat.';
+
+        Session::flash('Berhasil', $pesan);
+
+        return back();
     }
 
     /**

@@ -10,7 +10,7 @@ class Periode extends Model
     protected $table = 'periode';
     protected $fillable = [
         'tahun',
-        'semester',
+        'periode',
         'created_at',
         'updated_at'
     ];
