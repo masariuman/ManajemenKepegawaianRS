@@ -140,16 +140,14 @@
                                             Keanggotaan Organisasi
                                         </a>
                                     </li>
-
-
-
                                     <li>
                                         <a href="#">
                                             <i class="metismenu-icon pe-7s-note2"></i>
                                             Keluarga
                                             <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                         </a>
-                                       <ul class="@if(Request::is('keluarga_kandung')) {{ Request::is('keluarga_kandung') ? 'mm-show' : '' }} @elseif(Request::is('keluarga_istri_suami')) {{ Request::is('keluarga_istri_suami') ? 'mm-show' : '' }}@endif ">
+                                       <ul class="@if(Request::is('keluarga_kandung')) {{ Request::is('keluarga_kandung') ? 'mm-show' : '' }} 
+                                       @elseif(Request::is('keluarga_istri_suami')) {{ Request::is('keluarga_istri_suami') ? 'mm-show' : '' }}@endif ">
                                     <li>
                                         <a href="{{route('keluarga_kandung')}}" class="{{ Request::is('keluarga_kandung') ? 'mm-active' : '' }}">
                                             <i class="metismenu-icon pe-7s-note2"></i>
@@ -170,9 +168,19 @@
                                             SKP
                                             <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                         </a>
-                                       <ul class="@if(Request::is('skp')) {{ Request::is('skp') ? 'mm-show' : '' }} @elseif(Request::is('pengukuran_skp')) {{ Request::is('pengukuran_skp') ? 'mm-show' : '' }} @elseif(Request::is('perilaku_kerja_skp')) {{ Request::is('perilaku_kerja_skp') ? 'mm-show' : '' }} @elseif(Request::is('penilaian_skp')) {{ Request::is('penilaian_skp') ? 'mm-show' : '' }}@endif ">
+                                       <ul class="@if(Request::is('skp')) {{ Request::is('skp') ? 'mm-show' : '' }} 
+                                       @elseif(Request::is('form_skp')) {{ Request::is('form_skp') ? 'mm-show' : '' }} 
+                                       @elseif(Request::is('pengukuran_skp')) {{ Request::is('pengukuran_skp') ? 'mm-show' : '' }} 
+                                       @elseif(Request::is('perilaku_kerja_skp')) {{ Request::is('perilaku_kerja_skp') ? 'mm-show' : '' }} 
+                                       @elseif(Request::is('penilaian_skp')) {{ Request::is('penilaian_skp') ? 'mm-show' : '' }}@endif ">
                                             <li>
                                                 <a href="{{route('skp')}}" class="{{ Request::is('skp') ? 'mm-active' : '' }}">
+                                                    <i class="metismenu-icon"></i>
+                                                    SKP
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{route('form_skp')}}" class="{{ Request::is('form_skp') ? 'mm-active' : '' }}">
                                                     <i class="metismenu-icon"></i>
                                                     FORM SKP
                                                 </a>
