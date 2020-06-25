@@ -59,11 +59,11 @@
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
                     <div class="page-title-icon">
-                        <i class="pe-7s-rocket icon-gradient bg-happy-fisher">
+                        <i class="fa fa-braille icon-gradient bg-happy-fisher">
                         </i>
                     </div>
-                    <div>Dashboard
-                        <div class="page-title-subheading">Dashboard | Home
+                    <div>SKP
+                        <div class="page-title-subheading">Data SKP
                         </div>
                     </div>
                 </div>
