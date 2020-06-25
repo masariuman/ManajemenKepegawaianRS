@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Periode;
 use App\Pegawai;
 use App\Skp;
 use App\FormSkp;
@@ -20,6 +21,16 @@ class adminSkpController extends Controller
     public function index()
     {
         //
+        $periode = Periode::all();
+        $pegawai = Pegawai::where('active','1')->orderBy('id','DESC')->get();
+        foreach ($periode as $key => $value_periode) {
+            foreach ($pegawai as $key => $value_pegawai) {
+                if ($) {
+                    # code...
+                }
+            }
+        }
+
         return view('admin/skp/index');
     }
 

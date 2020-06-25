@@ -302,10 +302,10 @@ class adminPegawaiController extends Controller
         //anak
         $data['anak'] = Anak::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['anak'] as $key => $value) {
-            if ($data['anak']['jenis_kelamin'] === "W") {
-                $data['anak']['jenis_kelamin'] = "Perempuan";
+            if ($value['jenis_kelamin'] === "W") {
+                $value['jenis_kelamin'] = "Perempuan";
             } else {
-                $data['anak']['jenis_kelamin'] = "Laki-Laki";
+                $value['jenis_kelamin'] = "Laki-Laki";
             }
             $value['tanggal_lahir'] = date("d F Y", strtotime($data['anak']['tanggal_lahir']));
             if ($value['anak'] === "1") {
