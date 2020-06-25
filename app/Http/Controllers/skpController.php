@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Skp;
+use App\FormSkp;
 use App\PengukuranSkp;
 use App\PerilakuKerjaSkp;
 use App\PenilaianSkp;
@@ -21,6 +22,13 @@ class skpController extends Controller
         $skp = Skp::where('active', '1')->get();
 
         return view('skp', compact('skp'));
+    }
+
+    public function indexFormSkp()
+    {
+        $form_skp = FormSkp::where('active', '1')->get();
+
+        return view('form_skp', compact('form_skp'));
     }
 
 
@@ -86,6 +94,29 @@ class skpController extends Controller
         ]);
 
         \Session::flash('Berhasil', 'Data SKP berhasil ditambahkan');
+
+        return back();
+    }
+
+    public function storeFormSkp(Request $request)
+    {
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
+
+        $form_skp = FormSkp::create([
+            'tahun' => $request->input('tahun', 2020),
+            'kategori' => $request->kategori,
+            'pegawai_id' => $pegawai_id->id,
+            'kegiatan_tugas_jabatan_1' => $request->kegiatan_tugas_jabatan_1,
+            'kegiatan_tugas_jabatan_2' => $request->kegiatan_tugas_jabatan_2,
+            'ak' => $request->ak,
+            'kuant_output_1' => $request->kuant_output_1,
+            'kuant_output_2' => $request->kuant_output_2,
+            'kual_mutu' => $request->kual_mutu,
+            'biaya' => $request->biaya,
+            'active' => $request->input('active', 1),
+        ]);
+
+        \Session::flash('Berhasil', 'Data Form SKP berhasil ditambahkan');
 
         return back();
     }
@@ -262,6 +293,30 @@ class skpController extends Controller
     }
 
 
+    public function updateFormSkp(Request $request, $id)
+    {
+        $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
+
+        $form_skp = FormSkp::where('id', $id)->update([
+            'tahun' => $request->input('tahun', 2020),
+            'kategori' => $request->kategori,
+            'pegawai_id' => $pegawai_id->id,
+            'kegiatan_tugas_jabatan_1' => $request->kegiatan_tugas_jabatan_1,
+            'kegiatan_tugas_jabatan_2' => $request->kegiatan_tugas_jabatan_2,
+            'ak' => $request->ak,
+            'kuant_output_1' => $request->kuant_output_1,
+            'kuant_output_2' => $request->kuant_output_2,
+            'kual_mutu' => $request->kual_mutu,
+            'biaya' => $request->biaya,
+            'active' => $request->input('active', 1),
+        ]);
+
+        \Session::flash('Berhasil', 'Data Form SKP berhasil diubah');
+
+        return back();
+    }
+
+
     public function updatePengukuranSkp(Request $request, $id)
     {
         $pegawai_id = Pegawai::where('id', Auth()->user()->id)->first();
@@ -389,6 +444,14 @@ class skpController extends Controller
         return back(); 
     }
 
+    public function destroyFormSkp($id)
+    {
+        $form_skp = FormSkp::where('id', $id)->delete();
+   
+        \Session::flash('Berhasil', 'Data SKP berhasil dihapus');
+
+        return back(); 
+    }
 
     public function destroyPengukuranSkp($id)
     {

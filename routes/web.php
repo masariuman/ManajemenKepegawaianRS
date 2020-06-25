@@ -100,6 +100,13 @@ Route::group(['middleware'=>['auth','checkRole:PEGAWAI']], function () {
     Route::patch('/skp/update/{id}', 'skpController@updateSkp');
     Route::delete('/skp/delete/{id}', 'skpController@destroySkp');
 
+    Route::get('/form_skp', 'skpController@indexFormSkp')->name('form_skp');
+    Route::get('/form_skp/baru', 'skpController@createFormSkp');
+    Route::post('/form_skp/tambah', 'skpController@storeFormSkp')->name('form_skp_tambah');
+    Route::get('/form_skp/{id}/ubah', 'skpController@editFormSkp');
+    Route::patch('/form_skp/update/{id}', 'skpController@updateFormSkp');
+    Route::delete('/form_skp/delete/{id}', 'skpController@destroyFormSkp');
+
     Route::get('/pengukuran_skp', 'skpController@indexPengukuranSkp')->name('pengukuran_skp');
     Route::get('/pengukuran_skp/baru', 'skpController@createPengukuranSkp');
     Route::post('/pengukuran_skp/tambah', 'skpController@storePengukuranSkp')->name('pengukuran_skp_tambah');
