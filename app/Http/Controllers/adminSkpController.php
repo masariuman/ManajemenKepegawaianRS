@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Setting;
+use App\Periode;
+use App\Pegawai;
+use App\Skp;
+use App\FormSkp;
+use App\PenilaianSkp;
+use App\PengukuranSkp;
+use App\PerilakuKerjaSkp;
 
-class adminSettingController extends Controller
+class adminSkpController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +21,17 @@ class adminSettingController extends Controller
     public function index()
     {
         //
-        $data['setting'] = Setting::findOrFail(1);
-        $data['setting']['terakhir_isi_skp'] = date("Y-m-d", strtotime($data['setting']['terakhir_isi_skp']));
-        return view('admin.setting.index',$data);
+        $periode = Periode::all();
+        $pegawai = Pegawai::where('active','1')->orderBy('id','DESC')->get();
+        foreach ($periode as $key => $value_periode) {
+            foreach ($pegawai as $key => $value_pegawai) {
+                if ($) {
+                    # code...
+                }
+            }
+        }
+
+        return view('admin/skp/index');
     }
 
     /**
@@ -73,16 +87,6 @@ class adminSettingController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $setting = Setting::findOrFail(1);
-        $setting->update([
-            'tahun' => $request->tahun,
-            'terakhir_isi_skp' => $request->tanggal_skp,
-            'pesan_skp' => $request->pesan_skp,
-            'active_skp' => $request->active_skp
-        ]);
-
-        $data['setting'] = Setting::findOrFail(1);
-        return back();
     }
 
     /**
