@@ -7,7 +7,7 @@
                                         </i>
                                     </div>
                                     <div>Form SKP
-                                        <div class="page-title-subheading">Isi data form skp anda disini.
+                                        <div class="page-title-subheading">Isi data form SKP anda disini.
                                         </div>
                                     </div>
                                 </div>               

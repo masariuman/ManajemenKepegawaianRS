@@ -180,7 +180,7 @@
                                                 </select></div>
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Angkatan</b></label>
-                                                <div class="col-sm-10"><input name="angkatan" id="exampleEmail" placeholder="Angkatan" type="number" class="form-control" value="" required</div>          
+                                                <div class="col-sm-10"><input name="angkatan" id="exampleEmail" placeholder="Angkatan" type="number" class="form-control" value="" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>lokasi</b></label>
                                                 <div class="col-sm-10"><input name="lokasi" id="exampleEmail" placeholder="Penyelenggara" type="text" class="form-control" value="" required></div>          

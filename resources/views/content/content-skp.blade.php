@@ -6,7 +6,7 @@
                                         <i class="pe-7s-note2 icon-gradient bg-happy-fisher">
                                         </i>
                                     </div>
-                                    <div>SKP
+                                    <div>Data SKP
                                         <div class="page-title-subheading">Isi data SKP anda disini.
                                         </div>
                                     </div>
