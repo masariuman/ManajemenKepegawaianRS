@@ -84,7 +84,9 @@
                         <hr />
                         <div class="text-center margintop50">
                             <select id="tahun" class="mb-2 mr-2 btn-transition btn btn-outline-dark">
-                                <option value="2020">2020</option>
+                                @foreach ($tahun as $item)
+                                    <option value="{{$item}}">{{$item}}</option>
+                                @endforeach
                             </select>
                             <select id="kategori" class="mb-2 mr-2 btn-transition btn btn-outline-dark">
                                 <option value="semester1">Semester 1</option>
@@ -92,7 +94,7 @@
                                 <option value="setahun">Setahun</option>
                             </select>
                         </div>
-                        @include('admin.skp.index_partial.str')
+                        @include('admin.skp.index_partial.table')
                     </div>
                 </div>
             </div>

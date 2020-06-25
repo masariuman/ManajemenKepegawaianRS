@@ -24,14 +24,48 @@ class adminSkpController extends Controller
         $periode = Periode::all();
         $pegawai = Pegawai::where('active','1')->orderBy('id','DESC')->get();
         foreach ($periode as $key => $value_periode) {
+            if ($value_periode->periode === 'Semester 1') {
+                $semester = 'semester1';
+            } else if ($value_periode->periode === 'Semester 2'){
+                $semester = 'semester2';
+            } else {
+                $semester = 'setahun';
+            }
+            $period = $value_periode->tahun.$semester;
             foreach ($pegawai as $key => $value_pegawai) {
-                if ($) {
-                    # code...
+                if (empty($value_pegawai->skp[0])) {
+                    $data['tidak_lengkap'][$period]['pegawai'][] = $value_pegawai;
+                    $data['tidak_lengkap'][$period]['periode'] = $period;
+                } else {
+                    if (empty($value_pegawai->formSkp[0])) {
+                        $data['tidak_lengkap'][$period]['pegawai'][] = $value_pegawai;
+                        $data['tidak_lengkap'][$period]['periode'] = $period;
+                    } else {
+                        if (empty($value_pegawai->pengukuranSkp[0])) {
+                            $data['tidak_lengkap'][$period]['pegawai'][] = $value_pegawai;
+                            $data['tidak_lengkap'][$period]['periode'] = $period;
+                        } else {
+                            if (empty($value_pegawai->penilaianSkp[0])) {
+                                $data['tidak_lengkap'][$period]['pegawai'][] = $value_pegawai;
+                                $data['tidak_lengkap'][$period]['periode'] = $period;
+                            } else {
+                                if (empty($value_pegawai->perilakuKerjaSkp[0])) {
+                                    $data['tidak_lengkap'][$period]['pegawai'][] = $value_pegawai;
+                                    $data['tidak_lengkap'][$period]['periode'] = $period;
+                                } else {
+                                    $data['lengkap'][$period]['pegawai'][] = $value_pegawai;
+                                    $data['lengkap'][$period]['periode'] = $period;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
+        $data['tahun'] = Periode::pluck('tahun')->unique();
+        // dd($data['tahun']);
 
-        return view('admin/skp/index');
+        return view('admin/skp/index',$data);
     }
 
     /**
