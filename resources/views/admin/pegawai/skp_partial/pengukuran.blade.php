@@ -72,6 +72,34 @@
                             <td class="text-center">rumus</td>
                         </tr>
                     @endforeach
+                    <tr>
+                        <td class="bgabu text-center bold">TOTAL</td>
+                        <td class="bgabu text-center">{{$item->kegiatan_tugas_tambahan}}</td>
+                        <td class="bgabu text-center">{{$item->ak_target}}</td>
+                        <td class="bgabu text-center">{{$item->target_kuant_output_1}}</td>
+                        <td class="bgabu text-center">{{$item->target_kuant_output_2}}</td>
+                        <td class="bgabu text-center">{{$item->target_kual_mutu}}</td>
+                        @if ($periode->periode === "Setahun")
+                            <td class="bgabu text-center">12</td>
+                        @else
+                            <td class="bgabu text-center">6</td>
+                        @endif
+                        <td class="bgabu text-center">bulan</td>
+                        <td class="bgabu text-center">{{$item->target_biaya}}</td>
+                        <td class="bgabu text-center">{{$item->ak_realisasi}}</td>
+                        <td class="bgabu text-center">{{$item->realisasi_kuant_output_1}}</td>
+                        <td class="bgabu text-center">{{$item->realisasi_kuant_output_2}}</td>
+                        <td class="bgabu text-center">{{$item->realisasi_kual_mutu}}</td>
+                        @if ($periode->periode === "Setahun")
+                            <td class="bgabu text-center">12</td>
+                        @else
+                            <td class="bgabu text-center">6</td>
+                        @endif
+                        <td class="bgabu text-center">bulan</td>
+                        <td class="bgabu text-center">{{$item->realisasi_biaya}}</td>
+                        <td class="bgabu text-center">rumus</td>
+                        <td class="bgabu text-center">rumus</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

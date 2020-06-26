@@ -511,6 +511,24 @@ class adminPegawaiController extends Controller
                         ->where('active','1')
                         ->where('tahun',$data['periode']->tahun)
                         ->where('kategori',$data['periode']->periode);
+        $data['pengukuranSkp_kegiatan_tugas_tambahan'] = $data['pegawai']
+                        ->pengukuranSkp
+                        ->where('active','1')
+                        ->where('kategori_pengukuran','Kegiatan Tugas Tambahan')
+                        ->where('tahun',$data['periode']->tahun)
+                        ->where('kategori',$data['periode']->periode);
+        $data['pengukuranSkp_kreativitas'] = $data['pegawai']
+                        ->pengukuranSkp
+                        ->where('active','1')
+                        ->where('kategori_pengukuran','Kreativitas')
+                        ->where('tahun',$data['periode']->tahun)
+                        ->where('kategori',$data['periode']->periode);
+        $data['pengukuranSkp_tugas_tambahan'] = $data['pegawai']
+                        ->pengukuranSkp
+                        ->where('active','1')
+                        ->where('kategori_pengukuran','Tugas Tambahan')
+                        ->where('tahun',$data['periode']->tahun)
+                        ->where('kategori',$data['periode']->periode);
         $data['penilaianSkp'] = $data['pegawai']
                         ->penilaianSkp
                         ->where('active','1')
@@ -522,6 +540,19 @@ class adminPegawaiController extends Controller
                         ->where('tahun',$data['periode']->tahun)
                         ->where('kategori',$data['periode']->periode);
         $data['countFormSkp'] = count($data['formSkp']);
+        $data['countPengukuranSkp'] = count($data['pengukuranSkp']);
+        $data['countPengukuranSkp_kegiatan_tugas_tambahannSkp'] = count($data['pengukuranSkp_kegiatan_tugas_tambahan']);
+        $data['countPengukuranSkp_kreativitas'] = count($data['pengukuranSkp_kreativitas']);
+        $data['countPengukuranSkp_tugas_tambahan'] = count($data['pengukuranSkp_tugas_tambahan']);
+        $data['countPenilaianSkp'] = count($data['penilaianSkp']);
+        $data['countPerilakuKerjaSkp'] = count($data['perilakuKerjaSkp']);
+        foreach ($data['pengukuranSkp'] as $key => $value) {
+            $data[''] = ;
+            $data[''] = ;
+            $data[''] = ;
+            $data[''] = ;
+            $data[''] = ;
+        }
         // dd($data['formSkp']);
         return view('admin/pegawai/skp',$data);
     }
