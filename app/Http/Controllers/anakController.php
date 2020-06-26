@@ -22,11 +22,30 @@ class anakController extends Controller
     public function getTable()
     {
 
+        $anak = Anak::where('active', '1')->get();
+        return DataTables::of($anak)
+        ->addColumn('aksi', function ($anak) {
+            '<button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeDetail-{{$anaks->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use address-card"></i> Lihat
+            </button>||&nbsp;
+            <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target="#exampleModalLargeUbah-{{$anaks->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah
+            </button>||&nbsp;
+            <button class="mb-2 mr-2 btn btn-light" data-toggle="modal" data-target=".bd-example-modal-sm-delete-{{$anaks->id}}"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus
+            </button>||&nbsp';
+        })
+        ->addIndexColumn()
+        ->rawColumns('aksi')
+        ->make(true);
+
+
+                   
+
+
+
     //     $va = Va::where('status_inquiry',1)->join('users', 'users.id', '=', 'va.user_id')->select('va.*', 'users.name')->get();
 
     //     return DataTables::of($va)
 
-    //         ->addColumn('option', function ($va) {
+    //         ->addColumn('option', function ($anak) {
     //             return '<button class="mb-2 mr-2 btn btn-success" data-toggle="modal" data-target=".bd-example-modal-sm-iquiry-'. $va->id .'"> <i class="fa fa-search" aria-hidden="true" title="Copy to use bullhorn"></i> Cek Status
     //             </button>||&nbsp;
     //             <button class="mb-2 mr-2 btn btn-info" data-toggle="modal" data-target="#exampleModalLongDetail-'. $va->id .'"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use address-card"></i> Detail

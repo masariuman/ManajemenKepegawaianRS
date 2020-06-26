@@ -125,65 +125,12 @@
                                     @endif</b></td>
                         </tr>
                     </tbody>
-                </table>
-
-                                            <!-- <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tahun :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$istri_suamis->tahun}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nama :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$istri_suamis->nama}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nomor Karsi Karsu :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$istri_suamis->nomor_karis_karsu}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal Lahir :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($istri_suamis->tanggal_lahir)) }}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal Nikah :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($istri_suamis->tanggal_nikah)) }}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tingkat Pendidikan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>      @if($istri_suamis->tingkat_pendidikan == "01") 
-                                                                                                                    S3 (Setara)                                             
-                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "02") 
-                                                                                                                    S2 (Setara)                                              
-                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "03")                                    
-                                                                                                                    S1 (Setara)                      
-                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "04")                                              
-                                                                                                                    D4                                          
-                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "05")                                             
-                                                                                                                    SM                                       
-                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "06")                                   
-                                                                                                                    D3                                            
-                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "07")                                              
-                                                                                                                    D2                                               
-                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "08")                                             
-                                                                                                                    D1                                             
-                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "09")                                     
-                                                                                                                    SLTA                                    
-                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "10")                                       
-                                                                                                                    SLTP                                             
-                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "11")                                             
-                                                                                                                    SD
-                                                                                                                    @endif</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Pekerjaan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$istri_suamis->pekerjaan}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Staus Suami / Istri :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($istri_suamis->status_suami_istri == "1")
-                                                                                                            Istri / Suami Saat Ini                                          
-                                                                                                            @elseif($istri_suamis->status_suami_istri == "2")                                              
-                                                                                                            Telah Meninggal Dunia                                              
-                                                                                                            @elseif($istri_suamis->status_suami_istri == "3")                                 
-                                                                                                            Cerai
-                                                                                                            @endif</b></h6></div>          
-                                            </div> -->
+                </table>                                        
             
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Tutup</button>
-                <!-- <button type="button" class="btn btn-info"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use check"></i> Done</button> -->
+                <button type="button" class="btn btn-arternate" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Tutup</button>
+                
             </div>
         </div>
     </div>
@@ -262,63 +209,11 @@
                     </tbody>
                 </table>
 
-                                            <!-- <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tahun :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$istri_suamis->tahun}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nama :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$istri_suamis->nama}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nomor Karsi Karsu :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$istri_suamis->nomor_karis_karsu}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal Lahir :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($istri_suamis->tanggal_lahir)) }}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal Nikah :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($istri_suamis->tanggal_nikah)) }}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tingkat Pendidikan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>      @if($istri_suamis->tingkat_pendidikan == "01") 
-                                                                                                                    S3 (Setara)                                             
-                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "02") 
-                                                                                                                    S2 (Setara)                                              
-                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "03")                                    
-                                                                                                                    S1 (Setara)                      
-                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "04")                                              
-                                                                                                                    D4                                          
-                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "05")                                             
-                                                                                                                    SM                                       
-                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "06")                                   
-                                                                                                                    D3                                            
-                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "07")                                              
-                                                                                                                    D2                                               
-                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "08")                                             
-                                                                                                                    D1                                             
-                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "09")                                     
-                                                                                                                    SLTA                                    
-                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "10")                                       
-                                                                                                                    SLTP                                             
-                                                                                                                    @elseif($istri_suamis->tingkat_pendidikan == "11")                                             
-                                                                                                                    SD
-                                                                                                                    @endif</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Pekerjaan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$istri_suamis->pekerjaan}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Staus Suami / Istri :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($istri_suamis->status_suami_istri == "1")
-                                                                                                            Istri / Suami Saat Ini                                          
-                                                                                                            @elseif($istri_suamis->status_suami_istri == "2")                                              
-                                                                                                            Telah Meninggal Dunia                                              
-                                                                                                            @elseif($istri_suamis->status_suami_istri == "3")                                 
-                                                                                                            Cerai
-                                                                                                            @endif</b></h6></div>          
-                                            </div> -->
             
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Tutup</button>
-                <!-- <button type="button" class="btn btn-info"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use check"></i> Done</button> -->
+                <button type="button" class="btn btn-alternate" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Tutup</button>
+                
             </div>
         </div>
     </div>
@@ -385,7 +280,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
-                <button type="submit" class="btn btn-light"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah</button>
+                <button type="submit" class="btn btn-dark"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah</button>
             </div>
             </form>
         </div>
@@ -448,7 +343,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
-                <button type="submit" class="btn btn-light"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah</button>
+                <button type="submit" class="btn btn-dark"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah</button>
             </div>
             </form>
         </div>
@@ -650,7 +545,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
-                <button type="submit" class="btn btn-light"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah</button>
+                <button type="submit" class="btn btn-alternate"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah</button>
             </div>
             </form>
         </div>
@@ -847,7 +742,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
-                <button type="submit" class="btn btn-light"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah</button>
+                <button type="submit" class="btn btn-alternate"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah</button>
             </div>
             </form>
         </div>
@@ -878,7 +773,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
-                <button type="submit" class="btn btn-light"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus</button>
+                <button type="submit" class="btn btn-danger"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus</button>
             </div>
             </form>
         </div>
@@ -904,7 +799,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
-                <button type="submit" class="btn btn-light"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus</button>
+                <button type="submit" class="btn btn-danger"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus</button>
             </div>
             </form>
         </div>

@@ -116,30 +116,7 @@
                                             Anak
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="{{route('seminar_lokakarya_simposium')}}" class="{{ Request::is('seminar_lokakarya_simposium') ? 'mm-active' : '' }}">
-                                            <i class="metismenu-icon pe-7s-note2"></i>
-                                            Seminar / Lokakarya / Simposium
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('tanda_jasa_penghargaan')}}" class="{{ Request::is('tanda_jasa_penghargaan') ? 'mm-active' : '' }}">
-                                            <i class="metismenu-icon pe-7s-note2"></i>
-                                            Tanda Jasa / Penghargaan
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('hukum_disiplin')}}" class="{{ Request::is('hukum_disiplin') ? 'mm-active' : '' }}">
-                                            <i class="metismenu-icon pe-7s-note2"></i>
-                                            Hukum Disiplin
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('keanggotaan_organisasi')}}" class="{{ Request::is('keanggotaan_organisasi') ? 'mm-active' : '' }}">
-                                            <i class="metismenu-icon pe-7s-note2"></i>
-                                            Keanggotaan Organisasi
-                                        </a>
-                                    </li>
+
                                     <li>
                                         <a href="#">
                                             <i class="metismenu-icon pe-7s-note2"></i>
@@ -162,6 +139,7 @@
                                     </li>
                                 </ul>
                             </li>
+
                             <li>
                                         <a href="#">
                                             <i class="metismenu-icon pe-7s-note2"></i>
@@ -176,7 +154,7 @@
                                             <li>
                                                 <a href="{{route('skp')}}" class="{{ Request::is('skp') ? 'mm-active' : '' }}">
                                                     <i class="metismenu-icon"></i>
-                                                    SKP
+                                                    DATA SKP
                                                 </a>
                                             </li>
                                             <li>
@@ -205,6 +183,31 @@
                                             </li>
                                         </ul>
                                     </li>
+
+                                    <li>
+                                        <a href="{{route('seminar_lokakarya_simposium')}}" class="{{ Request::is('seminar_lokakarya_simposium') ? 'mm-active' : '' }}">
+                                            <i class="metismenu-icon pe-7s-note2"></i>
+                                            Seminar / Lokakarya / Simposium
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('tanda_jasa_penghargaan')}}" class="{{ Request::is('tanda_jasa_penghargaan') ? 'mm-active' : '' }}">
+                                            <i class="metismenu-icon pe-7s-note2"></i>
+                                            Tanda Jasa / Penghargaan
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('hukum_disiplin')}}" class="{{ Request::is('hukum_disiplin') ? 'mm-active' : '' }}">
+                                            <i class="metismenu-icon pe-7s-note2"></i>
+                                            Hukum Disiplin
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('keanggotaan_organisasi')}}" class="{{ Request::is('keanggotaan_organisasi') ? 'mm-active' : '' }}">
+                                            <i class="metismenu-icon pe-7s-note2"></i>
+                                            Keanggotaan Organisasi
+                                        </a>
+                                    </li>    
                                 @endif
                                 @if(auth()->user()->level == 'TU')
                                     <li>

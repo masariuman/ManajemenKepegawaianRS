@@ -186,8 +186,8 @@
  
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Tutup</button>
-                <!-- <button type="button" class="btn btn-info"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use check"></i> Done</button> -->
+                <button type="button" class="btn btn-alternate" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Tutup</button>
+                
             </div>
         </div>
     </div>
@@ -221,7 +221,7 @@
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Kegiatan Tugas Tambahan</b></label>
                                                 <div class="col-sm-10"><input name="kegiatan_tugas_tambahan" id="exampleEmail" placeholder="Kegiatan Tugas Tambahan" type="number" class="form-control" value="" required></div>          
                                             </div> 
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Kategori</b></label>
+                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Kategori Pengukuran</b></label>
                                                 <div class="col-sm-10"><select name="kategori_pengukuran" id="exampleSelect" class="form-control" required>
                                                                             <option value="" disabled selected>-Pilih Kategori Pengukuran-</option>
                                                                             <option value="kegiatan Tugas Tambahan">Kegiatan Tugas Tambahan</option>
@@ -259,7 +259,7 @@
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Realisai Biaya</b></label>
                                                 <div class="col-sm-10"><input name="realisasi_biaya" id="exampleEmail" placeholder="Realisai Biaya" type="number" class="form-control" value="" required></div>          
                                             </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Perhitungan</b></label>
+                                            <!-- <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Perhitungan</b></label>
                                                 <div class="col-sm-10"><input name="penghitungan" id="exampleEmail" placeholder="Perhitungan" type="number" class="form-control" value="" required></div>          
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Nilai Capaian SKP</b></label>
@@ -306,11 +306,11 @@
                                             </div>
                                             <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label"><b>Total AK Nilai Capaian SKP 3</b></label>
                                                 <div class="col-sm-10"><input name="total_nilai_capaian_skp_3" id="exampleEmail" placeholder="Total AK Nilai Capaian SKP 3" type="number" class="form-control" value="" required></div>          
-                                            </div>
+                                            </div> -->
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
-                <button type="submit" class="btn btn-light"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah</button>
+                <button type="submit" class="btn btn-dark"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah</button>
             </div>
             </form>
         </div>
@@ -457,7 +457,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
-                <button type="submit" class="btn btn-light"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah</button>
+                <button type="submit" class="btn btn-success"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah</button>
             </div>
             </form>
         </div>
@@ -486,7 +486,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
-                <button type="submit" class="btn btn-light"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus</button>
+                <button type="submit" class="btn btn-danger"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus</button>
             </div>
             </form>
         </div>
