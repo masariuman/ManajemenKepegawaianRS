@@ -67,11 +67,11 @@
                     <tbody>
                         <tr>
                             <th scope="row" class="sidetable">NAMA JABATAN</th>
-                            <td>{{$riwayat_pekerjaan_jabatans->nama_jabatan}}</td>
+                            <td><b>{{$riwayat_pekerjaan_jabatans->nama_jabatan}}</b></td>
                         </tr>
                         <tr>
                             <th scope="row" class="sidetable">TMT JABATAN</th>
-                            <td>{{ date('d/m/Y',strtotime($riwayat_pekerjaan_jabatans->tmt_jabatan)) }}</td>
+                            <td><b>{{ date('d/m/Y',strtotime($riwayat_pekerjaan_jabatans->tmt_jabatan)) }}</b></td>
                         </tr>
                         <tr>
                             <th scope="row" class="sidetable">NOMOR SK</th>
@@ -104,41 +104,11 @@
                     </tbody>
                 </table>
 
-                                            <!-- <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tahun :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_pekerjaan_jabatans->tahun}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nama Jabatan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_pekerjaan_jabatans->nama_jabatan}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>TMT Jabatan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($riwayat_pekerjaan_jabatans->tmt_jabatan)) }}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nomor SK :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_pekerjaan_jabatans->nomor_sk}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal SK : /</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($riwayat_pekerjaan_jabatans->tanggal_sk)) }}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>/ Tahun Mulai : /</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_pekerjaan_jabatans->tahun_mulai}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>/ s.d Tahun Selesai :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_pekerjaan_jabatans->tahun_selesai}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>NIP Pejabat Penandatanganan SK :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_pekerjaan_jabatans->nip_pejabat_penandatangan_sk}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>NIP Lama Pejabat Penandatanganan SK :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_pekerjaan_jabatans->nip_lama_pejabat_penandatangan_sk}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Pejabat Penandatangan SK :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_pekerjaan_jabatans->pejabat_penandatangan_sk}}</b></h6></div>          
-                                            </div> -->
  
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Tutup</button>
-                <!-- <button type="button" class="btn btn-info"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use check"></i> Done</button> -->
+                <button type="button" class="btn btn-alternate" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Tutup</button>
+                
             </div>
         </div>
     </div>
@@ -191,7 +161,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
-                <button type="submit" class="btn btn-light"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah</button>
+                <button type="submit" class="btn btn-dark"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah</button>
             </div>
             </form>
         </div>
@@ -247,7 +217,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
-                <button type="submit" class="btn btn-light"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah</button>
+                <button type="submit" class="btn btn-success"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah</button>
             </div>
             </form>
         </div>
@@ -276,7 +246,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
-                <button type="submit" class="btn btn-light"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus</button>
+                <button type="submit" class="btn btn-danger"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus</button>
             </div>
             </form>
         </div>

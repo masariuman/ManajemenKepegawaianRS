@@ -307,7 +307,7 @@ class adminPegawaiController extends Controller
             } else {
                 $value['jenis_kelamin'] = "Laki-Laki";
             }
-            $value['tanggal_lahir'] = date("d F Y", strtotime($data['anak']['tanggal_lahir']));
+            $value['tanggal_lahir'] = date("d F Y", strtotime($value['tanggal_lahir']));
             if ($value['anak'] === "1") {
                 $value['anak'] = "Anak Kandung";
             } else if ($value['anak'] === "2") {

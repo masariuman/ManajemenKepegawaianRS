@@ -129,69 +129,12 @@
                         </tr>
                     </tbody>
                 </table>
-                                            <!-- <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tahun :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$anaks->tahun}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nama :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$anaks->nama}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Jenis Kelamin :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b> @if($anaks->jenis_kelamin == "P")
-                                                                                                            Pria
-                                                                                                            @elseif($anaks->jenis_kelamin == "W")
-                                                                                                            Wanita
-                                                                                                            @endif</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tempat Lahir :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$anaks->tempat_lahir}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal Lahir :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($anaks->tanggal_lahir)) }}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Status Anak :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>  @if($anaks->status_anak == "1")
-                                                                                                            Anak Kandung
-                                                                                                            @elseif($anaks->status_anak == "2")
-                                                                                                            Anak Tiri
-                                                                                                            @elseif($anaks->status_anak == "3")
-                                                                                                            Anak Angkat
-                                                                                                            @endif</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Pendidikan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b> @if($anaks->pendidikan == "01") 
-                                                                                                            S3 (Setara)                                             
-                                                                                                            @elseif($anaks->pendidikan == "02") 
-                                                                                                            S2 (Setara)                                              
-                                                                                                            @elseif($anaks->pendidikan == "03")                                    
-                                                                                                            S1 (Setara)                      
-                                                                                                            @elseif($anaks->pendidikan == "04")                                              
-                                                                                                            D4                                          
-                                                                                                            @elseif($anaks->pendidikan == "05")                                             
-                                                                                                            SM                                       
-                                                                                                            @elseif($anaks->pendidikan == "06")                                   
-                                                                                                            D3                                            
-                                                                                                            @elseif($anaks->pendidikan == "07")                                              
-                                                                                                            D2                                               
-                                                                                                            @elseif($anaks->pendidikan == "08")                                             
-                                                                                                            D1                                             
-                                                                                                            @elseif($anaks->pendidikan == "09")                                     
-                                                                                                            SLTA                                    
-                                                                                                            @elseif($anaks->pendidikan == "10")                                       
-                                                                                                            SLTP                                             
-                                                                                                            @elseif($anaks->pendidikan == "11")                                             
-                                                                                                            SD
-                                                                                                            @elseif($anaks->pendidikan == "12")                                             
-                                                                                                            Belum Sekolah
-                                                                                                            @endif</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Pekerjaan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$anaks->pekerjaan}}</b></h6></div>          
-                                            </div> -->
+                                           
             
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Tutup</button>
-                <!-- <button type="button" class="btn btn-info"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use check"></i> Done</button> -->
+                <button type="button" class="btn btn-alternate" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Tutup</button>
+                
             </div>
         </div>
     </div>
@@ -261,7 +204,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
-                <button type="submit" class="btn btn-light"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah</button>
+                <button type="submit" class="btn btn-dark"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah</button>
             </div>
             </form>
         </div>
@@ -494,7 +437,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
-                <button type="submit" class="btn btn-light"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah</button>
+                <button type="submit" class="btn btn-success"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah</button>
             </div>
             </form>
         </div>
@@ -523,7 +466,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
-                <button type="submit" class="btn btn-light"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus</button>
+                <button type="submit" class="btn btn-danger"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus</button>
             </div>
             </form>
         </div>

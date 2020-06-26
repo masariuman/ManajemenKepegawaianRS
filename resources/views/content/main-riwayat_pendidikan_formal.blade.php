@@ -67,7 +67,29 @@
                         <tbody>
                             <tr>
                                 <th scope="row" class="sidetable">TINGKAT PENDIDIKAN</th>
-                                <td><b>{{$riwayat_pendidikan_formals->tingkat_pendidikan}}</b></td>
+                                <td><b>@if($riwayat_pendidikan_formals->tingkat_pendidikan == "01") 
+                                                S3 (Setara)                                             
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "02") 
+                                                S2 (Setara)                                              
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "03")                                    
+                                                S1 (Setara)                      
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "04")                                              
+                                                D4                                          
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "05")                                             
+                                                SM                                       
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "06")                                   
+                                                D3                                            
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "07")                                              
+                                                D2                                               
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "08")                                             
+                                                D1                                             
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "09")                                     
+                                                SLTA                                    
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "10")                                       
+                                                SLTP                                             
+                                                @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "11")                                             
+                                                SD
+                                                @endif</b></td>
                             </tr>
                             <tr>
                                 <th scope="row" class="sidetable">NAMA SEKOLAH/UNIVERSITAS</th>
@@ -87,7 +109,11 @@
                             </tr>
                             <tr>
                                 <th scope="row" class="sidetable">TEMPAT BELAJAR</th>
-                                <td><b>{{$riwayat_pendidikan_formals->tempat_belajar}}</b></td>
+                                <td><b>@if($riwayat_pendidikan_formals->tempat_belajar == "1")
+                                                    Dalam Negeri
+                                                    @elseif($riwayat_diklat_fungsionals->tempat_belajar == "2")
+                                                    Luar Negeri
+                                                    @endif</b></td>
                             </tr>
                             <tr>
                                 <th scope="row" class="sidetable">LOKASI</th>
@@ -100,63 +126,11 @@
                         </tbody>
                     </table>
 
-            <!-- <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tahun :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_pendidikan_formals->tahun}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tingkat Pendidikan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($riwayat_pendidikan_formals->tingkat_pendidikan == "01") 
-                                                                                                            S3 (Setara)                                             
-                                                                                                            @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "02") 
-                                                                                                            S2 (Setara)                                              
-                                                                                                            @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "03")                                    
-                                                                                                            S1 (Setara)                      
-                                                                                                            @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "04")                                              
-                                                                                                            D4                                          
-                                                                                                            @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "05")                                             
-                                                                                                            SM                                       
-                                                                                                            @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "06")                                   
-                                                                                                            D3                                            
-                                                                                                            @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "07")                                              
-                                                                                                            D2                                               
-                                                                                                            @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "08")                                             
-                                                                                                            D1                                             
-                                                                                                            @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "09")                                     
-                                                                                                            SLTA                                    
-                                                                                                            @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "10")                                       
-                                                                                                            SLTP                                             
-                                                                                                            @elseif($riwayat_pendidikan_formals->tingkat_pendidikan == "11")                                             
-                                                                                                            SD
-                                                                                                            @endif</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nama Sekolah :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_pendidikan_formals->nama_sekolah}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Jurusan Prodi :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_pendidikan_formals->jurusan_prodi}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tahun Masuk :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_pendidikan_formals->tahun_masuk}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tahun Lulus :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_pendidikan_formals->tahun_lulus}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tempat Belajar :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($riwayat_pendidikan_formals->tempat_belajar == "1")
-                                                                                                            Dalam Negeri
-                                                                                                            @elseif($riwayat_diklat_fungsionals->tempat_belajar == "2")
-                                                                                                            Luar Negeri
-                                                                                                            @endif</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Lokasi :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_pendidikan_formals->lokasi}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nomor Ijazah :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$riwayat_pendidikan_formals->nomor_ijazah}}</b></h6></div>          
-                                            </div> -->
+            
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Tutup</button>
-                <!-- <button type="button" class="btn btn-info"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use check"></i> Done</button> -->
+                <button type="button" class="btn btn-alternate" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Tutup</button>
+                
             </div>
         </div>
     </div>
@@ -223,7 +197,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
-                <button type="submit" class="btn btn-light"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah</button>
+                <button type="submit" class="btn btn-dark"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah</button>
             </div>
             </form>
         </div>
@@ -420,7 +394,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
-                <button type="submit" class="btn btn-light"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah</button>
+                <button type="submit" class="btn btn-success"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah</button>
             </div>
             </form>
         </div>
@@ -449,7 +423,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
-                <button type="submit" class="btn btn-light"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus</button>
+                <button type="submit" class="btn btn-danger"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus</button>
             </div>
             </form>
         </div>
