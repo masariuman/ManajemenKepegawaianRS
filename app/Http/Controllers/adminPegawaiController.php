@@ -494,6 +494,7 @@ class adminPegawaiController extends Controller
         $data['periode'] = Periode::orderBy('id','DESC')->first();
         $data['tahun'] = Periode::pluck('tahun')->unique();
         $data['noFormSkp'] = 0;
+        $data['noPengukuranSkp'] = 0;
         $data['skp'] = $data['pegawai']
                         ->skp
                         ->where('active','1')

@@ -3,6 +3,9 @@
 @push('css')
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/af-2.3.5/fh-3.1.7/r-2.2.5/sp-1.1.1/sl-1.3.1/datatables.min.css"/>
     <style>
+        .bgabu {
+            background-color: #ded9d9;
+        }
         .bold {
             font-weight: bold;
             color: black;
@@ -103,6 +106,7 @@
                         </div>
                         @include('admin.pegawai.skp_partial.skp')
                         @include('admin.pegawai.skp_partial.form_skp')
+                        @include('admin.pegawai.skp_partial.pengukuran')
                     </div>
                 </div>
             </div>
