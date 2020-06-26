@@ -493,13 +493,34 @@ class adminPegawaiController extends Controller
         $data['pegawai'] = Pegawai::findOrFail($id);
         $data['periode'] = Periode::orderBy('id','DESC')->first();
         $data['tahun'] = Periode::pluck('tahun')->unique();
+        $data['noFormSkp'] = 0;
         $data['skp'] = $data['pegawai']
                         ->skp
                         ->where('active','1')
                         ->where('tahun',$data['periode']->tahun)
                         ->where('kategori',$data['periode']->periode)
                         ->first();
-        // dd($data['skp']);
+        $data['formSkp'] = $data['pegawai']
+                        ->formSkp
+                        ->where('active','1')
+                        ->where('tahun',$data['periode']->tahun)
+                        ->where('kategori',$data['periode']->periode);
+        $data['pengukuranSkp'] = $data['pegawai']
+                        ->pengukuranSkp
+                        ->where('active','1')
+                        ->where('tahun',$data['periode']->tahun)
+                        ->where('kategori',$data['periode']->periode);
+        $data['penilaianSkp'] = $data['pegawai']
+                        ->penilaianSkp
+                        ->where('active','1')
+                        ->where('tahun',$data['periode']->tahun)
+                        ->where('kategori',$data['periode']->periode);
+        $data['perilakuKerjaSkp'] = $data['pegawai']
+                        ->perilakuKerjaSkp
+                        ->where('active','1')
+                        ->where('tahun',$data['periode']->tahun)
+                        ->where('kategori',$data['periode']->periode);
+        // dd($data['formSkp']);
         return view('admin/pegawai/skp',$data);
     }
 }

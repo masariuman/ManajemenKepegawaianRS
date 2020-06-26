@@ -3,6 +3,10 @@
 @push('css')
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/af-2.3.5/fh-3.1.7/r-2.2.5/sp-1.1.1/sl-1.3.1/datatables.min.css"/>
     <style>
+        .bold {
+            font-weight: bold;
+            color: black;
+        }
         .width100{
             width: 100%;
         }
@@ -78,7 +82,27 @@
                             @include('admin.pegawai.skp_partial.button')
                         </div>
                         <hr />
+                        <div class="text-center">
+                            <select name="tahun" class="mb-2 mr-2 btn-transition btn btn-outline-dark" >
+                                @foreach ($tahun as $item)
+                                    <option value="{{$item}}" {{$periode->tahun == $item  ? 'selected' : ''}}>{{$item}}</option>
+                                @endforeach
+                            </select>
+                            <select name="kategori" class="mb-2 mr-2 btn-transition btn btn-outline-dark">
+                                <option value="semester1" {{$periode->periode == 'Semester 1'  ? 'selected' : ''}}>Semester 1</option>
+                                <option value="semester2" {{$periode->periode == 'Semester 2'  ? 'selected' : ''}}>Semester 2</option>
+                                <option value="setahun" {{$periode->periode == 'Setahun'  ? 'selected' : ''}}>Setahun</option>
+                            </select>
+                        </div>
+                        <div class="text-center">
+                            <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-alternate active" id="data_skpB">Data SKP</button>
+                            <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-alternate" id="form_skpB">Form SKP</button>
+                            <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-alternate" id="pengukuranB">Pengukuran</button>
+                            <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-alternate" id="perilaku_kerjaB">Perilaku Kerja</button>
+                            <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-alternate" id="penilaianB">Penilaian</button>
+                        </div>
                         @include('admin.pegawai.skp_partial.skp')
+                        @include('admin.pegawai.skp_partial.form_skp')
                     </div>
                 </div>
             </div>
