@@ -50,17 +50,16 @@ class adminSkpController extends Controller
     public function sudah()
     {
         //
-        $periode = Periode::orderBy('id','DESC')->first();
+        $data['periode'] = Periode::orderBy('id','DESC')->first();
         $data['tahun'] = Periode::pluck('tahun')->unique();
         $pegawai = Pegawai::where('active','1')->orderBy('id','DESC')->get();
-        if ($periode->periode === 'Semester 1') {
+        if ($data['periode']->periode === 'Semester 1') {
             $semester = 'semester1';
-        } else if ($periode->periode === 'Semester 2'){
+        } else if ($data['periode']->periode === 'Semester 2'){
             $semester = 'semester2';
         } else {
             $semester = 'setahun';
         }
-        $period = $periode->tahun.$semester;
         foreach ($pegawai as $key => $value_pegawai) {
             if (empty($value_pegawai->skp[0]) || empty($value_pegawai->formSkp[0]) || empty($value_pegawai->pengukuranSkp[0]) || empty($value_pegawai->penilaianSkp[0]) || empty($value_pegawai->perilakuKerjaSkp[0])) {
                 //do nothing
@@ -69,7 +68,7 @@ class adminSkpController extends Controller
             }
         }
 
-        // return view('admin/skp/sudah',$data);
+        return view('admin/skp/sudah',$data);
     }
 
     /**

@@ -193,6 +193,7 @@ Route::group(['prefix' => 'it', 'middleware'=>['auth','checkRole:ADMIN']], funct
     Route::resource('/','adminDashboardController');
     Route::resource('/pegawai','adminPegawaiController');
     Route::get('/skp/sudah','adminSkpController@sudah');
+    Route::post('/skp/sudah','adminSkpController@filter_sudah');
     Route::get('/skp/belum','adminSkpController@index');
     Route::resource('/skp','adminSkpController');
     Route::resource('/ruangan','adminRuanganController');
