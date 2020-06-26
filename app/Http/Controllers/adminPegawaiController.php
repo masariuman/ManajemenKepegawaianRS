@@ -22,6 +22,7 @@ use App\Organisasi;
 use App\KeluargaKandung;
 use App\KeluargaIstriSuami;
 use App\Ruangan;
+use App\Periode;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 
@@ -489,7 +490,16 @@ class adminPegawaiController extends Controller
 
     public function skp($id){
         $data['ruangan'] = Ruangan::where('active','1')->get();
-        $data['pegawai'] = Pegawai::where('active','1')->orderBy('id','DESC')->get();
-        return view('admin/pegawai/index',$data);
+        $data['pegawai'] = Pegawai::findOrFail($id);
+        $data['periode'] = Periode::orderBy('id','DESC')->first();
+        $data['tahun'] = Periode::pluck('tahun')->unique();
+        $data['skp'] = $data['pegawai']
+                        ->skp
+                        ->where('active','1')
+                        ->where('tahun',$data['periode']->tahun)
+                        ->where('kategori',$data['periode']->periode)
+                        ->first();
+        // dd($data['skp']);
+        return view('admin/pegawai/skp',$data);
     }
 }

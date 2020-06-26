@@ -19,7 +19,7 @@
 <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" id="organisasiB">Keanggotaan Organisasi</button>
 <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" id="keluargaB">Keluarga</button>
 @if(auth()->user()->level == 'ADMIN')
-    <a href="it/pegawai/{{$pegawai->id}}/skp"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info">SKP</button></a>
+    <a href="/it/pegawai/{{$pegawai->id}}/skp"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info">SKP</button></a>
 @else
     <a href="/admin/pegawai/{{$pegawai->id}}/skp"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info">SKP</button></a>
 @endif
