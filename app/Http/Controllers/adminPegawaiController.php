@@ -521,6 +521,7 @@ class adminPegawaiController extends Controller
                         ->where('active','1')
                         ->where('tahun',$data['periode']->tahun)
                         ->where('kategori',$data['periode']->periode);
+        $data['countFormSkp'] = count($data['formSkp']);
         // dd($data['formSkp']);
         return view('admin/pegawai/skp',$data);
     }
