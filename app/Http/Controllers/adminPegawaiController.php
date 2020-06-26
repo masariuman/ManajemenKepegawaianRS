@@ -486,4 +486,10 @@ class adminPegawaiController extends Controller
     {
         //
     }
+
+    public function skp($id){
+        $data['ruangan'] = Ruangan::where('active','1')->get();
+        $data['pegawai'] = Pegawai::where('active','1')->orderBy('id','DESC')->get();
+        return view('admin/pegawai/index',$data);
+    }
 }
