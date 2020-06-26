@@ -33,32 +33,11 @@ class adminSkpController extends Controller
             }
             $period = $value_periode->tahun.$semester;
             foreach ($pegawai as $key => $value_pegawai) {
-                if (empty($value_pegawai->skp[0])) {
+                if (empty($value_pegawai->skp[0]) || empty($value_pegawai->formSkp[0]) || empty($value_pegawai->pengukuranSkp[0]) || empty($value_pegawai->penilaianSkp[0]) || empty($value_pegawai->perilakuKerjaSkp[0])) {
                     $data['tidak_lengkap'][$period]['pegawai'][] = $value_pegawai;
                     $data['tidak_lengkap'][$period]['periode'] = $period;
                 } else {
-                    if (empty($value_pegawai->formSkp[0])) {
-                        $data['tidak_lengkap'][$period]['pegawai'][] = $value_pegawai;
-                        $data['tidak_lengkap'][$period]['periode'] = $period;
-                    } else {
-                        if (empty($value_pegawai->pengukuranSkp[0])) {
-                            $data['tidak_lengkap'][$period]['pegawai'][] = $value_pegawai;
-                            $data['tidak_lengkap'][$period]['periode'] = $period;
-                        } else {
-                            if (empty($value_pegawai->penilaianSkp[0])) {
-                                $data['tidak_lengkap'][$period]['pegawai'][] = $value_pegawai;
-                                $data['tidak_lengkap'][$period]['periode'] = $period;
-                            } else {
-                                if (empty($value_pegawai->perilakuKerjaSkp[0])) {
-                                    $data['tidak_lengkap'][$period]['pegawai'][] = $value_pegawai;
-                                    $data['tidak_lengkap'][$period]['periode'] = $period;
-                                } else {
-                                    $data['lengkap'][$period]['pegawai'][] = $value_pegawai;
-                                    $data['lengkap'][$period]['periode'] = $period;
-                                }
-                            }
-                        }
-                    }
+                    //do nothing
                 }
             }
         }
@@ -66,6 +45,31 @@ class adminSkpController extends Controller
         // dd($data['tahun']);
 
         return view('admin/skp/index',$data);
+    }
+
+    public function sudah()
+    {
+        //
+        $periode = Periode::orderBy('id','DESC')->first();
+        $data['tahun'] = Periode::pluck('tahun')->unique();
+        $pegawai = Pegawai::where('active','1')->orderBy('id','DESC')->get();
+        if ($periode->periode === 'Semester 1') {
+            $semester = 'semester1';
+        } else if ($periode->periode === 'Semester 2'){
+            $semester = 'semester2';
+        } else {
+            $semester = 'setahun';
+        }
+        $period = $periode->tahun.$semester;
+        foreach ($pegawai as $key => $value_pegawai) {
+            if (empty($value_pegawai->skp[0]) || empty($value_pegawai->formSkp[0]) || empty($value_pegawai->pengukuranSkp[0]) || empty($value_pegawai->penilaianSkp[0]) || empty($value_pegawai->perilakuKerjaSkp[0])) {
+                //do nothing
+            } else {
+                    $data['lengkap'][] = $value_pegawai;
+            }
+        }
+
+        // return view('admin/skp/sudah',$data);
     }
 
     /**

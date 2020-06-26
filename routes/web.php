@@ -192,8 +192,8 @@ Route::group(['prefix' => 'admin', 'middleware'=>['auth','checkRole:TU']], funct
 Route::group(['prefix' => 'it', 'middleware'=>['auth','checkRole:ADMIN']], function () {
     Route::resource('/','adminDashboardController');
     Route::resource('/pegawai','adminPegawaiController');
-    Route::get('/skp/sudah','adminSkpController@index');
-    Route::get('/skp/belum','adminSkpController@belum');
+    Route::get('/skp/sudah','adminSkpController@sudah');
+    Route::get('/skp/belum','adminSkpController@index');
     Route::resource('/skp','adminSkpController');
     Route::resource('/ruangan','adminRuanganController');
     Route::resource('/periode','periodeController');
