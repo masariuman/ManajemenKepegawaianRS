@@ -83,18 +83,58 @@
                         </div>
                         <hr />
                         <div class="text-center margintop50">
-                            <select id="tahun" class="mb-2 mr-2 btn-transition btn btn-outline-dark">
-                                @foreach ($tahun as $item)
-                                    <option value="{{$item}}">{{$item}}</option>
-                                @endforeach
-                            </select>
-                            <select id="kategori" class="mb-2 mr-2 btn-transition btn btn-outline-dark">
-                                <option value="semester1">Semester 1</option>
-                                <option value="semester2">Semester 2</option>
-                                <option value="setahun">Setahun</option>
-                            </select>
+                            @if(auth()->user()->level == 'ADMIN')
+                                <form action="/it/skp/belum" method="post">
+                            @else
+                                <form action="/admin/skp/belum" method="post">
+                            @endif
+                                @csrf
+                                <select name="tahun" class="mb-2 mr-2 btn-transition btn btn-outline-dark" >
+                                    @foreach ($tahun as $item)
+                                        <option value="{{$item}}" {{$periode->tahun == $item  ? 'selected' : ''}}>{{$item}}</option>
+                                    @endforeach
+                                </select>
+                                <select name="kategori" class="mb-2 mr-2 btn-transition btn btn-outline-dark">
+                                    <option value="semester1" {{$periode->periode == 'Semester 1'  ? 'selected' : ''}}>Semester 1</option>
+                                    <option value="semester2" {{$periode->periode == 'Semester 2'  ? 'selected' : ''}}>Semester 2</option>
+                                    <option value="setahun" {{$periode->periode == 'Setahun'  ? 'selected' : ''}}>Setahun</option>
+                                </select>
+                                <button id="search" type="submit" style="display: none;">x</button>
+                            </form>
                         </div>
-                        @include('admin.skp.index_partial.table')
+                        <div id="str">
+                            <div class="text-center titlepertab">Data SKP Pegawai Yang Sudah Mengisi</div>
+                            <div class="margintop20">
+                                <table class="mb-0 table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="width40 text-center">No</th>
+                                            <th class="width200 text-center">NIP</th>
+                                            <th class="text-center">Nama</th>
+                                            <th class="width200 text-center">Jabatan</th>
+                                            <th class="width100px text-center">Ruangan</th>
+                                            <th class="text-center">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($tidak_lengkap as $no => $value)
+                                            <tr>
+                                                <th class="text-center">{{$no+1}}</th>
+                                                <td class="text-center">{{$value->nip_baru}}</td>
+                                                <td>{{$value->user->name}}</td>
+                                                <td>{{$value->nama_jabatan}}</td>
+                                                <td class="text-center">{{$value->ruangan->ruangan}}</td>
+                                                @if(auth()->user()->level == 'ADMIN')
+                                                    <td class="text-center"><a href="/it/pegawai/{{$value->id}}"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info"><i class="fa fa-eye"></i></button></a></td>
+                                                @else
+                                                    <td class="text-center"><a href="/admin/pegawai/{{$value->id}}"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info"><i class="fa fa-eye"></i></button></a></td>
+                                                @endif
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -131,9 +171,7 @@
     <script>
         $(document).ready(function(){
             $("select").change(function(){
-                var table = $("#tahun").val()+$("#kategori").val();
-                $("table").hide();
-                $("#"+table).show();
+                $("#search").click();
             });
         });
     </script>

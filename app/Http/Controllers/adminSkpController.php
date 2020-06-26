@@ -21,28 +21,69 @@ class adminSkpController extends Controller
     public function index()
     {
         //
-        $periode = Periode::all();
+        $data['periode'] = Periode::orderBy('id','DESC')->first();
+        $data['tahun'] = Periode::pluck('tahun')->unique();
         $pegawai = Pegawai::where('active','1')->orderBy('id','DESC')->get();
-        foreach ($periode as $key => $value_periode) {
-            if ($value_periode->periode === 'Semester 1') {
-                $semester = 'semester1';
-            } else if ($value_periode->periode === 'Semester 2'){
-                $semester = 'semester2';
+        if ($data['periode']->periode === 'Semester 1') {
+            $semester = 'semester1';
+        } else if ($data['periode']->periode === 'Semester 2'){
+            $semester = 'semester2';
+        } else {
+            $semester = 'setahun';
+        }
+        // $skp = Skp::where('active','1')->where('tahun',$data['periode']->tahun)->where('kategori',$data['periode']->periode)->get()->unique('pegawai_id');
+        foreach ($pegawai as $key => $value_pegawai) {
+            $skp = $value_pegawai->skp->where('active','1')->where('tahun',$data['periode']->tahun)->where('kategori',$data['periode']->periode)->unique('pegawai_id');
+            $formSkp = $value_pegawai->formSkp->where('active','1')->where('tahun',$data['periode']->tahun)->where('kategori',$data['periode']->periode)->unique('pegawai_id');
+            $pengukuranSkp = $value_pegawai->pengukuranSkp->where('active','1')->where('tahun',$data['periode']->tahun)->where('kategori',$data['periode']->periode)->unique('pegawai_id');
+            $penilaianSkp = $value_pegawai->penilaianSkp->where('active','1')->where('tahun',$data['periode']->tahun)->where('kategori',$data['periode']->periode)->unique('pegawai_id');
+            $perilakuKerjaSkp = $value_pegawai->perilakuKerjaSkp->where('active','1')->where('tahun',$data['periode']->tahun)->where('kategori',$data['periode']->periode)->unique('pegawai_id');
+            // dd(count($skp));
+            if (count($skp) === 0 || count($formSkp) === 0 || count($pengukuranSkp) === 0 || count($penilaianSkp) === 0 || count($perilakuKerjaSkp) === 0) {
+                $data['tidak_lengkap'][] = $value_pegawai;
             } else {
-                $semester = 'setahun';
-            }
-            $period = $value_periode->tahun.$semester;
-            foreach ($pegawai as $key => $value_pegawai) {
-                if (empty($value_pegawai->skp[0]) || empty($value_pegawai->formSkp[0]) || empty($value_pegawai->pengukuranSkp[0]) || empty($value_pegawai->penilaianSkp[0]) || empty($value_pegawai->perilakuKerjaSkp[0])) {
-                    $data['tidak_lengkap'][$period]['pegawai'][] = $value_pegawai;
-                    $data['tidak_lengkap'][$period]['periode'] = $period;
-                } else {
                     //do nothing
-                }
+                    // dd($value_pegawai->skp->where('active','1')->where('tahun',$data['periode']->tahun)->where('kategori',$data['periode']->periode));
             }
         }
+
+        return view('admin/skp/index',$data);
+    }
+
+    public function filter_belum(Request $request)
+    {
+        //
+        if ($request->kategori === 'semester1') {
+            $periodeSemester = 'Semester 1';
+        } else if ($request->kategori === 'semester2'){
+            $periodeSemester = 'Semester 2';
+        } else {
+            $periodeSemester = 'Setahun';
+        }
+        $data['periode'] = Periode::where('tahun',$request->tahun)->where('periode',$periodeSemester)->first();
         $data['tahun'] = Periode::pluck('tahun')->unique();
-        // dd($data['tahun']);
+        $pegawai = Pegawai::where('active','1')->orderBy('id','DESC')->get();
+        if ($data['periode']->periode === 'Semester 1') {
+            $semester = 'semester1';
+        } else if ($data['periode']->periode === 'Semester 2'){
+            $semester = 'semester2';
+        } else {
+            $semester = 'setahun';
+        }
+        foreach ($pegawai as $key => $value_pegawai) {
+            $skp = $value_pegawai->skp->where('active','1')->where('tahun',$data['periode']->tahun)->where('kategori',$data['periode']->periode)->unique('pegawai_id');
+            $formSkp = $value_pegawai->formSkp->where('active','1')->where('tahun',$data['periode']->tahun)->where('kategori',$data['periode']->periode)->unique('pegawai_id');
+            $pengukuranSkp = $value_pegawai->pengukuranSkp->where('active','1')->where('tahun',$data['periode']->tahun)->where('kategori',$data['periode']->periode)->unique('pegawai_id');
+            $penilaianSkp = $value_pegawai->penilaianSkp->where('active','1')->where('tahun',$data['periode']->tahun)->where('kategori',$data['periode']->periode)->unique('pegawai_id');
+            $perilakuKerjaSkp = $value_pegawai->perilakuKerjaSkp->where('active','1')->where('tahun',$data['periode']->tahun)->where('kategori',$data['periode']->periode)->unique('pegawai_id');
+            // dd(count($skp));
+            if (count($skp) === 0 || count($formSkp) === 0 || count($pengukuranSkp) === 0 || count($penilaianSkp) === 0 || count($perilakuKerjaSkp) === 0) {
+                $data['tidak_lengkap'][] = $value_pegawai;
+            } else {
+                    //do nothing
+                    // dd($value_pegawai->skp->where('active','1')->where('tahun',$data['periode']->tahun)->where('kategori',$data['periode']->periode));
+            }
+        }
 
         return view('admin/skp/index',$data);
     }
@@ -61,10 +102,53 @@ class adminSkpController extends Controller
             $semester = 'setahun';
         }
         foreach ($pegawai as $key => $value_pegawai) {
-            if (empty($value_pegawai->skp[0]) || empty($value_pegawai->formSkp[0]) || empty($value_pegawai->pengukuranSkp[0]) || empty($value_pegawai->penilaianSkp[0]) || empty($value_pegawai->perilakuKerjaSkp[0])) {
-                //do nothing
+            $skp = $value_pegawai->skp->where('active','1')->where('tahun',$data['periode']->tahun)->where('kategori',$data['periode']->periode)->unique('pegawai_id');
+            $formSkp = $value_pegawai->formSkp->where('active','1')->where('tahun',$data['periode']->tahun)->where('kategori',$data['periode']->periode)->unique('pegawai_id');
+            $pengukuranSkp = $value_pegawai->pengukuranSkp->where('active','1')->where('tahun',$data['periode']->tahun)->where('kategori',$data['periode']->periode)->unique('pegawai_id');
+            $penilaianSkp = $value_pegawai->penilaianSkp->where('active','1')->where('tahun',$data['periode']->tahun)->where('kategori',$data['periode']->periode)->unique('pegawai_id');
+            $perilakuKerjaSkp = $value_pegawai->perilakuKerjaSkp->where('active','1')->where('tahun',$data['periode']->tahun)->where('kategori',$data['periode']->periode)->unique('pegawai_id');
+            // dd(count($skp));
+            if (count($skp) === 0 || count($formSkp) === 0 || count($pengukuranSkp) === 0 || count($penilaianSkp) === 0 || count($perilakuKerjaSkp) === 0) {
+                // do nothing
             } else {
-                    $data['lengkap'][] = $value_pegawai;
+                $data['lengkap'][] = $value_pegawai;
+            }
+        }
+
+        return view('admin/skp/sudah',$data);
+    }
+
+    public function filter_sudah(Request $request)
+    {
+        //
+        if ($request->kategori === 'semester1') {
+            $periodeSemester = 'Semester 1';
+        } else if ($request->kategori === 'semester2'){
+            $periodeSemester = 'Semester 2';
+        } else {
+            $periodeSemester = 'Setahun';
+        }
+        $data['periode'] = Periode::where('tahun',$request->tahun)->where('periode',$periodeSemester)->first();
+        $data['tahun'] = Periode::pluck('tahun')->unique();
+        $pegawai = Pegawai::where('active','1')->orderBy('id','DESC')->get();
+        if ($data['periode']->periode === 'Semester 1') {
+            $semester = 'semester1';
+        } else if ($data['periode']->periode === 'Semester 2'){
+            $semester = 'semester2';
+        } else {
+            $semester = 'setahun';
+        }
+        foreach ($pegawai as $key => $value_pegawai) {
+            $skp = $value_pegawai->skp->where('active','1')->where('tahun',$data['periode']->tahun)->where('kategori',$data['periode']->periode)->unique('pegawai_id');
+            $formSkp = $value_pegawai->formSkp->where('active','1')->where('tahun',$data['periode']->tahun)->where('kategori',$data['periode']->periode)->unique('pegawai_id');
+            $pengukuranSkp = $value_pegawai->pengukuranSkp->where('active','1')->where('tahun',$data['periode']->tahun)->where('kategori',$data['periode']->periode)->unique('pegawai_id');
+            $penilaianSkp = $value_pegawai->penilaianSkp->where('active','1')->where('tahun',$data['periode']->tahun)->where('kategori',$data['periode']->periode)->unique('pegawai_id');
+            $perilakuKerjaSkp = $value_pegawai->perilakuKerjaSkp->where('active','1')->where('tahun',$data['periode']->tahun)->where('kategori',$data['periode']->periode)->unique('pegawai_id');
+            // dd(count($skp));
+            if (count($skp) === 0 || count($formSkp) === 0 || count($pengukuranSkp) === 0 || count($penilaianSkp) === 0 || count($perilakuKerjaSkp) === 0) {
+                // do nothing
+            } else {
+                $data['lengkap'][] = $value_pegawai;
             }
         }
 

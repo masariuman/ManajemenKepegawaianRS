@@ -80,8 +80,8 @@
                     <div class="card-body">
                         <div class="text-center">
                             @if(auth()->user()->level == 'ADMIN')
-                                <a href="/it/skp/belum"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" id="sikpB">Pegawai yang Belum Mengisi SKP</button></a>
-                                <a href="/it/skp/sudah"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info active" id="strB">Pegawai yang Sudah Mengisi SKP</button></a>
+                                <a href="/it/skp/belum"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info">Pegawai yang Belum Mengisi SKP</button></a>
+                                <a href="/it/skp/sudah"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info active">Pegawai yang Sudah Mengisi SKP</button></a>
                             @else
                                 <a href="/admin/skp/belum"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info" id="sikpB">Pegawai yang Belum Mengisi SKP</button></a>
                                 <a href="/admin/skp/sudah"><button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info active" id="strB">Pegawai yang Sudah Mengisi SKP</button></a>
@@ -94,18 +94,18 @@
                             @else
                                 <form action="/admin/skp/sudah" method="post">
                             @endif
-                            <form action="" method="post">
-                                <select id="tahun" class="mb-2 mr-2 btn-transition btn btn-outline-dark" >
+                                @csrf
+                                <select name="tahun" class="mb-2 mr-2 btn-transition btn btn-outline-dark" >
                                     @foreach ($tahun as $item)
                                         <option value="{{$item}}" {{$periode->tahun == $item  ? 'selected' : ''}}>{{$item}}</option>
                                     @endforeach
                                 </select>
-                                <select id="kategori" class="mb-2 mr-2 btn-transition btn btn-outline-dark">
+                                <select name="kategori" class="mb-2 mr-2 btn-transition btn btn-outline-dark">
                                     <option value="semester1" {{$periode->periode == 'Semester 1'  ? 'selected' : ''}}>Semester 1</option>
                                     <option value="semester2" {{$periode->periode == 'Semester 2'  ? 'selected' : ''}}>Semester 2</option>
                                     <option value="setahun" {{$periode->periode == 'Setahun'  ? 'selected' : ''}}>Setahun</option>
                                 </select>
-                                <button type="submit">x</button>
+                                <button id="search" type="submit" style="display: none;">x</button>
                             </form>
                         </div>
                         <div id="str">
@@ -177,11 +177,8 @@
     <script>
         $(document).ready(function(){
             $("select").change(function(){
-                var table = $("#tahun").val()+$("#kategori").val();
-                $("table").hide();
-                $("#"+table).show();
+                $("#search").click();
             });
         });
     </script>
-    @include('admin.dashboard.index_partial.hide_show')
 @endpush
