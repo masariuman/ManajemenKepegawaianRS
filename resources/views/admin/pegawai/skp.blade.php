@@ -144,4 +144,5 @@
             });
         } );
     </script>
+    @include('admin.pegawai.skp_partial.hide_show')
 @endpush
