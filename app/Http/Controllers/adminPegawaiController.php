@@ -546,24 +546,67 @@ class adminPegawaiController extends Controller
         $data['countPengukuranSkp_tugas_tambahan'] = count($data['pengukuranSkp_tugas_tambahan']);
         $data['countPenilaianSkp'] = count($data['penilaianSkp']);
         $data['countPerilakuKerjaSkp'] = count($data['perilakuKerjaSkp']);
+        $data['totalKegiatan'] = 0;
+        $data['totalAkTarget'] = 0;
+        $data['totalKuantTarget1'] = 0;
+        $data['totalKuantTarget2'] = 0;
+        $data['totalKualTarget'] = 0;
+        $data['totalBiayaTarget'] = 0;
+        $data['totalAkRealisasi'] = 0;
+        $data['totalKuantRealisasi'] = 0;
+        $data['totalKuantRealisasi2'] = 0;
+        $data['totalKualRealisasi'] = 0;
+        $data['totalBiayaRealisasi'] = 0;
+        $data['totalPenghitungan'] = 0;
+        $data['totalNilaiCapaianSkp'] = 0;
+        $data['totalWaktuTarget'] = 0;
+        $data['totalWaktuRealisasi'] = 0;
         foreach ($data['pengukuranSkp'] as $key => $value) {
-            $value['penghitungan'] = ;
-            // $value['capaianSkp'] = ;
-            // $data['totalKegiatan'] = ;
-            // $data['totalAkTarget'] = ;
-            // $data['totalKuantTarget1'] = ;
-            // $data['totalKuantTarget2'] = ;
-            // $data['totalKualTarget'] = ;
-            // $data['totalBiayaTarget'] = ;
-            // $data['totalAkRealisasi'] = ;
-            // $data['totalKuantRealisasi1'] = ;
-            // $data['totalKuantRealisasi2'] = ;
-            // $data['totalKualRealisasi'] = ;
-            // $data['totalBiayaRealisasi'] = ;
-            // $data['totalPenghitungan'] = ;
-            // $data['totalSkp'] = ;
+            //perhitungan
+            $persen_waktu = 100 - ($value->realisasi_waktu / $value->target_waktu * 100);
+            $kuantitas = $value->realisasi_kuant_output_1 / $value->target_kuant_output_1 * 100;
+            $kualitas = $value->realisasi_kual_mutu / $value->target_kual_mutu * 100;
+            if ($persen_waktu > 24) {
+                $waktu = 76 - ((((1.76 * $value->target_waktu - $value->realisasi_waktu) / $value->target_waktu) * 100) - 100);
+            } else {
+                $waktu = ((1.76 * $value->target_waktu - $value->realisasi_waktu) / $value->target_waktu) * 100;
+            }
+            if (!empty($value->realisasi_biaya)) {
+                $persen_biaya = 100 - ($value->realisasi_biaya / $value->target_biaya * 100);
+                if ( $persen_biaya > 24 ) {
+                    $biaya = 76 - ((((1.76 * $value->target_biaya - $value->realisasi_biaya) / $value->target_biaya) * 100) - 100);
+                } else {
+                    $biaya = ((1.76 * $value->target_biaya - $value->realisasi_biaya) / $value->target_biaya)*100;
+                }
+                $data['penghitungan'] = $kuantitas + $kualitas + $waktu + $biaya;
+            } else {
+                $data['penghitungan'] = $kuantitas + $kualitas + $waktu;
+            }
+
+            //capaian skp
+            if (empty($value->realisasi_biaya)){
+                $data['nilai_capaian_skp'] = $data['penghitungan'] / 3;
+            } else {
+                $data['nilai_capaian_skp'] = $data['penghitungan'] / 4;
+            }
+
+            $data['totalKegiatan'] += $value->kegiatan_tugas_tambahan;
+            $data['totalAkTarget'] += $value->ak_target;
+            $data['totalKuantTarget1'] += $value->target_kuant_output_1;
+            $data['totalKuantTarget2'] += $value->target_kuant_output_2;
+            $data['totalKualTarget'] += $value->target_kual_mutu;
+            $data['totalWaktuTarget'] += $value->target_waktu;
+            $data['totalBiayaTarget'] += $value->target_biaya;
+            $data['totalAkRealisasi'] += $value->ak_realisasi;
+            $data['totalKuantRealisasi'] += $value->realisasi_kuant_output_1;
+            $data['totalKuantRealisasi2'] += $value->realisasi_kuant_output_2;
+            $data['totalKualRealisasi'] += $value->realisasi_kual_mutu;
+            $data['totalWaktuRealisasi'] += $value->realisasi_waktu;
+            $data['totalBiayaRealisasi'] += $value->realisasi_biaya;
+            $data['totalPenghitungan'] += $data['penghitungan'];
+            $data['totalNilaiCapaianSkp'] += $data['nilai_capaian_skp'];
         }
-        // dd($data['formSkp']);
+        dd($data);
         return view('admin/pegawai/skp',$data);
     }
 }
