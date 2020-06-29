@@ -547,11 +547,21 @@ class adminPegawaiController extends Controller
         $data['countPenilaianSkp'] = count($data['penilaianSkp']);
         $data['countPerilakuKerjaSkp'] = count($data['perilakuKerjaSkp']);
         foreach ($data['pengukuranSkp'] as $key => $value) {
-            $data[''] = ;
-            $data[''] = ;
-            $data[''] = ;
-            $data[''] = ;
-            $data[''] = ;
+            $value['penghitungan'] = ;
+            // $value['capaianSkp'] = ;
+            // $data['totalKegiatan'] = ;
+            // $data['totalAkTarget'] = ;
+            // $data['totalKuantTarget1'] = ;
+            // $data['totalKuantTarget2'] = ;
+            // $data['totalKualTarget'] = ;
+            // $data['totalBiayaTarget'] = ;
+            // $data['totalAkRealisasi'] = ;
+            // $data['totalKuantRealisasi1'] = ;
+            // $data['totalKuantRealisasi2'] = ;
+            // $data['totalKualRealisasi'] = ;
+            // $data['totalBiayaRealisasi'] = ;
+            // $data['totalPenghitungan'] = ;
+            // $data['totalSkp'] = ;
         }
         // dd($data['formSkp']);
         return view('admin/pegawai/skp',$data);
