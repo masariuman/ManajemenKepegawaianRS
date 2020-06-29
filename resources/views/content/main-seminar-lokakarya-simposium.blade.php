@@ -105,46 +105,12 @@
                         </tr>
                     </tbody>
                 </table>
-                                            <!-- <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tahun :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$seminar_lokakarya_simposiums->tahun}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nama Kegiatan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$seminar_lokakarya_simposiums->nama_kegiatan}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Lokasi Kegiatan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$seminar_lokakarya_simposiums->lokasi}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tempat Kegiatan :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>  @if($seminar_lokakarya_simposiums->tempat_kegiatan == "1")
-                                                                                                            Dalam Negeri                                                
-                                                                                                            @elseif($seminar_lokakarya_simposiums->tempat_kegiatan == "1")                                                
-                                                                                                            Luar Negeri
-                                                                                                            @endif</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Penyelenggara :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$seminar_lokakarya_simposiums->penyelenggara}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tahun Seminar :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$seminar_lokakarya_simposiums->tahun_seminar}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Kedudukan Dalam Seminar :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($seminar_lokakarya_simposiums->kedudukan_dalam_seminar == "1")
-                                                                                                            Peserta                                               
-                                                                                                            @elseif($seminar_lokakarya_simposiums->kedudukan_dalam_seminar == "2")                                               
-                                                                                                            Moderator                                               
-                                                                                                            @elseif($seminar_lokakarya_simposiums->kedudukan_dalam_seminar == "3")                                                                                             
-                                                                                                            Pembahas                                                
-                                                                                                            @elseif($seminar_lokakarya_simposiums->kedudukan_dalam_seminar == "4")                                            
-                                                                                                            Pembawa Makalah
-                                                                                                            @elseif($seminar_lokakarya_simposiums->kedudukan_dalam_seminar == "5")                                              
-                                                                                                            Panitia
-                                                                                                            @endif</b></h6></div>          
-                                            </div> -->
+                                           
  
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Tutup</button>
-                <!-- <button type="button" class="btn btn-info"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use check"></i> Done</button> -->
+                <button type="button" class="btn btn-alternate" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Tutup</button>
+                
             </div>
         </div>
     </div>
@@ -199,7 +165,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
-                <button type="submit" class="btn btn-light"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah</button>
+                <button type="submit" class="btn btn-dark"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah</button>
             </div>
             </form>
         </div>
@@ -288,7 +254,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
-                <button type="submit" class="btn btn-light"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah</button>
+                <button type="submit" class="btn btn-success"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah</button>
             </div>
             </form>
         </div>
@@ -317,7 +283,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
-                <button type="submit" class="btn btn-light"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus</button>
+                <button type="submit" class="btn btn-danger"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus</button>
             </div>
             </form>
         </div>

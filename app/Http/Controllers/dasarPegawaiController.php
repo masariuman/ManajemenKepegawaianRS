@@ -278,7 +278,7 @@ class dasarPegawaiController extends Controller
         ]);
 
 
-        \Session::flash('Berhasil', 'Data dasar pegawai berhasil diubah');
+        \Session::flash('Berhasil', 'Data dasar pegawai berhasil diupdate');
 
         return back();
     }

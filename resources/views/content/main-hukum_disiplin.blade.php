@@ -105,45 +105,12 @@
                     </tbody>
                 </table>
 
-                                            <!-- <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tahun :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$hukum_disiplins->tahun}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Kode Hukuman :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>@if($hukum_disiplins->kode_hukuman == "11")
-                                                                                                            11 - Hukuman Ringan Teguran Lisan                                             
-                                                                                                            @elseif($hukum_disiplins->kode_hukuman == "12")                                               
-                                                                                                            12 - Hukuman Ringan Teguran Tertulis                                          
-                                                                                                            @elseif($hukum_disiplins->kode_hukuman == "13")                                             
-                                                                                                            13 - Hukuman Ringan Melalui Pernyataan Tidak Puas Secara Tertulis                                       
-                                                                                                            @elseif($hukum_disiplins->kode_hukuman == "21")
-                                                                                                            21 - Hukuman Sedang Penundaan Kenaikan Gaji Sebesar 1x Kenaikan Gaji Berkala Paling Lama 1 Tahun                                          
-                                                                                                            @elseif($hukum_disiplins->kode_hukuman == "22")                                              
-                                                                                                            22 - Hukuman Sedang Penurunan Gaji Sebesar 1x Kenaikan Gaji Berkala Paling Lama 1 Tahun                                             
-                                                                                                            @elseif($hukum_disiplins->kode_hukuman == "23")                                              
-                                                                                                            23 - Hukuman Sedang Penundaan Kenaikan Pangkat Paling Lama 1 Tahun                     
-                                                                                                            @elseif($hukum_disiplins->kode_hukuman == "31")                                            
-                                                                                                            31 - Hukuman Berat Penurunan Pangkat Setingkat Lebih Rendah Paling Lama 1 Tahun                                             
-                                                                                                            @elseif($hukum_disiplins->kode_hukuman == "32")                                         
-                                                                                                            32 - Hukuman Berat Pembebasan dari Jabatan
-                                                                                                            @endif</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Nomor SK :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$hukum_disiplins->nomor_sk}}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Tanggal SK :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($hukum_disiplins->tanggal_sk)) }}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>TMT Berlaku :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{ date('d/m/Y',strtotime($hukum_disiplins->tmt_berlaku)) }}</b></h6></div>          
-                                            </div>
-                                            <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-4 col-form-label"><b>Pejabat Pembuat SK :</b></label>
-                                                <div class="col-sm-8 col-form-label col-form-text"><h6><b>{{$hukum_disiplins->pejabat_pembuat_sk}}</b></h6></div>          
-                                            </div> -->
+                                           
  
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Tutup</button>
-                <!-- <button type="button" class="btn btn-info"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use check"></i> Done</button> -->
+                <button type="button" class="btn btn-alternate" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Tutup</button>
+               
             </div>
         </div>
     </div>
@@ -194,7 +161,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
-                <button type="submit" class="btn btn-light"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah</button>
+                <button type="submit" class="btn btn-dark"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use plus-square"></i> Tambah</button>
             </div>
             </form>
         </div>
@@ -313,7 +280,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
-                <button type="submit" class="btn btn-light"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah</button>
+                <button type="submit" class="btn btn-success"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use edit"></i> Ubah</button>
             </div>
             </form>
         </div>
@@ -342,7 +309,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use times"></i> Batal</button>
-                <button type="submit" class="btn btn-light"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus</button>
+                <button type="submit" class="btn btn-danger"> <i class="fa fa-fw" aria-hidden="true" title="Copy to use trash"></i> Hapus</button>
             </div>
             </form>
         </div>
