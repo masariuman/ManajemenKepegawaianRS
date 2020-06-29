@@ -64,6 +64,56 @@
                             <td class="text-center">{{$item->nilai_capaian_skp}}</td>
                         </tr>
                     @endforeach
+                    @if ($countPengukuranSkp_tugas_tambahan != 0)
+                        @foreach ($pengukuranSkp_tugas_tambahan as $item)
+                            <tr><td class="text-center bold" colspan="18">TUGAS TAMBAHAN</td></tr>
+                            <tr>
+                                <td class="text-center bold">{{$noPengukuranSkp =+ 1}}</td>
+                                <td class="text-center">{{$item->kegiatan_tugas_tambahan}}</td>
+                                <td class="text-center">{{$item->ak_target}}</td>
+                                <td class="text-center">{{$item->target_kuant_output_1}}</td>
+                                <td class="text-center">{{$item->target_kuant_output_2}}</td>
+                                <td class="text-center">{{$item->target_kual_mutu}}</td>
+                                <td class="text-center">{{$item->target_waktu}}</td>
+                                <td class="text-center">bulan</td>
+                                <td class="text-center">{{$item->target_biaya}}</td>
+                                <td class="text-center">{{$item->ak_realisasi}}</td>
+                                <td class="text-center">{{$item->realisasi_kuant_output_1}}</td>
+                                <td class="text-center">{{$item->realisasi_kuant_output_2}}</td>
+                                <td class="text-center">{{$item->realisasi_kual_mutu}}</td>
+                                <td class="text-center">{{$item->realisasi_waktu}}</td>
+                                <td class="text-center">bulan</td>
+                                <td class="text-center">{{$item->realisasi_biaya}}</td>
+                                <td class="text-center">{{$item->penghitungan}}</td>
+                                <td class="text-center">{{$totalNilaiCapaianSkp2}}</td>
+                            </tr>
+                        @endforeach
+                    @endif
+                    @if ($countPengukuranSkp_kreativitas != 0)
+                        @foreach ($pengukuranSkp_kreativitas as $item)
+                            <tr><td class="text-center bold" colspan="18">KREATIVITAS</td></tr>
+                            <tr>
+                                <td class="text-center bold">{{$noPengukuranSkp =+ 1}}</td>
+                                <td class="text-center">{{$item->kegiatan_tugas_tambahan}}</td>
+                                <td class="text-center">{{$item->ak_target}}</td>
+                                <td class="text-center">{{$item->target_kuant_output_1}}</td>
+                                <td class="text-center">{{$item->target_kuant_output_2}}</td>
+                                <td class="text-center">{{$item->target_kual_mutu}}</td>
+                                <td class="text-center">{{$item->target_waktu}}</td>
+                                <td class="text-center">bulan</td>
+                                <td class="text-center">{{$item->target_biaya}}</td>
+                                <td class="text-center">{{$item->ak_realisasi}}</td>
+                                <td class="text-center">{{$item->realisasi_kuant_output_1}}</td>
+                                <td class="text-center">{{$item->realisasi_kuant_output_2}}</td>
+                                <td class="text-center">{{$item->realisasi_kual_mutu}}</td>
+                                <td class="text-center">{{$item->realisasi_waktu}}</td>
+                                <td class="text-center">bulan</td>
+                                <td class="text-center">{{$item->realisasi_biaya}}</td>
+                                <td class="text-center">{{$item->penghitungan}}</td>
+                                <td class="text-center">{{$totalNilaiCapaianSkp2}}</td>
+                            </tr>
+                        @endforeach
+                    @endif
                     <tr>
                         <td class="bgabu text-center bold">TOTAL</td>
                         <td class="bgabu text-center bold">{{$totalKegiatan}}</td>
