@@ -42,7 +42,7 @@
                         <td class="text-center bold bgabu">13</td>
                         <td class="text-center bold bgabu">14</td>
                     </tr>
-                    @foreach ($pengukuranSkp as $item)
+                    @foreach ($pengukuranSkp_kegiatan_tugas_tambahan as $item)
                         <tr>
                             <td class="text-center bold">{{$noPengukuranSkp =+ 1}}</td>
                             <td class="text-center">{{$item->kegiatan_tugas_tambahan}}</td>
@@ -66,23 +66,30 @@
                     @endforeach
                     <tr>
                         <td class="bgabu text-center bold">TOTAL</td>
-                        <td class="bgabu text-center">{{$totalKegiatan}}</td>
-                        <td class="bgabu text-center">{{$totalAkTarget}}</td>
-                        <td class="bgabu text-center">{{$totalKuantTarget1}}</td>
-                        <td class="bgabu text-center">{{$totalKuantTarget2}}</td>
-                        <td class="bgabu text-center">{{$totalKualTarget}}</td>
-                        <td class="bgabu text-center">{{$totalWaktuTarget}}</td>
-                        <td class="bgabu text-center">bulan</td>
-                        <td class="bgabu text-center">{{$totalBiayaTarget}}</td>
-                        <td class="bgabu text-center">{{$totalAkRealisasi}}</td>
-                        <td class="bgabu text-center">{{$totalKuantRealisasi}}</td>
-                        <td class="bgabu text-center">{{$totalKuantRealisasi2}}</td>
-                        <td class="bgabu text-center">{{$totalKualRealisasi}}</td>
-                        <td class="bgabu text-center">{{$totalWaktuRealisasi}}</td>
-                        <td class="bgabu text-center">bulan</td>
-                        <td class="bgabu text-center">{{$totalBiayaRealisasi}}</td>
-                        <td class="bgabu text-center">{{$totalPenghitungan}}</td>
-                        <td class="bgabu text-center">{{$totalNilaiCapaianSkp}}</td>
+                        <td class="bgabu text-center bold">{{$totalKegiatan}}</td>
+                        <td class="bgabu text-center bold">{{$totalAkTarget}}</td>
+                        <td class="bgabu text-center bold">{{$totalKuantTarget1}}</td>
+                        <td class="bgabu text-center bold">{{$totalKuantTarget2}}</td>
+                        <td class="bgabu text-center bold">{{$totalKualTarget}}</td>
+                        <td class="bgabu text-center bold">{{$totalWaktuTarget}}</td>
+                        <td class="bgabu text-center bold">bulan</td>
+                        <td class="bgabu text-center bold">{{$totalBiayaTarget}}</td>
+                        <td class="bgabu text-center bold">{{$totalAkRealisasi}}</td>
+                        <td class="bgabu text-center bold">{{$totalKuantRealisasi}}</td>
+                        <td class="bgabu text-center bold">{{$totalKuantRealisasi2}}</td>
+                        <td class="bgabu text-center bold">{{$totalKualRealisasi}}</td>
+                        <td class="bgabu text-center bold">{{$totalWaktuRealisasi}}</td>
+                        <td class="bgabu text-center bold">bulan</td>
+                        <td class="bgabu text-center bold">{{$totalBiayaRealisasi}}</td>
+                        <td class="bgabu text-center bold">{{$totalPenghitungan}}</td>
+                        <td class="bgabu text-center bold">{{$totalNilaiCapaianSkp}}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center bold" rowspan="2" colspan="17">NILAI CAPAIAN SKP</td>
+                        <td class="text-center bold">{{$nilaiCapaianSkpFinal1}}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center bold">{{$nilaiCapaianSkpFinal2}}</td>
                     </tr>
                 </tbody>
             </table>

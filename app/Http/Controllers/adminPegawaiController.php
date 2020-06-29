@@ -541,7 +541,7 @@ class adminPegawaiController extends Controller
                         ->where('kategori',$data['periode']->periode);
         $data['countFormSkp'] = count($data['formSkp']);
         $data['countPengukuranSkp'] = count($data['pengukuranSkp']);
-        $data['countPengukuranSkp_kegiatan_tugas_tambahannSkp'] = count($data['pengukuranSkp_kegiatan_tugas_tambahan']);
+        $data['countPengukuranSkp_kegiatan_tugas_tambahan'] = count($data['pengukuranSkp_kegiatan_tugas_tambahan']);
         $data['countPengukuranSkp_kreativitas'] = count($data['pengukuranSkp_kreativitas']);
         $data['countPengukuranSkp_tugas_tambahan'] = count($data['pengukuranSkp_tugas_tambahan']);
         $data['countPenilaianSkp'] = count($data['penilaianSkp']);
@@ -559,53 +559,192 @@ class adminPegawaiController extends Controller
         $data['totalBiayaRealisasi'] = 0;
         $data['totalPenghitungan'] = 0;
         $data['totalNilaiCapaianSkp'] = 0;
+        $data['totalNilaiCapaianSkp2'] = 0;
+        $data['totalNilaiCapaianSkp3'] = 0;
         $data['totalWaktuTarget'] = 0;
         $data['totalWaktuRealisasi'] = 0;
-        foreach ($data['pengukuranSkp'] as $key => $value) {
-            //perhitungan
-            $persen_waktu = 100 - ($value->realisasi_waktu / $value->target_waktu * 100);
-            $kuantitas = $value->realisasi_kuant_output_1 / $value->target_kuant_output_1 * 100;
-            $kualitas = $value->realisasi_kual_mutu / $value->target_kual_mutu * 100;
-            if ($persen_waktu > 24) {
-                $waktu = 76 - ((((1.76 * $value->target_waktu - $value->realisasi_waktu) / $value->target_waktu) * 100) - 100);
-            } else {
-                $waktu = ((1.76 * $value->target_waktu - $value->realisasi_waktu) / $value->target_waktu) * 100;
-            }
-            if (!empty($value->realisasi_biaya)) {
-                $persen_biaya = 100 - ($value->realisasi_biaya / $value->target_biaya * 100);
-                if ( $persen_biaya > 24 ) {
-                    $biaya = 76 - ((((1.76 * $value->target_biaya - $value->realisasi_biaya) / $value->target_biaya) * 100) - 100);
+        $data['nilaiCapaianSkp1'] = 0;
+        $data['nilaiCapaianSkp2'] = 0;
+        if ($data['countPengukuranSkp'] === 0){
+            //do nothing
+        } else {
+            foreach ($data['pengukuranSkp'] as $key => $value) {
+                //perhitungan
+                $persen_waktu = 100 - ($value->realisasi_waktu / $value->target_waktu * 100);
+                $kuantitas = $value->realisasi_kuant_output_1 / $value->target_kuant_output_1 * 100;
+                $kualitas = $value->realisasi_kual_mutu / $value->target_kual_mutu * 100;
+                if ($persen_waktu > 24) {
+                    $waktu = 76 - ((((1.76 * $value->target_waktu - $value->realisasi_waktu) / $value->target_waktu) * 100) - 100);
                 } else {
-                    $biaya = ((1.76 * $value->target_biaya - $value->realisasi_biaya) / $value->target_biaya)*100;
+                    $waktu = ((1.76 * $value->target_waktu - $value->realisasi_waktu) / $value->target_waktu) * 100;
                 }
-                $value['penghitungan'] = $kuantitas + $kualitas + $waktu + $biaya;
-            } else {
-                $value['penghitungan'] = $kuantitas + $kualitas + $waktu;
+                if (!empty($value->realisasi_biaya)) {
+                    $persen_biaya = 100 - ($value->realisasi_biaya / $value->target_biaya * 100);
+                    if ( $persen_biaya > 24 ) {
+                        $biaya = 76 - ((((1.76 * $value->target_biaya - $value->realisasi_biaya) / $value->target_biaya) * 100) - 100);
+                    } else {
+                        $biaya = ((1.76 * $value->target_biaya - $value->realisasi_biaya) / $value->target_biaya)*100;
+                    }
+                    $value['penghitungan'] = $kuantitas + $kualitas + $waktu + $biaya;
+                } else {
+                    $value['penghitungan'] = $kuantitas + $kualitas + $waktu;
+                }
+    
+                //capaian skp
+                if (empty($value->realisasi_biaya)){
+                    $value['nilai_capaian_skp'] = $value['penghitungan'] / 3;
+                } else {
+                    $value['nilai_capaian_skp'] = $value['penghitungan'] / 4;
+                }
+    
+                $data['totalKegiatan'] += $value->kegiatan_tugas_tambahan;
+                $data['totalAkTarget'] += $value->ak_target;
+                $data['totalKuantTarget1'] += $value->target_kuant_output_1;
+                $data['totalKuantTarget2'] += $value->target_kuant_output_2;
+                $data['totalKualTarget'] += $value->target_kual_mutu;
+                $data['totalWaktuTarget'] += $value->target_waktu;
+                $data['totalBiayaTarget'] += $value->target_biaya;
+                $data['totalAkRealisasi'] += $value->ak_realisasi;
+                $data['totalKuantRealisasi'] += $value->realisasi_kuant_output_1;
+                $data['totalKuantRealisasi2'] += $value->realisasi_kuant_output_2;
+                $data['totalKualRealisasi'] += $value->realisasi_kual_mutu;
+                $data['totalWaktuRealisasi'] += $value->realisasi_waktu;
+                $data['totalBiayaRealisasi'] += $value->realisasi_biaya;
+                $data['totalPenghitungan'] += $value['penghitungan'];
+                $data['totalNilaiCapaianSkp'] += $value['nilai_capaian_skp'];
+    
+                // ($data['nilaiCapaianSkp1'] / $data['nilaiCapaianSkp2']) +  +  ;
             }
-
-            //capaian skp
-            if (empty($value->realisasi_biaya)){
-                $value['nilai_capaian_skp'] = $value['penghitungan'] / 3;
-            } else {
-                $value['nilai_capaian_skp'] = $value['penghitungan'] / 4;
-            }
-
-            $data['totalKegiatan'] += $value->kegiatan_tugas_tambahan;
-            $data['totalAkTarget'] += $value->ak_target;
-            $data['totalKuantTarget1'] += $value->target_kuant_output_1;
-            $data['totalKuantTarget2'] += $value->target_kuant_output_2;
-            $data['totalKualTarget'] += $value->target_kual_mutu;
-            $data['totalWaktuTarget'] += $value->target_waktu;
-            $data['totalBiayaTarget'] += $value->target_biaya;
-            $data['totalAkRealisasi'] += $value->ak_realisasi;
-            $data['totalKuantRealisasi'] += $value->realisasi_kuant_output_1;
-            $data['totalKuantRealisasi2'] += $value->realisasi_kuant_output_2;
-            $data['totalKualRealisasi'] += $value->realisasi_kual_mutu;
-            $data['totalWaktuRealisasi'] += $value->realisasi_waktu;
-            $data['totalBiayaRealisasi'] += $value->realisasi_biaya;
-            $data['totalPenghitungan'] += $value['penghitungan'];
-            $data['totalNilaiCapaianSkp'] += $value['nilai_capaian_skp'];
         }
+        if ($data['countPengukuranSkp_kegiatan_tugas_tambahan'] === 0){
+            //do nothing
+        } else {
+            foreach ($data['pengukuranSkp_kegiatan_tugas_tambahan'] as $key => $value) {
+                //perhitungan
+                $persen_waktu = 100 - ($value->realisasi_waktu / $value->target_waktu * 100);
+                $kuantitas = $value->realisasi_kuant_output_1 / $value->target_kuant_output_1 * 100;
+                $kualitas = $value->realisasi_kual_mutu / $value->target_kual_mutu * 100;
+                if ($persen_waktu > 24) {
+                    $waktu = 76 - ((((1.76 * $value->target_waktu - $value->realisasi_waktu) / $value->target_waktu) * 100) - 100);
+                } else {
+                    $waktu = ((1.76 * $value->target_waktu - $value->realisasi_waktu) / $value->target_waktu) * 100;
+                }
+                if (!empty($value->realisasi_biaya)) {
+                    $persen_biaya = 100 - ($value->realisasi_biaya / $value->target_biaya * 100);
+                    if ( $persen_biaya > 24 ) {
+                        $biaya = 76 - ((((1.76 * $value->target_biaya - $value->realisasi_biaya) / $value->target_biaya) * 100) - 100);
+                    } else {
+                        $biaya = ((1.76 * $value->target_biaya - $value->realisasi_biaya) / $value->target_biaya)*100;
+                    }
+                    $value['penghitungan'] = $kuantitas + $kualitas + $waktu + $biaya;
+                } else {
+                    $value['penghitungan'] = $kuantitas + $kualitas + $waktu;
+                }
+    
+                //capaian skp
+                if (empty($value->realisasi_biaya)){
+                    $value['nilai_capaian_skp'] = $value['penghitungan'] / 3;
+                } else {
+                    $value['nilai_capaian_skp'] = $value['penghitungan'] / 4;
+                }
+    
+                if ($value['nilai_capaian_skp'] === null || $value['nilai_capaian_skp'] === "" || $value['nilai_capaian_skp'] === 0) {
+                    //do nothing karena 0
+                } else {
+                    $data['nilaiCapaianSkp1'] += $value['nilai_capaian_skp'];
+                }
+                if ($value->target_kuant_output_1 === null || $value->target_kuant_output_1 === "" || $value->target_kuant_output_1 === 0) {
+                    //do nothing karena 0
+                } else {
+                    $data['nilaiCapaianSkp2'] += 1;
+                }
+    
+                // ($data['nilaiCapaianSkp1'] / $data['nilaiCapaianSkp2']) +  +  ;
+            }
+        }
+        if ($data['countPengukuranSkp_kreativitas'] === 0){
+            //do nothing
+        } else {
+            foreach ($data['pengukuranSkp_kreativitas'] as $key => $value) {
+                //perhitungan
+                $persen_waktu = 100 - ($value->realisasi_waktu / $value->target_waktu * 100);
+                $kuantitas = $value->realisasi_kuant_output_1 / $value->target_kuant_output_1 * 100;
+                $kualitas = $value->realisasi_kual_mutu / $value->target_kual_mutu * 100;
+                if ($persen_waktu > 24) {
+                    $waktu = 76 - ((((1.76 * $value->target_waktu - $value->realisasi_waktu) / $value->target_waktu) * 100) - 100);
+                } else {
+                    $waktu = ((1.76 * $value->target_waktu - $value->realisasi_waktu) / $value->target_waktu) * 100;
+                }
+                if (!empty($value->realisasi_biaya)) {
+                    $persen_biaya = 100 - ($value->realisasi_biaya / $value->target_biaya * 100);
+                    if ( $persen_biaya > 24 ) {
+                        $biaya = 76 - ((((1.76 * $value->target_biaya - $value->realisasi_biaya) / $value->target_biaya) * 100) - 100);
+                    } else {
+                        $biaya = ((1.76 * $value->target_biaya - $value->realisasi_biaya) / $value->target_biaya)*100;
+                    }
+                    $value['penghitungan'] = $kuantitas + $kualitas + $waktu + $biaya;
+                } else {
+                    $value['penghitungan'] = $kuantitas + $kualitas + $waktu;
+                }
+    
+                //capaian skp
+                if (empty($value->realisasi_biaya)){
+                    $value['nilai_capaian_skp'] = $value['penghitungan'] / 3;
+                } else {
+                    $value['nilai_capaian_skp'] = $value['penghitungan'] / 4;
+                }
+                $data['totalNilaiCapaianSkp2'] += $value['nilai_capaian_skp'];
+            }
+        }
+        if ($data['countPengukuranSkp_tugas_tambahan'] === 0){
+            //do nothing
+        } else {
+            foreach ($data['pengukuranSkp_tugas_tambahan'] as $key => $value) {
+                //perhitungan
+                $persen_waktu = 100 - ($value->realisasi_waktu / $value->target_waktu * 100);
+                $kuantitas = $value->realisasi_kuant_output_1 / $value->target_kuant_output_1 * 100;
+                $kualitas = $value->realisasi_kual_mutu / $value->target_kual_mutu * 100;
+                if ($persen_waktu > 24) {
+                    $waktu = 76 - ((((1.76 * $value->target_waktu - $value->realisasi_waktu) / $value->target_waktu) * 100) - 100);
+                } else {
+                    $waktu = ((1.76 * $value->target_waktu - $value->realisasi_waktu) / $value->target_waktu) * 100;
+                }
+                if (!empty($value->realisasi_biaya)) {
+                    $persen_biaya = 100 - ($value->realisasi_biaya / $value->target_biaya * 100);
+                    if ( $persen_biaya > 24 ) {
+                        $biaya = 76 - ((((1.76 * $value->target_biaya - $value->realisasi_biaya) / $value->target_biaya) * 100) - 100);
+                    } else {
+                        $biaya = ((1.76 * $value->target_biaya - $value->realisasi_biaya) / $value->target_biaya)*100;
+                    }
+                    $value['penghitungan'] = $kuantitas + $kualitas + $waktu + $biaya;
+                } else {
+                    $value['penghitungan'] = $kuantitas + $kualitas + $waktu;
+                }
+    
+                //capaian skp
+                if (empty($value->realisasi_biaya)){
+                    $value['nilai_capaian_skp'] = $value['penghitungan'] / 3;
+                } else {
+                    $value['nilai_capaian_skp'] = $value['penghitungan'] / 4;
+                }
+                $data['totalNilaiCapaianSkp3'] += $value['nilai_capaian_skp'];
+            }
+        }
+        $data['nilaiCapaianSkpFinal1'] = ($data['nilaiCapaianSkp1'] / $data['nilaiCapaianSkp2']) + $data['totalNilaiCapaianSkp2'] + $data['totalNilaiCapaianSkp3'];
+        if ($data['nilaiCapaianSkpFinal1'] <= 50) {
+            $data['nilaiCapaianSkpFinal2'] = 'BURUK';
+        } else {
+            if ($data['nilaiCapaianSkpFinal1'] <= 75) {
+                $data['nilaiCapaianSkpFinal2'] = 'CUKUP';
+            } else {
+                if ($data['nilaiCapaianSkpFinal1'] <= 90.99) {
+                    $data['nilaiCapaianSkpFinal2'] = 'BAIK';
+                } else {
+                    $data['nilaiCapaianSkpFinal2'] = 'SANGAT BAIK';
+                }
+            }
+        }
+
         // dd($data);
         return view('admin/pegawai/skp',$data);
     }
