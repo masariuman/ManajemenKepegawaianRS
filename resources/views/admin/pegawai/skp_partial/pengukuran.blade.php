@@ -50,55 +50,39 @@
                             <td class="text-center">{{$item->target_kuant_output_1}}</td>
                             <td class="text-center">{{$item->target_kuant_output_2}}</td>
                             <td class="text-center">{{$item->target_kual_mutu}}</td>
-                            @if ($periode->periode === "Setahun")
-                                <td class="text-center">12</td>
-                            @else
-                                <td class="text-center">6</td>
-                            @endif
+                            <td class="text-center">{{$item->target_waktu}}</td>
                             <td class="text-center">bulan</td>
                             <td class="text-center">{{$item->target_biaya}}</td>
                             <td class="text-center">{{$item->ak_realisasi}}</td>
                             <td class="text-center">{{$item->realisasi_kuant_output_1}}</td>
                             <td class="text-center">{{$item->realisasi_kuant_output_2}}</td>
                             <td class="text-center">{{$item->realisasi_kual_mutu}}</td>
-                            @if ($periode->periode === "Setahun")
-                                <td class="text-center">12</td>
-                            @else
-                                <td class="text-center">6</td>
-                            @endif
+                            <td class="text-center">{{$item->realisasi_waktu}}</td>
                             <td class="text-center">bulan</td>
                             <td class="text-center">{{$item->realisasi_biaya}}</td>
-                            <td class="text-center">rumus</td>
-                            <td class="text-center">rumus</td>
+                            <td class="text-center">{{$item->penghitungan}}</td>
+                            <td class="text-center">{{$item->nilai_capaian_skp}}</td>
                         </tr>
                     @endforeach
                     <tr>
                         <td class="bgabu text-center bold">TOTAL</td>
-                        <td class="bgabu text-center">{{$item->kegiatan_tugas_tambahan}}</td>
-                        <td class="bgabu text-center">{{$item->ak_target}}</td>
-                        <td class="bgabu text-center">{{$item->target_kuant_output_1}}</td>
-                        <td class="bgabu text-center">{{$item->target_kuant_output_2}}</td>
-                        <td class="bgabu text-center">{{$item->target_kual_mutu}}</td>
-                        @if ($periode->periode === "Setahun")
-                            <td class="bgabu text-center">12</td>
-                        @else
-                            <td class="bgabu text-center">6</td>
-                        @endif
+                        <td class="bgabu text-center">{{$totalKegiatan}}</td>
+                        <td class="bgabu text-center">{{$totalAkTarget}}</td>
+                        <td class="bgabu text-center">{{$totalKuantTarget1}}</td>
+                        <td class="bgabu text-center">{{$totalKuantTarget2}}</td>
+                        <td class="bgabu text-center">{{$totalKualTarget}}</td>
+                        <td class="bgabu text-center">{{$totalWaktuTarget}}</td>
                         <td class="bgabu text-center">bulan</td>
-                        <td class="bgabu text-center">{{$item->target_biaya}}</td>
-                        <td class="bgabu text-center">{{$item->ak_realisasi}}</td>
-                        <td class="bgabu text-center">{{$item->realisasi_kuant_output_1}}</td>
-                        <td class="bgabu text-center">{{$item->realisasi_kuant_output_2}}</td>
-                        <td class="bgabu text-center">{{$item->realisasi_kual_mutu}}</td>
-                        @if ($periode->periode === "Setahun")
-                            <td class="bgabu text-center">12</td>
-                        @else
-                            <td class="bgabu text-center">6</td>
-                        @endif
+                        <td class="bgabu text-center">{{$totalBiayaTarget}}</td>
+                        <td class="bgabu text-center">{{$totalAkRealisasi}}</td>
+                        <td class="bgabu text-center">{{$totalKuantRealisasi}}</td>
+                        <td class="bgabu text-center">{{$totalKuantRealisasi2}}</td>
+                        <td class="bgabu text-center">{{$totalKualRealisasi}}</td>
+                        <td class="bgabu text-center">{{$totalWaktuRealisasi}}</td>
                         <td class="bgabu text-center">bulan</td>
-                        <td class="bgabu text-center">{{$item->realisasi_biaya}}</td>
-                        <td class="bgabu text-center">rumus</td>
-                        <td class="bgabu text-center">rumus</td>
+                        <td class="bgabu text-center">{{$totalBiayaRealisasi}}</td>
+                        <td class="bgabu text-center">{{$totalPenghitungan}}</td>
+                        <td class="bgabu text-center">{{$totalNilaiCapaianSkp}}</td>
                     </tr>
                 </tbody>
             </table>

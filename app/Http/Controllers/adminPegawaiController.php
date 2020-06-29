@@ -578,16 +578,16 @@ class adminPegawaiController extends Controller
                 } else {
                     $biaya = ((1.76 * $value->target_biaya - $value->realisasi_biaya) / $value->target_biaya)*100;
                 }
-                $data['penghitungan'] = $kuantitas + $kualitas + $waktu + $biaya;
+                $value['penghitungan'] = $kuantitas + $kualitas + $waktu + $biaya;
             } else {
-                $data['penghitungan'] = $kuantitas + $kualitas + $waktu;
+                $value['penghitungan'] = $kuantitas + $kualitas + $waktu;
             }
 
             //capaian skp
             if (empty($value->realisasi_biaya)){
-                $data['nilai_capaian_skp'] = $data['penghitungan'] / 3;
+                $value['nilai_capaian_skp'] = $value['penghitungan'] / 3;
             } else {
-                $data['nilai_capaian_skp'] = $data['penghitungan'] / 4;
+                $value['nilai_capaian_skp'] = $value['penghitungan'] / 4;
             }
 
             $data['totalKegiatan'] += $value->kegiatan_tugas_tambahan;
@@ -603,10 +603,10 @@ class adminPegawaiController extends Controller
             $data['totalKualRealisasi'] += $value->realisasi_kual_mutu;
             $data['totalWaktuRealisasi'] += $value->realisasi_waktu;
             $data['totalBiayaRealisasi'] += $value->realisasi_biaya;
-            $data['totalPenghitungan'] += $data['penghitungan'];
-            $data['totalNilaiCapaianSkp'] += $data['nilai_capaian_skp'];
+            $data['totalPenghitungan'] += $value['penghitungan'];
+            $data['totalNilaiCapaianSkp'] += $value['nilai_capaian_skp'];
         }
-        dd($data);
+        // dd($data);
         return view('admin/pegawai/skp',$data);
     }
 }
