@@ -847,9 +847,16 @@ class adminPegawaiController extends Controller
                 }
             }
         }
-        $data['perilakuKerjaSkpJumlah'] = $data['perilakuKerjaSkp']['kepemimpinan'] + $data['perilakuKerjaSkp']['kerjasama'] + $data['perilakuKerjaSkp']['disiplin'] + $data['perilakuKerjaSkp']['komitmen'] + $data['perilakuKerjaSkp']['integritas'] + $data['perilakuKerjaSkp']['orientasi_pelayanan'];
-        if ($data['perilakuKerjaSkp']['kepemimpinan'] === null || $data['perilakuKerjaSkp']['kepemimpinan'] === 0 || $data['perilakuKerjaSkp']['kepemimpinan'] === "") {
-            $data['perilakuKerjaSkpRata'] = $data['perilakuKerjaSkpJumlah'] / 5;
+        $data['perilakuKerjaSkpJumlah'] = $data['perilakuKerjaSkp']['kepemimpinan']
+            + $data['perilakuKerjaSkp']['kerjasama']
+            + $data['perilakuKerjaSkp']['disiplin']
+            + $data['perilakuKerjaSkp']['komitmen']
+            + $data['perilakuKerjaSkp']['integritas']
+            + $data['perilakuKerjaSkp']['orientasi_pelayanan'];
+        if ($data['perilakuKerjaSkp']['kepemimpinan'] === null
+            || $data['perilakuKerjaSkp']['kepemimpinan'] === 0
+            || $data['perilakuKerjaSkp']['kepemimpinan'] === "") {
+                $data['perilakuKerjaSkpRata'] = $data['perilakuKerjaSkpJumlah'] / 5;
         } else {
             $data['perilakuKerjaSkpRata'] = $data['perilakuKerjaSkpJumlah'] / 6;
         }
