@@ -94,8 +94,8 @@
                                 <tr>
                                     <td>Nilai Rata-rata</td>
                                     <td style="width:77px;">=</td>
-                                    <td class="bold">angka</td>
-                                    <td class="bold" style="width:103px;">buruk</td>
+                                    <td class="bold">{{ $perilakuKerjaSkpRata }}</td>
+                                    <td class="bold" style="width:103px;">{{ $perilakuKerjaSkpRatarata }}</td>
                                 </tr>
                             </table>
                         </td>

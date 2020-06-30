@@ -847,7 +847,29 @@ class adminPegawaiController extends Controller
                 }
             }
         }
-        $data['perilakuKerjaSkpJumlah'] = $data['perilakuKerjaSkp']['kepemimpinan'] + $data['perilakuKerjaSkp']['kerjasama'] +$data['perilakuKerjaSkp']['disiplin'] + $data['perilakuKerjaSkp']['komitmen'] + $data['perilakuKerjaSkp']['integritas'] + $data['perilakuKerjaSkp']['orientasi_pelayanan'];
+        $data['perilakuKerjaSkpJumlah'] = $data['perilakuKerjaSkp']['kepemimpinan'] + $data['perilakuKerjaSkp']['kerjasama'] + $data['perilakuKerjaSkp']['disiplin'] + $data['perilakuKerjaSkp']['komitmen'] + $data['perilakuKerjaSkp']['integritas'] + $data['perilakuKerjaSkp']['orientasi_pelayanan'];
+        if ($data['perilakuKerjaSkp']['kepemimpinan'] === null || $data['perilakuKerjaSkp']['kepemimpinan'] === 0 || $data['perilakuKerjaSkp']['kepemimpinan'] === "") {
+            $data['perilakuKerjaSkpRata'] = $data['perilakuKerjaSkpJumlah'] / 5;
+        } else {
+            $data['perilakuKerjaSkpRata'] = $data['perilakuKerjaSkpJumlah'] / 6;
+        }
+        if ($data['perilakuKerjaSkpRata'] <= 50) {
+            $data['perilakuKerjaSkpRatarata'] = "(Buruk)";
+        } else {
+            if ($data['perilakuKerjaSkpRata'] <= 60) {
+                $data['perilakuKerjaSkpRatarata'] = "(Kurang)";
+            } else {
+                if ($data['perilakuKerjaSkpRata'] <= 75) {
+                    $data['perilakuKerjaSkpRatarata'] = "(Cukup)";
+                } else {
+                    if ($data['perilakuKerjaSkpRata'] <= 90.99) {
+                        $data['perilakuKerjaSkpRatarata'] = "(Baik)";
+                    } else {
+                        $data['perilakuKerjaSkpRatarata'] = "(Sangat Baik)";
+                    }
+                }
+            }
+        }
 
 
         // dd($data['perilakuKerjaSkp']['orientasi_pelayanan']);
