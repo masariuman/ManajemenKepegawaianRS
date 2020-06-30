@@ -41,39 +41,39 @@
                                     </tr>
                                     <tr>
                                         <td style="width:250px;">Orientasi Pelayanan</td>
-                                        <td>=</td>
+                                        <td style="width:77px;">=</td>
                                         <td class="bold">{{ $perilakuKerjaSkp->orientasi_pelayanan }}</td>
-                                        <td class="bold">{{ $perilakuKerjaSkpOrientasiPelayanan }}</td>
+                                        <td class="bold" style="width:103px;">{{ $perilakuKerjaSkpOrientasiPelayanan }}</td>
                                     </tr>
                                     <tr>
                                         <td>Integritas</td>
-                                        <td>=</td>
+                                        <td style="width:77px;">=</td>
                                         <td class="bold">{{ $perilakuKerjaSkp->integritas }}</td>
-                                        <td class="bold">{{ $perilakuKerjaSkpIntegritas }}</td>
+                                        <td class="bold" style="width:103px;">{{ $perilakuKerjaSkpIntegritas }}</td>
                                     </tr>
                                     <tr>
                                         <td>Komitmen</td>
-                                        <td>=</td>
+                                        <td style="width:77px;">=</td>
                                         <td class="bold">{{ $perilakuKerjaSkp->komitmen }}</td>
-                                        <td class="bold">{{ $perilakuKerjaSkpKomitmen }}</td>
+                                        <td class="bold" style="width:103px;">{{ $perilakuKerjaSkpKomitmen }}</td>
                                     </tr>
                                     <tr>
                                         <td>Disiplin</td>
-                                        <td>=</td>
+                                        <td style="width:77px;">=</td>
                                         <td class="bold">{{ $perilakuKerjaSkp->disiplin }}</td>
-                                        <td class="bold">{{ $perilakuKerjaSkpDisiplin }}</td>
+                                        <td class="bold" style="width:103px;">{{ $perilakuKerjaSkpDisiplin }}</td>
                                     </tr>
                                     <tr>
                                         <td>Kerjasama</td>
-                                        <td>=</td>
+                                        <td style="width:77px;">=</td>
                                         <td class="bold">{{ $perilakuKerjaSkp->kerjasama }}</td>
-                                        <td class="bold">{{ $perilakuKerjaSkpKerjasama }}</td>
+                                        <td class="bold" style="width:103px;">{{ $perilakuKerjaSkpKerjasama }}</td>
                                     </tr>
                                     <tr>
                                         <td>Kepemimpinan</td>
-                                        <td>=</td>
+                                        <td style="width:77px;">=</td>
                                         <td class="bold">{{ $perilakuKerjaSkp->kepemimpinan }}</td>
-                                        <td class="bold">{{ $perilakuKerjaSkpKepemimpinan }}</td>
+                                        <td class="bold" style="width:103px;">{{ $perilakuKerjaSkpKepemimpinan }}</td>
                                     </tr>
                                 </table>
                             </td>
@@ -87,15 +87,15 @@
                             <table class="table table-borderless">
                                 <tr>
                                     <td style="width:250px;">Jumlah</td>
-                                    <td>=</td>
+                                    <td style="width:77px;">=</td>
                                     <td class="bold">angka</td>
-                                    <td class="bold"></td>
+                                    <td class="bold" style="width:103px;"></td>
                                 </tr>
                                 <tr>
                                     <td>Nilai Rata-rata</td>
-                                    <td>=</td>
+                                    <td style="width:77px;">=</td>
                                     <td class="bold">angka</td>
-                                    <td class="bold">buruk</td>
+                                    <td class="bold" style="width:103px;">buruk</td>
                                 </tr>
                             </table>
                         </td>

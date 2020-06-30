@@ -791,7 +791,7 @@ class adminPegawaiController extends Controller
                     if ($data['perilakuKerjaSkp']['komitmen'] <= 90.99) {
                         $data['perilakuKerjaSkpKomitmen'] = "(Baik)";
                     } else {
-                        $data['perilakuKerjaSkpKomitmen'] = "(Sangat Baik");
+                        $data['perilakuKerjaSkpKomitmen'] = "(Sangat Baik)";
                     }
                 }
             }
@@ -808,7 +808,7 @@ class adminPegawaiController extends Controller
                     if ($data['perilakuKerjaSkp']['disiplin'] <= 90.99) {
                         $data['perilakuKerjaSkpDisiplin'] = "(Baik)";
                     } else {
-                        $data['perilakuKerjaSkpDisiplin'] = "(Sangat Baik");
+                        $data['perilakuKerjaSkpDisiplin'] = "(Sangat Baik)";
                     }
                 }
             }
