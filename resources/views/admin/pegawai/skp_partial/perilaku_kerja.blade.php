@@ -88,7 +88,7 @@
                                 <tr>
                                     <td style="width:250px;">Jumlah</td>
                                     <td style="width:77px;">=</td>
-                                    <td class="bold">angka</td>
+                                    <td class="bold">{{ $perilakuKerjaSkpJumlah }}</td>
                                     <td class="bold" style="width:103px;"></td>
                                 </tr>
                                 <tr>

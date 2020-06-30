@@ -847,6 +847,7 @@ class adminPegawaiController extends Controller
                 }
             }
         }
+        $data['perilakuKerjaSkpJumlah'] = $data['perilakuKerjaSkp']['kepemimpinan'] + $data['perilakuKerjaSkp']['kerjasama'] +$data['perilakuKerjaSkp']['disiplin'] + $data['perilakuKerjaSkp']['komitmen'] + $data['perilakuKerjaSkp']['integritas'] + $data['perilakuKerjaSkp']['orientasi_pelayanan'];
 
 
         // dd($data['perilakuKerjaSkp']['orientasi_pelayanan']);
