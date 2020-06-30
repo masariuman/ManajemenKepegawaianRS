@@ -86,5 +86,22 @@
                 </tbody>
             </table>
         </div>
+        <hr>
+        <div class="margintop20">
+            <h5 style="font-weight: bold;">UNSUR YANG DINILAI</h5>
+            <table class="mb-0 table table-bordered">
+                <tbody>
+                    <tr>
+                        <td colspan="4">UNSUR YANG DINILAI</td>
+                        <td>JUMLAH</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">a. Sasaran Kerja Pegawai (SKP)</td>
+                        <td class="text-center bold" colspan="2"> X 60%</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     @endif
 </div>
