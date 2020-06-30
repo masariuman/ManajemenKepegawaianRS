@@ -16,11 +16,20 @@
         .width100px{
             width: 100px;
         }
+        .width30{
+            width: 30px;
+        }
         .width40{
             width: 40px;
         }
         .width200{
             width: 200px;
+        }
+        .width700{
+            width: 700px;
+        }
+        .width1000{
+            width:  1000px;
         }
         .margintop20 {
             margin-top: 20px;
@@ -30,6 +39,13 @@
         }
         .sidetable{
             background-image: url(/lojin/sidebarx.png);
+            background-repeat: no-repeat;
+            width: 500px;
+            height: 41px;
+            color: #ffffff;
+        }
+        .sidetable350{
+            background-image: url(/lojin/sidebarx350.png);
             background-repeat: no-repeat;
             width: 500px;
             height: 41px;
@@ -108,6 +124,7 @@
                         @include('admin.pegawai.skp_partial.form_skp')
                         @include('admin.pegawai.skp_partial.pengukuran')
                         @include('admin.pegawai.skp_partial.perilaku_kerja')
+                        @include('admin.pegawai.skp_partial.penilaian')
                     </div>
                 </div>
             </div>
