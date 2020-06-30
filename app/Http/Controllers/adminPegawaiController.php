@@ -538,14 +538,15 @@ class adminPegawaiController extends Controller
                         ->perilakuKerjaSkp
                         ->where('active','1')
                         ->where('tahun',$data['periode']->tahun)
-                        ->where('kategori',$data['periode']->periode);
+                        ->where('kategori',$data['periode']->periode)
+                        ->first();
         $data['countFormSkp'] = count($data['formSkp']);
         $data['countPengukuranSkp'] = count($data['pengukuranSkp']);
         $data['countPengukuranSkp_kegiatan_tugas_tambahan'] = count($data['pengukuranSkp_kegiatan_tugas_tambahan']);
         $data['countPengukuranSkp_kreativitas'] = count($data['pengukuranSkp_kreativitas']);
         $data['countPengukuranSkp_tugas_tambahan'] = count($data['pengukuranSkp_tugas_tambahan']);
         $data['countPenilaianSkp'] = count($data['penilaianSkp']);
-        $data['countPerilakuKerjaSkp'] = count($data['perilakuKerjaSkp']);
+        // $data['countPerilakuKerjaSkp'] = count($data['perilakuKerjaSkp']);
         $data['totalKegiatan'] = 0;
         $data['totalAkTarget'] = 0;
         $data['totalKuantTarget1'] = 0;
@@ -589,14 +590,14 @@ class adminPegawaiController extends Controller
                 } else {
                     $value['penghitungan'] = $kuantitas + $kualitas + $waktu;
                 }
-    
+
                 //capaian skp
                 if (empty($value->realisasi_biaya)){
                     $value['nilai_capaian_skp'] = $value['penghitungan'] / 3;
                 } else {
                     $value['nilai_capaian_skp'] = $value['penghitungan'] / 4;
                 }
-    
+
                 $data['totalKegiatan'] += $value->kegiatan_tugas_tambahan;
                 $data['totalAkTarget'] += $value->ak_target;
                 $data['totalKuantTarget1'] += $value->target_kuant_output_1;
@@ -612,7 +613,7 @@ class adminPegawaiController extends Controller
                 $data['totalBiayaRealisasi'] += $value->realisasi_biaya;
                 $data['totalPenghitungan'] += $value['penghitungan'];
                 $data['totalNilaiCapaianSkp'] += $value['nilai_capaian_skp'];
-    
+
                 // ($data['nilaiCapaianSkp1'] / $data['nilaiCapaianSkp2']) +  +  ;
             }
         }
@@ -640,14 +641,14 @@ class adminPegawaiController extends Controller
                 } else {
                     $value['penghitungan'] = $kuantitas + $kualitas + $waktu;
                 }
-    
+
                 //capaian skp
                 if (empty($value->realisasi_biaya)){
                     $value['nilai_capaian_skp'] = $value['penghitungan'] / 3;
                 } else {
                     $value['nilai_capaian_skp'] = $value['penghitungan'] / 4;
                 }
-    
+
                 if ($value['nilai_capaian_skp'] === null || $value['nilai_capaian_skp'] === "" || $value['nilai_capaian_skp'] === 0) {
                     //do nothing karena 0
                 } else {
@@ -658,7 +659,7 @@ class adminPegawaiController extends Controller
                 } else {
                     $data['nilaiCapaianSkp2'] += 1;
                 }
-    
+
                 // ($data['nilaiCapaianSkp1'] / $data['nilaiCapaianSkp2']) +  +  ;
             }
         }
@@ -686,7 +687,7 @@ class adminPegawaiController extends Controller
                 } else {
                     $value['penghitungan'] = $kuantitas + $kualitas + $waktu;
                 }
-    
+
                 //capaian skp
                 if (empty($value->realisasi_biaya)){
                     $value['nilai_capaian_skp'] = $value['penghitungan'] / 3;
@@ -720,7 +721,7 @@ class adminPegawaiController extends Controller
                 } else {
                     $value['penghitungan'] = $kuantitas + $kualitas + $waktu;
                 }
-    
+
                 //capaian skp
                 if (empty($value->realisasi_biaya)){
                     $value['nilai_capaian_skp'] = $value['penghitungan'] / 3;
@@ -744,8 +745,111 @@ class adminPegawaiController extends Controller
                 }
             }
         }
+        if ($data['perilakuKerjaSkp']['orientasi_pelayanan'] <= 50) {
+            $data['perilakuKerjaSkpOrientasiPelayanan'] = "(Buruk)";
+        } else {
+            if ($data['perilakuKerjaSkp']['orientasi_pelayanan'] <= 60) {
+                $data['perilakuKerjaSkpOrientasiPelayanan'] = "(Kurang)";
+            } else {
+                if ($data['perilakuKerjaSkp']['orientasi_pelayanan'] <= 75) {
+                    $data['perilakuKerjaSkpOrientasiPelayanan'] = "(Cukup)";
+                } else {
+                    if ($data['perilakuKerjaSkp']['orientasi_pelayanan'] <= 90.99) {
+                        $data['perilakuKerjaSkpOrientasiPelayanan'] = "(Baik)";
+                    } else {
+                        $data['perilakuKerjaSkpOrientasiPelayanan'] = "(Sangat Baik)";
+                    }
+                }
+            }
+        }
+        if ($data['perilakuKerjaSkp']['integritas'] <= 50) {
+            $data['perilakuKerjaSkpIntegritas'] = "(Buruk)";
+        } else {
+            if ($data['perilakuKerjaSkp']['integritas'] <= 60) {
+                $data['perilakuKerjaSkpIntegritas'] = "(Kurang)";
+            } else {
+                if ($data['perilakuKerjaSkp']['integritas'] <= 75) {
+                    $data['perilakuKerjaSkpIntegritas'] = "(Cukup)";
+                } else {
+                    if ($data['perilakuKerjaSkp']['integritas'] <= 90.99) {
+                        $data['perilakuKerjaSkpIntegritas'] = "(Baik)";
+                    } else {
+                        $data['perilakuKerjaSkpIntegritas'] = "(Sangat Baik)";
+                    }
+                }
+            }
+        }
+        if ($data['perilakuKerjaSkp']['komitmen'] <= 50) {
+            $data['perilakuKerjaSkpKomitmen'] = "(Buruk)";
+        } else {
+            if ($data['perilakuKerjaSkp']['komitmen'] <= 60) {
+                $data['perilakuKerjaSkpKomitmen'] = "(Kurang)";
+            } else {
+                if ($data['perilakuKerjaSkp']['komitmen'] <= 75) {
+                    $data['perilakuKerjaSkpKomitmen'] = "(Cukup)";
+                } else {
+                    if ($data['perilakuKerjaSkp']['komitmen'] <= 90.99) {
+                        $data['perilakuKerjaSkpKomitmen'] = "(Baik)";
+                    } else {
+                        $data['perilakuKerjaSkpKomitmen'] = "(Sangat Baik");
+                    }
+                }
+            }
+        }
+        if ($data['perilakuKerjaSkp']['disiplin'] <= 50) {
+            $data['perilakuKerjaSkpDisiplin'] = "(Buruk)";
+        } else {
+            if ($data['perilakuKerjaSkp']['disiplin'] <= 60) {
+                $data['perilakuKerjaSkpDisiplin'] = "(Kurang)";
+            } else {
+                if ($data['perilakuKerjaSkp']['disiplin'] <= 75) {
+                    $data['perilakuKerjaSkpDisiplin'] = "(Cukup)";
+                } else {
+                    if ($data['perilakuKerjaSkp']['disiplin'] <= 90.99) {
+                        $data['perilakuKerjaSkpDisiplin'] = "(Baik)";
+                    } else {
+                        $data['perilakuKerjaSkpDisiplin'] = "(Sangat Baik");
+                    }
+                }
+            }
+        }
+        if ($data['perilakuKerjaSkp']['kerjasama'] <= 50) {
+            $data['perilakuKerjaSkpKerjasama'] = "(Buruk)";
+        } else {
+            if ($data['perilakuKerjaSkp']['kerjasama'] <= 60) {
+                $data['perilakuKerjaSkpKerjasama'] = "(Kurang)";
+            } else {
+                if ($data['perilakuKerjaSkp']['kerjasama'] <= 75) {
+                    $data['perilakuKerjaSkpKerjasama'] = "(Cukup)";
+                } else {
+                    if ($data['perilakuKerjaSkp']['kerjasama'] <= 90.99) {
+                        $data['perilakuKerjaSkpKerjasama'] = "(Baik)";
+                    } else {
+                        $data['perilakuKerjaSkpKerjasama'] = "(Sangat Baik)";
+                    }
+                }
+            }
+        }
+        if ($data['perilakuKerjaSkp']['kepemimpinan'] <= 50) {
+            $data['perilakuKerjaSkpKepemimpinan'] = "(Buruk)";
+        } else {
+            if ($data['perilakuKerjaSkp']['kepemimpinan'] <= 60) {
+                $data['perilakuKerjaSkpKepemimpinan'] = "(Kurang)";
+            } else {
+                if ($data['perilakuKerjaSkp']['kepemimpinan'] <= 75) {
+                    $data['perilakuKerjaSkpKepemimpinan'] = "(Cukup)";
+                } else {
+                    if ($data['perilakuKerjaSkp']['kepemimpinan'] <= 90.99) {
+                        $data['perilakuKerjaSkpKepemimpinan'] = "(Baik)";
+                    } else {
+                        $data['perilakuKerjaSkpKepemimpinan'] = "(Sangat Baik)";
+                    }
+                }
+            }
+        }
 
-        // dd($data);
+
+        // dd($data['perilakuKerjaSkp']['orientasi_pelayanan']);
         return view('admin/pegawai/skp',$data);
     }
 }

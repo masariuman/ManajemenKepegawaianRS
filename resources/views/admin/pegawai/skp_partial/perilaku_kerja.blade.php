@@ -1,6 +1,6 @@
 <div id="perilakuKerja" style="">
     <div class="text-center titlepertab">Buku Catatan Penilaian Perilaku<br /> Pegawai negeri Sipil</div>
-@if ($countFormSkp === 0)
+@if (empty($perilakuKerjaSkp))
         <h5 class="text-center" style="color: red;">PEGAWAI BELUM MENGISI DATA PADA PERIODE {{$periode->tahun}} {{$periode->periode}}</h5>
     @else
         <div class="margintop20">
@@ -42,38 +42,38 @@
                                     <tr>
                                         <td style="width:250px;">Orientasi Pelayanan</td>
                                         <td>=</td>
-                                        <td class="bold">angka</td>
-                                        <td class="bold">buruk</td>
+                                        <td class="bold">{{ $perilakuKerjaSkp->orientasi_pelayanan }}</td>
+                                        <td class="bold">{{ $perilakuKerjaSkpOrientasiPelayanan }}</td>
                                     </tr>
                                     <tr>
                                         <td>Integritas</td>
                                         <td>=</td>
-                                        <td class="bold">angka</td>
-                                        <td class="bold">buruk</td>
+                                        <td class="bold">{{ $perilakuKerjaSkp->integritas }}</td>
+                                        <td class="bold">{{ $perilakuKerjaSkpIntegritas }}</td>
                                     </tr>
                                     <tr>
                                         <td>Komitmen</td>
                                         <td>=</td>
-                                        <td class="bold">angka</td>
-                                        <td class="bold">buruk</td>
+                                        <td class="bold">{{ $perilakuKerjaSkp->komitmen }}</td>
+                                        <td class="bold">{{ $perilakuKerjaSkpKomitmen }}</td>
                                     </tr>
                                     <tr>
                                         <td>Disiplin</td>
                                         <td>=</td>
-                                        <td class="bold">angka</td>
-                                        <td class="bold">buruk</td>
+                                        <td class="bold">{{ $perilakuKerjaSkp->disiplin }}</td>
+                                        <td class="bold">{{ $perilakuKerjaSkpDisiplin }}</td>
                                     </tr>
                                     <tr>
                                         <td>Kerjasama</td>
                                         <td>=</td>
-                                        <td class="bold">angka</td>
-                                        <td class="bold">buruk</td>
+                                        <td class="bold">{{ $perilakuKerjaSkp->kerjasama }}</td>
+                                        <td class="bold">{{ $perilakuKerjaSkpKerjasama }}</td>
                                     </tr>
                                     <tr>
                                         <td>Kepemimpinan</td>
                                         <td>=</td>
-                                        <td class="bold">angka</td>
-                                        <td class="bold">buruk</td>
+                                        <td class="bold">{{ $perilakuKerjaSkp->kepemimpinan }}</td>
+                                        <td class="bold">{{ $perilakuKerjaSkpKepemimpinan }}</td>
                                     </tr>
                                 </table>
                             </td>
