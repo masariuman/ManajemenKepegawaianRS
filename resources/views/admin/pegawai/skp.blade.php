@@ -107,6 +107,7 @@
                         @include('admin.pegawai.skp_partial.skp')
                         @include('admin.pegawai.skp_partial.form_skp')
                         @include('admin.pegawai.skp_partial.pengukuran')
+                        @include('admin.pegawai.skp_partial.perilaku_kerja')
                     </div>
                 </div>
             </div>

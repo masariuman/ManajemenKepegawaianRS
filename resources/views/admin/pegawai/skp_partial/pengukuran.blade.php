@@ -1,7 +1,7 @@
 <div id="pengukuran" style="display:none;">
     <div class="text-center titlepertab">Penilaian Capaian Kerja<br /> Pegawai negeri Sipil</div>
     @if (empty($formSkp))
-        <h5 class="text-center" style="color: red;">PEGAWAI BELUM MENGISI DATA PENILAIAN CAPAIAN SASARAN KERJA PEGAWAI NEGERI SIPIL PADA PERIODE {{$periode->tahun}} {{$periode->periode}}</h5>
+        <h5 class="text-center" style="color: red;">PEGAWAI BELUM MENGISI DATA PERILAKU KERJA PEGAWAI NEGERI SIPIL PADA PERIODE {{$periode->tahun}} {{$periode->periode}}</h5>
     @else
         <div class="margintop20">
             <table class="mb-0 table table-bordered">
