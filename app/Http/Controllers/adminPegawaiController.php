@@ -261,46 +261,56 @@ class adminPegawaiController extends Controller
         //riwayat kepangkatan
         $data['kepangkatan'] = Kepangkatan::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['kepangkatan'] as $key => $value) {
-            $value['tmt_golongan'] = date("d F Y", strtotime($value['tmt_golongan']));
-            $value['tanggal_sk'] = date("d F Y", strtotime($value['tanggal_sk']));
+            $convertTanggal = New Carbon($value['tmt_golongan']);
+            $value['tmt_golongan'] = $convertTanggal->translatedFormat('d F Y');
+            // $value['tmt_golongan'] = date("d F Y", strtotime($value['tmt_golongan']));
+            $convertTanggal = New Carbon($value['tanggal_sk']);
+            $value['tanggal_sk'] = $convertTanggal->translatedFormat('d F Y');
+            // $value['tanggal_sk'] = date("d F Y", strtotime($value['tanggal_sk']));
         }
 
         //riwayat jabatan struktural
         $data['jabatan_struktural'] = JabatanStruktural::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['jabatan_struktural'] as $key => $value) {
-            $value['tmt_jabatan'] = date("d F Y", strtotime($value['tmt_jabatan']));
-            $convertTanggal = New Carbon($value['tanggal_mulai']);
-            $value['tanggal_mulai'] = $convertTanggal->translatedFormat('d F Y');
-            $value['tanggal_sk'] = date("d F Y", strtotime($value['tanggal_sk']));
+            $convertTanggal = New Carbon($value['tmt_jabatan']);
+            $value['tmt_jabatan'] = $convertTanggal->translatedFormat('d F Y');
+            // $value['tmt_jabatan'] = date("d F Y", strtotime($value['tmt_jabatan']));
+            $convertTanggal = New Carbon($value['tanggal_sk']);
+            $value['tanggal_sk'] = $convertTanggal->translatedFormat('d F Y');
+            // $value['tanggal_sk'] = date("d F Y", strtotime($value['tanggal_sk']));
         }
 
         //riwayat jabatan fungsional
         $data['jabatan_fungsional'] = JabatanFungsional::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['jabatan_fungsional'] as $key => $value) {
-            $convertTanggal = New Carbon($value['tanggal_mulai']);
-            $value['tanggal_mulai'] = $convertTanggal->translatedFormat('d F Y');
+            $convertTanggal = New Carbon($value['tmt_jabatan']);
+            $value['tmt_jabatan'] = $convertTanggal->translatedFormat('d F Y');
             // $value['tmt_jabatan'] = date("d F Y", strtotime($value['tmt_jabatan']));
-            $convertTanggal = New Carbon($value['tanggal_mulai']);
-            $value['tanggal_mulai'] = $convertTanggal->translatedFormat('d F Y');
+            $convertTanggal = New Carbon($value['tanggal_sk']);
+            $value['tanggal_sk'] = $convertTanggal->translatedFormat('d F Y');
             // $value['tanggal_sk'] = date("d F Y", strtotime($value['tanggal_sk']));
         }
 
         //pekerjaan jabatan
         $data['pekerjaan_jabatan'] = PekerjaanJabatan::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['pekerjaan_jabatan'] as $key => $value) {
-            $convertTanggal = New Carbon($value['tanggal_mulai']);
-            $value['tanggal_mulai'] = $convertTanggal->translatedFormat('d F Y');
+            $convertTanggal = New Carbon($value['tmt_jabatan']);
+            $value['tmt_jabatan'] = $convertTanggal->translatedFormat('d F Y');
             // $value['tmt_jabatan'] = date("d F Y", strtotime($value['tmt_jabatan']));
-            $convertTanggal = New Carbon($value['tanggal_mulai']);
-            $value['tanggal_mulai'] = $convertTanggal->translatedFormat('d F Y');
+            $convertTanggal = New Carbon($value['tanggal_sk']);
+            $value['tanggal_sk'] = $convertTanggal->translatedFormat('d F Y');
             // $value['tanggal_sk'] = date("d F Y", strtotime($value['tanggal_sk']));
         }
 
         //istri suami
         $data['istri_suami'] = IstriSuami::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['istri_suami'] as $key => $value) {
-            $value['tanggal_lahir'] = date("d F Y", strtotime($value['tanggal_lahir']));
-            $value['tanggal_nikah'] = date("d F Y", strtotime($value['tanggal_nikah']));
+            $convertTanggal = New Carbon($value['tanggal_lahir']);
+            $value['tanggal_lahir'] = $convertTanggal->translatedFormat('d F Y');
+            // $value['tanggal_lahir'] = date("d F Y", strtotime($value['tanggal_lahir']));
+            $convertTanggal = New Carbon($value['tanggal_nikah']);
+            $value['tanggal_nikah'] = $convertTanggal->translatedFormat('d F Y');
+            // $value['tanggal_nikah'] = date("d F Y", strtotime($value['tanggal_nikah']));
             if ($value['tingkat_pendidikan'] === "01") {
                 $value['tingkat_pendidikan'] = "S3 (Setara)";
             } else if ($value['tingkat_pendidikan'] === "02") {
@@ -345,7 +355,9 @@ class adminPegawaiController extends Controller
             } else {
                 $value['jenis_kelamin'] = "Laki-Laki";
             }
-            $value['tanggal_lahir'] = date("d F Y", strtotime($value['tanggal_lahir']));
+            $convertTanggal = New Carbon($value['tanggal_lahir']);
+            $value['tanggal_lahir'] = $convertTanggal->translatedFormat('d F Y');
+            // $value['tanggal_lahir'] = date("d F Y", strtotime($value['tanggal_lahir']));
             if ($value['anak'] === "1") {
                 $value['anak'] = "Anak Kandung";
             } else if ($value['anak'] === "2") {
@@ -404,7 +416,9 @@ class adminPegawaiController extends Controller
         //penghargaan
         $data['penghargaan'] = Penghargaan::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['penghargaan'] as $key => $value) {
-            $value['tanggal_perolehan'] = date("d F Y", strtotime($value['tanggal_perolehan']));
+            $convertTanggal = New Carbon($value['tanggal_perolehan']);
+            $value['tanggal_perolehan'] = $convertTanggal->translatedFormat('d F Y');
+            // $value['tanggal_perolehan'] = date("d F Y", strtotime($value['tanggal_perolehan']));
         }
 
         //hukuman
@@ -427,15 +441,23 @@ class adminPegawaiController extends Controller
             } else {
                 $value['kode_hukuman'] = "32 (Hukuman Berat Pembebasan Dari Jabatan)";
             }
-            $value['tanggal_sk'] = date("d F Y", strtotime($value['tanggal_sk']));
-            $value['tmt_berlaku'] = date("d F Y", strtotime($value['tmt_berlaku']));
+            $convertTanggal = New Carbon($value['tanggal_sk']);
+            $value['tanggal_sk'] = $convertTanggal->translatedFormat('d F Y');
+            // $value['tanggal_sk'] = date("d F Y", strtotime($value['tanggal_sk']));
+            $convertTanggal = New Carbon($value['tmt_berlaku']);
+            $value['tmt_berlaku'] = $convertTanggal->translatedFormat('d F Y');
+            // $value['tmt_berlaku'] = date("d F Y", strtotime($value['tmt_berlaku']));
         }
 
         //organisasi
         $data['organisasi'] = Organisasi::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['organisasi'] as $key => $value) {
-            $value['tanggal_mulai'] = date("d F Y", strtotime($value['tanggal_mulai']));
-            $value['tanggal_selesai'] = date("d F Y", strtotime($value['tanggal_selesai']));
+            $convertTanggal = New Carbon($value['tanggal_mulai']);
+            $value['tanggal_mulai'] = $convertTanggal->translatedFormat('d F Y');
+            // $value['tanggal_mulai'] = date("d F Y", strtotime($value['tanggal_mulai']));
+            $convertTanggal = New Carbon($value['tanggal_selesai']);
+            $value['tanggal_selesai'] = $convertTanggal->translatedFormat('d F Y');
+            // $value['tanggal_selesai'] = date("d F Y", strtotime($value['tanggal_selesai']));
         }
 
         //keluarga kandung
@@ -455,7 +477,9 @@ class adminPegawaiController extends Controller
             } else {
                 $value['jenis_kelamin'] = "Laki-Laki";
             }
-            $value['tanggal_lahir'] = date("d F Y", strtotime($value['tanggal_lahir']));
+            $convertTanggal = New Carbon($value['tanggal_lahir']);
+            $value['tanggal_lahir'] = $convertTanggal->translatedFormat('d F Y');
+            // $value['tanggal_lahir'] = date("d F Y", strtotime($value['tanggal_lahir']));
             if ($value['kondisi'] === "1") {
                 $value['kondisi'] = "Masih Hidup";
             } else {
@@ -480,7 +504,9 @@ class adminPegawaiController extends Controller
             } else {
                 $value['jenis_kelamin'] = "Laki-Laki";
             }
-            $value['tanggal_lahir'] = date("d F Y", strtotime($value['tanggal_lahir']));
+            $convertTanggal = New Carbon($value['tanggal_lahir']);
+            $value['tanggal_lahir'] = $convertTanggal->translatedFormat('d F Y');
+            // $value['tanggal_lahir'] = date("d F Y", strtotime($value['tanggal_lahir']));
             if ($value['kondisi'] === "1") {
                 $value['kondisi'] = "Masih Hidup";
             } else {
