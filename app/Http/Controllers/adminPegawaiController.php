@@ -25,6 +25,7 @@ use App\Ruangan;
 use App\Periode;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Carbon;
 
 class adminPegawaiController extends Controller
 {
@@ -106,13 +107,27 @@ class adminPegawaiController extends Controller
         //dasar
         $data['ruangan'] = Ruangan::where('active','1')->get();
         $data['pegawai'] = Pegawai::findOrFail($id);
-        $data['pegawai']['masa_rkk'] = date("d F Y", strtotime($data['pegawai']['masa_rkk']));
-        $data['pegawai']['masa_spk'] = date("d F Y", strtotime($data['pegawai']['masa_spk']));
-        $data['pegawai']['masa_sikp'] = date("d F Y", strtotime($data['pegawai']['masa_sikp']));
-        $data['pegawai']['masa_str'] = date("d F Y", strtotime($data['pegawai']['masa_str']));
-        $data['pegawai']['tmt_golongan'] = date("d F Y", strtotime($data['pegawai']['tmt_golongan']));
-        $data['pegawai']['tmt_cpns'] = date("d F Y", strtotime($data['pegawai']['tmt_cpns']));
-        $data['pegawai']['tanggal_lahir'] = date("d F Y", strtotime($data['pegawai']['tanggal_lahir']));
+        $convertTanggal = New Carbon($data['pegawai']['masa_rkk']);
+        $data['pegawai']['masa_rkk'] = $convertTanggal->translatedFormat('d F Y');
+        // $data['pegawai']['masa_rkk'] = date("d F Y", strtotime($data['pegawai']['masa_rkk']));
+        $convertTanggal = New Carbon($data['pegawai']['masa_spk']);
+        $data['pegawai']['masa_spk'] = $convertTanggal->translatedFormat('d F Y');
+        // $data['pegawai']['masa_spk'] = date("d F Y", strtotime($data['pegawai']['masa_spk']));
+        $convertTanggal = New Carbon($data['pegawai']['masa_sikp']);
+        $data['pegawai']['masa_sikp'] = $convertTanggal->translatedFormat('d F Y');
+        // $data['pegawai']['masa_sikp'] = date("d F Y", strtotime($data['pegawai']['masa_sikp']));
+        $convertTanggal = New Carbon($data['pegawai']['masa_str']);
+        $data['pegawai']['masa_str'] = $convertTanggal->translatedFormat('d F Y');
+        // $data['pegawai']['masa_str'] = date("d F Y", strtotime($data['pegawai']['masa_str']));
+        $convertTanggal = New Carbon($data['pegawai']['tmt_golongan']);
+        $data['pegawai']['tmt_golongan'] = $convertTanggal->translatedFormat('d F Y');
+        // $data['pegawai']['tmt_golongan'] = date("d F Y", strtotime($data['pegawai']['tmt_golongan']));
+        $convertTanggal = New Carbon($data['pegawai']['tmt_cpns']);
+        $data['pegawai']['tmt_cpns'] = $convertTanggal->translatedFormat('d F Y');
+        // $data['pegawai']['tmt_cpns'] = date("d F Y", strtotime($data['pegawai']['tmt_cpns']));
+        $convertTanggal = New Carbon($data['pegawai']['tanggal_lahir']);
+        $data['pegawai']['tanggal_lahir'] = $convertTanggal->translatedFormat('d F Y');
+        // $data['pegawai']['tanggal_lahir'] = date("d F Y", strtotime($data['pegawai']['tanggal_lahir']));
         if ($data['pegawai']['jenis_kelamin'] === "W") {
             $data['pegawai']['jenis_kelamin'] = "Perempuan";
         } else {
@@ -197,8 +212,12 @@ class adminPegawaiController extends Controller
             } else {
                 $value['tempat_belajar'] = "Luar Negeri";
             }
-            $value['tanggal_mulai'] = date("d F Y", strtotime($value['tanggal_mulai']));
-            $value['tanggal_selesai'] = date("d F Y", strtotime($value['tanggal_selesai']));
+            $convertTanggal = New Carbon($value['tanggal_mulai']);
+            $value['tanggal_mulai'] = $convertTanggal->translatedFormat('d F Y');
+            // $value['tanggal_mulai'] = date("d F Y", strtotime($value['tanggal_mulai']));
+            $convertTanggal = New Carbon($value['tanggal_selesai']);
+            $value['tanggal_selesai'] = $convertTanggal->translatedFormat('d F Y');
+            // $value['tanggal_selesai'] = date("d F Y", strtotime($value['tanggal_selesai']));
         }
 
         //riwayat diklat perjenjangan
@@ -215,8 +234,12 @@ class adminPegawaiController extends Controller
             } else {
                 $value['jenis_diklat'] = "Diklat Lain Yang Setara";
             }
-            $value['tanggal_mulai'] = date("d F Y", strtotime($value['tanggal_mulai']));
-            $value['tanggal_selesai'] = date("d F Y", strtotime($value['tanggal_selesai']));
+            $convertTanggal = New Carbon($value['tanggal_mulai']);
+            $value['tanggal_mulai'] = $convertTanggal->translatedFormat('d F Y');
+            // $value['tanggal_mulai'] = date("d F Y", strtotime($value['tanggal_mulai']));
+            $convertTanggal = New Carbon($value['tanggal_selesai']);
+            $value['tanggal_selesai'] = $convertTanggal->translatedFormat('d F Y');
+            // $value['tanggal_selesai'] = date("d F Y", strtotime($value['tanggal_selesai']));
         }
 
         //riwayat diklat teknis
@@ -227,8 +250,12 @@ class adminPegawaiController extends Controller
             } else {
                 $value['tempat_belajar'] = "Luar Negeri";
             }
-            $value['tanggal_mulai'] = date("d F Y", strtotime($value['tanggal_mulai']));
-            $value['tanggal_selesai'] = date("d F Y", strtotime($value['tanggal_selesai']));
+            $convertTanggal = New Carbon($value['tanggal_mulai']);
+            $value['tanggal_mulai'] = $convertTanggal->translatedFormat('d F Y');
+            // $value['tanggal_mulai'] = date("d F Y", strtotime($value['tanggal_mulai']));
+            $convertTanggal = New Carbon($value['tanggal_selesai']);
+            $value['tanggal_selesai'] = $convertTanggal->translatedFormat('d F Y');
+            // $value['tanggal_selesai'] = date("d F Y", strtotime($value['tanggal_selesai']));
         }
 
         //riwayat kepangkatan
@@ -242,21 +269,31 @@ class adminPegawaiController extends Controller
         $data['jabatan_struktural'] = JabatanStruktural::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['jabatan_struktural'] as $key => $value) {
             $value['tmt_jabatan'] = date("d F Y", strtotime($value['tmt_jabatan']));
+            $convertTanggal = New Carbon($value['tanggal_mulai']);
+            $value['tanggal_mulai'] = $convertTanggal->translatedFormat('d F Y');
             $value['tanggal_sk'] = date("d F Y", strtotime($value['tanggal_sk']));
         }
 
         //riwayat jabatan fungsional
         $data['jabatan_fungsional'] = JabatanFungsional::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['jabatan_fungsional'] as $key => $value) {
-            $value['tmt_jabatan'] = date("d F Y", strtotime($value['tmt_jabatan']));
-            $value['tanggal_sk'] = date("d F Y", strtotime($value['tanggal_sk']));
+            $convertTanggal = New Carbon($value['tanggal_mulai']);
+            $value['tanggal_mulai'] = $convertTanggal->translatedFormat('d F Y');
+            // $value['tmt_jabatan'] = date("d F Y", strtotime($value['tmt_jabatan']));
+            $convertTanggal = New Carbon($value['tanggal_mulai']);
+            $value['tanggal_mulai'] = $convertTanggal->translatedFormat('d F Y');
+            // $value['tanggal_sk'] = date("d F Y", strtotime($value['tanggal_sk']));
         }
 
         //pekerjaan jabatan
         $data['pekerjaan_jabatan'] = PekerjaanJabatan::where('pegawai_id',$id)->where('active','1')->orderBy('id','DESC')->get();
         foreach ($data['pekerjaan_jabatan'] as $key => $value) {
-            $value['tmt_jabatan'] = date("d F Y", strtotime($value['tmt_jabatan']));
-            $value['tanggal_sk'] = date("d F Y", strtotime($value['tanggal_sk']));
+            $convertTanggal = New Carbon($value['tanggal_mulai']);
+            $value['tanggal_mulai'] = $convertTanggal->translatedFormat('d F Y');
+            // $value['tmt_jabatan'] = date("d F Y", strtotime($value['tmt_jabatan']));
+            $convertTanggal = New Carbon($value['tanggal_mulai']);
+            $value['tanggal_mulai'] = $convertTanggal->translatedFormat('d F Y');
+            // $value['tanggal_sk'] = date("d F Y", strtotime($value['tanggal_sk']));
         }
 
         //istri suami
@@ -533,7 +570,8 @@ class adminPegawaiController extends Controller
                         ->penilaianSkp
                         ->where('active','1')
                         ->where('tahun',$data['periode']->tahun)
-                        ->where('kategori',$data['periode']->periode);
+                        ->where('kategori',$data['periode']->periode)
+                        ->first();
         $data['perilakuKerjaSkp'] = $data['pegawai']
                         ->perilakuKerjaSkp
                         ->where('active','1')
@@ -545,7 +583,7 @@ class adminPegawaiController extends Controller
         $data['countPengukuranSkp_kegiatan_tugas_tambahan'] = count($data['pengukuranSkp_kegiatan_tugas_tambahan']);
         $data['countPengukuranSkp_kreativitas'] = count($data['pengukuranSkp_kreativitas']);
         $data['countPengukuranSkp_tugas_tambahan'] = count($data['pengukuranSkp_tugas_tambahan']);
-        $data['countPenilaianSkp'] = count($data['penilaianSkp']);
+        // $data['countPenilaianSkp'] = count($data['penilaianSkp']);
         // $data['countPerilakuKerjaSkp'] = count($data['perilakuKerjaSkp']);
         $data['totalKegiatan'] = 0;
         $data['totalAkTarget'] = 0;
@@ -877,6 +915,38 @@ class adminPegawaiController extends Controller
                 }
             }
         }
+        $data['penilaianSasaranKerjaPegawai'] = $data['nilaiCapaianSkpFinal1'] * 60 / 100;
+        $data['penilaianNilaiPerilakuKerja'] = $data['perilakuKerjaSkpRata'] * 40 / 100;
+        $data['penilaianNilaiPrestasiKerja'] =  $data['penilaianSasaranKerjaPegawai'] + $data['penilaianNilaiPerilakuKerja'];
+        if ($data['penilaianNilaiPrestasiKerja'] <= 50) {
+            $data['penilaianNilaiPrestasiKerja2'] = "(Buruk)";
+        } else {
+            if ($data['penilaianNilaiPrestasiKerja'] <= 60) {
+                $data['penilaianNilaiPrestasiKerja2'] = "(Kurang)";
+            } else {
+                if ($data['penilaianNilaiPrestasiKerja'] <= 75) {
+                    $data['penilaianNilaiPrestasiKerja2'] = "(Cukup)";
+                } else {
+                    if ($data['penilaianNilaiPrestasiKerja'] <= 90.99) {
+                        $data['penilaianNilaiPrestasiKerja2'] = "(Baik)";
+                    } else {
+                        $data['penilaianNilaiPrestasiKerja2'] = "(Sangat Baik)";
+                    }
+                }
+            }
+        }
+        $convertTanggal = New Carbon($data['penilaianSkp']['tanggal_keberatan_pegawai']);
+        $data['penilaianSkp']['tanggal_keberatan_pegawai'] = $convertTanggal->translatedFormat('d F Y');
+        $convertTanggal = New Carbon($data['penilaianSkp']['tanggal_tanggapan_pejabat']);
+        $data['penilaianSkp']['tanggal_tanggapan_pejabat'] = $convertTanggal->translatedFormat('d F Y');
+        $convertTanggal = New Carbon($data['penilaianSkp']['tanggal_keputusan_atasan_pejabat']);
+        $data['penilaianSkp']['tanggal_keputusan_atasan_pejabat'] = $convertTanggal->translatedFormat('d F Y');
+        $convertTanggal = New Carbon($data['penilaianSkp']['dibuat_tanggal_pejabat_penilai']);
+        $data['penilaianSkp']['dibuat_tanggal_pejabat_penilai'] = $convertTanggal->translatedFormat('d F Y');
+        $convertTanggal = New Carbon($data['penilaianSkp']['diterima_tanggal_pegawai']);
+        $data['penilaianSkp']['diterima_tanggal_pegawai'] = $convertTanggal->translatedFormat('d F Y');
+        $convertTanggal = New Carbon($data['penilaianSkp']['diterima_tanggal_atasan_pejabat_penilai']);
+        $data['penilaianSkp']['diterima_tanggal_atasan_pejabat_penilai'] = $convertTanggal->translatedFormat('d F Y');
 
 
         // dd($data['perilakuKerjaSkp']['orientasi_pelayanan']);
