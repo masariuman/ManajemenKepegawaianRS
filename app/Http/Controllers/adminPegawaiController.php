@@ -552,6 +552,7 @@ class adminPegawaiController extends Controller
     }
 
     public function skp($id){
+        //variable dasar
         $data['ruangan'] = Ruangan::where('active','1')->get();
         $data['pegawai'] = Pegawai::findOrFail($id);
         $data['periode'] = Periode::orderBy('id','DESC')->first();
@@ -604,6 +605,7 @@ class adminPegawaiController extends Controller
                         ->where('tahun',$data['periode']->tahun)
                         ->where('kategori',$data['periode']->periode)
                         ->first();
+        //untuk cek data tiap table tidak kosong atau tidak null
         $data['countFormSkp'] = count($data['formSkp']);
         $data['countPengukuranSkp'] = count($data['pengukuranSkp']);
         $data['countPengukuranSkp_kegiatan_tugas_tambahan'] = count($data['pengukuranSkp_kegiatan_tugas_tambahan']);
@@ -630,6 +632,7 @@ class adminPegawaiController extends Controller
         $data['totalWaktuRealisasi'] = 0;
         $data['nilaiCapaianSkp1'] = 0;
         $data['nilaiCapaianSkp2'] = 0;
+        //dari sini pengukuran skp
         if ($data['countPengukuranSkp'] === 0){
             //do nothing
         } else {
@@ -809,6 +812,8 @@ class adminPegawaiController extends Controller
                 }
             }
         }
+        //selesai urusan pengukuran
+        //dari sini urusan perilaku kerja
         if ($data['perilakuKerjaSkp']['orientasi_pelayanan'] <= 50) {
             $data['perilakuKerjaSkpOrientasiPelayanan'] = "(Buruk)";
         } else {
@@ -941,6 +946,8 @@ class adminPegawaiController extends Controller
                 }
             }
         }
+        //selesai urusan perilaku kerja
+        //dari sini urusan penilaian kerja
         $data['penilaianSasaranKerjaPegawai'] = $data['nilaiCapaianSkpFinal1'] * 60 / 100;
         $data['penilaianNilaiPerilakuKerja'] = $data['perilakuKerjaSkpRata'] * 40 / 100;
         $data['penilaianNilaiPrestasiKerja'] =  $data['penilaianSasaranKerjaPegawai'] + $data['penilaianNilaiPerilakuKerja'];
