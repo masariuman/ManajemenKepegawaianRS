@@ -1,4 +1,4 @@
-<div id="penilaian" style="">
+<div id="penilaian" style="display:none;">
     <div class="text-center titlepertab">Penilaian Prestasi Kerja<br /> Pegawai negeri Sipil</div>
 @if (empty($perilakuKerjaSkp))
         <h5 class="text-center" style="color: red;">PEGAWAI BELUM MENGISI DATA PADA PERIODE {{$periode->tahun}} {{$periode->periode}}</h5>

@@ -23,12 +23,96 @@
                         @if ($periode->periode === "Semester 1")
                             <td class="text-center bold" rowspan="3">Januari s.d Juni {{ $periode->tahun }}</td>
                             <td class="">
-                                Penilaian SKP periode Januari sampai Juni {{ $periode->tahun }} = <b>{{ $nilaiCapaianSkpFinal1 }}</b> sedangkan penilaian perilaku kerjanya adalah sebagai berikut :
+                                <table class="table table-borderless">
+                                    <tr>
+                                        <td colspan="4">
+                                            Penilaian SKP periode Januari sampai Juni {{ $periode->tahun }} = <b>{{ $nilaiCapaianSkpFinal1 }} </b>sedangkan penilaian perilaku kerjanya adalah sebagai berikut : <br />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:250px;">Orientasi Pelayanan</td>
+                                        <td style="width:77px;">=</td>
+                                        <td class="bold">{{ $perilakuKerjaSkp->orientasi_pelayanan }}</td>
+                                        <td class="bold" style="width:103px;">{{ $perilakuKerjaSkpOrientasiPelayanan }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Integritas</td>
+                                        <td style="width:77px;">=</td>
+                                        <td class="bold">{{ $perilakuKerjaSkp->integritas }}</td>
+                                        <td class="bold" style="width:103px;">{{ $perilakuKerjaSkpIntegritas }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Komitmen</td>
+                                        <td style="width:77px;">=</td>
+                                        <td class="bold">{{ $perilakuKerjaSkp->komitmen }}</td>
+                                        <td class="bold" style="width:103px;">{{ $perilakuKerjaSkpKomitmen }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Disiplin</td>
+                                        <td style="width:77px;">=</td>
+                                        <td class="bold">{{ $perilakuKerjaSkp->disiplin }}</td>
+                                        <td class="bold" style="width:103px;">{{ $perilakuKerjaSkpDisiplin }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kerjasama</td>
+                                        <td style="width:77px;">=</td>
+                                        <td class="bold">{{ $perilakuKerjaSkp->kerjasama }}</td>
+                                        <td class="bold" style="width:103px;">{{ $perilakuKerjaSkpKerjasama }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kepemimpinan</td>
+                                        <td style="width:77px;">=</td>
+                                        <td class="bold">{{ $perilakuKerjaSkp->kepemimpinan }}</td>
+                                        <td class="bold" style="width:103px;">{{ $perilakuKerjaSkpKepemimpinan }}</td>
+                                    </tr>
+                                </table>
                             </td>
                         @elseif ($periode->periode === "Semester 2")
                             <td class="text-center bold" rowspan="3">Juli s.d Desember {{ $periode->tahun }}</td>
                             <td class="">
-                                Penilaian SKP periode Juli sampai Desember {{ $periode->tahun }} = <b>{{ $nilaiCapaianSkpFinal1 }}</b> sedangkan penilaian perilaku kerjanya adalah sebagai berikut :
+                                <table class="table table-borderless">
+                                    <tr>
+                                        <td colspan="4">
+                                            Penilaian SKP periode Juli sampai Desember {{ $periode->tahun }} = <b>{{ $nilaiCapaianSkpFinal1 }} </b>sedangkan penilaian perilaku kerjanya adalah sebagai berikut : <br />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:250px;">Orientasi Pelayanan</td>
+                                        <td style="width:77px;">=</td>
+                                        <td class="bold">{{ $perilakuKerjaSkp->orientasi_pelayanan }}</td>
+                                        <td class="bold" style="width:103px;">{{ $perilakuKerjaSkpOrientasiPelayanan }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Integritas</td>
+                                        <td style="width:77px;">=</td>
+                                        <td class="bold">{{ $perilakuKerjaSkp->integritas }}</td>
+                                        <td class="bold" style="width:103px;">{{ $perilakuKerjaSkpIntegritas }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Komitmen</td>
+                                        <td style="width:77px;">=</td>
+                                        <td class="bold">{{ $perilakuKerjaSkp->komitmen }}</td>
+                                        <td class="bold" style="width:103px;">{{ $perilakuKerjaSkpKomitmen }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Disiplin</td>
+                                        <td style="width:77px;">=</td>
+                                        <td class="bold">{{ $perilakuKerjaSkp->disiplin }}</td>
+                                        <td class="bold" style="width:103px;">{{ $perilakuKerjaSkpDisiplin }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kerjasama</td>
+                                        <td style="width:77px;">=</td>
+                                        <td class="bold">{{ $perilakuKerjaSkp->kerjasama }}</td>
+                                        <td class="bold" style="width:103px;">{{ $perilakuKerjaSkpKerjasama }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kepemimpinan</td>
+                                        <td style="width:77px;">=</td>
+                                        <td class="bold">{{ $perilakuKerjaSkp->kepemimpinan }}</td>
+                                        <td class="bold" style="width:103px;">{{ $perilakuKerjaSkpKepemimpinan }}</td>
+                                    </tr>
+                                </table>
                             </td>
                         @else
                             <td class="text-center bold" rowspan="3">Januari s.d Desember {{ $periode->tahun }}</td>

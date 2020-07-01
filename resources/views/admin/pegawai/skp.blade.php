@@ -102,16 +102,24 @@
                         </div>
                         <hr />
                         <div class="text-center">
-                            <select name="tahun" class="mb-2 mr-2 btn-transition btn btn-outline-dark" >
-                                @foreach ($tahun as $item)
-                                    <option value="{{$item}}" {{$periode->tahun == $item  ? 'selected' : ''}}>{{$item}}</option>
-                                @endforeach
-                            </select>
-                            <select name="kategori" class="mb-2 mr-2 btn-transition btn btn-outline-dark">
-                                <option value="semester1" {{$periode->periode == 'Semester 1'  ? 'selected' : ''}}>Semester 1</option>
-                                <option value="semester2" {{$periode->periode == 'Semester 2'  ? 'selected' : ''}}>Semester 2</option>
-                                <option value="setahun" {{$periode->periode == 'Setahun'  ? 'selected' : ''}}>Setahun</option>
-                            </select>
+                            @if(auth()->user()->level == 'ADMIN')
+                                <form action="/it/pegawai/{{ $pegawai->id }}/skp" method="post">
+                            @else
+                                <form action="/admin/pegawai/{{ $pegawai->id }}/skp" method="post">
+                            @endif
+                                @csrf
+                                <select name="tahun" class="mb-2 mr-2 btn-transition btn btn-outline-dark" >
+                                    @foreach ($tahun as $item)
+                                        <option value="{{$item}}" {{$periode->tahun == $item  ? 'selected' : ''}}>{{$item}}</option>
+                                    @endforeach
+                                </select>
+                                <select name="kategori" class="mb-2 mr-2 btn-transition btn btn-outline-dark">
+                                    <option value="semester1" {{$periode->periode == 'Semester 1'  ? 'selected' : ''}}>Semester 1</option>
+                                    <option value="semester2" {{$periode->periode == 'Semester 2'  ? 'selected' : ''}}>Semester 2</option>
+                                    <option value="setahun" {{$periode->periode == 'Setahun'  ? 'selected' : ''}}>Setahun</option>
+                                </select>
+                                <button id="search" type="submit" style="display: none;">x</button>
+                            </form>
                         </div>
                         <div class="text-center">
                             <button class="mb-2 mr-2 border-0 btn-transition btn btn-outline-alternate active" id="data_skpB">Data SKP</button>
@@ -161,6 +169,13 @@
                 }
             });
         } );
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("select").change(function(){
+                $("#search").click();
+            });
+        });
     </script>
     @include('admin.pegawai.skp_partial.hide_show')
 @endpush

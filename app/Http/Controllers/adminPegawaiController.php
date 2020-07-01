@@ -978,4 +978,439 @@ class adminPegawaiController extends Controller
         // dd($data['perilakuKerjaSkp']['orientasi_pelayanan']);
         return view('admin/pegawai/skp',$data);
     }
+
+    public function skp_filter(Request $request, $id){
+        $data['ruangan'] = Ruangan::where('active','1')->get();
+        $data['pegawai'] = Pegawai::findOrFail($id);
+        if ($request->kategori === 'semester1') {
+            $periodeSemester = 'Semester 1';
+        } else if ($request->kategori === 'semester2'){
+            $periodeSemester = 'Semester 2';
+        } else {
+            $periodeSemester = 'Setahun';
+        }
+        $data['periode'] = Periode::where('tahun',$request->tahun)->where('periode',$periodeSemester)->first();
+        $data['tahun'] = Periode::pluck('tahun')->unique();
+        $data['noFormSkp'] = 0;
+        $data['noPengukuranSkp'] = 0;
+        $data['skp'] = $data['pegawai']
+                        ->skp
+                        ->where('active','1')
+                        ->where('tahun',$data['periode']->tahun)
+                        ->where('kategori',$data['periode']->periode)
+                        ->first();
+        $data['formSkp'] = $data['pegawai']
+                        ->formSkp
+                        ->where('active','1')
+                        ->where('tahun',$data['periode']->tahun)
+                        ->where('kategori',$data['periode']->periode);
+        $data['pengukuranSkp'] = $data['pegawai']
+                        ->pengukuranSkp
+                        ->where('active','1')
+                        ->where('tahun',$data['periode']->tahun)
+                        ->where('kategori',$data['periode']->periode);
+        $data['pengukuranSkp_kegiatan_tugas_tambahan'] = $data['pegawai']
+                        ->pengukuranSkp
+                        ->where('active','1')
+                        ->where('kategori_pengukuran','Kegiatan Tugas Tambahan')
+                        ->where('tahun',$data['periode']->tahun)
+                        ->where('kategori',$data['periode']->periode);
+        $data['pengukuranSkp_kreativitas'] = $data['pegawai']
+                        ->pengukuranSkp
+                        ->where('active','1')
+                        ->where('kategori_pengukuran','Kreativitas')
+                        ->where('tahun',$data['periode']->tahun)
+                        ->where('kategori',$data['periode']->periode);
+        $data['pengukuranSkp_tugas_tambahan'] = $data['pegawai']
+                        ->pengukuranSkp
+                        ->where('active','1')
+                        ->where('kategori_pengukuran','Tugas Tambahan')
+                        ->where('tahun',$data['periode']->tahun)
+                        ->where('kategori',$data['periode']->periode);
+        $data['penilaianSkp'] = $data['pegawai']
+                        ->penilaianSkp
+                        ->where('active','1')
+                        ->where('tahun',$data['periode']->tahun)
+                        ->where('kategori',$data['periode']->periode)
+                        ->first();
+        $data['perilakuKerjaSkp'] = $data['pegawai']
+                        ->perilakuKerjaSkp
+                        ->where('active','1')
+                        ->where('tahun',$data['periode']->tahun)
+                        ->where('kategori',$data['periode']->periode)
+                        ->first();
+        $data['countFormSkp'] = count($data['formSkp']);
+        $data['countPengukuranSkp'] = count($data['pengukuranSkp']);
+        $data['countPengukuranSkp_kegiatan_tugas_tambahan'] = count($data['pengukuranSkp_kegiatan_tugas_tambahan']);
+        $data['countPengukuranSkp_kreativitas'] = count($data['pengukuranSkp_kreativitas']);
+        $data['countPengukuranSkp_tugas_tambahan'] = count($data['pengukuranSkp_tugas_tambahan']);
+        // $data['countPenilaianSkp'] = count($data['penilaianSkp']);
+        // $data['countPerilakuKerjaSkp'] = count($data['perilakuKerjaSkp']);
+        $data['totalKegiatan'] = 0;
+        $data['totalAkTarget'] = 0;
+        $data['totalKuantTarget1'] = 0;
+        $data['totalKuantTarget2'] = 0;
+        $data['totalKualTarget'] = 0;
+        $data['totalBiayaTarget'] = 0;
+        $data['totalAkRealisasi'] = 0;
+        $data['totalKuantRealisasi'] = 0;
+        $data['totalKuantRealisasi2'] = 0;
+        $data['totalKualRealisasi'] = 0;
+        $data['totalBiayaRealisasi'] = 0;
+        $data['totalPenghitungan'] = 0;
+        $data['totalNilaiCapaianSkp'] = 0;
+        $data['totalNilaiCapaianSkp2'] = 0;
+        $data['totalNilaiCapaianSkp3'] = 0;
+        $data['totalWaktuTarget'] = 0;
+        $data['totalWaktuRealisasi'] = 0;
+        $data['nilaiCapaianSkp1'] = 0;
+        $data['nilaiCapaianSkp2'] = 0;
+        if ($data['countPengukuranSkp'] === 0){
+            //do nothing
+        } else {
+            foreach ($data['pengukuranSkp'] as $key => $value) {
+                //perhitungan
+                $persen_waktu = 100 - ($value->realisasi_waktu / $value->target_waktu * 100);
+                $kuantitas = $value->realisasi_kuant_output_1 / $value->target_kuant_output_1 * 100;
+                $kualitas = $value->realisasi_kual_mutu / $value->target_kual_mutu * 100;
+                if ($persen_waktu > 24) {
+                    $waktu = 76 - ((((1.76 * $value->target_waktu - $value->realisasi_waktu) / $value->target_waktu) * 100) - 100);
+                } else {
+                    $waktu = ((1.76 * $value->target_waktu - $value->realisasi_waktu) / $value->target_waktu) * 100;
+                }
+                if (!empty($value->realisasi_biaya)) {
+                    $persen_biaya = 100 - ($value->realisasi_biaya / $value->target_biaya * 100);
+                    if ( $persen_biaya > 24 ) {
+                        $biaya = 76 - ((((1.76 * $value->target_biaya - $value->realisasi_biaya) / $value->target_biaya) * 100) - 100);
+                    } else {
+                        $biaya = ((1.76 * $value->target_biaya - $value->realisasi_biaya) / $value->target_biaya)*100;
+                    }
+                    $value['penghitungan'] = $kuantitas + $kualitas + $waktu + $biaya;
+                } else {
+                    $value['penghitungan'] = $kuantitas + $kualitas + $waktu;
+                }
+
+                //capaian skp
+                if (empty($value->realisasi_biaya)){
+                    $value['nilai_capaian_skp'] = $value['penghitungan'] / 3;
+                } else {
+                    $value['nilai_capaian_skp'] = $value['penghitungan'] / 4;
+                }
+
+                $data['totalKegiatan'] += $value->kegiatan_tugas_tambahan;
+                $data['totalAkTarget'] += $value->ak_target;
+                $data['totalKuantTarget1'] += $value->target_kuant_output_1;
+                $data['totalKuantTarget2'] += $value->target_kuant_output_2;
+                $data['totalKualTarget'] += $value->target_kual_mutu;
+                $data['totalWaktuTarget'] += $value->target_waktu;
+                $data['totalBiayaTarget'] += $value->target_biaya;
+                $data['totalAkRealisasi'] += $value->ak_realisasi;
+                $data['totalKuantRealisasi'] += $value->realisasi_kuant_output_1;
+                $data['totalKuantRealisasi2'] += $value->realisasi_kuant_output_2;
+                $data['totalKualRealisasi'] += $value->realisasi_kual_mutu;
+                $data['totalWaktuRealisasi'] += $value->realisasi_waktu;
+                $data['totalBiayaRealisasi'] += $value->realisasi_biaya;
+                $data['totalPenghitungan'] += $value['penghitungan'];
+                $data['totalNilaiCapaianSkp'] += $value['nilai_capaian_skp'];
+
+                // ($data['nilaiCapaianSkp1'] / $data['nilaiCapaianSkp2']) +  +  ;
+            }
+        }
+        if ($data['countPengukuranSkp_kegiatan_tugas_tambahan'] === 0){
+            //do nothing
+        } else {
+            foreach ($data['pengukuranSkp_kegiatan_tugas_tambahan'] as $key => $value) {
+                //perhitungan
+                $persen_waktu = 100 - ($value->realisasi_waktu / $value->target_waktu * 100);
+                $kuantitas = $value->realisasi_kuant_output_1 / $value->target_kuant_output_1 * 100;
+                $kualitas = $value->realisasi_kual_mutu / $value->target_kual_mutu * 100;
+                if ($persen_waktu > 24) {
+                    $waktu = 76 - ((((1.76 * $value->target_waktu - $value->realisasi_waktu) / $value->target_waktu) * 100) - 100);
+                } else {
+                    $waktu = ((1.76 * $value->target_waktu - $value->realisasi_waktu) / $value->target_waktu) * 100;
+                }
+                if (!empty($value->realisasi_biaya)) {
+                    $persen_biaya = 100 - ($value->realisasi_biaya / $value->target_biaya * 100);
+                    if ( $persen_biaya > 24 ) {
+                        $biaya = 76 - ((((1.76 * $value->target_biaya - $value->realisasi_biaya) / $value->target_biaya) * 100) - 100);
+                    } else {
+                        $biaya = ((1.76 * $value->target_biaya - $value->realisasi_biaya) / $value->target_biaya)*100;
+                    }
+                    $value['penghitungan'] = $kuantitas + $kualitas + $waktu + $biaya;
+                } else {
+                    $value['penghitungan'] = $kuantitas + $kualitas + $waktu;
+                }
+
+                //capaian skp
+                if (empty($value->realisasi_biaya)){
+                    $value['nilai_capaian_skp'] = $value['penghitungan'] / 3;
+                } else {
+                    $value['nilai_capaian_skp'] = $value['penghitungan'] / 4;
+                }
+
+                if ($value['nilai_capaian_skp'] === null || $value['nilai_capaian_skp'] === "" || $value['nilai_capaian_skp'] === 0) {
+                    //do nothing karena 0
+                } else {
+                    $data['nilaiCapaianSkp1'] += $value['nilai_capaian_skp'];
+                }
+                if ($value->target_kuant_output_1 === null || $value->target_kuant_output_1 === "" || $value->target_kuant_output_1 === 0) {
+                    //do nothing karena 0
+                } else {
+                    $data['nilaiCapaianSkp2'] += 1;
+                }
+
+                // ($data['nilaiCapaianSkp1'] / $data['nilaiCapaianSkp2']) +  +  ;
+            }
+        }
+        if ($data['countPengukuranSkp_kreativitas'] === 0){
+            //do nothing
+        } else {
+            foreach ($data['pengukuranSkp_kreativitas'] as $key => $value) {
+                //perhitungan
+                $persen_waktu = 100 - ($value->realisasi_waktu / $value->target_waktu * 100);
+                $kuantitas = $value->realisasi_kuant_output_1 / $value->target_kuant_output_1 * 100;
+                $kualitas = $value->realisasi_kual_mutu / $value->target_kual_mutu * 100;
+                if ($persen_waktu > 24) {
+                    $waktu = 76 - ((((1.76 * $value->target_waktu - $value->realisasi_waktu) / $value->target_waktu) * 100) - 100);
+                } else {
+                    $waktu = ((1.76 * $value->target_waktu - $value->realisasi_waktu) / $value->target_waktu) * 100;
+                }
+                if (!empty($value->realisasi_biaya)) {
+                    $persen_biaya = 100 - ($value->realisasi_biaya / $value->target_biaya * 100);
+                    if ( $persen_biaya > 24 ) {
+                        $biaya = 76 - ((((1.76 * $value->target_biaya - $value->realisasi_biaya) / $value->target_biaya) * 100) - 100);
+                    } else {
+                        $biaya = ((1.76 * $value->target_biaya - $value->realisasi_biaya) / $value->target_biaya)*100;
+                    }
+                    $value['penghitungan'] = $kuantitas + $kualitas + $waktu + $biaya;
+                } else {
+                    $value['penghitungan'] = $kuantitas + $kualitas + $waktu;
+                }
+
+                //capaian skp
+                if (empty($value->realisasi_biaya)){
+                    $value['nilai_capaian_skp'] = $value['penghitungan'] / 3;
+                } else {
+                    $value['nilai_capaian_skp'] = $value['penghitungan'] / 4;
+                }
+                $data['totalNilaiCapaianSkp2'] += $value['nilai_capaian_skp'];
+            }
+        }
+        if ($data['countPengukuranSkp_tugas_tambahan'] === 0){
+            //do nothing
+        } else {
+            foreach ($data['pengukuranSkp_tugas_tambahan'] as $key => $value) {
+                //perhitungan
+                $persen_waktu = 100 - ($value->realisasi_waktu / $value->target_waktu * 100);
+                $kuantitas = $value->realisasi_kuant_output_1 / $value->target_kuant_output_1 * 100;
+                $kualitas = $value->realisasi_kual_mutu / $value->target_kual_mutu * 100;
+                if ($persen_waktu > 24) {
+                    $waktu = 76 - ((((1.76 * $value->target_waktu - $value->realisasi_waktu) / $value->target_waktu) * 100) - 100);
+                } else {
+                    $waktu = ((1.76 * $value->target_waktu - $value->realisasi_waktu) / $value->target_waktu) * 100;
+                }
+                if (!empty($value->realisasi_biaya)) {
+                    $persen_biaya = 100 - ($value->realisasi_biaya / $value->target_biaya * 100);
+                    if ( $persen_biaya > 24 ) {
+                        $biaya = 76 - ((((1.76 * $value->target_biaya - $value->realisasi_biaya) / $value->target_biaya) * 100) - 100);
+                    } else {
+                        $biaya = ((1.76 * $value->target_biaya - $value->realisasi_biaya) / $value->target_biaya)*100;
+                    }
+                    $value['penghitungan'] = $kuantitas + $kualitas + $waktu + $biaya;
+                } else {
+                    $value['penghitungan'] = $kuantitas + $kualitas + $waktu;
+                }
+
+                //capaian skp
+                if (empty($value->realisasi_biaya)){
+                    $value['nilai_capaian_skp'] = $value['penghitungan'] / 3;
+                } else {
+                    $value['nilai_capaian_skp'] = $value['penghitungan'] / 4;
+                }
+                $data['totalNilaiCapaianSkp3'] += $value['nilai_capaian_skp'];
+            }
+        }
+        $data['nilaiCapaianSkpFinal1'] = ($data['nilaiCapaianSkp1'] / $data['nilaiCapaianSkp2']) + $data['totalNilaiCapaianSkp2'] + $data['totalNilaiCapaianSkp3'];
+        if ($data['nilaiCapaianSkpFinal1'] <= 50) {
+            $data['nilaiCapaianSkpFinal2'] = 'BURUK';
+        } else {
+            if ($data['nilaiCapaianSkpFinal1'] <= 75) {
+                $data['nilaiCapaianSkpFinal2'] = 'CUKUP';
+            } else {
+                if ($data['nilaiCapaianSkpFinal1'] <= 90.99) {
+                    $data['nilaiCapaianSkpFinal2'] = 'BAIK';
+                } else {
+                    $data['nilaiCapaianSkpFinal2'] = 'SANGAT BAIK';
+                }
+            }
+        }
+        if ($data['perilakuKerjaSkp']['orientasi_pelayanan'] <= 50) {
+            $data['perilakuKerjaSkpOrientasiPelayanan'] = "(Buruk)";
+        } else {
+            if ($data['perilakuKerjaSkp']['orientasi_pelayanan'] <= 60) {
+                $data['perilakuKerjaSkpOrientasiPelayanan'] = "(Kurang)";
+            } else {
+                if ($data['perilakuKerjaSkp']['orientasi_pelayanan'] <= 75) {
+                    $data['perilakuKerjaSkpOrientasiPelayanan'] = "(Cukup)";
+                } else {
+                    if ($data['perilakuKerjaSkp']['orientasi_pelayanan'] <= 90.99) {
+                        $data['perilakuKerjaSkpOrientasiPelayanan'] = "(Baik)";
+                    } else {
+                        $data['perilakuKerjaSkpOrientasiPelayanan'] = "(Sangat Baik)";
+                    }
+                }
+            }
+        }
+        if ($data['perilakuKerjaSkp']['integritas'] <= 50) {
+            $data['perilakuKerjaSkpIntegritas'] = "(Buruk)";
+        } else {
+            if ($data['perilakuKerjaSkp']['integritas'] <= 60) {
+                $data['perilakuKerjaSkpIntegritas'] = "(Kurang)";
+            } else {
+                if ($data['perilakuKerjaSkp']['integritas'] <= 75) {
+                    $data['perilakuKerjaSkpIntegritas'] = "(Cukup)";
+                } else {
+                    if ($data['perilakuKerjaSkp']['integritas'] <= 90.99) {
+                        $data['perilakuKerjaSkpIntegritas'] = "(Baik)";
+                    } else {
+                        $data['perilakuKerjaSkpIntegritas'] = "(Sangat Baik)";
+                    }
+                }
+            }
+        }
+        if ($data['perilakuKerjaSkp']['komitmen'] <= 50) {
+            $data['perilakuKerjaSkpKomitmen'] = "(Buruk)";
+        } else {
+            if ($data['perilakuKerjaSkp']['komitmen'] <= 60) {
+                $data['perilakuKerjaSkpKomitmen'] = "(Kurang)";
+            } else {
+                if ($data['perilakuKerjaSkp']['komitmen'] <= 75) {
+                    $data['perilakuKerjaSkpKomitmen'] = "(Cukup)";
+                } else {
+                    if ($data['perilakuKerjaSkp']['komitmen'] <= 90.99) {
+                        $data['perilakuKerjaSkpKomitmen'] = "(Baik)";
+                    } else {
+                        $data['perilakuKerjaSkpKomitmen'] = "(Sangat Baik)";
+                    }
+                }
+            }
+        }
+        if ($data['perilakuKerjaSkp']['disiplin'] <= 50) {
+            $data['perilakuKerjaSkpDisiplin'] = "(Buruk)";
+        } else {
+            if ($data['perilakuKerjaSkp']['disiplin'] <= 60) {
+                $data['perilakuKerjaSkpDisiplin'] = "(Kurang)";
+            } else {
+                if ($data['perilakuKerjaSkp']['disiplin'] <= 75) {
+                    $data['perilakuKerjaSkpDisiplin'] = "(Cukup)";
+                } else {
+                    if ($data['perilakuKerjaSkp']['disiplin'] <= 90.99) {
+                        $data['perilakuKerjaSkpDisiplin'] = "(Baik)";
+                    } else {
+                        $data['perilakuKerjaSkpDisiplin'] = "(Sangat Baik)";
+                    }
+                }
+            }
+        }
+        if ($data['perilakuKerjaSkp']['kerjasama'] <= 50) {
+            $data['perilakuKerjaSkpKerjasama'] = "(Buruk)";
+        } else {
+            if ($data['perilakuKerjaSkp']['kerjasama'] <= 60) {
+                $data['perilakuKerjaSkpKerjasama'] = "(Kurang)";
+            } else {
+                if ($data['perilakuKerjaSkp']['kerjasama'] <= 75) {
+                    $data['perilakuKerjaSkpKerjasama'] = "(Cukup)";
+                } else {
+                    if ($data['perilakuKerjaSkp']['kerjasama'] <= 90.99) {
+                        $data['perilakuKerjaSkpKerjasama'] = "(Baik)";
+                    } else {
+                        $data['perilakuKerjaSkpKerjasama'] = "(Sangat Baik)";
+                    }
+                }
+            }
+        }
+        if ($data['perilakuKerjaSkp']['kepemimpinan'] <= 50) {
+            $data['perilakuKerjaSkpKepemimpinan'] = "(Buruk)";
+        } else {
+            if ($data['perilakuKerjaSkp']['kepemimpinan'] <= 60) {
+                $data['perilakuKerjaSkpKepemimpinan'] = "(Kurang)";
+            } else {
+                if ($data['perilakuKerjaSkp']['kepemimpinan'] <= 75) {
+                    $data['perilakuKerjaSkpKepemimpinan'] = "(Cukup)";
+                } else {
+                    if ($data['perilakuKerjaSkp']['kepemimpinan'] <= 90.99) {
+                        $data['perilakuKerjaSkpKepemimpinan'] = "(Baik)";
+                    } else {
+                        $data['perilakuKerjaSkpKepemimpinan'] = "(Sangat Baik)";
+                    }
+                }
+            }
+        }
+        $data['perilakuKerjaSkpJumlah'] = $data['perilakuKerjaSkp']['kepemimpinan']
+            + $data['perilakuKerjaSkp']['kerjasama']
+            + $data['perilakuKerjaSkp']['disiplin']
+            + $data['perilakuKerjaSkp']['komitmen']
+            + $data['perilakuKerjaSkp']['integritas']
+            + $data['perilakuKerjaSkp']['orientasi_pelayanan'];
+        if ($data['perilakuKerjaSkp']['kepemimpinan'] === null
+            || $data['perilakuKerjaSkp']['kepemimpinan'] === 0
+            || $data['perilakuKerjaSkp']['kepemimpinan'] === "") {
+                $data['perilakuKerjaSkpRata'] = $data['perilakuKerjaSkpJumlah'] / 5;
+        } else {
+            $data['perilakuKerjaSkpRata'] = $data['perilakuKerjaSkpJumlah'] / 6;
+        }
+        if ($data['perilakuKerjaSkpRata'] <= 50) {
+            $data['perilakuKerjaSkpRatarata'] = "(Buruk)";
+        } else {
+            if ($data['perilakuKerjaSkpRata'] <= 60) {
+                $data['perilakuKerjaSkpRatarata'] = "(Kurang)";
+            } else {
+                if ($data['perilakuKerjaSkpRata'] <= 75) {
+                    $data['perilakuKerjaSkpRatarata'] = "(Cukup)";
+                } else {
+                    if ($data['perilakuKerjaSkpRata'] <= 90.99) {
+                        $data['perilakuKerjaSkpRatarata'] = "(Baik)";
+                    } else {
+                        $data['perilakuKerjaSkpRatarata'] = "(Sangat Baik)";
+                    }
+                }
+            }
+        }
+        $data['penilaianSasaranKerjaPegawai'] = $data['nilaiCapaianSkpFinal1'] * 60 / 100;
+        $data['penilaianNilaiPerilakuKerja'] = $data['perilakuKerjaSkpRata'] * 40 / 100;
+        $data['penilaianNilaiPrestasiKerja'] =  $data['penilaianSasaranKerjaPegawai'] + $data['penilaianNilaiPerilakuKerja'];
+        if ($data['penilaianNilaiPrestasiKerja'] <= 50) {
+            $data['penilaianNilaiPrestasiKerja2'] = "(Buruk)";
+        } else {
+            if ($data['penilaianNilaiPrestasiKerja'] <= 60) {
+                $data['penilaianNilaiPrestasiKerja2'] = "(Kurang)";
+            } else {
+                if ($data['penilaianNilaiPrestasiKerja'] <= 75) {
+                    $data['penilaianNilaiPrestasiKerja2'] = "(Cukup)";
+                } else {
+                    if ($data['penilaianNilaiPrestasiKerja'] <= 90.99) {
+                        $data['penilaianNilaiPrestasiKerja2'] = "(Baik)";
+                    } else {
+                        $data['penilaianNilaiPrestasiKerja2'] = "(Sangat Baik)";
+                    }
+                }
+            }
+        }
+        $convertTanggal = New Carbon($data['penilaianSkp']['tanggal_keberatan_pegawai']);
+        $data['penilaianSkp']['tanggal_keberatan_pegawai'] = $convertTanggal->translatedFormat('d F Y');
+        $convertTanggal = New Carbon($data['penilaianSkp']['tanggal_tanggapan_pejabat']);
+        $data['penilaianSkp']['tanggal_tanggapan_pejabat'] = $convertTanggal->translatedFormat('d F Y');
+        $convertTanggal = New Carbon($data['penilaianSkp']['tanggal_keputusan_atasan_pejabat']);
+        $data['penilaianSkp']['tanggal_keputusan_atasan_pejabat'] = $convertTanggal->translatedFormat('d F Y');
+        $convertTanggal = New Carbon($data['penilaianSkp']['dibuat_tanggal_pejabat_penilai']);
+        $data['penilaianSkp']['dibuat_tanggal_pejabat_penilai'] = $convertTanggal->translatedFormat('d F Y');
+        $convertTanggal = New Carbon($data['penilaianSkp']['diterima_tanggal_pegawai']);
+        $data['penilaianSkp']['diterima_tanggal_pegawai'] = $convertTanggal->translatedFormat('d F Y');
+        $convertTanggal = New Carbon($data['penilaianSkp']['diterima_tanggal_atasan_pejabat_penilai']);
+        $data['penilaianSkp']['diterima_tanggal_atasan_pejabat_penilai'] = $convertTanggal->translatedFormat('d F Y');
+
+
+        // dd($data['perilakuKerjaSkp']['orientasi_pelayanan']);
+        return view('admin/pegawai/skp',$data);
+    }
 }
